@@ -1,0 +1,233 @@
+Delivered-To: nicolas.adasme1701@alumnos.ubiobio.cl
+Received: by 2002:a4f:f2c1:0:0:0:0:0 with SMTP id b1csp5905366ivo;
+        Tue, 10 Sep 2019 13:41:05 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyq4rfrBqJxRBX2OZNvYBWFXSGaMQQcgBsNzVKk7F/9O4JdqpUXaaqaGMhL+137qLxlU5IJ
+X-Received: by 2002:a6b:3906:: with SMTP id g6mr10746061ioa.48.1568148065070;
+        Tue, 10 Sep 2019 13:41:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568148065; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=MIpLTykOzalKBSK/4EllicOPfY425WJBkj8XKkfk1A6o7FVmkAGs2KycCTBklFiYNH
+         8oCmowNs/rKVxRDw9tPjA2mQQQKRa5qdhQLOsRazrjitC7Q+54UTkJ+/T9ld/L0bMi9N
+         bmj587FY/2iJHkjWmCOok7fZ2AZja+PQLrlAc1nD3ponK1h6l6nL9nkOyYBCa0R2V37D
+         DSWhU//E6klVz85QQvRoWW2iQ1C5DPTKpU7Cz1brh/bNNl+vl1q21Lpouc1Icb1CVdp8
+         J9pH5PdawKb7HXfxokKQCoNY89WdBM+Nk6Xv6YXHICIkqglHCzlXYIWKxKSPwBV6btTG
+         y9yg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=pGyH7j/T4XMjDtqLaHgk0pej1VFT0VOILLvIEIgy8Sg=;
+        b=KQhHsnt9XH7ssaSkwU4HwuXDuqiGON6SsVkNyMJgK5ZFvjW264Rzf0GETr5F2+ikCa
+         q4gQx7OZvNbc/BND5FPUEdckZY3+DaiqqZMDilt2OHogTbCKkci4/w0o2wckhcAAWu8e
+         OJG7sRMqtCH1X7IIz7RRGl5DJq+ef0Yuj4k99hUz0WVGKfL3cyFe8fC6uZSO4QsN6Y3Z
+         7PEgheJ6tuHXEjfqbMPXPO+IPMz86fNyxnteTey9cuHnbWQ21Cy6fpt1jWx2iGn6hDGa
+         XiDNpKJxEMhImRKb3fRQe1s8bF5CW8yG4AReM93rV9B3XZFM9O79MgmeAppIVb37yZgV
+         p9LA==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=ZsUnBwJF;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of paola.legue@outlook.com designates 40.92.12.68 as permitted sender) smtp.mailfrom=paola.legue@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+Return-Path: <paola.legue@outlook.com>
+Received: from NAM05-BY2-obe.outbound.protection.outlook.com (mail-oln040092012068.outbound.protection.outlook.com. [40.92.12.68])
+        by mx.google.com with ESMTPS id e8si20010700ioe.151.2019.09.10.13.41.04
+        for <nicolas.adasme1701@alumnos.ubiobio.cl>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Tue, 10 Sep 2019 13:41:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of paola.legue@outlook.com designates 40.92.12.68 as permitted sender) client-ip=40.92.12.68;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=ZsUnBwJF;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of paola.legue@outlook.com designates 40.92.12.68 as permitted sender) smtp.mailfrom=paola.legue@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=gv2Ojnq35KHzK0mC/i4XPSgeGS0GiD1f9TVEzb/dDQReC2a7wgJIZtL9MFHSRqMNABSifAOo32EkMEpehxPjvQpZeDIlpdMYHJW5ATyPaEytkCRECpcdS3PeOhAVmmin+m9M0tZA0lJi9t05rugsYdvyEXvyie4ZDG/OFTQ07rDo3smVdAzFjrXWzwsVKvugIJ2O5MaAgkkpkv+LysLuSlIEwWeGskV0INzdR19QqbKsnxF2rAyVYwQAwjU0eKR3O7vAYRrfP6sgUW1zpG2rs+LF3WWNrN/cMHfY7nPnRSYkZmlWCrmV1V47xOzr8eD6AEradQNTVtTBhdqXCFY1nA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pGyH7j/T4XMjDtqLaHgk0pej1VFT0VOILLvIEIgy8Sg=;
+ b=Tl/fOK/hCPMIn+nsp78jgtcV7aSqw4bn2d+N6iIyOtnPB4v3Nxy9BZ4PUg9Zc1asb0QROh1bsRJRbwO6llOIMty6TXkPPYuKrmiHXBorMq7SN5CtfpWNS6amOHSocQwJ1qpQTXqin8wUG05X/wqb9AK80hriqthJsb2xa4AHGNzoNrGP15xKmz7jxYebEP5vMlSj7eNNoY1GNoJFIDpjAmdxOLvUCXGC0IOUiuMtMuz/l8Latf7LrtsOWoaTzpZr3q0wm6yUkAtBDHBSsM8OzzxVgbw2aVm4M9sctCpzAqEJyYfphJw6I0cZMxlDayNu6CEba6qDU1kgpqhID8rhhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pGyH7j/T4XMjDtqLaHgk0pej1VFT0VOILLvIEIgy8Sg=;
+ b=ZsUnBwJFGvrm3HExEvvKedcgFXFibBRdHnoCogeENw997xUlKF1PeZPngkyzcbcWBMAVxL0caP3q4jLpXKwdh99FlyCw+KTW/Yl3/+u0Qy8rjFBiQqJUHEy1QEJmNXfUah14wR2UqtNq1vNyshgSGuxfxQwuaLbdKRX6koGVR7GDtsPB+CLyR2/WYkp32lnDFjpZFPcQoT9iwrjWq3cJ6/KjnM8oWfAToBph0hl8ZoYOmNXHfgWYGrVUJ06A5p79Bo+wH/W12JJFAg7r3AOnaAcqgDQUhGN9IzVF++VsPPMGp1rNe2BCy+HdTzFTxop3/6nPlEQJswCFQLCaozeXRQ==
+Received: from BY2NAM05FT048.eop-nam05.prod.protection.outlook.com
+ (10.152.100.53) by BY2NAM05HT096.eop-nam05.prod.protection.outlook.com
+ (10.152.101.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.20.2263.6; Tue, 10 Sep
+ 2019 20:41:03 +0000
+Received: from BL0PR06MB4900.namprd06.prod.outlook.com (10.152.100.56) by
+ BY2NAM05FT048.mail.protection.outlook.com (10.152.100.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ 15.20.2263.6 via Frontend Transport; Tue, 10 Sep 2019 20:41:02 +0000
+Received: from BL0PR06MB4900.namprd06.prod.outlook.com
+ ([fe80::d8e3:88f4:528c:4568]) by BL0PR06MB4900.namprd06.prod.outlook.com
+ ([fe80::d8e3:88f4:528c:4568%6]) with mapi id 15.20.2220.022; Tue, 10 Sep 2019
+ 20:41:02 +0000
+From: Paola Legue <paola.legue@outlook.com>
+To: Nicolas Wladimir Adasme Arroyo <nicolas.adasme1701@alumnos.ubiobio.cl>
+Subject: Requerimiento de Registro de Usuario
+Thread-Topic: Requerimiento de Registro de Usuario
+Thread-Index: AQHVaBbhiW6uxVgiZUmALaXybfxrWg==
+Date: Tue, 10 Sep 2019 20:41:02 +0000
+Message-ID:
+ <BL0PR06MB490042AD10304027CC4107B0FFB60@BL0PR06MB4900.namprd06.prod.outlook.com>
+Accept-Language: es-CL, en-US
+Content-Language: es-CL
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-incomingtopheadermarker:
+ OriginalChecksum:78230B4C57DFEC0C5F87615C9F68146C038856E380FCCE27BEBE302C7992F58E;UpperCasedChecksum:9CAF53C03B52DFB0D8721192F3C1666FF1BAD5791C0C8A99F31FECBC5B5263B2;SizeAsReceived:6532;Count:40
+x-tmn: [jLPgpf6t6U2Sxhdy4NhQfcSEaWGgBQKq]
+x-ms-publictraffictype: Email
+x-incomingheadercount: 40
+x-eopattributedmessage: 0
+x-microsoft-antispam:
+ BCL:0;PCL:0;RULEID:(2390118)(5050001)(7020095)(20181119110)(201702061078)(5061506573)(5061507331)(1603103135)(2017031320274)(2017031322404)(2017031323274)(2017031324274)(1601125500)(1603101475)(1701031045);SRVR:BY2NAM05HT096;
+x-ms-traffictypediagnostic: BY2NAM05HT096:
+x-microsoft-antispam-message-info:
+ Mk0QoMgO78FdhRf/T+aC61PEWxObaxuSNSgVQRyYYZsX37WOsmeMb8NNGmtR6u4zyHvUGpaGxLXHDGrQ/OOax4YqhMvvSCIeh5w0ytpJtHOL2YvlbWyb2WR90QGPjUHVaIUQ4BK4CD88SCJZOjh58xMvofPS6kJPpkl7EtCnsjTqr5NO40aTm55zKZ3xSOD6
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_BL0PR06MB490042AD10304027CC4107B0FFB60BL0PR06MB4900namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d38e2a5-4f32-445e-2f84-08d7362f3227
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Sep 2019 20:41:02.8426
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY2NAM05HT096
+
+--_000_BL0PR06MB490042AD10304027CC4107B0FFB60BL0PR06MB4900namp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Estimado Nicol=E1s
+Estoy enviando este correo como Usuario.
+
+Estuve pensando acerca de la funcionalidad de registro de alumnos/profesor =
+y creo que lo m=E1s pr=E1ctico y r=E1pido es mediante un formulario de regi=
+stro en el sistema.
+
+Por lo tanto, para ganar agilidad en el desarrollo les solicito considerar =
+este requisito.
+Los datos relevantes del formulario:
+
+Rut =96 validar rut con m=F3dulo 11
+Nombres
+Apellidos
+Promoci=F3n =96 Selector =96 v=E1lido para registro alumno
+Carrera =96 Selecto =96 v=E1lido para registro alumno
+Correo electr=F3nico
+Contrase=F1a (digitada por el alumno con un largo m=EDnimo de 8 caracteres =
+de tipo alfanum=E9rica)
+
+El sistema debe considerar funcionalidad de =93Recordar Clave=94.
+
+Por favor, agrega este correo en la documentaci=F3n del proyecto para vuest=
+ro respaldo como equipo de desarrollo. Sugiero en subcarpeta Mails de carpe=
+ta Documentaci=F3n.
+
+Nos vemos ma=F1ana!
+
+Saludos cordiales,
+Paola Legue G.
+Ingeniero Civil en Inform=E1tica - Universidad del B=EDo B=EDo
+Master of Business Administration - Universidad del Desarrollo
+
+
+--_000_BL0PR06MB490042AD10304027CC4107B0FFB60BL0PR06MB4900namp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"ES-CL">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Estimado Nicol=E1s</p>
+<p class=3D"MsoNormal">Estoy enviando este correo como Usuario.</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Estuve pensando acerca de la funcionalidad de regist=
+ro de alumnos/profesor y creo que lo m=E1s pr=E1ctico y r=E1pido es mediant=
+e un formulario de registro en el sistema.</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Por lo tanto, para ganar agilidad en el desarrollo l=
+es solicito considerar este requisito.
+</p>
+<p class=3D"MsoNormal">Los datos relevantes del formulario:</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Rut =96 validar rut con m=F3dulo 11</p>
+<p class=3D"MsoNormal">Nombres</p>
+<p class=3D"MsoNormal">Apellidos</p>
+<p class=3D"MsoNormal">Promoci=F3n =96 Selector =96 v=E1lido para registro =
+alumno</p>
+<p class=3D"MsoNormal">Carrera =96 Selecto =96 v=E1lido para registro alumn=
+o</p>
+<p class=3D"MsoNormal">Correo electr=F3nico</p>
+<p class=3D"MsoNormal">Contrase=F1a (digitada por el alumno con un largo m=
+=EDnimo de 8 caracteres de tipo alfanum=E9rica)</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">El sistema debe considerar funcionalidad de =93Recor=
+dar Clave=94.</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Por favor, agrega este correo en la documentaci=F3n =
+del proyecto para vuestro respaldo como equipo de desarrollo. Sugiero en su=
+bcarpeta Mails de carpeta Documentaci=F3n.</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Nos vemos ma=F1ana!</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt;background:white"><spa=
+n style=3D"font-size:9.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#=
+222222">Saludos cordiales,<o:p></o:p></span></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt;background:white"><b><=
+span style=3D"font-size:9.5pt;font-family:&quot;Arial&quot;,sans-serif;colo=
+r:#222222">Paola Legue G.</span></b><span style=3D"font-size:9.5pt;font-fam=
+ily:&quot;Arial&quot;,sans-serif;color:#222222"><o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:9.5pt;font-family:&quot;Ari=
+al&quot;,sans-serif;color:#222222">Ingeniero Civil en Inform=E1tica - Unive=
+rsidad del B=EDo B=EDo<br>
+Master of Business Administration - Universidad del Desarrollo</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_BL0PR06MB490042AD10304027CC4107B0FFB60BL0PR06MB4900namp_--
