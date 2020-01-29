@@ -1,0 +1,14 @@
+
+	nslookup
+
+root@4b8d82d9c91f:/# nslookup 146.83.198.35
+35.198.83.146.in-addr.arpa      name = 198-35.eq.ubiobio.cl.
+
+root@4b8d82d9c91f:/# nslookup 198-35.eq.ubiobio.cl
+Server:         146.83.195.14
+Address:        146.83.195.14#53
+
+Name:   198-35.eq.ubiobio.cl
+Address: 146.83.198.35
+
+domain: face.ubiobio.cl
