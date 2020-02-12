@@ -2,6 +2,7 @@
 class Enviarcorreo{
     public static function sendmail($destino,$asunto,$msje){
         try{
+
             mail($destino,$asunto,$msje);
 
         }catch(Exception $e){
