@@ -12,7 +12,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="./vistas/principal.php" class="navbar-brand"><img src="./vistas/assets/img/logo.png" alt=""></a>
+                                <a href="index.php" class="navbar-brand"><img src="./vistas/assets/img/logo.png" alt=""></a>
                     
                             </header>
                     
