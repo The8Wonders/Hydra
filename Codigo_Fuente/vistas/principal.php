@@ -65,7 +65,7 @@
                     <div class="outer">
                         <div class="inner bg-light lter">                         
                          <!-- /#content -->
-                        <?php include "./vistas/contenidos/form-validation.php"?>
+                        <?php include "./vistas/contenidos/home-vistas.php"?>
 
                         </div>
                         <!-- /.inner -->
