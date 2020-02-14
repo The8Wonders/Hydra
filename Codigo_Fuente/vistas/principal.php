@@ -34,6 +34,7 @@
     <!-- animate.css stylesheet -->
     <link rel="stylesheet" href="./vistas/assets/lib/animate.css/animate.css">
 
+    <!-- Sweet Alert -->
     <link rel="stylesheet" href=".vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
 
         
@@ -168,7 +169,7 @@
 
 
             <script src="./vistas/assets/js/style-switcher.js"></script>
-
+            <!-- Sweet Alert scripts -->
             <script src="./vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
         </body>
 
