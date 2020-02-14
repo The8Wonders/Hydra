@@ -34,6 +34,8 @@
     <!-- animate.css stylesheet -->
     <link rel="stylesheet" href="./vistas/assets/lib/animate.css/animate.css">
 
+    <link rel="stylesheet" href=".vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
+
         
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.theme.min.css">
@@ -166,6 +168,8 @@
 
 
             <script src="./vistas/assets/js/style-switcher.js"></script>
+
+            <script src="./vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
         </body>
 
 </html>
