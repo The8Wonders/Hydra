@@ -2503,10 +2503,10 @@ margin-left: 30px;
   border-radius: 10px;
 }
 
-.login {
+.login{
   padding-top: 80px;
   padding-bottom: 40px;
-  background: url("../img/jjj.jpg") repeat #444;  /*nuevo*/
+  background-image: url("../img/jjj.jpg") repeat #444;  /*nuevo*/
 }
 .logoubb{
   width: 250px; /*nuevo*/
@@ -2516,6 +2516,7 @@ margin-left: 30px;
   padding: 20px;
  margin-left: 50px;
  margin-right: 0;
+ margin-top: 100px;
   background-color: #fff;
   border-radius: 10px;
   float: left;

@@ -66,6 +66,10 @@
                         require_once "./vistas/contenidos/login-vistas.php";
                     else:
                     ?>
+                    <body class="  ">
+            <div class="bg-dark dk" id="wrap">
+                <div id="top">
+                    
                   <!-- include sidebar-->
                 <?php include "./vistas/extras/barra.php";?>
                   
