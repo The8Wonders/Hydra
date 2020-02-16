@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="./vistas/assets/lib/animate.css/animate.css">
 
     <!-- Sweet Alert -->
-    <link rel="stylesheet" href=".vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="./vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
 
         
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
@@ -47,7 +47,7 @@
         less = {
             env: "development",
             relativeUrls: false,
-            rootpath: "/vistas/assets/"
+            rootpath: "./vistas/assets/"
         };
     </script>
     <link rel="stylesheet" href="./vistas/assets/css/style-switcher.css">
@@ -60,15 +60,24 @@
             <div class="bg-dark dk" id="wrap">
                 <div id="top">
 
+                    <?php 
+                    require_once "./controladores/vistasControlador.php";
+                    $vt = new vistasControlador();
+                    $vistasR = $vt->obtener_vistas_controlador();
+
+                    if($vistasR == "login"):
+                        require_once "./vistas/contenidos/login-vistas.php";
+                    else:
+                    ?>
                   <!-- include sidebar-->
-                  <?php include "./vistas/extras/barra.php";?>
+                <?php include "./vistas/extras/barra.php";?>
                   
                   <!-- /#left -->
                 <div id="content">
                     <div class="outer">
                         <div class="inner bg-light lter">                         
                          <!-- /#content -->
-                        <?php include "./vistas/contenidos/home-vistas.php"?>
+                        <?php require_once $vistasR; ?>
 
                         </div>
                         <!-- /.inner -->
@@ -142,6 +151,7 @@
             <!-- /#wrap -->
             <?php include "./vistas/extras/footer.php"; ?>
             <!-- /#footer -->
+                    <?php endif; ?>
             <!--jQuery -->
             <script src="./vistas/assets/lib/jquery/jquery.js"></script>
 
@@ -159,7 +169,7 @@
             <!-- Screenfull -->
             <script src="./vistas/assets/lib/screenfull/screenfull.js"></script>
 
-            <script src=".vistas/assets/lib/jquery-validation/jquery.validate.js"></script>
+            <script src="./vistas/assets/lib/jquery-validation/jquery.validate.js"></script>
 
 
             <!-- Metis core scripts -->
