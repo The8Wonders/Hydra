@@ -53,13 +53,10 @@
     <link rel="stylesheet" href="./vistas/assets/css/style-switcher.css">
     <link rel="stylesheet/less" type="text/css" href="./vistas/assets/less/theme.less">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script>
+    <script src="https://kit.fontawesome.com/12c1eea883.js" crossorigin="anonymous"></script>
+
 
   </head>
-
-        <body class="  ">
-            <div class="bg-dark dk" id="wrap">
-                <div id="top">
-
                     <?php 
                     require_once "./controladores/vistasControlador.php";
                     $vt = new vistasControlador();

@@ -1,55 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <!--IE Compatibility modes-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--Mobile first-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Login Page</title>
-    
-    <meta name="description" content="Free Admin Template Based On Twitter Bootstrap 3.x">
-    <meta name="author" content="">
-    
-    <meta name="msapplication-TileColor" content="#5bc0de" />
-    <meta name="msapplication-TileImage" content="assets/img/metis-tile.png" />
-    
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.css">
-    
-    <!-- Metis core stylesheet -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    
-    <!-- metisMenu stylesheet -->
-    <link rel="stylesheet" href="assets/lib/metismenu/metisMenu.css">
-    
-    <!-- onoffcanvas stylesheet -->
-    <link rel="stylesheet" href="assets/lib/onoffcanvas/onoffcanvas.css">
-    
-    <!-- animate.css stylesheet -->
-    <link rel="stylesheet" href="assets/lib/animate.css/animate.css">
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://kit.fontawesome.com/12c1eea883.js" crossorigin="anonymous"></script>
-
-</head>
-
 <body class="login">
 
       <div class="form-signin">
     <div class="text-center">
-        <img class="logoubb" src="assets/img/ubb_logo_new.png" alt="Metis Logo">
+        <img class="logoubb" src="./vistas/assets/img/ubb_logo_new.png" alt="Metis Logo">
     </div>
     <hr>
     <div class="tab-content">
@@ -109,18 +62,9 @@
   </div>
  <div class="gestion">
       <h2>Sistema de Gestión de Proyectos</h2>
-      <img class="scrum" src="assets/img/kanban2.jpg" alt="">
+      <img class="scrum" src="./vistas/assets/img/kanban2.jpg" alt="">
   </div>
-
-
-
-    <!--jQuery -->
-    <script src="assets/lib/jquery/jquery.js"></script>
-
-    <!--Bootstrap -->
-    <script src="assets/lib/bootstrap/js/bootstrap.js"></script>
-
-
+  
     <script type="text/javascript">
         (function($) {
             $(document).ready(function() {
