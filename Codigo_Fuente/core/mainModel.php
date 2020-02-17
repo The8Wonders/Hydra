@@ -1,5 +1,11 @@
 <?php
 
+  if($peticionAjax){
+    require_once "../core/configAPP.php";
+  }else{
+    require_once "./core/configAPP.php";
+  }
+
   class mainModel{
 
     protected function conectar(){
@@ -69,5 +75,47 @@
 
 
       return  $cadena;
+    }
+
+    protected function alertas($datos){
+      if($datos['Alerta'] == "simple"){
+        $alerta = "
+          <script>
+            swal(
+              '".$datos['Titulo']."',
+              '".$datos['Texto']."',
+              '".$datos['Tipo']."'
+            );
+          </script>
+        ";
+      }elseif($datos['Alerta'] == "recargar"){
+        $alerta = "
+          <script>
+          swal({
+            title: '".$datos['Titulo']."',
+            text: '".$datos['Texto']."',
+            type: '".$datos['Tipo']."',
+            confirmButtonText: 'Aceptar'
+          }).then(function () {
+            location.reload();
+          });
+          </script>
+        ";
+      }elseif($datos['Alerta'] == "limpiar"){
+        $alerta = "
+          <script>
+          swal({
+            title: '".$datos['Titulo']."',
+            text: '".$datos['Texto']."',
+            type: '".$datos['Tipo']."',
+            confirmButtonText: 'Aceptar'
+          }).then(function () {
+            $('.FormularioAjax')[0].reset();
+          });
+          </script>
+        ";
+      }
+
+      return $alerta;
     }
   }

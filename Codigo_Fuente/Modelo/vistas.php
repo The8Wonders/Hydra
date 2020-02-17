@@ -2,7 +2,7 @@
 
     class vistas{
       protected function obtiene_principal_modelo($vistas){
-        $rutasConocidas = ["home","alumnoslista","formGeneral"];
+        $rutasConocidas = ["home","alumnoslista","formGeneral","prueba"];
 
         if(in_array($vistas, $rutasConocidas)){
           if(is_file("./vistas/contenidos/".$vistas."-vistas.php")){

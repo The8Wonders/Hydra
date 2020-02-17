@@ -74,7 +74,7 @@
                                             Form Elements <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="form-general.html">General</a></li>
+                                            <li><a href="formGeneral">General</a></li>
                                             <li><a href="form-validation.html">Validation</a></li>
                                             <li><a href="form-wysiwyg.html">WYSIWYG</a></li>
                                             <li><a href="form-wizard.html">Wizard &amp; File Upload</a></li>
