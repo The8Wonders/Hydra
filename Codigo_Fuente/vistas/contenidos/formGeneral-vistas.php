@@ -1,5 +1,8 @@
-            <!--BEGIN INPUT TEXT FIELDS-->
-            <div class="row">
+<div id="content">
+                    <div class="outer">
+                        <div class="inner bg-light lter">
+                            <!--BEGIN INPUT TEXT FIELDS-->
+<div class="row">
 <div class="col-lg-6">
     <div class="box dark">
         <header>
@@ -1578,3 +1581,10 @@
     </div>
 </div>
 <!--END GRID INPUTS-->
+
+                        </div>
+                        <!-- /.inner -->
+                    </div>
+                    <!-- /.outer -->
+                </div>
+                <!-- /#content -->

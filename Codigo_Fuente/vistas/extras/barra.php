@@ -1,3 +1,6 @@
+<body class="  ">
+            <div class="bg-dark dk" id="wrap">
+                <div id="top">
        <!-- .navbar -->
        <nav class="navbar navbar-inverse navbar-static-top">
                         <div class="container-fluid">
