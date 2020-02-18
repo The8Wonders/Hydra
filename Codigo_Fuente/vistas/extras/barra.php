@@ -78,7 +78,8 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li><a href="formGeneral">General</a></li>
-                                            <li><a href="form-validation.html">Validation</a></li>
+                                            <li><a href="formValidation">Validation</a></li>
+                                            <li><a href="formAdmin">Formulario Administrador</a></li>
                                             <li><a href="form-wysiwyg.html">WYSIWYG</a></li>
                                             <li><a href="form-wizard.html">Wizard &amp; File Upload</a></li>
                                         </ul>
@@ -270,11 +271,11 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="form-general.html">
+                                        <a href="formGeneral">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form General </a>
                                       </li>
                                       <li>
-                                        <a href="form-validation.html">
+                                        <a href="formValidation">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
                                       </li>
                                       <li>
