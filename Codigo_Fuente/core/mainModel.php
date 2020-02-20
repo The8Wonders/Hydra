@@ -23,6 +23,32 @@
       return $respuesta;
     }
 
+    protected function nueva_cuenta($datos){
+      $sql=self::conectar()->prepare("INSERT INTO cuenta(cuentacodigo, cuentarut, cuentaclave, cuentaemail, cuentaestado, cuentatipo, cuentagenero, cuentafoto, cuentaprivilegio) 
+      VALUES (:Codigo, :Rut, :Clave, :Email, :Estado, :Tipo, :Genero, :Foto, :Privilegio)");
+
+      $sql->bindParam(":Codigo",$datos['Codigo']);
+      $sql->bindParam(":Rut",$datos['Rut']);
+      $sql->bindParam(":Clave",$datos['Clave']);
+      $sql->bindParam(":Email",$datos['Email']);
+      $sql->bindParam(":Estado",$datos['Estado']);
+      $sql->bindParam(":Tipo",$datos['Tipo']);
+      $sql->bindParam(":Genero",$datos['Genero']);
+      $sql->bindParam(":Foto",$datos['Foto']);
+      $sql->bindParam(":Privilegio",$datos['Privilegio']);
+      $sql->execute();
+
+      return $sql;
+    }
+
+    protected function eliminar_cuenta($codigo){
+      $sql=self::conectar()->prepare("DELETE  FROM cuenta WHERE cuentacodigo == :Codigo");
+      $sql->bindParam(":Codigo", $codigo);
+      $sql->execute();
+
+      return $sql;
+    }
+
     public function encryption($string){
       $output=FALSE;
       $key=hash('sha256', SECRET_KEY);
@@ -81,7 +107,7 @@
       if($datos['Alerta'] == "simple"){
         $alerta = "
           <script>
-            swal(
+            swal.fire(
               '".$datos['Titulo']."',
               '".$datos['Texto']."',
               '".$datos['Tipo']."'
@@ -91,7 +117,7 @@
       }elseif($datos['Alerta'] == "recargar"){
         $alerta = "
           <script>
-          swal({
+          swal.fire({
             title: '".$datos['Titulo']."',
             text: '".$datos['Texto']."',
             type: '".$datos['Tipo']."',
@@ -104,7 +130,7 @@
       }elseif($datos['Alerta'] == "limpiar"){
         $alerta = "
           <script>
-          swal({
+          swal.fire({
             title: '".$datos['Titulo']."',
             text: '".$datos['Texto']."',
             type: '".$datos['Tipo']."',

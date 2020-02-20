@@ -99,6 +99,7 @@
                 <script src="./vistas/assets/lib/jquery-validation/jquery.validate.js"></script>
 
 
+
                 <!-- Metis core scripts -->
                 <script src="./vistas/assets/js/core.js"></script>
                 <!-- Metis demo scripts -->

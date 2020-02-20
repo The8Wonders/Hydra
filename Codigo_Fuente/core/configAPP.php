@@ -1,12 +1,11 @@
 <?php
 
-const SERVER = "146.83.198.35";
-const PORT = "5452";
-const DB = "grupo6is_db";
-const USER = "grupo6is";
-const PASS = "ISgrupo6";
+const SERVER = "localhost";
+const DB = "sgp";
+const USER = "root";
+const PASS = "";
 
-const SGBD = "pgsql:host=" .SERVER .";port=" .PORT .";dbname=" .DB;
+const SGBD = "mysql:host=" .SERVER . ";dbname=" .DB;
 
 const COMPANY="GESTION PROYECTOS INGENIERIA DE SOFTWARE";
 date_default_timezone_set ("America/Santiago");

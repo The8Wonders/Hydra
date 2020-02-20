@@ -1,6 +1,6 @@
 <?php     
 
-    require_once "./Modelo/vistas.php";
+    require_once "./modelo/vistas.php";
 
     class vistasControlador extends vistas{
 
