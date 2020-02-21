@@ -2,7 +2,7 @@
 
       <div class="form-signin">
     <div class="text-center">
-        <img class="logoubb" src="./vistas/assets/img/ubb_logo_new.png" alt="Metis Logo">
+        <img class="logoubb" src="<?php echo RUTA ?>vistas/assets/img/ubb_logo_new.png" alt="Metis Logo">
     </div>
     <hr>
     <div class="tab-content">
@@ -62,7 +62,7 @@
   </div>
  <div class="gestion">
       <h2>Sistema de Gestión de Proyectos</h2>
-      <img class="scrum" src="./vistas/assets/img/kanban2.jpg" alt="">
+      <img class="scrum" src="<?php echo RUTA ?>vistas/assets/img/kanban2.jpg" alt="">
   </div>
   
     <script type="text/javascript">

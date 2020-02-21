@@ -15,7 +15,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="index.php" class="navbar-brand"><img src="./vistas/assets/img/logo.png" alt=""></a>
+                                <a href="index.php" class="navbar-brand"><img src="<?php echo RUTA ?>vistas/assets/img/logo.png" alt=""></a>
                     
                             </header>
                     
@@ -271,19 +271,19 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="formGeneral">
+                                        <a href="<?php echo RUTA ?>formGeneral">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form General </a>
                                       </li>
                                       <li>
-                                        <a href="formValidation">
+                                        <a href="<?php echo RUTA ?>formValidation">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
                                       </li>
                                       <li>
-                                        <a href="form-wizard.html">
+                                        <a href="<?php echo RUTA ?>form-wizard.html">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Wizard </a>
                                       </li>
                                       <li>
-                                        <a href="form-wysiwyg.html">
+                                        <a href="<?php echo RUTA ?>form-wysiwyg.html">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form WYSIWYG </a>
                                       </li>
                                     </ul>

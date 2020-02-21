@@ -1,3 +1,4 @@
+<?php require_once "../core/general.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +7,17 @@
   <title>Document</title>
 </head>
 <body>
-<script src="../vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
+ <!-- Sweet Alert -->
+ <link rel="stylesheet" href="<?php echo RUTA ?>vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
+<script src="<?php echo RUTA?>vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
   
 </body>
 </html>
-
-
 <?php
-
+    
     $peticionAjax=true;
-    require_once "../core/mainModel.php";
+    
+   
 
 
 
@@ -29,5 +31,5 @@
     }else{
       session_start();
       session_destroy();
-      echo'<script> window.location.href="login/" </script>';
+      echo'<script> window.location.href="'.RUTA.'login/" </script>';
     }

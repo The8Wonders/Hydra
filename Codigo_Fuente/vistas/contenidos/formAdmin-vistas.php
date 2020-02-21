@@ -11,9 +11,10 @@
                   <h5>Nuevo Administrador</h5>
               </header>
               <div id="collapse2" class="body">
-              <form class="form-horizontal" id="popup-validation" action="./ajax/administrador.ajax.php" method="POST">
+              <form class="form-horizontal FormularioAjax"  enctype="multipart/form-data" id="popup-validation" action="<?php echo RUTA ?>ajax/administrador.ajax.php" method="POST" data-form="save" class="FormularioAjax" >
 
-                  <!--Nombres Administrador-->
+                  <fieldset>
+                      <!--Nombres Administrador-->
                   <div class="form-group">
                         <label for="nombre1" class="control-label col-lg-2">Primer Nombre</label>
 
@@ -110,18 +111,16 @@
                             </div>
                         </div>
                 </div>
-
-                <div class="form-actions no-margin-bottom">
-                        <input type="submit" value="Guardar" class="btn btn-success">
-                </div>
+                   <div class="form-actions no-margin-bottom">
+                      <button type="submit" class="btn ntn-success">Guardar</button>
+                   </div>
+                  </fieldset>
+                <div class="RespuestaAjax"></div>
               </form>
               </div>
             </div>
           </div>
         </div>
-
-
-
     </div>
   </div>
 </div>
