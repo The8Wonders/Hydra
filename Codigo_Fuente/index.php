@@ -1,5 +1,4 @@
 <?php 
-
     require_once "./core/general.php";
     require_once "./controladores/vistasControlador.php";
     
