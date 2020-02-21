@@ -77,6 +77,11 @@
       return $letra.$num;
     }
 
+    protected function limpiar_rut($variable){
+      $variable=str_ireplace(".","","$variable");
+      $variable=str_ireplace("-","",$variable);
+    }
+
     protected function limpiar_cadena($cadena){
       /*trim elimina los espacios del string*/
       $cadena=trim($cadena);

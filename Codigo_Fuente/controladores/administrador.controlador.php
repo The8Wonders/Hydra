@@ -8,6 +8,7 @@
     class administradorcontrolador extends administradormodelo{
       public function nuevo_administrador_controlador(){
         $rut=mainModel::limpiar_cadena($_POST['rut']);
+        $rut=mainModel::limpiar_rut($rut);
         $nombre1=mainModel::limpiar_cadena($_POST['nombre1']);
         $nombre2=mainModel::limpiar_cadena($_POST['nombre2']);
         $apellido1=mainModel::limpiar_cadena($_POST['apellido1']);

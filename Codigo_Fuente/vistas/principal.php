@@ -25,6 +25,7 @@
 
     <body>
                         <?php 
+                        $peticionAjax=false;
                         require_once "./controladores/vistasControlador.php";
                         $vt = new vistasControlador();
                         $vistasR = $vt->obtener_vistas_controlador();
@@ -32,15 +33,13 @@
                         if($vistasR == "login"):
                             require_once "./vistas/contenidos/login-vistas.php";
                         else:
+                            
                         ?>
                         <!-- include sidebar-->
                         <?php include "./vistas/extras/barra.php";?>
                     
                         <!-- include contenido-->
                         <?php require_once $vistasR; ?>
-
-                        <!-- include footer-->
-                        <?php include "./vistas/extras/footer.php"; ?>
                         
                         <?php endif; ?>
 

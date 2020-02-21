@@ -25,14 +25,11 @@ $(document).ready(function(){
     }
     
     Swal.fire({
-      title: '¿Estás seguro?',
-      text: textoAlerta,
+      title: 'Envio de datos',
+      text: "Estos datos se enviaran al sistema",
       icon: 'warning',
-      showCancelButton: true,
       confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar'
+      confirmButtonText: 'OK!'
     }).then(function () {
       $.ajax({
           type: metodo,
@@ -55,13 +52,13 @@ $(document).ready(function(){
                 }
               }, false);
               return xhr;
-          },
-          success: function (data) {
-              respuesta.html(data);
-          },
-          error: function() {
-              respuesta.html(msjError);
-          }
+          },success: function (data) {
+            respuesta.html(data);
+        },
+          
+        error: function() {
+            respuesta.html(msjError);
+        }
       });
       return false;
   });

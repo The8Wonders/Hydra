@@ -15,7 +15,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="index.php" class="navbar-brand"><img src="<?php echo RUTA ?>vistas/assets/img/logo.png" alt=""></a>
+                                <a href="<?php echo RUTA ?>index/" class="navbar-brand"><img src="<?php echo RUTA ?>vistas/assets/img/logo.png" alt=""></a>
                     
                             </header>
                     
@@ -46,7 +46,7 @@
                                     </a>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="login.html" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                                    <a href="<?php echo RUTA ?>login/" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
                                        class="btn btn-metis-1 btn-sm">
                                         <i class="fa fa-power-off"></i>
                                     </a>
@@ -70,18 +70,18 @@
                     
                                 <!-- .nav -->
                                 <ul class="nav navbar-nav">
-                                    <li><a href="dashboard.html">Dashboard</a></li>
-                                    <li><a href="table.html">Tables</a></li>
+                                    <li><a href="<?php echo RUTA ?>dashboard/">Dashboard</a></li>
+                                    <li><a href="<?php echo RUTA ?>table/">Tables</a></li>
                                     <li class='dropdown '>
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             Form Elements <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="formGeneral">General</a></li>
-                                            <li><a href="formValidation">Validation</a></li>
-                                            <li><a href="formAdmin">Formulario Administrador</a></li>
-                                            <li><a href="form-wysiwyg.html">WYSIWYG</a></li>
-                                            <li><a href="form-wizard.html">Wizard &amp; File Upload</a></li>
+                                            <li><a href="<?php echo RUTA ?>formGeneral/">General</a></li>
+                                            <li><a href="<?php echo RUTA ?>formValidation/">Validation</a></li>
+                                            <li><a href="<?php echo RUTA ?>formAdmin/">Formulario Administrador</a></li>
+                                            <li><a href="<?php echo RUTA ?>formWysiwyg/">WYSIWYG</a></li>
+                                            <li><a href="<?php echo RUTA ?>formWizard/">Wizard &amp; File Upload</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -123,7 +123,7 @@
                             </div>
                             <div class="user-wrapper bg-dark">
                                 <a class="user-link" href="">
-                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="./vistas/Bootstrap-Admin-Template-master/public/assets/img/user.gif">
+                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="<?php echo RUTA ?>vistas/Bootstrap-Admin-Template-master/public/assets/img/user.gif">
                                     <span class="label label-danger user-label">16</span>
                                 </a>
                         
@@ -143,7 +143,7 @@
                                   <li class="nav-header">Menu</li>
                                   <li class="nav-divider"></li>
                                   <li class="">
-                                    <a href="dashboard.html">
+                                    <a href="<?php echo RUTA ?>dashboard/">
                                       <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
                                     </a>
                                   </li>
@@ -155,11 +155,11 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="boxed.html">
+                                        <a href="<?php echo RUTA ?>boxed/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout </a>
                                       </li>
                                       <li>
-                                        <a href="fixed-header-boxed.html">
+                                        <a href="<?php echo RUTA ?>fixed-header-boxed/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Header </a>
                                       </li>
                                       <li>
@@ -236,19 +236,19 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="bgcolor.html">
+                                        <a href="<?php echo RUTA ?>bgcolor/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Bg Color </a>
                                       </li>
                                       <li>
-                                        <a href="bgimage.html">
+                                        <a href="<?php echo RUTA ?>bgimage/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Bg Image </a>
                                       </li>
                                       <li>
-                                        <a href="button.html">
+                                        <a href="<?php echo RUTA ?>button/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Buttons </a>
                                       </li>
                                       <li>
-                                        <a href="icon.html">
+                                        <a href="<?php echo RUTA ?>icon/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Icon </a>
                                       </li>
                                       <li>
@@ -256,7 +256,7 @@
                                           <i class="fa fa-angle-right"></i>&nbsp; Pricing Table </a>
                                       </li>
                                       <li>
-                                        <a href="progress.html">
+                                        <a href="<?php echo RUTA ?>progress/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Progress </a>
                                       </li>
                                     </ul>
@@ -279,23 +279,23 @@
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>form-wizard.html">
+                                        <a href="<?php echo RUTA ?>formWizard/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Wizard </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>form-wysiwyg.html">
+                                        <a href="<?php echo RUTA ?>formWysiwyg/">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form WYSIWYG </a>
                                       </li>
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="table.html">
+                                    <a href="<?php echo RUTA ?>table/">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">Tables</span>
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="typography.html">
+                                    <a href="<?php echo RUTA ?>typography/">
                                       <i class="fa fa-font"></i>
                                       <span class="link-title">
                                     Typography
@@ -309,7 +309,7 @@
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="chart.html">
+                                    <a href="<?php echo RUTA ?>chart/">
                                       <i class="fa fa fa-bar-chart-o"></i>
                                       <span class="link-title">
                                     Charts
@@ -317,7 +317,7 @@
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="calendar.html">
+                                    <a href="<?php echo RUTA ?>calendar/">
                                       <i class="fa fa-calendar"></i>
                                       <span class="link-title">
                                     Calendar
@@ -338,8 +338,8 @@
                                           <i class="fa fa-angle-right"></i>&nbsp;403</a>
                                       </li>
                                       <li>
-                                        <a href="404.html">
-                                          <i class="fa fa-angle-right"></i>&nbsp;404</a>
+                                        <a href="<?php echo RUTA ?>error/">
+                                          <i class="fa fa-angle-right"></i>&nbsp;error</a>
                                       </li>
                                       <li>
                                         <a href="405.html">
@@ -354,7 +354,7 @@
                                           <i class="fa fa-angle-right"></i>&nbsp;503</a>
                                       </li>
                                       <li>
-                                        <a href="offline.html">
+                                        <a href="<?php echo RUTA ?>offline/">
                                           <i class="fa fa-angle-right"></i>&nbsp;offline</a>
                                       </li>
                                       <li>
@@ -364,7 +364,7 @@
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="grid.html">
+                                    <a href="<?php echo RUTA ?>grid/">
                                       <i class="fa fa-columns"></i>
                                       <span class="link-title">
                             Grid
@@ -381,7 +381,7 @@
                                   </li>
                                   <li class="nav-divider"></li>
                                   <li>
-                                    <a href="login.html">
+                                    <a href="<?php echo RUTA ?>login/">
                                       <i class="fa fa-sign-in"></i>
                                       <span class="link-title">
                             Login Page

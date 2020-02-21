@@ -1,20 +1,6 @@
-<?php require_once "../core/general.php"; ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
- <!-- Sweet Alert -->
- <link rel="stylesheet" href="<?php echo RUTA ?>vistas/assets/plugins/SweetAlert/dist/sweetalert2.min.css">
-<script src="<?php echo RUTA?>vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
-  
-</body>
-</html>
+
 <?php
-    
+     require_once "../core/general.php";
     $peticionAjax=true;
     
    

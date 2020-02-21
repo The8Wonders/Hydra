@@ -7,7 +7,7 @@
     <hr>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="index.html">
+            <form action="" method="POST" autocomplete="off">
                 <p class="text-muted text-center">
                     Ingrese su Rut y Contraseña
                 </p>
@@ -15,13 +15,13 @@
 
                <div class="box1">
                     
-                    <input type="text" placeholder="Rut" class="form-control top"> <!-- nuevo div-->
+                    <input type="text" placeholder="Rut" class="form-control top" name="rut"> <!-- nuevo div-->
                </div>
 
 
                <div class="box1">
                    
-                    <input type="password" placeholder="Contraseña" class="form-control bottom"> <!-- nuevo div-->
+                    <input type="password" placeholder="Contraseña" class="form-control bottom" name="contraseña"> <!-- nuevo div-->
                </div>
 
 
@@ -81,5 +81,11 @@
         })(jQuery);
     </script>
 </body>
+<?php 
+    if(isset($_POST['rut']) && isset($_POST['contraseña'])){
+        require_once "./controladores/login.controlador.php";
 
-</html>
+        $login = new logincontrolador();
+        echo $login->ingresar_controlador();
+    }
+?>
