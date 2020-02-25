@@ -123,7 +123,7 @@
                             </div>
                             <div class="user-wrapper bg-dark">
                                 <a class="user-link" href="">
-                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="<?php echo RUTA ?>vistas/Bootstrap-Admin-Template-master/public/assets/img/user.gif">
+                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="<?php echo RUTA ?>vistas/assets/img/user.gif">
                                     <span class="label label-danger user-label">16</span>
                                 </a>
                         
