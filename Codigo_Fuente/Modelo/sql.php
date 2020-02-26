@@ -36,9 +36,9 @@ $cuenta= new sql();
 $cuenta->agregar_cuenta();*/
 
 require "conexion.php";
+$db= Conectar::Conexion();
 $query= "INSERT INTO cuenta VALUES (1,'ewkme','kwemke','kmwekmew')";
-$sql= $query->prepare($query);
-$sql->execute();
+$sql= $db->query($query);
 if($sql){
     echo "se ingreso a cuenta";
 }else{
@@ -47,7 +47,7 @@ if($sql){
 echo "<br><br><br>";
 
 $query= "SELECT * FROM cuenta";
-$sql= $query->query($query);
+$sql= $db->query($query);
 while($fila= $sql->fetch(PDO::FETCH_ASSOC)){
     $usuario[]= $fila;
 }
