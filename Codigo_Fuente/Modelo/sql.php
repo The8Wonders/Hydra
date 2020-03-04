@@ -1,6 +1,6 @@
 <?php
 
-/*class sql {
+class sql {
 
     private $db;
 
@@ -18,7 +18,7 @@
 
     public function agregar_cuenta(){
         try{
-            $query= "INSERT INTO cuenta VALUES (1,'ewkme','kwemke','kmwekmew')";
+            $query= "INSERT INTO usuario VALUES ('1''','ewkme','kwemke','kmwekmew')";
 
             $sql= $this->db->prepare($query);
 
@@ -33,12 +33,13 @@
 }
 
 $cuenta= new sql();
-$cuenta->agregar_cuenta();*/
-
+$cuenta->agregar_cuenta();
+/*
 require "conexion.php";
-$db= Conectar::Conexion();
-$query= "INSERT INTO cuenta VALUES (1,'ewkme','kwemke','kmwekmew')";
-$sql= $db->query($query);
+//$db= Conectar::Conexion();
+$conn= pg_connect("host=146.83.198.35 port=5432 dbname=grupo6is_db user=grupo6is password=ISgrupo6");
+$query= "INSERT INTO usuario VALUES ('1','ewkme','kwemke','kmwekmew')";
+$sql= pg_query($conn,$query);
 if($sql){
     echo "se ingreso a cuenta";
 }else{
@@ -46,8 +47,8 @@ if($sql){
 }
 echo "<br><br><br>";
 
-$query= "SELECT * FROM cuenta";
-$sql= $db->query($query);
+$query= "SELECT * FROM usuario1";
+$sql= pg_query($conn,$query);
 while($fila= $sql->fetch(PDO::FETCH_ASSOC)){
     $usuario[]= $fila;
 }
@@ -55,7 +56,7 @@ while($fila= $sql->fetch(PDO::FETCH_ASSOC)){
 foreach($usuario as $fila){
     echo $fila;
 }
-
+*/
 
 
 
