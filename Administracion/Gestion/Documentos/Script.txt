@@ -1,0 +1,155 @@
+create table Rol (
+cod_rol varchar(100),
+Primary key(cod_rol)
+);
+
+create table semestre(
+cod_semestre varchar(100),
+fecha_inicio date not null,
+fecha_fin date not null,
+ano int,
+primary key(cod_semestre)
+);
+
+create table Tec_tipo(
+nombre_tipo varchar(100),
+primary key(nombre_tipo) 
+);
+
+create table Usuario(
+rut varchar(100),
+primer_nombre varchar(100) not null,
+segundo_nombre(100) not null,
+apellido_materno varchar(100) not null,
+apellido_paterno varchar(100) not null,
+contraseña varchar(100) not null,
+correo varchar(100) not null,
+telefono varchar(100),
+cod_rol varchar(100),
+primary key (rut),
+foreign key (cod_rol) references Rol
+);
+
+
+create table Profesor(
+rut varchar(100),
+primary key(rut),
+foreign key(rut) references Usuario
+);
+
+create table Administrador(
+rut varchar(100),
+nuevo_admin boolean not null,
+primary key (rut),
+foreign key (rut) references Usuario
+);
+
+create table Proyecto(
+cod_proyecto varchar(100),
+nom_proyecto varchar(100) not null,
+fecha_inicio date not null,
+fecha_fin date not null,
+fecha_inicio_real date not null,
+fecha_fin_real date not null,
+descripcion_proyecto varchar(100),
+sigla varchar(100),
+tipo_desarrollo varchar(100) not null,
+cod_semestre varchar(100),
+primary key (cod_proyecto),
+foreign key(cod_semestre) references semestre
+);
+
+create table Documento(
+cod_documento varchar(100),
+descripcion varchar(100),
+cod_proyecto varchar(100),
+primary key (cod_documento),
+foreign key (cod_proyecto) references Proyecto
+);
+
+create table Equipo(
+cod_equipo varchar(100),
+nombre_equipo varchar(100) not null,
+cod_semestre varchar(100),
+cod_proyecto varchar(100),
+primary key (cod_equipo),
+foreign key(cod_semestre) references semestre,
+foreign key (cod_proyecto) references Proyecto
+);
+
+
+create table Alumno(
+rut  varchar(100),
+carrera varchar(100) not null,
+ano_ingreso int,
+registro_exitoso boolean not null,
+fecha_registro date not null,
+cargo varchar(100) not null,
+cod_semestre varchar(100),
+cod_equipo varchar(100),
+primary key (rut),
+foreign key (cod_semestre) references semestre,
+foreign key (cod_equipo) references Equipo
+);
+
+create table Alu_documento(
+rut varchar(100),
+cod_documento varchar(100),
+primary key(rut,cod_documento),
+foreign key (rut)references Alumno,
+foreign key (cod_documento) references Documento
+);
+
+create table Prof_documento(
+rut varchar(100),
+cod_documento varchar(100),
+primary key (rut,cod_documento),
+foreign key (rut) references Profesor,
+foreign key (cod_documento) references Documento
+);
+
+create table Tecnologia(
+nom_tecnologia varchar(100) not null,
+nivel_tecnologia varchar(100) not null,
+rut varchar(100),
+nombre_tipo varchar(100),
+primary key(nom_tecnologia),
+foreign key(rut) references Alumno,
+foreign key(nombre_tipo) references Tec_tipo
+);
+
+create table Requerimiento(
+cod_requerimiento varchar(100),
+tipo_requerimiento varchar(100) not null,
+nom_requerimiento varchar(100) not null,
+descripcion_requerimiento varchar(100),
+complejidad varchar(100) not null,
+horas_requerimiento int not null,
+control_cambios varchar(100),
+prioridad varchar(100) not null,
+estado varchar(100) not null,
+impacto varchar(100) not null,
+cod_proyecto varchar(100),
+primary key (cod_requerimiento),
+foreign key (cod_proyecto) references Proyecto
+);
+
+create table Tarea(
+cod_tarea varchar(100),
+nom_tarea varchar(100) not null,
+hora_invertida int,
+estado_tarea varchar(100) not null,
+cod_requerimiento varchar(100),
+primary key (cod_tarea),
+foreign key (cod_requerimiento) references Requerimiento
+);
+
+create table Alu_tarea(
+cod_tarea varchar(100),
+rut varchar(100),
+primary key (cod_tarea,rut),
+foreign key (cod_tarea) references Tarea,
+foreign key (rut) references Alumno
+);
+
+http://pgsqltrans.face.ubiobio.cl/phppgadmin/  url base de datos del servidor de la face
