@@ -1,16 +1,17 @@
 <?php
 
-  if($peticionAjax){
+  /*if($peticionAjax){
     require_once "../core/configAPP.php";
   }else{
     require_once "./core/configAPP.php";
-  }
+  }*/
+  require_once "./core/configAPP.php";
 
   class mainModel{
 
     protected function conectar(){
 
-      $enlace = new PDO(SGBD, USER, PASS);
+      $enlace = new PDO(SGBD,USER,PASS);
 
       return $enlace;
     }
@@ -42,7 +43,7 @@
     }
 
     protected function eliminar_cuenta($codigo){
-      $sql=self::conectar()->prepare("DELETE  FROM cuenta WHERE cuentacodigo == :Codigo");
+      $sql=self::conectar()->prepare("DELETE  FROM usuario WHERE rut== :Codigo");
       $sql->bindParam(":Codigo", $codigo);
       $sql->execute();
 
@@ -78,7 +79,7 @@
     }
 
     protected function limpiar_rut($variable){
-      $variable=str_ireplace(".","","$variable");
+      $variable=str_ireplace(".","",$variable);
       $variable=str_ireplace("-","",$variable);
     }
 
@@ -102,8 +103,8 @@
       $cadena=str_ireplace("[", "", $cadena);
       $cadena=str_ireplace("]", "", $cadena);
       $cadena=str_ireplace("==", "", $cadena);
+      $cadena=str_ireplace("===", "", $cadena);
       $cadena=str_ireplace(";", "", $cadena);
-
 
       return  $cadena;
     }

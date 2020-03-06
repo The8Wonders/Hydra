@@ -1,9 +1,11 @@
 <?php   
-    if($peticionAjax){
+    /*if($peticionAjax){
       require_once "../modelo/login.modelo.php";
     }else{
       require_once "./modelo/login.modelo.php";
-    }
+    }*/
+
+    require_once "./modelo/login.modelo.php";
   
     class logincontrolador extends loginmodelo{
 
@@ -24,10 +26,12 @@
         if($datosCuenta->rowCount() == 1){
           $cosulta = $datosCuenta->fetch();
             session_start(['nombre'=>'SGP']);
-            $_SESSION['rut_usuario']=$cosulta['CuentaRut'];
-            $_SESSION['codigo_usuario']=$cosulta['CuentaCodigo'];
+            $_SESSION['rut_usuario']= $cosulta['rut'];
+            $_SESSION['rol_usuario']= $cosulta['cod_rol'];
+            //$_SESSION['codigo_usuario']=$cosulta['CuentaCodigo'];
 
-            if($cosulta['CuentaTipo'] == "Administrador"){
+            // Administrador
+            if($cosulta['rol_usuario'] === "administrador"){
               $url =RUTA."formAdmin/";
             }else{
               $url=RUTA."home/";

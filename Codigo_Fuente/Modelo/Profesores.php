@@ -1,6 +1,4 @@
 <?php
-
-
   class profesor{
     public function registrarProfesor($datos){
 
