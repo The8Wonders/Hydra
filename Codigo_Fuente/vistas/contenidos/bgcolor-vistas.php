@@ -1,3 +1,5 @@
+<?php require_once "../extras/barra.php"; ?>
+
 <div id="content">
                     <div class="outer">
                         <div class="inner bg-light lter">

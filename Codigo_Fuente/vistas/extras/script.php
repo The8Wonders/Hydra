@@ -1,11 +1,11 @@
  <!--jQuery -->
- <script src="<?php echo RUTA ?>vistas/assets/lib/jquery/jquery.js"></script>
+ <script src="../assets/lib/jquery/jquery.js"></script>
 
  <script>
             less = {
                 env: "development",
                 relativeUrls: false,
-                rootpath: "<?php echo RUTA ?>vistas/assets/"
+                rootpath: "../assets/"
             };
         </script>
 
@@ -18,22 +18,22 @@
 
 
 <!--Bootstrap -->
-<script src="<?php echo RUTA ?>vistas/assets/lib/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
 <!-- MetisMenu -->
-<script src="<?php echo RUTA ?>vistas/assets/lib/metismenu/metisMenu.js"></script>
+<script src="../assets/lib/metismenu/metisMenu.js"></script>
 <!-- onoffcanvas -->
-<script src="<?php echo RUTA ?>vistas/assets/lib/onoffcanvas/onoffcanvas.js"></script>
+<script src="../assets/lib/onoffcanvas/onoffcanvas.js"></script>
 <!-- Screenfull -->
-<script src="<?php echo RUTA ?>vistas/assets/lib/screenfull/screenfull.js"></script>
+<script src="../assets/lib/screenfull/screenfull.js"></script>
 
-<script src="<?php echo RUTA ?>vistas/assets/lib/jquery-validation/jquery.validate.js"></script>
+<script src="../assets/lib/jquery-validation/jquery.validate.js"></script>
 
 
 
 <!-- Metis core scripts -->
-<script src="<?php echo RUTA ?>vistas/assets/js/core.js"></script>
+<script src="../assets/js/core.js"></script>
 <!-- Metis demo scripts -->
-<script src="<?php echo RUTA ?>vistas/assets/js/app.js"></script>
+<script src="../assets/js/app.js"></script>
 
 <script>
 $(function() {
@@ -42,7 +42,7 @@ Metis.formValidation();
 </script>
 
 
-<script src="<?php echo RUTA ?>vistas/assets/js/style-switcher.js"></script>
+<script src="../assets/js/style-switcher.js"></script>
 <!-- Sweet Alert scripts -->
-<script src="<?php echo RUTA ?>vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
-<script src="<?php echo RUTA ?>vistas/assets/js/funcion.js"></script>
+<script src="../assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
+<script src="../assets/js/funcion.js"></script>

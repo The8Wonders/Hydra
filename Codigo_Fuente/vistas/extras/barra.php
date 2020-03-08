@@ -1,3 +1,5 @@
+<?php include "estilos.php";
+      include "script.php" ?>
 <body class="  ">
             <div class="bg-dark dk" id="wrap">
                 <div id="top">
@@ -15,7 +17,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="<?php echo RUTA ?>index/" class="navbar-brand"><img src="<?php echo RUTA ?>vistas/assets/img/logo.png" alt=""></a>
+                                <a href="../contenidos/home-vistas.php" class="navbar-brand"><img src="../assets/img/logo.png" alt=""></a>
                     
                             </header>
                     
@@ -46,7 +48,7 @@
                                     </a>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="<?php echo RUTA ?>login/" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                                    <a href="../../index.php" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
                                        class="btn btn-metis-1 btn-sm">
                                         <i class="fa fa-power-off"></i>
                                     </a>
@@ -70,18 +72,18 @@
                     
                                 <!-- .nav -->
                                 <ul class="nav navbar-nav">
-                                    <li><a href="<?php echo RUTA ?>dashboard/">Dashboard</a></li>
-                                    <li><a href="<?php echo RUTA ?>table/">Tables</a></li>
+                                    <li><a href="../contenidos/dashboard-vistas.php">Dashboard</a></li>
+                                    <li><a href="../contenidos/table-vistas.php">Tables</a></li>
                                     <li class='dropdown '>
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             Form Elements <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="<?php echo RUTA ?>formGeneral/">General</a></li>
-                                            <li><a href="<?php echo RUTA ?>formValidation/">Validation</a></li>
-                                            <li><a href="<?php echo RUTA ?>formAdmin/">Formulario Administrador</a></li>
-                                            <li><a href="<?php echo RUTA ?>formWysiwyg/">WYSIWYG</a></li>
-                                            <li><a href="<?php echo RUTA ?>formWizard/">Wizard &amp; File Upload</a></li>
+                                            <li><a href="../contenidos/formGeneral-vistas.php">General</a></li>
+                                            <li><a href="../contenidos/formValidation-vistas.php">Validation</a></li>
+                                            <li><a href="../contenidos/formAdmin-vistas.php">Formulario Administrador</a></li>
+                                            <li><a href="../contenidos/formWysiwyg-vistas.php">WYSIWYG</a></li>
+                                            <li><a href="../contenidos/formWizard-vistas.php">Wizard &amp; File Upload</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -123,7 +125,7 @@
                             </div>
                             <div class="user-wrapper bg-dark">
                                 <a class="user-link" href="">
-                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="<?php echo RUTA ?>vistas/assets/img/user.gif">
+                                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="../assets/img/user.gif">
                                     <span class="label label-danger user-label">16</span>
                                 </a>
                         
@@ -143,7 +145,7 @@
                                   <li class="nav-header">Menu</li>
                                   <li class="nav-divider"></li>
                                   <li class="">
-                                    <a href="<?php echo RUTA ?>dashboard/">
+                                    <a href="../contenidos/dashboard-vistas.php">
                                       <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
                                     </a>
                                   </li>
@@ -155,11 +157,11 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="<?php echo RUTA ?>boxed/">
+                                        <a href="../contenidos/boxed-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>fixed-header-boxed/">
+                                        <a href="../contenidos/fixed-header-boxed-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Header </a>
                                       </li>
                                       <li>
@@ -236,19 +238,19 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="<?php echo RUTA ?>bgcolor/">
+                                        <a href="../contenidos/bgcolor-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Bg Color </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>bgimage/">
+                                        <a href="../contenidos/bgimage-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Bg Image </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>button/">
+                                        <a href="../contenidos/button-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Buttons </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>icon/">
+                                        <a href="../contenidos/icon-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Icon </a>
                                       </li>
                                       <li>
@@ -256,7 +258,7 @@
                                           <i class="fa fa-angle-right"></i>&nbsp; Pricing Table </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>progress/">
+                                        <a href="../contenidos/progress-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Progress </a>
                                       </li>
                                     </ul>
@@ -271,31 +273,31 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="<?php echo RUTA ?>formGeneral">
+                                        <a href="../contenidos/formGeneral">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form General </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>formValidation">
+                                        <a href="../contenidos/formValidation">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>formWizard/">
+                                        <a href="../contenidos/formWizard-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Wizard </a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>formWysiwyg/">
+                                        <a href="../contenidos/formWysiwyg-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form WYSIWYG </a>
                                       </li>
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>table/">
+                                    <a href="../contenidos/table-vistas.php">
                                       <i class="fa fa-table"></i>
                                       <span class="link-title">Tables</span>
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>typography/">
+                                    <a href="../contenidos/typography-vistas.php">
                                       <i class="fa fa-font"></i>
                                       <span class="link-title">
                                     Typography
@@ -309,7 +311,7 @@
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>chart/">
+                                    <a href="../contenidos/chart-vistas.php">
                                       <i class="fa fa fa-bar-chart-o"></i>
                                       <span class="link-title">
                                     Charts
@@ -317,7 +319,7 @@
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>calendar/">
+                                    <a href="../contenidos/calendar-vistas.php">
                                       <i class="fa fa-calendar"></i>
                                       <span class="link-title">
                                     Calendar
@@ -338,7 +340,7 @@
                                           <i class="fa fa-angle-right"></i>&nbsp;403</a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>error/">
+                                        <a href="../contenidos/error-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp;error</a>
                                       </li>
                                       <li>
@@ -354,7 +356,7 @@
                                           <i class="fa fa-angle-right"></i>&nbsp;503</a>
                                       </li>
                                       <li>
-                                        <a href="<?php echo RUTA ?>offline/">
+                                        <a href="../contenidos/offline-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp;offline</a>
                                       </li>
                                       <li>
@@ -364,7 +366,7 @@
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>grid/">
+                                    <a href="../contenidos/grid-vistas.php">
                                       <i class="fa fa-columns"></i>
                                       <span class="link-title">
                             Grid
@@ -381,7 +383,7 @@
                                   </li>
                                   <li class="nav-divider"></li>
                                   <li>
-                                    <a href="<?php echo RUTA ?>login/">
+                                    <a href="../contenidos/login-vistas.php">
                                       <i class="fa fa-sign-in"></i>
                                       <span class="link-title">
                             Login Page
