@@ -1,12 +1,7 @@
 
 <?php
-     require_once "../core/general.php";
     $peticionAjax=true;
     
-   
-
-
-
     if(isset($_POST['rut'])){
         require_once "../controladores/administrador.controlador.php";
         $insAdmin = new administradorcontrolador(); 
@@ -17,5 +12,5 @@
     }else{
       session_start();
       session_destroy();
-      echo'<script> window.location.href="'.RUTA.'login/" </script>';
+      echo'<script> window.location.href="../index.php" </script>';
     }

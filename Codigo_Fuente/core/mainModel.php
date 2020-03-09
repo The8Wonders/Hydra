@@ -1,11 +1,10 @@
 <?php
 
-  /*if($peticionAjax){
+  if($peticionAjax){
     require_once "../core/configAPP.php";
   }else{
     require_once "./core/configAPP.php";
-  }*/
-  require_once "./core/configAPP.php";
+  }
 
   class mainModel{
 
