@@ -1,3 +1,4 @@
+<link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../assets/lib/bootstrap/css/bootstrap.css">
         

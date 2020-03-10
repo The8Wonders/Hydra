@@ -5,40 +5,44 @@
       require_once "./modelo/login.modelo.php";
     }*/
 
-    require_once "./modelo/login.modelo.php";
-  
+    require_once "../modelo/login.modelo.php";
+
     class logincontrolador extends loginmodelo{
 
       public function ingresar_controlador(){
         
-        $rut = mainModel::limpiar_cadena($_POST['rut']);
+        $rut = mainModel::limpiar_cadena($_POST['rut_usuario']);
         $rut=mainModel::limpiar_rut($rut);
-        $clave = mainModel::limpiar_cadena($_POST['contraseña']);
+        $clave = mainModel::limpiar_cadena($_POST['contra']);
         $clave = mainModel::encryption($clave);
-
+        
         $datos=[
           "Rut"=>$rut,
           "Clave"=>$clave
         ];
 
         $datosCuenta = loginmodelo::ingresar_modelo($datos);
+        //$fila =$datosCuenta->rowCount();
+        //echo "Filas afectadas controlador: ".$fila;
 
         if($datosCuenta->rowCount() == 1){
-          $cosulta = $datosCuenta->fetch();
-            session_start(['nombre'=>'SGP']);
-            $_SESSION['rut_usuario']= $cosulta['rut'];
-            $_SESSION['rol_usuario']= $cosulta['cod_rol'];
+                    
+          $consulta = $datosCuenta->fetch(PDO::FETCH_ASSOC);
+            session_start();
+            $_SESSION['rut']= $consulta['rut'];
+            $_SESSION['rol']= $consulta['cod_rol'];
             //$_SESSION['codigo_usuario']=$cosulta['CuentaCodigo'];
-
+            
             // Administrador
-            if($cosulta['rol_usuario'] === "administrador"){
-              $url =RUTA."formAdmin/";
+            if($consulta['cod_rol'] === "administrador"){
+              $url ="../vistas/contenidos/formAdmin-vistas.php";
             }else{
-              $url=RUTA."home/";
+              $url="../vistas/contenidos/home-vistas.php";
             }
 
-            return $urlLocation='<script> window.location="'.$url.'" </script>';
+            return header('Location:'.$url);
         }else{
+          
           $alerta=[
             "Alerta"=>"simple",
             "Titulo"=>"Ocurrio un problema :(",
@@ -50,3 +54,5 @@
         }
     }
   }
+  $login= new logincontrolador();
+  $login->ingresar_controlador();
