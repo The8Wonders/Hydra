@@ -58,7 +58,7 @@
                     </div>
                     <div id="forgot" class="tab-pane">
                                 <!-- RECUPERAR CONTRASEÑA -->
-                        <form action="index.html">
+                        <form action="Modelo/recuperar_clave.php" method="POST">
                             <p class="text-muted text-center">Ingresa tú Correo</p>
                             <input type="email" placeholder="ejemplo@dominio.com" class="form-control" name="email">
                             <br>
@@ -68,16 +68,17 @@
                     </div>
                     <div id="signup" class="tab-pane">
                         <!-- REGISTRAR ALUMNO -->
-                        <form action="controladores/alumno_controlador.php">
+                        <form action="controladores/alumno.controlador.php" method="POST">
                             <input type="text" placeholder="Rut" name="rut" class="form-control top">
                             <input type="text" placeholder="Nombre" name="nombre" class="form-control middle">
                             <input type="text" placeholder="Apellido" name="apellido" class="form-control middle">
-                            <input type="email" placeholder="ejemplo@dominio.com" mame="email" class="form-control middle">
+                            <input type="email" placeholder="ejemplo@dominio.com" name="correo" class="form-control middle">
                             <input type="text" placeholder="Telefono" name="telefono" class="form-control middle">
                             <input type="password" placeholder="Contraseña" name="contra" class="form-control middle">
                             <input type="password" placeholder="Repetir Contraseña" name="re-contra" class="form-control bottom">
                             <input type="hidden" name="rol" value="alumno">
-                            <button class="btn btn-lg btn-success btn-block" type="submit">Registerar</button>
+
+                            <button class="btn btn-lg btn-success btn-block" type="submit">Registrar</button>
                         </form>
                         <!-- FIN REGISTRO ALUMNO -->
                     </div>

@@ -2,7 +2,7 @@
   if($peticionAjax){
     require_once "../core/mainModel.php";
   }else{
-    require_once "./core/mainModel.php";
+    require_once "../core/mainModel.php";
   }
 
   class administradormodelo extends mainModel {

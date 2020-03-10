@@ -4,20 +4,20 @@
     }else{
       require_once "./modelo/administrador.modelo.php";
     }*/
-    require_once "./modelo/administrador.modelo.php";
+    require_once "../core/mainModel.php";
     
-    class alumnocontrolador extends alumnnomodelo{
+    class alumnocontrolador extends mainModel{
 
       public function nuevo_alumno_controlador(){
         $rut=mainModel::limpiar_cadena($_POST['rut']);
         $rut=mainModel::limpiar_rut($rut);
-        $nombre1=mainModel::limpiar_cadena($_POST['nombre']);
+        $nombre=mainModel::limpiar_cadena($_POST['nombre']);
         $apellido=mainModel::limpiar_cadena($_POST['apellido']);
-        $apellido1=mainModel::limpiar_cadena($_POST['apellido1']);
         $contraseña1=mainModel::limpiar_cadena($_POST['contra']);
         $contraseña2=mainModel::limpiar_cadena($_POST['re-contra']);
-        $email=mainModel::limpiar_cadena($_POST['email']);
+        $correo=mainModel::limpiar_cadena($_POST['correo']);
         $telefono=mainModel::limpiar_cadena($_POST['telefono']);
+        $rol= mainModel::limpiar_cadena($_POST['rol']);
         //$genero=mainModel::limpiar_cadena($_POST['optionsGenero']);
         
         /*if ($genero == "Masculino") {
@@ -34,7 +34,7 @@
               "Tipo"=>"error"
           ];
         }else{
-          $consulta1=mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE adminrut = '$rut'");
+          $consulta1=mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
           if($consulta1->rowCount()>=1){
             $alerta=[
               "Alerta"=>"simple",
@@ -43,7 +43,7 @@
               "Tipo"=>"error"
           ];
           }else{
-           $consulta2=mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo='$email'");
+           $consulta2=mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo='$correo'");
            if ($consulta2->rowCount()>=1){
                 $alerta=[
                   "Alerta"=>"simple",
@@ -52,27 +52,32 @@
                   "Tipo"=>"error"
               ];
            } else {
-             $consulta3=mainModel::ejecutar_consulta_simple("SELECT id FROM cuenta");
+             /*$consulta3=mainModel::ejecutar_consulta_simple("SELECT id FROM cuenta");
              $numero = ($consulta3->rowCount())+1;
 
-             $codigo=mainModel::generar_codigo_aleatorio("AC",7,$numero);
+             $codigo=mainModel::generar_codigo_aleatorio("AC",7,$numero);*/
 
              $clave=mainModel::encryption($contraseña1);
 
              $nuevaCuenta=[
-                "Codigo"=>$codigo,
                 "Rut"=>$rut,
-                "Clave"=>$clave,
-                "Email"=>$email,
-                "Estado"=>"Activo",
-                "Tipo"=>"Alumno",
-                "Genero"=>$genero,
-                "Foto"=>$foto,
-                "Privilegio"=>3
+                "Nombre"=>$nombre,
+                "Apellido"=>$apellido,
+                "Correo"=>$correo,
+                "Telefono"=>$telefono,
+                "Rol"=>$rol,
+                "Contra"=>$clave
              ];
 
              $guardarcuenta = mainModel::nueva_cuenta($nuevaCuenta);
-
+             session_start();
+             $_SESSION['nombre']= $nombre;
+             $_SESSION['apellido']= $apellido;
+             $_SESSION['correo']= $correo;
+             $_SESSION['rol']= $rol;
+             $_SESSION['rut']= $rut;
+              return header("Location:../vistas/contenidos/home-vistas.php");
+             /*
              if($guardarcuenta->rowCount()>=1){
                 $nuevoAdministrador=[
                   "Rut"=>$rut,
@@ -113,11 +118,13 @@
                     "Texto"=>"No se ah podido registrar el administrador 2",
                     "Tipo"=>"error"
                 ];
-             }
+             }*/
            }
           }
         }
-        return mainModel::alertas($alerta);
+        //return mainModel::alertas($alerta);
         
       }
     }
+    $alu= new alumnocontrolador;
+    $alu->nuevo_alumno_controlador();

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,7 @@
 </head>
 <body>
     <?php require_once "../extras/barra.php"; ?>
-    <h1> Bienvenido Esta es la pantalla de Home</h1>
+    <h1> Bienvenido Sr(a). <?php echo $_SESSION['nombre']." ". $_SESSION['apellido']; ?>. Esta es la pantalla de Home de Usted Como <?php echo " ".$_SESSION['rol']; ?></h1>
     <?php 
         require_once "../extras/footer.php"; 
         require_once "../extras/script.php";

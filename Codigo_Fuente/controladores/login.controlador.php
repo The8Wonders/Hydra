@@ -23,24 +23,24 @@
 
         $datosCuenta = loginmodelo::ingresar_modelo($datos);
         //$fila =$datosCuenta->rowCount();
-        //echo "Filas afectadas ".$fila;
+        //echo "Filas afectadas controlador: ".$fila;
 
         if($datosCuenta->rowCount() == 1){
-          
-          $cosulta = $datosCuenta->fetch();
-            session_start(['nombre'=>'SGP']);
-            $_SESSION['rut_usuario']= $cosulta['rut'];
-            $_SESSION['rol_usuario']= $cosulta['cod_rol'];
+                    
+          $consulta = $datosCuenta->fetch(PDO::FETCH_ASSOC);
+            session_start();
+            $_SESSION['rut']= $consulta['rut'];
+            $_SESSION['rol']= $consulta['cod_rol'];
             //$_SESSION['codigo_usuario']=$cosulta['CuentaCodigo'];
             
             // Administrador
-            if($cosulta['rol_usuario'] === "administrador"){
-              $url ="127.0.0.1/Hydra/Codigo_Fuente/vistas/contenido/formAdmin-vistas.php";
+            if($consulta['cod_rol'] === "administrador"){
+              $url ="../vistas/contenidos/formAdmin-vistas.php";
             }else{
-              $url="127.0.0.1/Hydra/Codigo_Fuente/vistas/contenido/home-vistas.php";
+              $url="../vistas/contenidos/home-vistas.php";
             }
 
-            return '<script> window.location="'.$url.'" </script>';
+            return header('Location:'.$url);
         }else{
           
           $alerta=[
