@@ -12,10 +12,10 @@ class recuperar_clave extends mainModel{
                 $titulo= "SISTEMA DE RECUPERACIÓN DE CONTRASEÑAS";
                 $msje= "SU CONTRASEÑA ES: <p>".$res."<p><br>\r\n Para volver a iniciar sesión solo debe ingresar <a href='http://198-35.eq.ubiobio.cl:1044/'>al enlace</a><br>\r\n Si todavia presenta problemas por favor contacte al administrador.";
                 $cabeceras= 'From: sistema-gestion-proyecto@face.ubiobio.cl' . "\r\n" .
-                'Reply-To: No-Reply' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
                 mail($_POST['email'],$titulo,$msje,$cabeceras);
+                header("Location:../index.php");
             }
         }catch(Exeption $e){
             echo "Error en la línea". $e->getLine();
