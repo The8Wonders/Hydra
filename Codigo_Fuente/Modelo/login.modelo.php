@@ -7,6 +7,7 @@
     require_once "./core/mainModel.php";
 
     class loginmodelo extends mainModel{
+      
         protected function ingresar_modelo($datos){
             $sql = mainModel::conectar()->prepare("SELECT * FROM usuario WHERE rut= :Rut AND contra= :Clave");
             $sql->bindParam(":Rut", $datos['Rut']);
