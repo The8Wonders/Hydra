@@ -12,7 +12,7 @@
                   <h5>Nuevo Administrador</h5>
               </header>
               <div id="collapse2" class="body">
-              <form class="form-horizontal FormularioAjax"  enctype="multipart/form-data" id="popup-validation" action="<?php echo RUTA ?>ajax/administrador.ajax.php" method="POST" data-form="save" class="FormularioAjax" >
+              <form class="form-horizontal FormularioAjax"  enctype="multipart/form-data" id="popup-validation" action="../../ajax/administrador.ajax.php" method="POST" data-form="save" class="FormularioAjax" >
 
                   <fieldset>
                       <!--Nombres Administrador-->

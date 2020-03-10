@@ -273,11 +273,11 @@
                                     </a>
                                     <ul class="collapse">
                                       <li>
-                                        <a href="../contenidos/formGeneral">
+                                        <a href="../contenidos/formGeneral-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form General </a>
                                       </li>
                                       <li>
-                                        <a href="../contenidos/formValidation">
+                                        <a href="../contenidos/formValidation-vistas.php">
                                           <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
                                       </li>
                                       <li>
@@ -383,7 +383,7 @@
                                   </li>
                                   <li class="nav-divider"></li>
                                   <li>
-                                    <a href="../contenidos/login-vistas.php">
+                                    <a href="../../index.php">
                                       <i class="fa fa-sign-in"></i>
                                       <span class="link-title">
                             Login Page
