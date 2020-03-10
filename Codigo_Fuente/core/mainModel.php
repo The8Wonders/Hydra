@@ -1,11 +1,11 @@
 <?php
 
-  if($peticionAjax){
+  /*if($peticionAjax){
     require_once "../core/configAPP.php";
   }else{
-    require_once "./core/configAPP.php";
-  }
-
+    require_once "../core/configAPP.php";
+  }*/
+  require_once "../core/configAPP.php";
   class mainModel{
 
     protected function conectar(){
@@ -80,6 +80,7 @@
     protected function limpiar_rut($variable){
       $variable=str_ireplace(".","",$variable);
       $variable=str_ireplace("-","",$variable);
+      return $variable;
     }
 
     protected function limpiar_cadena($cadena){
@@ -150,3 +151,20 @@
       return $alerta;
     }
   }
+
+/*class prueba extends mainModel{
+  public function __construct(){
+        $con =mainModel::conectar();
+        if($con){
+          echo "conexion exitosa";
+          $fila =$con->prepare("SELECT * FROM usuario");
+          $fila->execute();
+          $row= $fila->fetch(PDO::FETCH_ASSOC);
+          echo $row['contra'];
+        }else{
+          echo "sin conexion";
+        }
+  
+  }
+}
+$prueba= new prueba;*/

@@ -4,7 +4,7 @@
     }else{
       require_once "./core/mainModel.php";
     }*/
-    require_once "./core/mainModel.php";
+    require_once "../core/mainModel.php";
 
     class loginmodelo extends mainModel{
       
@@ -13,6 +13,7 @@
             $sql->bindParam(":Rut", $datos['Rut']);
             $sql->bindParam(":Clave", $datos['Clave']);
             $sql->execute();
+            //echo "fila afectadas ". $sql->rowCount();
             return $sql;
         }
     }
