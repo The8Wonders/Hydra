@@ -61,6 +61,10 @@ foreign key(cod_semestre) references semestre
 
 create table Documento(
 cod_documento varchar(100),
+nombre varchar(100) not null,
+tmp_nombre varchar(100),
+tamaño int not null,
+tipo varchar(100) not null,
 descripcion varchar(100),
 cod_proyecto varchar(100),
 primary key (cod_documento),
