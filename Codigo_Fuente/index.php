@@ -3,6 +3,11 @@
 <!-- Metis core stylesheet -->
 <link rel="stylesheet" href="vistas/assets/css/main.css">
 
+<!--Bootstrap -->
+<script src="vistas/assets/lib/bootstrap/js/bootstrap.js"></script>
+        <!-- MetisMenu -->
+        <script src="vistas/assets/lib/metismenu/metisMenu.js"></script>
+
 
 <body class="login">
 
@@ -85,10 +90,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-en.min.js"></script>
 
 
-        <!--Bootstrap -->
-        <script src="vistas/assets/lib/bootstrap/js/bootstrap.js"></script>
-        <!-- MetisMenu -->
-        <script src="vistas/assets/lib/metismenu/metisMenu.js"></script>
+        
         <!-- onoffcanvas -->
         <script src="vistas/assets/lib/onoffcanvas/onoffcanvas.js"></script>
         <!-- Screenfull -->

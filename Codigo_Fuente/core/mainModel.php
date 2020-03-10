@@ -23,19 +23,35 @@
       return $respuesta;
     }
 
-    protected function nueva_cuenta($datos){
-      $sql=self::conectar()->prepare("INSERT INTO cuenta(cuentacodigo, cuentarut, cuentaclave, cuentaemail, cuentaestado, cuentatipo, cuentagenero, cuentafoto, cuentaprivilegio) 
-      VALUES (:Codigo, :Rut, :Clave, :Email, :Estado, :Tipo, :Genero, :Foto, :Privilegio)");
+    protected function nuevo_cuenta_rol($dato){
+      $sql=self::conectar()->prepare("INSERT INTO rol(cod_rol) VALUES (:Rol)");
 
-      $sql->bindParam(":Codigo",$datos['Codigo']);
+      $sql->bindParam(":Rol",$dato);
+      $sql->execute();
+
+      return $sql;
+    }
+
+    protected function eliminar_cuenta_rol($dato){
+      $sql=self::conectar()->prepare("DELETE  FROM usuario WHERE rut== :Dato");
+      $sql->bindParam(":Dato", $dato);
+      $sql->execute();
+
+      return $sql;
+    }
+
+    protected function nueva_cuenta($datos){
+      $sql=self::conectar()->prepare("INSERT INTO usuario(rut, nombre, apellido, contraseña, genero, correo, telefono, cod_rol) 
+      VALUES (:Rut, :Nombre, :Apellido, :Contraseña, :Genero, :Correo, :Telefono, :Cod_Rol)");
+
       $sql->bindParam(":Rut",$datos['Rut']);
-      $sql->bindParam(":Clave",$datos['Clave']);
-      $sql->bindParam(":Email",$datos['Email']);
-      $sql->bindParam(":Estado",$datos['Estado']);
-      $sql->bindParam(":Tipo",$datos['Tipo']);
+      $sql->bindParam(":Nombre",$datos['Nombre']);
+      $sql->bindParam(":Apellido",$datos['Apellido']);
+      $sql->bindParam(":Contraseña",$datos['Contraseña']);
       $sql->bindParam(":Genero",$datos['Genero']);
-      $sql->bindParam(":Foto",$datos['Foto']);
-      $sql->bindParam(":Privilegio",$datos['Privilegio']);
+      $sql->bindParam(":Correo",$datos['Correo']);
+      $sql->bindParam(":Telefono",$datos['Telefono']);
+      $sql->bindParam(":Cod_Rol",$datos['Cod_Rol']);
       $sql->execute();
 
       return $sql;
