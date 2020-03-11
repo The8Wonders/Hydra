@@ -13,7 +13,7 @@
     <hr>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="vistas/extras/barra.php" method="POST" autocomplete="off">
+            <form action="" method="POST" autocomplete="off">
                 <p class="text-muted text-center">
                     Ingrese su Rut y Contraseña
                 </p>
@@ -120,3 +120,13 @@
         })(jQuery);
     </script>
 </body>
+
+<?php
+		if(isset($_POST['rut']) && isset($_POST['contraseña'])){
+			require_once "./controladores/login.controlador.php";
+
+			$login = new logincontrolador();
+
+			echo $login->ingresar_controlador();
+		}
+?>

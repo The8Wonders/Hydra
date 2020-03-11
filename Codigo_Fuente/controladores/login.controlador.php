@@ -1,18 +1,15 @@
 <?php   
-    /*if($peticionAjax){
+    if($peticionAjax){
       require_once "../modelo/login.modelo.php";
     }else{
       require_once "./modelo/login.modelo.php";
-    }*/
-
-    require_once "./modelo/login.modelo.php";
+    }
   
     class logincontrolador extends loginmodelo{
 
       public function ingresar_controlador(){
         
         $rut = mainModel::limpiar_cadena($_POST['rut']);
-        $rut=mainModel::limpiar_rut($rut);
         $clave = mainModel::limpiar_cadena($_POST['contraseña']);
         $clave = mainModel::encryption($clave);
 
@@ -24,17 +21,17 @@
         $datosCuenta = loginmodelo::ingresar_modelo($datos);
 
         if($datosCuenta->rowCount() == 1){
-          $cosulta = $datosCuenta->fetch();
+          $consulta = $datosCuenta->fetch();
             session_start(['nombre'=>'SGP']);
-            $_SESSION['rut_usuario']= $cosulta['rut'];
-            $_SESSION['rol_usuario']= $cosulta['cod_rol'];
+            $_SESSION['rut_usuario']= $consulta['rut'];
+            $_SESSION['rol_usuario']= $consulta['cod_rol'];
             //$_SESSION['codigo_usuario']=$cosulta['CuentaCodigo'];
 
             // Administrador
-            if($cosulta['rol_usuario'] === "administrador"){
-              $url =RUTA."formAdmin/";
+            if($consulta['cod_rol'] == "administrador"){
+              $url = "../vistas/contenidos/formAdmin-vistas.php";
             }else{
-              $url=RUTA."home/";
+              $url = "../vistas/contenidos/home-vistas.php";
             }
 
             return $urlLocation='<script> window.location="'.$url.'" </script>';
