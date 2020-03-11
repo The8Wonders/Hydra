@@ -48,7 +48,7 @@
                                     </a>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="../../Modelo/cerrar_sesion.php" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                                    <a href="../../index.php" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
                                        class="btn btn-metis-1 btn-sm">
                                         <i class="fa fa-power-off"></i>
                                     </a>
@@ -383,7 +383,7 @@
                                   </li>
                                   <li class="nav-divider"></li>
                                   <li>
-                                    <a href="../../Modelo/cerrar_sesion.php">
+                                    <a href="../../index.php">
                                       <i class="fa fa-sign-in"></i>
                                       <span class="link-title">
                             Login Page

@@ -1,11 +1,10 @@
 <?php
 
-  /*if($peticionAjax){
+  if($peticionAjax){
     require_once "../core/configAPP.php";
   }else{
-    require_once "../core/configAPP.php";
-  }*/
-  require_once "configAPP.php";
+    require_once "./core/configAPP.php";
+  }
 
   class mainModel{
 
@@ -24,46 +23,19 @@
       return $respuesta;
     }
 
-    protected function nuevo_cuenta_rol($dato){
-      $sql=self::conectar()->prepare("INSERT INTO rol(cod_rol) VALUES (:Rol)");
-
-      $sql->bindParam(":Rol",$dato);
-      $sql->execute();
-
-      return $sql;
-    }
-
-    protected function eliminar_cuenta_rol($dato){
-      $sql=self::conectar()->prepare("DELETE  FROM usuario WHERE rut== :Dato");
-      $sql->bindParam(":Dato", $dato);
-      $sql->execute();
-
-      return $sql;
-    }
-
     protected function nueva_cuenta($datos){
-<<<<<<< HEAD
-      $sql=self::conectar()->prepare("INSERT INTO usuario(rut, nombre, apellido, contraseña, genero, correo, telefono, cod_rol) 
-      VALUES (:Rut, :Nombre, :Apellido, :Contraseña, :Genero, :Correo, :Telefono, :Cod_Rol)");
-=======
-      $sql=self::conectar()->prepare("INSERT INTO usuario VALUES (:Rut, :Nombre, :Apellido, :Clave, :Correo, :Telefono, :Rol)");
->>>>>>> 39af88dbe844eb640d740f6c57e0b57d9742f369
+      $sql=self::conectar()->prepare("INSERT INTO cuenta(cuentacodigo, cuentarut, cuentaclave, cuentaemail, cuentaestado, cuentatipo, cuentagenero, cuentafoto, cuentaprivilegio) 
+      VALUES (:Codigo, :Rut, :Clave, :Email, :Estado, :Tipo, :Genero, :Foto, :Privilegio)");
 
+      $sql->bindParam(":Codigo",$datos['Codigo']);
       $sql->bindParam(":Rut",$datos['Rut']);
-      $sql->bindParam(":Nombre",$datos['Nombre']);
-      $sql->bindParam(":Apellido",$datos['Apellido']);
-<<<<<<< HEAD
-      $sql->bindParam(":Contraseña",$datos['Contraseña']);
+      $sql->bindParam(":Clave",$datos['Clave']);
+      $sql->bindParam(":Email",$datos['Email']);
+      $sql->bindParam(":Estado",$datos['Estado']);
+      $sql->bindParam(":Tipo",$datos['Tipo']);
       $sql->bindParam(":Genero",$datos['Genero']);
-      $sql->bindParam(":Correo",$datos['Correo']);
-      $sql->bindParam(":Telefono",$datos['Telefono']);
-      $sql->bindParam(":Cod_Rol",$datos['Cod_Rol']);
-=======
-      $sql->bindParam(":Clave",$datos['Contra']);
-      $sql->bindParam(":Correo",$datos['Correo']);
-      $sql->bindParam(":Telefono",$datos['Telefono']);
-      $sql->bindParam(":Rol",$datos['Rol']);
->>>>>>> 39af88dbe844eb640d740f6c57e0b57d9742f369
+      $sql->bindParam(":Foto",$datos['Foto']);
+      $sql->bindParam(":Privilegio",$datos['Privilegio']);
       $sql->execute();
 
       return $sql;
@@ -108,7 +80,6 @@
     protected function limpiar_rut($variable){
       $variable=str_ireplace(".","",$variable);
       $variable=str_ireplace("-","",$variable);
-      return $variable;
     }
 
     protected function limpiar_cadena($cadena){
@@ -176,23 +147,6 @@
         ";
       }
 
-      //return $alerta;
+      return $alerta;
     }
   }
-
-/*class prueba extends mainModel{
-  public function __construct(){
-        $con =mainModel::conectar();
-        if($con){
-          echo "conexion exitosa";
-          $fila =$con->prepare("SELECT * FROM usuario");
-          $fila->execute();
-          $row= $fila->fetch(PDO::FETCH_ASSOC);
-          echo $row['contra'];
-        }else{
-          echo "sin conexion";
-        }
-  
-  }
-}
-$prueba= new prueba;*/
