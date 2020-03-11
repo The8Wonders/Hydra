@@ -16,7 +16,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-en.min.js"></script>
 
-
 <!--Bootstrap -->
 <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
 <!-- MetisMenu -->
@@ -27,9 +26,6 @@
 <script src="../assets/lib/screenfull/screenfull.js"></script>
 
 <script src="../assets/lib/jquery-validation/jquery.validate.js"></script>
-
-
-
 <!-- Metis core scripts -->
 <script src="../assets/js/core.js"></script>
 <!-- Metis demo scripts -->
@@ -41,8 +37,23 @@ Metis.formValidation();
 });
 </script>
 
-
 <script src="../assets/js/style-switcher.js"></script>
 <!-- Sweet Alert scripts -->
 <script src="../assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
 <script src="../assets/js/funcion.js"></script>
+
+<script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                $('.list-inline li > a').click(function() {
+                    var activeForm = $(this).attr('href') + ' > form';
+                    //console.log(activeForm);
+                    $(activeForm).addClass('animated fadeIn');
+                    //set timer to 1 seconds, after that, unload the animate animation
+                    setTimeout(function() {
+                        $(activeForm).removeClass('animated fadeIn');
+                    }, 1000);
+                });
+            });
+        })(jQuery);
+</script>

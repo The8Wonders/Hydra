@@ -1,3 +1,7 @@
+<?php 
+require_once "../extras/estilos.php";
+ ?>
+
 <body class="error">
     <div class="container">
         <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -30,4 +34,8 @@
         </div>
         <!-- /.col-lg-8 col-offset-2 -->
     </div>
+    <?php 
+require_once "../extras/footer.php";
+require_once "../extras/script.php"; ?>
+
 </body>

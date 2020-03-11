@@ -1,4 +1,6 @@
-<?php require_once "../extras/barra.php"; ?>
+<?php 
+require_once "../extras/estilos.php";
+require_once "../extras/barra.php"; ?>
 <div id="content">
                     <div class="outer">
                         <div class="inner bg-light lter">
@@ -148,3 +150,6 @@
                     </div>
                     <!-- /.outer -->
                 </div>
+<?php 
+require_once "../extras/footer.php";
+require_once "../extras/script.php"; ?>

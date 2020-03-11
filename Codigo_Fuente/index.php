@@ -1,14 +1,28 @@
-<!-- Bootstrap -->
-<link rel="stylesheet" href="vistas/assets/lib/bootstrap/css/bootstrap.css">
-<!-- Metis core stylesheet -->
-<link rel="stylesheet" href="vistas/assets/css/main.css">
 
 
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gestion de proyectos">
+    <meta name="keywords" content="Gestión, Proyectos">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="vistas/assets/lib/bootstrap/css/bootstrap.css">
+    <!-- Metis core stylesheet -->
+    <link rel="stylesheet" href="vistas/assets/css/main.css">
+    <?php //require_once "vistas/extras/estilos.php"; ?>
+    <title>Sistema De Gestión De Proyectos</title>
+</head>
 <body class="login">
 
       <div class="form-signin">
     <div class="text-center">
-        <img class="logoubb" src="vistas/assets/img/ubb_logo_new.png" alt="Metis Logo">
+        <img class="logoubb" src="vistas/assets/img/ubb_logo_new.png" alt="Universidad Del Bío Bío">
     </div>
     <hr>
     <div class="tab-content">
@@ -36,26 +50,26 @@
         </div>
         <div id="forgot" class="tab-pane">
             <form action="index.html">
-                <p class="text-muted text-center">Enter your valid e-mail</p>
-                <input type="email" placeholder="mail@domain.com" class="form-control">
+                <p class="text-muted text-center">Ingresa Un Correo Valido</p>
+                <input type="email" placeholder="ejemplo@dominio.com" class="form-control">
                 <br>
-                <button class="btn btn-lg btn-danger btn-block" type="submit">Recover Password</button>
+                <button class="btn btn-lg btn-danger btn-block" type="submit">Recuperar Contraseña</button>
             </form>
         </div>
         <div id="signup" class="tab-pane">
             <form action="index.html">
-                <input type="text" placeholder="username" class="form-control top">
-                <input type="email" placeholder="mail@domain.com" class="form-control middle">
-                <input type="password" placeholder="password" class="form-control middle">
-                <input type="password" placeholder="re-password" class="form-control bottom">
-                <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+                <input type="text" name="nombre" placeholder="Nombre" class="form-control top">
+                <input type="email" name="correo" placeholder="ejemplo@dominio.com" class="form-control middle">
+                <input type="password" name="clave" placeholder="Clave" class="form-control middle">
+                <input type="password" name="clave2" placeholder="Repetir Clave" class="form-control bottom">
+                <button class="btn btn-lg btn-success btn-block" type="submit">Registerarse</button>
             </form>
         </div>
     </div>
     <hr>
     <div class="text-center">
         <ul class="list-inline">
-            <li><a class="text-muted" href="#login" data-toggle="tab">Login</a></li>
+            <li><a class="text-muted" href="#login" data-toggle="tab">Iniciar Sesión</a></li>
             <li><a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a></li>
             <li><a class="text-muted" href="#signup" data-toggle="tab">Signup</a></li>
         </ul>
@@ -99,6 +113,7 @@
         <script src="vistas/assets/js/core.js"></script>
         <!-- Metis demo scripts -->
         <script src="vistas/assets/js/app.js"></script>
+        <script src="../assets/js/style-switcher.js"></script>
         <!-- Sweet Alert scripts -->
         <script src="vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
         <script src="vistas/assets/js/funcion.js"></script>
@@ -119,7 +134,6 @@
             });
         })(jQuery);
     </script>
-</body>
 
 <?php
 		if(isset($_POST['rut']) && isset($_POST['contraseña'])){
@@ -130,3 +144,6 @@
 			echo $login->ingresar_controlador();
 		}
 ?>
+
+</body>
+</html>

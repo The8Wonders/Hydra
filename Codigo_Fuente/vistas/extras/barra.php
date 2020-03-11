@@ -1,5 +1,4 @@
-<?php include "estilos.php";
-      include "script.php" ?>
+<?php //include "estilos.php";?>
 <body class="  ">
             <div class="bg-dark dk" id="wrap">
                 <div id="top">
@@ -17,47 +16,64 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="../contenidos/home-vistas.php" class="navbar-brand"><img src="../assets/img/logo.png" alt=""></a>
+                                <a href="../contenidos/home-vistas.php" class="navbar-brand"><img src="../assets/img/ubb_logo_new.png" height="42" width="121" alt=""></a>
                     
                             </header>
                     
                     
                     
                             <div class="topnav">
+                                    <!-- P A N T A L L A      C O M P L E T A  -->
                                 <div class="btn-group">
-                                    <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip"
+                                    <a data-placement="bottom" data-original-title="Pantalla Completa" data-toggle="tooltip"
                                        class="btn btn-default btn-sm" id="toggleFullScreen">
                                         <i class="glyphicon glyphicon-fullscreen"></i>
                                     </a>
                                 </div>
+                                <!-- F I N      P A N T A L L A   C O M P L E T A  -->
+
                                 <div class="btn-group">
-                                    <a data-placement="bottom" data-original-title="E-mail" data-toggle="tooltip"
+                                    <!--  C O R R E O  -->
+                                    <a data-placement="bottom" data-original-title="Notificaciones" data-toggle="tooltip"
                                        class="btn btn-default btn-sm">
                                         <i class="fa fa-envelope"></i>
                                         <span class="label label-warning">5</span>
                                     </a>
-                                    <a data-placement="bottom" data-original-title="Messages" href="#" data-toggle="tooltip"
+                                    <!-- F I N    C O R R E O  -->
+
+                                    <!--  M E N S A J E S  -->
+                                    <a data-placement="bottom" data-original-title="Mensajes" href="#" data-toggle="tooltip"
                                        class="btn btn-default btn-sm">
                                         <i class="fa fa-comments"></i>
                                         <span class="label label-danger">4</span>
                                     </a>
+                                    <!--  F I N   M E N S A J E S  -->
+
+                                    <!-- A Y U D A  -->
                                     <a data-toggle="modal" data-original-title="Help" data-placement="bottom"
                                        class="btn btn-default btn-sm"
                                        href="#helpModal">
                                         <i class="fa fa-question"></i>
                                     </a>
+                                    <!-- F I N  A Y U D A  -->
                                 </div>
+                                
+                                <!--  C E R R A R    S E S I O N  -->
                                 <div class="btn-group">
-                                    <a href="../../index.php" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                                    <a href="../../Modelo/cerrar_sesion.php" data-toggle="tooltip" data-original-title="Cerrar Sesión" data-placement="bottom"
                                        class="btn btn-metis-1 btn-sm">
                                         <i class="fa fa-power-off"></i>
                                     </a>
                                 </div>
+                                <!-- F I N  C E R R A R    S E S I O N  -->
                                 <div class="btn-group">
-                                    <a data-placement="bottom" data-original-title="Show / Hide Left" data-toggle="tooltip"
+                                    <!--    -->
+                                    <a data-placement="bottom" data-original-title="Ver / Ocultar / Acoplar" data-toggle="tooltip"
                                        class="btn btn-primary btn-sm toggle-left" id="menu-toggle">
                                         <i class="fa fa-bars"></i>
                                     </a>
+                                    <!--  F I N   V E R / O C U L T A R  -->
+
                                     <a href="#right" data-toggle="onoffcanvas" class="btn btn-default btn-sm" aria-expanded="false">
                                         <span class="fa fa-fw fa-comment"></span>
                                     </a>
@@ -94,10 +110,11 @@
                     </nav>
                     <!-- /.navbar -->
                         <header class="head">
+                                <!-- B A R R A    D E   B U S Q U E D A -->
                                 <div class="search-bar">
                                     <form class="main-search" action="">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Live Search ...">
+                                            <input type="text" class="form-control" placeholder="Buscar  ...">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-primary btn-sm text-muted" type="button">
                                                     <i class="fa fa-search"></i>
@@ -105,35 +122,37 @@
                                             </span>
                                         </div>
                                     </form>
-                                    <!-- /.main-search -->                                </div>
+                                  </div>
+                                    <!-- F I N   B A R R A    D E   B U S Q U E D A -->
+                                    <!-- /.main-search -->
                                 <!-- /.search-bar -->
+                            <!-- B A R R A    D E   M A I N -->
                             <div class="main-bar">
-                                <h3>
-              <i class="fa fa-home"></i>&nbsp;
-            Metis
-          </h3>
+                                <h3><i class="fa fa-home"></i>&nbsp;Sistema De Gestión De Proyectos</h3>
                             </div>
+                            <!-- F I N    B A R R A    D E   M A I N -->
                             <!-- /.main-bar -->
                         </header>
                         <!-- /.head -->
                 </div>
                 <!-- /#top -->
                     <div id="left">
+                              <!-- U S U A R I O  -->
                         <div class="media user-media bg-dark dker">
                             <div class="user-media-toggleHover">
                                 <span class="fa fa-user"></span>
                             </div>
                             <div class="user-wrapper bg-dark">
-                                <a class="user-link" href="">
+                                <a class="user-link" href="../contenidos/perfil-vistas.php">
                                     <img class="media-object img-thumbnail user-img" alt="User Picture" src="../assets/img/user.gif">
                                     <span class="label label-danger user-label">16</span>
                                 </a>
                         
                                 <div class="media-body">
-                                    <h5 class="media-heading">Archie</h5>
+                                    <h5 class="media-heading">Usuario</h5>
                                     <ul class="list-unstyled user-info">
-                                        <li><a href="">Administrator</a></li>
-                                        <li>Last Access : <br>
+                                        <li><a href="">Rol</a></li>
+                                        <li>Última Conexión : <br>
                                             <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
                                         </li>
                                     </ul>
@@ -383,10 +402,10 @@
                                   </li>
                                   <li class="nav-divider"></li>
                                   <li>
-                                    <a href="../../index.php">
+                                    <a href="../../Modelo/cerrar_sesion.php">
                                       <i class="fa fa-sign-in"></i>
                                       <span class="link-title">
-                            Login Page
+                            Cerrar Sesión
                             </span>
                                     </a>
                                   </li>
@@ -444,3 +463,4 @@
                                 </ul>
                         <!-- /#menu -->
                     </div>
+<?php //include "script.php" ?>

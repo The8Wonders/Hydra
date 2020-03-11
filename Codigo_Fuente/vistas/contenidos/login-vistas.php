@@ -1,3 +1,4 @@
+<?php require_once "../extras/estilos.php";?>
 <body class="login">
 
       <div class="form-signin">
@@ -88,4 +89,6 @@
         $login = new logincontrolador();
         echo $login->ingresar_controlador();
     }
+require_once "../extras/footer.php";
+require_once "../extras/script.php";
 ?>
