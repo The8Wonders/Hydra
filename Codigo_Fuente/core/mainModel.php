@@ -1,10 +1,6 @@
 <?php
 
-  if($peticionAjax){
-    require_once "../core/configAPP.php";
-  }else{
-    require_once "./core/configAPP.php";
-  }
+  require_once "configAPP.php";
 
   class mainModel{
 
@@ -24,17 +20,15 @@
     }
 
     protected function nueva_cuenta($datos){
-      $sql=self::conectar()->prepare("INSERT INTO usuario( rut, nombre, apellido, contraseña, correo, telefono, cod_rol ) 
-      VALUES (:Rut ,:Nombre ,:Apellido ,:Contraseña ,:Correo ,:Telefono ,:Cod_Rol)");
+      $sql=self::conectar()->prepare("INSERT INTO usuario VALUES (:Rut, :Nombre, :Apellido, :Clave, :Correo, :Telefono, :Rol)");
 
       $sql->bindParam(":Rut",$datos['Rut']);
       $sql->bindParam(":Nombre",$datos['Nombre']);
       $sql->bindParam(":Apellido",$datos['Apellido']);
-      $sql->bindParam(":Contraseña",$datos['Contraseña']);
+      $sql->bindParam(":Clave",$datos['Contra']);
       $sql->bindParam(":Correo",$datos['Correo']);
       $sql->bindParam(":Telefono",$datos['Telefono']);
-      $sql->bindParam(":Cod_Rol",$datos['Cod_Rol']);
-
+      $sql->bindParam(":Rol",$datos['Rol']);
       $sql->execute();
 
       return $sql;
