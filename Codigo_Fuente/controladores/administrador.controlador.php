@@ -15,28 +15,27 @@ class administradorcontrolador extends administradormodelo
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
     $rol = mainModel::limpiar_cadena($_POST['rol']);
 
-    if( $rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "" ){
+    if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
       echo json_encode('incompletos');
-    }else{
+    } else {
       if ($contraseña1 != $contraseña2) {
         echo json_encode('contraseñas');
       } else {
-  
+
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
-  
+
         if ($consulta1->rowCount() >= 1) {
-  
+
           echo json_encode('rut');
-  
         } else {
-  
+
           $consulta2 = mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo= '$correo'");
-  
-          if ($consulta2->rowCount()>=1) {
+
+          if ($consulta2->rowCount() >= 1) {
             echo json_encode('correo');
           } else {
             $clave = mainModel::encryption($contraseña1);
-  
+
             $nuevaCuenta = [
               "Rut" => $rut,
               "Nombre" => $nombre,
@@ -46,14 +45,14 @@ class administradorcontrolador extends administradormodelo
               "Rol" => $rol,
               "Contra" => $clave
             ];
-  
+
             $guardarcuenta = mainModel::nueva_cuenta($nuevaCuenta);
-  
+
             if ($guardarcuenta->rowCount() >= 1) {
-  
+
               echo json_encode('correcto');
             } else {
-  
+
               echo json_encode('incorrecto');
             }
           }
