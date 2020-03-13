@@ -1,6 +1,10 @@
 <?php 
 require_once "../extras/estilos.php";
 require_once "../extras/barra.php"; ?>
+
+<body>
+  
+
 <div id="content">
   <div class="outer">
     <div class="inner bg-light lter"> 
@@ -14,7 +18,7 @@ require_once "../extras/barra.php"; ?>
                   <h5>Nuevo Administrador</h5>
               </header>
               <div id="collapse2" class="body">
-              <form class="form-horizontal FormularioAjax"  enctype="multipart/form-data" id="popup-validation" action="../../ajax/administrador.ajax.php" method="POST" data-form="save" class="FormularioAjax" >
+              <form class="form-horizontal" action="" method="POST" id="formAdmin">
 
                   <fieldset>
                       <!--Nombres Administrador-->
@@ -22,7 +26,7 @@ require_once "../extras/barra.php"; ?>
                         <label for="nombre1" class="control-label col-lg-2">Primer Nombre</label>
 
                         <div class="col-lg-4">
-                            <input name="nombre1" type="text" id="nombre1" placeholder="Matias" class="validate[required] form-control" required>
+                            <input name="nombre" type="text" id="nombre" placeholder="Matias" class="validate[required] form-control" required>
                         </div>
 
                         <label for="nombre2" class="control-label col-lg-2">Segundo Nombre</label>
@@ -37,7 +41,7 @@ require_once "../extras/barra.php"; ?>
                         <label for="apellido1" class="control-label col-lg-2">Apellido Paterno</label>
 
                         <div class="col-lg-4">
-                            <input name="apellido1" type="text" id="apellido1" placeholder="Castro" class="validate[required] form-control" required>
+                            <input name="apellido" type="text" id="apellido" placeholder="Castro" class="validate[required] form-control" required>
                         </div>
 
                         <label for="apellido2" class="control-label col-lg-2">Apellido Materno</label>
@@ -61,15 +65,15 @@ require_once "../extras/barra.php"; ?>
                         <label class="control-label col-lg-2">Contraseña</label>
 
                         <div class=" col-lg-4">
-                            <input name="contraseña1" class="validate[required] form-control" type="password" name="pass1" id="pass1" required />
+                            <input name="contra" class="validate[required] form-control" type="password" id="contra" required />
                         </div>
                   </div>
                   <div class="form-group">
                         <label class="control-label col-lg-2">Repetir Contraseña</label>
 
                         <div class=" col-lg-4">
-                            <input name="contraseña2" class="validate[required,equals[pass1]] form-control" type="password" name="pass2"
-                                      id="pass2" required/>
+                            <input name="re-contra" class="validate[required,equals[pass1]] form-control" type="password"
+                                      id="re-contra" required/>
                         </div>
                   </div>
 
@@ -78,8 +82,8 @@ require_once "../extras/barra.php"; ?>
                         <label class="control-label col-lg-2">E-Mail</label>
 
                         <div class=" col-lg-6">
-                            <input name="email" class="validate[required,custom[email]] form-control" type="text" name="email1" placeholder="Ejemplo@gmail.com"
-                                   id="email1" required/>
+                            <input name="correo" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com"
+                                   id="correo" required/>
                         </div>
                  </div>
 
@@ -93,10 +97,10 @@ require_once "../extras/barra.php"; ?>
 
                         <div class=" col-lg-3">
                             <input name="telefono" class="validate[required,custom[number]] form-control" type="number" min="920000000" pattern="^[0-9]+"
-                                   name="numbe2r" id="number2" maxlength="9" required/>
+                                 id="telefono" maxlength="9" required/>
                         </div>
                 </div>
-
+                <input type="hidden" name="rol" value="administrador">
                  <!--Genero Administrador-->
                 <div class="form-group">
                         <label class="control-label col-lg-2">Genero</label>
@@ -118,7 +122,6 @@ require_once "../extras/barra.php"; ?>
                         <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>
                   </fieldset>
-                <div class="RespuestaAjax"></div>
               </form>
               </div>
             </div>
@@ -127,7 +130,10 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
 </div>
+<script src="../assets/js/administrador.js"></script>
 
-<<?php 
+</body>
+<?php 
 require_once "../extras/footer.php";
 require_once "../extras/script.php"; ?>
+

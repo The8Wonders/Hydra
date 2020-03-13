@@ -1,12 +1,8 @@
 <?php
-/*if($peticionAjax){
-      require_once "../modelo/administrador.modelo.php";
-    }else{
-      require_once "./modelo/administrador.modelo.php";
-    }*/
-require_once "../core/mainModel.php";
 
-class alumnocontrolador extends mainModel
+require_once "../modelo/login.modelo.php";
+
+class alumnocontrolador extends loginmodelo
 {
 
   public function nuevo_alumno_controlador()
