@@ -1,9 +1,5 @@
 <?php
-  if($peticionAjax){
     require_once "../core/mainModel.php";
-  }else{
-    require_once "./core/mainModel.php";
-  }
 
   class administradormodelo extends mainModel {
     protected function nuevo_administrador_modelo($datos){
