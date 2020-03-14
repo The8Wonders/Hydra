@@ -60,7 +60,7 @@
                         </div>
                         <div id="forgot" class="tab-pane">
                             <!-- RECUPERAR CONTRASEÃ‘A -->
-                            <form action="Modelo/recuperar_clave.php" method="POST">
+                            <form action="modelo/recuperar_clave.php" method="POST">
                                 <p class="text-muted text-center">Ingresa tu Correo</p>
                                 <input type="email" placeholder="ejemplo@dominio.com" class="form-control" name="email">
                                 <br>
@@ -89,7 +89,7 @@
                     <div class="text-center">
                         <ul class="list-inline">
                             <li><a class="text-muted" href="#login" data-toggle="tab">Iniciar Sesion</a></li>
-                            <li><a class="text-muted" href="#forgot" data-toggle="tab">Olvide Mi Clave</a></li>
+                            <li><a class="text-muted" href="#forgot" data-toggle="tab">Olvidé Mi Clave</a></li>
                             <li><a class="text-muted" href="#signup" data-toggle="tab">Registrarse</a></li>
                         </ul>
                     </div>
