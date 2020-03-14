@@ -1,10 +1,10 @@
 <?php
 
-require_once "../modelo/administrador.modelo.php";
+require_once "../modelo/profesor.modelo.php";
 
-class administradorcontrolador extends administradormodelo
+class profesorcontrolador extends profesormodelo
 {
-  public function nuevo_administrador_controlador()
+  public function nuevo_profesor_controlador()
   {
     $rut = mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
@@ -50,7 +50,7 @@ class administradorcontrolador extends administradormodelo
 
             if ($guardarcuenta->rowCount() >= 1) {
 
-              $guardaradmin = administradormodelo::nuevo_administrador_modelo($rut);
+              $guardaradmin = profesormodelo::nuevo_profesor_modelo($rut);
 
               if($guardaradmin->rowCount()>=1){
                 echo json_encode('correcto');
@@ -69,5 +69,5 @@ class administradorcontrolador extends administradormodelo
   }
 }
 
-$admi = new administradorcontrolador;
-$admi->nuevo_administrador_controlador();
+$admi = new profesorcontrolador;
+$admi->nuevo_profesor_controlador();

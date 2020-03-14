@@ -1,17 +1,17 @@
-console.log('funcionando');
-var formularioAdmin = document.getElementById('formAdmin');
 
-formularioAdmin.addEventListener('submit', function (e) {
+var formularioProfesor = document.getElementById('formProfesor');
+
+formularioProfesor.addEventListener('submit', function (e) {
   e.preventDefault();
   console.log('Clic Administrador')
 
-  var datos = new FormData(formularioAdmin);
+  var datos = new FormData(formularioProfesor);
 
   console.log(datos)
   console.log(datos.get('nombre'))
   console.log(datos.get('apellido'))
 
-  fetch('../../../controladores/administrador.controlador.php', {
+  fetch('../../../controladores/profesor.controlador.php', {
     method: 'POST',
     body: datos
   })

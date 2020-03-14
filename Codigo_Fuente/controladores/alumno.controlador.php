@@ -1,8 +1,8 @@
 <?php
 
-require_once "../modelo/login.modelo.php";
+require_once "../modelo/alumno.modelo.php";
 
-class alumnocontrolador extends loginmodelo
+class alumnocontrolador extends alumnomodelo
 {
 
   public function nuevo_alumno_controlador()
@@ -51,8 +51,15 @@ class alumnocontrolador extends loginmodelo
             $guardarcuenta = mainModel::nueva_cuenta($nuevaCuenta);
   
             if ($guardarcuenta->rowCount() >= 1) {
+
+              $guardaralumno = alumnomodelo::nuevo_alumno_modelo($rut);
   
-              echo json_encode('correcto');
+              if($guardaralumno->rowCount()>=1){
+                echo json_encode('correcto');
+              }else{
+                echo json_encode('alumno');
+              }
+              
             } else {
   
               echo json_encode('incorrecto');

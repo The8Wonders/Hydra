@@ -58,6 +58,14 @@ formulario.addEventListener('submit', function (e) {
 										title: 'Lo sentimos',
 										text: 'El correo ya se encuentra registrado',
 									})
+								}else{
+									if(data == 'alumno'){
+										Swal.fire({
+											icon: 'error',
+											title: 'Lo sentimos',
+											text: 'E alumno no se a podido registrar',
+										})
+									}
 								}
 							}
 						}
