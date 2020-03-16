@@ -98,6 +98,7 @@ foreign key (cod_equipo) references Equipo
 
 create table Alu_documento(
 rut varchar(100),
+fecha-subida date,
 cod_documento varchar(100),
 primary key(rut,cod_documento),
 foreign key (rut)references Alumno,
