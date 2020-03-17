@@ -16,12 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- IMAGEN Y TITULO -->
-            <div class="col-sm-6 col-md-7 col-lg-6">
-                <div class="gestion">
-                    <h2>Sistema de Gestion de Proyectos</h2>
-                    <img class="scrum" src="vistas/assets/img/kanban2.jpg" alt="">
-                </div>
-            </div>
+            
             <!-- FIN IMAGEN TITULO -->
 
             <!-- FORMULARIO LOGIN -->
@@ -36,7 +31,7 @@
                             <!-- L O G I N -->
                             <form action="" method="POST" autocomplete="off" id="formLogin">
                                 <p class="text-muted text-center">
-                                    Ingrese su Rut y Contraseña
+                                    Ingrese su Rut y Contraseña 
                                 </p>
 
                                 <div class="box1">
