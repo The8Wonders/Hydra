@@ -5,7 +5,7 @@ require_once "configAPP.php";
 class mainModel
 {
 
-  protected function conectar()
+  public function conectar()
   {
 
     $enlace = new PDO(SGBD, USER, PASS);
@@ -13,7 +13,7 @@ class mainModel
     return $enlace;
   }
 
-  protected function ejecutar_consulta_simple($consulta)
+  public function ejecutar_consulta_simple($consulta)
   {
 
     $respuesta = mainModel::conectar()->prepare($consulta);
@@ -22,7 +22,7 @@ class mainModel
     return $respuesta;
   }
 
-  protected function nueva_cuenta($datos)
+  public function nueva_cuenta($datos)
   {
     $sql = self::conectar()->prepare("INSERT INTO usuario VALUES (:Rut, :Nombre, :Apellido, :Clave, :Correo, :Telefono, :Rol)");
 
@@ -38,7 +38,7 @@ class mainModel
     return $sql;
   }
 
-  protected function eliminar_cuenta($codigo)
+  public function eliminar_cuenta($codigo)
   {
     $sql = self::conectar()->prepare("DELETE  FROM usuario WHERE rut== :Codigo");
     $sql->bindParam(":Codigo", $codigo);
@@ -58,7 +58,7 @@ class mainModel
     return $output;
   }
 
-  protected function decryption($string)
+  public function decryption($string)
   {
     $key = hash('sha256', SECRET_KEY);
     $iv = substr(hash('sha256', SECRET_IV), 0, 16);
@@ -67,7 +67,7 @@ class mainModel
     return $output;
   }
 
-  protected function generar_codigo_aleatorio($letra, $longitud, $num)
+  public function generar_codigo_aleatorio($letra, $longitud, $num)
   {
     for ($i = 1; $i <= $longitud; $i++) {
       $numero = rand(0, 9);
@@ -78,14 +78,14 @@ class mainModel
     return $letra . $num;
   }
 
-  protected function limpiar_rut($variable)
+  public function limpiar_rut($variable)
   {
     $variable = str_ireplace(".", "", $variable);
     $variable = str_ireplace("-", "", $variable);
     return $variable;
   }
 
-  protected function limpiar_cadena($cadena)
+  public function limpiar_cadena($cadena)
   {
     /*trim elimina los espacios del string*/
     $cadena = trim($cadena);

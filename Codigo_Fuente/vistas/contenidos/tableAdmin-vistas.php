@@ -25,7 +25,11 @@ require_once "../extras/barra.php"; ?>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                  <thead>
+                  <thead> 
+                    <?php require_once "../../core/mainModel.php";
+                      $c = new mainModel();
+                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario")
+                    ?>
                     <tr>
                       <th>Rut</th>
                       <th>Nombre</th>
@@ -37,15 +41,17 @@ require_once "../extras/barra.php"; ?>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php foreach($datos as $rows){?>
                     <tr>
-                      <td>Trident</td>
-                      <td>Internet Explorer 4.0</td>
-                      <td>Win 95+</td>
-                      <td>4</td>
-                      <td>X</td>
-                      <td><a href=""><i class="far fa-edit"></i></a></td>
+                      <td><?php echo $rows['rut']?></td>
+                      <td><?php echo $rows['nombre']?></td>
+                      <td><?php echo $rows['apellido']?></td>
+                      <td><?php echo $rows['correo']?></td>
+                      <td><?php echo $rows['telefono']?></td>
+                      <td><a href="" onclick="edit()"><i class="far fa-edit"></i></a></td>
                       <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
+                    <?php }?>
                   </tbody>
                 </table>
               </div>
@@ -59,7 +65,7 @@ require_once "../extras/barra.php"; ?>
     </div>
     <!-- /.outer -->
   </div>
-
+<script src="../assets/js/editAdmin.js"></script>
 </body>
 
 <?php
