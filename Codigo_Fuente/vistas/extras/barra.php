@@ -57,7 +57,7 @@
 
             <!--  C E R R A R    S E S I O N  -->
             <div class="btn-group">
-              <a href="../../Modelo/cerrar_sesion.php" data-toggle="tooltip" data-original-title="Cerrar Sesión" data-placement="bottom" class="btn btn-metis-1 btn-sm">
+              <a href="../../modelo/cerrar_sesion.php" data-toggle="tooltip" data-original-title="Cerrar Sesión" data-placement="bottom" class="btn btn-metis-1 btn-sm">
                 <i class="fa fa-power-off"></i>
               </a>
             </div>
@@ -398,7 +398,7 @@
         </li>
         <li class="nav-divider"></li>
         <li>
-          <a href="../../Modelo/cerrar_sesion.php">
+          <a href="../../modelo/cerrar_sesion.php">
             <i class="fa fa-sign-in"></i>
             <span class="link-title">
               Cerrar Sesión

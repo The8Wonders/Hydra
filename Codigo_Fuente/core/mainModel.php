@@ -47,6 +47,12 @@ class mainModel
     return $sql;
   }
 
+  public function update_cuenta($rut){
+    $sql= self::conectar()->prepare("UPDATE usuario SET 
+    ");
+  }
+
+
   public function encryption($string)
   {
     $output = FALSE;

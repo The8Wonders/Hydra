@@ -9,13 +9,10 @@ require_once "../extras/barra.php"; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
-
-
         <div class="row">
           <div class="col-lg-12">
             <div class="box dark">
@@ -134,10 +131,8 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   <script src="../assets/js/profesor.js"></script>
+  <?php
+    require_once "../extras/footer.php";
+    require_once "../extras/script.php";?>
 </body>
-
-<?php
-require_once "../extras/footer.php";
-require_once "../extras/script.php"; ?>
-
 </html>
