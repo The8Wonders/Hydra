@@ -39,7 +39,7 @@
                       <label for="nombre2" class="control-label col-lg-2">Apellidos</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre2" type="text" id="nombre2" class="validate[required] form-control" required>
+                        <input name="apellido" type="text" id="nombre2" class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -55,7 +55,7 @@
                       <label class="control-label col-lg-2">E-Mail</label>
 
                       <div class=" col-lg-4">
-                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com" id="correo" required />
+                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" readonly placeholder="Ejemplo@gmail.com" id="correo" required />
                       </div>
                     </div>
 
@@ -181,7 +181,7 @@
                       <label class="control-label col-lg-2">E-Mail</label>
 
                       <div class=" col-lg-4">
-                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com" id="correo" required />
+                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" readonly placeholder="Ejemplo@gmail.com" id="correo" required />
                       </div>
                     </div>
 
@@ -271,7 +271,7 @@
                       <label class="control-label col-lg-2">E-Mail</label>
 
                       <div class=" col-lg-4">
-                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com" id="correo" required />
+                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" readonly placeholder="Ejemplo@gmail.com" id="correo" required />
                       </div>
                     </div>
 
