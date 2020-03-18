@@ -40,12 +40,26 @@ class mainModel
 
   public function eliminar_cuenta($codigo)
   {
-    $sql = self::conectar()->prepare("DELETE  FROM usuario WHERE rut== :Codigo");
+    $sql = self::conectar()->prepare("DELETE  FROM usuario WHERE rut= :Codigo");
     $sql->bindParam(":Codigo", $codigo);
     $sql->execute();
 
     return $sql;
   }
+
+  public function update_cuenta($datos){ // alumno edita su perfil
+    $sql= self::conectar()->prepare("UPDATE usuario SET 
+    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, contraseña=:Clave WHERE rut=:Rut");
+
+    $sql->bindParam(":Rut",$datos['rut']);
+    $sql->bindParam(":Nombre",$datos['nombre']);
+    $sql->bindParam(":Apellido",$datos['apellido']);
+    $sql->bindParam(":Telefono",$datos['telefono']);
+    $sql->bindParam(":Clave",$datos['contraseña']);
+
+    return $sql;
+  }
+
 
   public function encryption($string)
   {
