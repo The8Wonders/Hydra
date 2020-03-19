@@ -55,6 +55,7 @@ class profesorcontrolador extends profesormodelo
               if($guardaradmin->rowCount()>=1){
                 $respuesta = "correcto";
               }else{
+                mainModel::eliminar_cuenta($rut);
                 $respuesta = "administrador";
               }
               

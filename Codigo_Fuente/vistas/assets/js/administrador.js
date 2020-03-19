@@ -29,11 +29,9 @@ formularioAdmin.addEventListener('submit', function (e) {
         if (data == 'correcto') {
           document.getElementById("formAdmin").reset();
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            title: 'Creado con exito',
+            text: 'El administrador se creo con exito',
           })
         } else {
           if (data == 'contraseñas') {

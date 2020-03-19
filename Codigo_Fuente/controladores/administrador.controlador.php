@@ -62,6 +62,7 @@ class administradorcontrolador extends administradormodelo
               if ($guardaradmin->rowCount() >= 1) {
                 $respuesta = "correcto";
               } else {
+                mainModel::eliminar_cuenta($rut);
                 $respuesta = "administrad";
               }
             } else {

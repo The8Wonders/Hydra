@@ -20,16 +20,23 @@ class logincontroldaor extends loginmodelo{
       $datosCuenta = loginmodelo::ingresar_modelo($datos);
 
       if($datosCuenta->rowCount()>=1){
-        session_start();
-        $_SESSION['rut']= $datos['Rut'];
+
+        $row = $datosCuenta->fetch();
+
+        session_start(['name'=>'SGP']);
+        $_SESSION['rut_sgp']= $row['rut'];
+        $_SESSION['nombre_sgp']= $row['nombre'];
+        $_SESSION['apellido_sgp']= $row['apellido'];
+        $_SESSION['contraseña_sgp']= $row['contraseña'];
+        $_SESSION['correo_sgp']= $row['correo'];
+        $_SESSION['telefono_sgp']= $row['telefono'];
+        $_SESSION['cod_rol_sgp']= $row['cod_rol'];
+
         echo json_encode('existe');
       }else{
         echo json_encode('noexiste');
       }
     }
-    
-
-    
 
   }
 }

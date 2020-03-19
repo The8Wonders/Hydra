@@ -29,11 +29,9 @@ formularioProfesor.addEventListener('submit', function (e) {
         if (data == 'correcto') {
           document.getElementById("formProfesor").reset();
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            title: 'Cuenta Creada',
+            text: 'LA cuenta a sido creada con exito',
           })
         } else {
           if (data == 'contraseñas') {

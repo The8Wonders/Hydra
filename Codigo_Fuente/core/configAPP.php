@@ -1,9 +1,9 @@
 <?php
 
-const SERVER = "localhost";// 146.83.198.35
+const SERVER = "146.83.198.35";// 146.83.198.35
 const DB = "grupo6is_db";
-const USER = "postgres"; // grupo6is
-const PASS = "1234";// ISgrupo6
+const USER = "grupo6is"; // grupo6is
+const PASS = "ISgrupo6";// ISgrupo6
 const PORT = "5432";
 
 const SGBD = "pgsql:host=".SERVER.";port=".PORT.";dbname=".DB;

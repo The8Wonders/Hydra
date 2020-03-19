@@ -57,6 +57,7 @@ class alumnocontrolador extends alumnomodelo
               if($guardaralumno->rowCount()>=1){
                 echo json_encode('correcto');
               }else{
+                mainModel::eliminar_cuenta($rut);
                 echo json_encode('alumno');
               }
               
