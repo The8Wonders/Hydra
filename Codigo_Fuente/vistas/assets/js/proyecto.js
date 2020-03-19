@@ -9,7 +9,8 @@ formularioProyecto.addEventListener('submit', function (e) {
 
   console.log(datos)
   console.log(datos.get('nombre'))
-  console.log(datos.get('codProyecto'))
+  console.log(datos.get('codigoProyecto'))
+  console.log(datos.get('tipoProyecto'))
 
   fetch('../../../controladores/proyecto.insert.controlador.php', {
     method: 'POST',
