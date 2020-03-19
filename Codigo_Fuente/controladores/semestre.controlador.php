@@ -4,9 +4,9 @@
   class semestrecontrolador extends semestremodelo{
     public function nuevo_semestre_controlador(){
       $año = mainModel::limpiar_cadena($_POST['fechaInicio']);
-      $año = date("Y", $año);
-      $semestre = mainModel::limpiar_cadena($_POST['fechaInicio']);
-      $semestre = date("m",$semestre);
+      $fechaEntera = strtotime($año);
+      $año = date("Y", $fechaEntera);
+      $semestre = date("m",$fechaEntera);
       $fechaInicio = mainModel::limpiar_cadena($_POST['fechaInicio']);
       $fechaFin = mainModel::limpiar_cadena($_POST['fechaFin']);
 
@@ -17,9 +17,9 @@
           $respuesta = "fechas";
         }else{
           if($semestre > 6){
-            $semestre = $año."2";
+            $semestre = $año."-"."2";
           }else{
-            $semestre = $año."1";
+            $semestre = $año."-"."1";
           }
 
           $consulta1 = mainModel::ejecutar_consulta_simple("SELECT cod_semestre FROM semestre WHERE cod_semestre= '$semestre'");
