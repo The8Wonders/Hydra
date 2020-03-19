@@ -92,7 +92,7 @@ require_once "../extras/barra.php"; ?>
                     
 
                     <!--Descripcion proyecto-->
-                    <div class="form-group">
+                    <div class=" form-group">
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
                       
                       <div class="col-lg-4">
