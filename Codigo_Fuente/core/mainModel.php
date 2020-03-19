@@ -47,15 +47,29 @@ class mainModel
     return $sql;
   }
 
-  public function update_cuenta($datos){ // alumno edita su perfil
+  public function update_cuenta($datos){ 
     $sql= self::conectar()->prepare("UPDATE usuario SET 
     nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, contraseña=:Clave WHERE rut=:Rut");
 
-    $sql->bindParam(":Rut",$datos['rut']);
-    $sql->bindParam(":Nombre",$datos['nombre']);
-    $sql->bindParam(":Apellido",$datos['apellido']);
-    $sql->bindParam(":Telefono",$datos['telefono']);
-    $sql->bindParam(":Clave",$datos['contraseña']);
+    $sql->bindParam(":Rut",$datos['Rut']);
+    $sql->bindParam(":Nombre",$datos['Nombre']);
+    $sql->bindParam(":Apellido",$datos['Apellido']);
+    $sql->bindParam(":Telefono",$datos['Telefono']);
+    $sql->bindParam(":Clave",$datos['Contra']);
+
+    return $sql;
+  }
+
+  public function update_admin_cuenta($datos){ 
+    $sql= self::conectar()->prepare("UPDATE usuario SET 
+    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, contraseña=:Clave, correo=:Correo WHERE rut=:Rut");
+
+    $sql->bindParam(":Rut",$datos['Rut']);
+    $sql->bindParam(":Nombre",$datos['Nombre']);
+    $sql->bindParam(":Apellido",$datos['Apellido']);
+    $sql->bindParam(":Telefono",$datos['Telefono']);
+    $sql->bindParam(":Clave",$datos['Contra']);
+    $sql->bindParam(":Correo",$datos['Correo']);
 
     return $sql;
   }

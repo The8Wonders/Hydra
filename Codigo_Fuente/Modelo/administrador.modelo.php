@@ -11,4 +11,16 @@
        $sql->execute();
        return $sql;
     }
+
+    protected function update_admin_modelo($rut){
+      $sql= mainModel::conectar()->prepare("UPDATE administrador SET
+      rut=:Rut WHERE rut=:Rut");
+
+      $sql->bindParam(":Rut",$rut);
+
+      $sql->execute();
+
+      return $sql;
+    }
+
   }

@@ -74,16 +74,14 @@ class alumnocontrolador extends alumnomodelo
 
 
   public function update_alumno(){
-    $nombre= mainModel::limpiar_cadena($_POST['rut']);
+    $rut= mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
     $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
     $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
-    $correo = mainModel::limpiar_cadena($_POST['correo']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
-    $rol = mainModel::limpiar_cadena($_POST['rol']);
 
-    if( $rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "" || $rol == "" ){
+    if( $rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == ""){
       echo json_encode('incompletos');
     }else{
       if ($contraseña1 != $contraseña2) {
@@ -98,30 +96,28 @@ class alumnocontrolador extends alumnomodelo
   
         } else {
   
-
-            $nuevaCuenta = [
+          $clave = mainModel::encryption($contraseña1);
+          $actualizarCuenta = [
               "Rut" => $rut,
               "Nombre" => $nombre,
               "Apellido" => $apellido,
-              "Correo" => $correo,
               "Telefono" => $telefono,
-              "Rol" => $rol,
               "Contra" => $clave
             ];
   
-            $updatecuenta = mainModel::update_cuenta($nuevaCuenta);
+            $updatecuenta = mainModel::update_cuenta($actualizarCuenta);
   
             if ($updatecuenta->rowCount() >= 1) {
 
-              $guardaralumno = alumnomodelo::actualizar_alumno_modelo($rut);
+              //$guardaralumno = alumnomodelo::actualizar_alumno_modelo($rut);
   
-              if($guardaralumno->rowCount()>=1){
-                echo json_encode('correcto');
-              }else{
+              /*if($guardaralumno->rowCount()>=1){ // admin o profe actualiza a alumno
+                */echo json_encode('correcto');
+              /*}else{
                 echo json_encode('alumno');
-              }
-              
-            } else {
+             }*/
+            
+            }else {
   
               echo json_encode('incorrecto');
             }

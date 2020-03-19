@@ -1,3 +1,9 @@
+<?php 
+session_start();
+include "../../core/mainModel.php";
+$rut= $_SESSION['rut'];
+$sql= mainModel::ejecutar_consulta_simple("SELECT * FROM usuario WHERE rut='$rut'");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,21 +247,26 @@
               <?php endif;?>
 
               <!-- perfil administrador -->
-              <?php if(1): // if soy un Administrador ?>
-              <form class="form-horizontal" action="" method="POST" id="formAdmin">
+              <?php 
+              //if($sql->rowCount()>1){
+                while($fila= $sql->fetch(PDO::FETCH_ASSOC)): 
+                $cod_rol= $fila=['cod_rol'];
+              //}
+              if(1): // if soy un Administrador ?>
+              <form class="form-horizontal" action="../../controladores/administrador.controlador.php" method="POST" id="formAdmin">
                   <fieldset>
                     <!--Nombres Administrador-->
                     <div class="form-group">
                       <label for="nombre1" class="control-label col-lg-2">Nombres</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre" type="text" id="nombre"  class="validate[required] form-control" required>
+                        <input name="nombre" value="<?php echo $fila['nombre']; ?>" type="text" id="nombre"  class="validate[required] form-control" required>
                       </div>
 
                       <label for="nombre2" class="control-label col-lg-2">Apellidos</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre2" type="text" id="nombre2" class="validate[required] form-control" required>
+                        <input name="apellido" value="<?php echo $fila['apellido']; ?>" type="text" id="nombre2" class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -264,14 +275,14 @@
                       <label for="rut" class="control-label col-lg-2">R.U.T</label>
 
                       <div class="col-lg-4">
-                        <input name="rut" type="text" id="rut" name="rut" class="validate[required] form-control" readonly required>
+                        <input name="rut" value="<?php echo $fila['rut']; ?>" type="text" id="rut" name="rut" class="validate[required] form-control" required>
                       </div>
 
                       <!-- Email admin -->
                       <label class="control-label col-lg-2">E-Mail</label>
 
                       <div class=" col-lg-4">
-                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" readonly placeholder="Ejemplo@gmail.com" id="correo" required />
+                        <input name="correo" value="<?php echo $fila['correo']; ?>" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com" id="correo" required />
                       </div>
                     </div>
 
@@ -291,7 +302,7 @@
                       </div>
 
                       <div class=" col-lg-3">
-                        <input name="telefono" class="validate[required,custom[number]] form-control" type="number" min="920000000" pattern="^[0-9]+" id="telefono" maxlength="9" required />
+                        <input name="telefono" value="<?php echo $fila['telefono']; ?>" class="validate[required,custom[number]] form-control" type="number" min="920000000" pattern="^[0-9]+" id="telefono" maxlength="9" required />
                       </div>
 
                     </div>
@@ -328,7 +339,8 @@
                     </div>
                   </fieldset>
               </form>
-              <?php endif;?>
+              <?php endif;
+              endwhile;?>
 
 
               </div>
@@ -338,7 +350,9 @@
       </div>
     </div>
   </div>
-  <script src="../assets/js/administrador.js"></script>
+  <!--<script src="../assets/js/administrador.js"></script>
+  <script src="../assets/js/profesor.js"></script>
+  <script src="../assets/js/alumnoo.js"></script>-->
   <?php
     require_once "../extras/footer.php";
     require_once "../extras/script.php"; ?>
