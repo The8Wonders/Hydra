@@ -15,9 +15,9 @@ formularioProfesor.addEventListener('submit', function (e) {
     method: 'POST',
     body: datos
   })
-    .then(res => res.json())
+    /*.then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log(data)*/
 
       if (data == 'incompletos') {
         Swal.fire({
