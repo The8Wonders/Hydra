@@ -1,15 +1,10 @@
-console.log('funcionando');
+
 var formularioAdmin = document.getElementById('formAdmin');
 
 formularioAdmin.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('Clic Administrador')
 
   var datos = new FormData(formularioAdmin);
-
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('apellido'))
 
   fetch('../../../ajax/administrador.ajax.php', {
     method: 'POST',
@@ -17,7 +12,7 @@ formularioAdmin.addEventListener('submit', function (e) {
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+    
 
       if (data == 'incompletos') {
         Swal.fire({

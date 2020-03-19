@@ -3,13 +3,8 @@ var formularioProfesor = document.getElementById('formProfesor');
 
 formularioProfesor.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('Clic Administrador')
 
   var datos = new FormData(formularioProfesor);
-
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('apellido'))
 
   fetch('../../../ajax/profesor.ajax.php', {
     method: 'POST',
@@ -17,7 +12,6 @@ formularioProfesor.addEventListener('submit', function (e) {
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
 
       if (data == 'incompletos') {
         Swal.fire({
@@ -31,7 +25,7 @@ formularioProfesor.addEventListener('submit', function (e) {
           Swal.fire({
             icon: 'success',
             title: 'Cuenta Creada',
-            text: 'LA cuenta a sido creada con exito',
+            text: 'La cuenta a sido creada con exito',
           })
         } else {
           if (data == 'contraseñas') {

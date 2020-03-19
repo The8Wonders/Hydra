@@ -1,16 +1,9 @@
-console.log('funcionando');
-
 var formulario = document.getElementById('formAlumno');
 
 formulario.addEventListener('submit', function (e) {
 	e.preventDefault();
-	console.log('Me diste un click')
 
 	var datos = new FormData(formulario);
-
-	console.log(datos)
-	console.log(datos.get('rut'))
-	console.log(datos.get('contra'))
 
 	fetch('../../../controladores/alumno.controlador.php', {
 		method: 'POST',
@@ -18,7 +11,6 @@ formulario.addEventListener('submit', function (e) {
 	})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
 
 			if (data == 'incompletos') {
 				Swal.fire({

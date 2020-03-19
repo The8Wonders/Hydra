@@ -1,15 +1,10 @@
-console.log('funcionando');
 var formularioProyecto = document.getElementById('formProyecto');
 
 formularioProyecto.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('Clic Proyecto')
+
 
   var datos = new FormData(formularioProyecto);
-
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('codigoProyecto'))
 
   fetch('../../../ajax/proyecto.ajax.php', {
       method: 'POST',
@@ -17,7 +12,6 @@ formularioProyecto.addEventListener('submit', function (e) {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
 
       if (data == 'incompletos') {
         Swal.fire({
