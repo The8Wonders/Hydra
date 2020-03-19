@@ -33,6 +33,7 @@ formulario.addEventListener('submit', function (e) {
 						title: 'Registro COrrecto',
 						text: 'Las contraseñas no coinciden',
 					})
+					
 					window.location = "../../..index.php";
 				} else {
 					if (data == 'contraseñas') {
