@@ -28,7 +28,12 @@ formulario.addEventListener('submit', function (e) {
 				})
 			} else {
 				if (data == 'correcto') {
-					window.location = "../vistas/contenidos/home-vistas.php";
+					Swal.fire({
+						icon: 'success',
+						title: 'Registro COrrecto',
+						text: 'Las contraseñas no coinciden',
+					})
+					window.location = "../../..index.php";
 				} else {
 					if (data == 'contraseñas') {
 

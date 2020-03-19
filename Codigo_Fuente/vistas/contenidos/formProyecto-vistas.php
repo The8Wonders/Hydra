@@ -28,33 +28,33 @@ require_once "../extras/barra.php"; ?>
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre" placeholder="Nombre Grupo" class="validate[required] form-control" required>
                       </div>
-                    
-                    
+
+
 
                       <!--Sigle Proyecto-->
-              
+
                       <label for="sigla" class="control-label col-lg-2">Sigla del Grupo</label>
 
                       <div class="col-lg-4">
                         <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="validate[required] form-control" required>
                       </div>
                     </div>
-                      
 
-                      <!--Fecha Inicio-->
+
+                    <!--Fecha Inicio-->
                     <div class="form-group">
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Inicio</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaInicio" type="date" id="fechaInicio"  class="validate[required] form-control" required>
+                        <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required>
                       </div>
-                   
 
-                     <!--Fecha Termino-->
+
+                      <!--Fecha Termino-->
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Termino</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaTermino" type="date" id="fechaTermino"  class="validate[required] form-control" required>
+                        <input name="fechaTermino" type="date" id="fechaTermino" class="validate[required] form-control" required>
                       </div>
                     </div>
                     <!--Fechas Reales Inicio modificar probablemente-->
@@ -62,15 +62,15 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicioR" class="control-label col-lg-2">Fecha de Inicio Real</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaInicioR" type="date" id="fechaInicioR"  class="validate[required] form-control" required>
+                        <input name="fechaInicioR" type="date" id="fechaInicioR" class="validate[required] form-control" required>
                       </div>
-                   
 
-                     <!--Fecha Reales Termino modificar probablemente-->
+
+                      <!--Fecha Reales Termino modificar probablemente-->
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Termino Real</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaTerminoR" type="date" id="fechaTerminoR"  class="validate[required] form-control" required>
+                        <input name="fechaTerminoR" type="date" id="fechaTerminoR" class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -82,19 +82,19 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="TipoProyecto" class="control-label col-lg-2">Tipo de desarrollo</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" >
-                        <option vale="Desarrollo Web">Desarrollo Web</option>
-                        <option vale="Desarrollo Movil">Desarrollo Movil</option>       
-                      </select>
+                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="tipoProyecto" id="tipoProyecto">
+                          <option name="optionProyecto" vale="Desarrollo Web">Desarrollo Web</option>
+                          <option name="optionProyecto" vale="Desarrollo Movil">Desarrollo Movil</option>
+                        </select>
                       </div>
-                    
+
                     </div>
-                    
+
 
                     <!--Descripcion proyecto-->
                     <div class=" form-group">
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
-                      
+
                       <div class="col-lg-4">
                         <input class="form-control validate[required] form-control" required id="descripcion" name="descripcion" type="text" placeholder="Solo hay 256 caracteres disponibles">
 
@@ -109,21 +109,21 @@ require_once "../extras/barra.php"; ?>
                       <div class="col-lg-4">
                         <input name="codigoSemestre" type="text" id="codigoSemestre" placeholder="Codigo Semestre" class="validate[required] form-control" required>
                       </div>
-                    
-                    
+
+
 
                       <!--Codigo Grupo-->
-              
+
                       <label for="codigoProyecto" class="control-label col-lg-2">Codigo Proyecto</label>
 
                       <div class="col-lg-4">
                         <input name="codigoProyecto" type="text" id="codigoProyecto" placeholder="Codigo Proyecto " class="validate[required] form-control" required>
                       </div>
                     </div>
-                      
-                    
 
-                    
+
+
+
 
                     <div class="form-actions">
                       <input type="submit" value="Guardar" class="btn btn-primary">

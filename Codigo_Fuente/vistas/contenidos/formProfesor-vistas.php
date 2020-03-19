@@ -130,12 +130,9 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-=======
   <script src="../assets/js/profesor.js"></script>
   <?php
     require_once "../extras/footer.php";
     require_once "../extras/script.php";?>
->>>>>>> aa8614fa4c4f95b1d841bf315f01c4b0446e679e
 </body>
 </html>

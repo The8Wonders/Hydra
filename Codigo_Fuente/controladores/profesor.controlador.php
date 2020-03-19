@@ -16,23 +16,23 @@ class profesorcontrolador extends profesormodelo
     $rol = mainModel::limpiar_cadena($_POST['rol']);
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
-      echo json_encode('incompletos');
+      $respuesta = "incompletos";
     } else {
       if ($contraseña1 != $contraseña2) {
-        echo json_encode('contraseñas');
+        $respuesta = "contraseñas";
       } else {
 
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
 
         if ($consulta1->rowCount() >= 1) {
 
-          echo json_encode('rut');
+          $respuesta = "rut";
         } else {
 
           $consulta2 = mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo= '$correo'");
 
           if ($consulta2->rowCount() >= 1) {
-            echo json_encode('correo');
+            $respuesta = "correo";
           } else {
             $clave = mainModel::encryption($contraseña1);
 
@@ -53,19 +53,20 @@ class profesorcontrolador extends profesormodelo
               $guardaradmin = profesormodelo::nuevo_profesor_modelo($rut);
 
               if($guardaradmin->rowCount()>=1){
-                echo json_encode('correcto');
+                $respuesta = "correcto";
               }else{
-                echo json_encode('administrador');
+                $respuesta = "administrador";
               }
               
             } else {
 
-              echo json_encode('incorrecto');
+              $respuesta = "incorrecto";
             }
           }
         }
       }
     }
+    return $respuesta;
   }
 
   public function update_profesor($datos){
@@ -77,17 +78,17 @@ class profesorcontrolador extends profesormodelo
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "") {
-      echo json_encode('incompletos');
+      $respuesta = ('incompletos');
     } else {
       if ($contraseña1 != $contraseña2) {
-        echo json_encode('contraseñas');
+        $respuesta = ('contraseñas');
       } else {
 
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
 
         if ($consulta1->rowCount() >= 1) {
 
-          echo json_encode('rut');
+          $respuesta = ('rut');
         } else {
 
             $clave = mainModel::encryption($contraseña1);
@@ -107,14 +108,14 @@ class profesorcontrolador extends profesormodelo
               //$guardaradmin = profesormodelo::update_profesor_modelo($rut);
 
               /*if($guardaradmin->rowCount()>=1){  // admin actualiza a profesor
-                */echo json_encode('correcto');
+                */$respuesta = ('correcto');
               /*}else{
-                echo json_encode('profesor');
+                $respuesta = ('profesor');
               }*/
               
             } else {
 
-              echo json_encode('incorrecto');
+              $respuesta = ('incorrecto');
             }
           
         }
@@ -125,5 +126,3 @@ class profesorcontrolador extends profesormodelo
 
 }
 
-$admi = new profesorcontrolador;
-$admi->nuevo_profesor_controlador();

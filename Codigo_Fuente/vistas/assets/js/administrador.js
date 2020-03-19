@@ -11,7 +11,7 @@ formularioAdmin.addEventListener('submit', function (e) {
   console.log(datos.get('nombre'))
   console.log(datos.get('apellido'))
 
-  fetch('../../../controladores/administrador.controlador.php', {
+  fetch('../../../ajax/administrador.ajax.php', {
     method: 'POST',
     body: datos
   })
@@ -27,6 +27,7 @@ formularioAdmin.addEventListener('submit', function (e) {
         })
       } else {
         if (data == 'correcto') {
+          document.getElementById("formAdmin").reset();
           Swal.fire({
             position: 'top-end',
             icon: 'success',

@@ -11,13 +11,13 @@ formularioProfesor.addEventListener('submit', function (e) {
   console.log(datos.get('nombre'))
   console.log(datos.get('apellido'))
 
-  fetch('../../../controladores/profesor.controlador.php', {
+  fetch('../../../ajax/profesor.ajax.php', {
     method: 'POST',
     body: datos
   })
-    /*.then(res => res.json())
+    .then(res => res.json())
     .then(data => {
-      console.log(data)*/
+      console.log(data)
 
       if (data == 'incompletos') {
         Swal.fire({
@@ -27,6 +27,7 @@ formularioProfesor.addEventListener('submit', function (e) {
         })
       } else {
         if (data == 'correcto') {
+          document.getElementById("formProfesor").reset();
           Swal.fire({
             position: 'top-end',
             icon: 'success',
