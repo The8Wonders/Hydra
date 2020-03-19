@@ -1,22 +1,34 @@
 <?php
-
-    require_once("../modelo/grupo.modelo.php");
-
+    require("../../modelo/grupo.modelo.php");
+    echo "ola";
     $grupo = new grupo_modelo();
-
-    $arraygrupo = $grupo->get_grupo();
-
-    $grupo->eliminar_grupo($_GET['cod']);
-
-
-
-
-    require_once("../vistas/contenidos/grupo.vista.php");
+    echo "chao";
+    $mostrar= $grupo->getGrupo();
+    echo "kj";
+    
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    header("Location: ../vistas/contenidos/grupo.vista.php");
+    echo "jaja";
 
 
 ?>

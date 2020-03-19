@@ -1,17 +1,21 @@
+<?php 
+require_once "../extras/estilos.php";
+require_once "../extras/barra.php"; ?>
+<h1></h1>
+<?php 
+require_once "../extras/footer.php";
+require_once "../extras/script.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php require_once ("../extras/estilos.php");?>
-
-
     <title>Document</title>
 </head>
 <body>
-<?php require_once("../../controladores/grupo.controlador.php");?>
+
 <div id="content">
-<?php require_once "../vistas/extras/barra.php"; ?>
     <div class="outer">
       <div class="inner bg-light lter">
         <!--Begin Datatables-->
@@ -25,6 +29,10 @@
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
                   <thead> 
+                  <?php require_once "../../core/mainModel.php";
+                      $c = new mainModel();
+                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM equipo")
+                    ?>
                     <tr>
                       <th>Código Equipo</th>
                       <th>Nombre Equipo</th>
@@ -32,10 +40,11 @@
                       <th>Código Proyecto</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($mostrar as $rows) :?>
+                    <?php foreach($datos as $rows): ?>
                     <tr>
                       <td><?php echo $rows['cod_equipo']?></td>
                       <td><?php echo $rows['nombre_equipo']?></td>
@@ -44,8 +53,7 @@
                       <td><a href=""><i class="far fa-edit"></i></td></a>
                       <td><a href="../../controladores/grupo.controlador.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="fas fa-times"></i></a></td>
                     </tr>
-                    <?php endforeach ?>
-                    
+                    <?php endforeach;?>
                   </tbody>
                 </table>
               </div>
@@ -59,9 +67,6 @@
     </div>
     <!-- /.outer -->
   </div>
-  <?php 
-require_once "../vistas/extras/script.php";
-require_once "../vistas/extras/footer.php";
- ?>
+
 </body>
 </html>
