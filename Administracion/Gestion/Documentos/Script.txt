@@ -91,7 +91,8 @@ cod_semestre varchar(100),
 cod_equipo varchar(100),
 primary key (rut),
 foreign key (cod_semestre) references semestre,
-foreign key (cod_equipo) references Equipo
+foreign key (cod_equipo) references Equipo,
+foreign key (rut) refereces usuario
 );
 
 create table Alu_documento(

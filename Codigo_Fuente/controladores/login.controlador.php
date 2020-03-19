@@ -20,6 +20,8 @@ class logincontroldaor extends loginmodelo{
       $datosCuenta = loginmodelo::ingresar_modelo($datos);
 
       if($datosCuenta->rowCount()>=1){
+        session_start();
+        $_SESSION['rut']= $datos['Rut'];
         echo json_encode('existe');
       }else{
         echo json_encode('noexiste');

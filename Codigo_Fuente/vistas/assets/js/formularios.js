@@ -63,7 +63,7 @@ formulario.addEventListener('submit', function (e) {
 										Swal.fire({
 											icon: 'error',
 											title: 'Lo sentimos',
-											text: 'E alumno no se a podido registrar',
+											text: 'El alumno no se a podido registrar',
 										})
 									}
 								}

@@ -67,6 +67,62 @@ class profesorcontrolador extends profesormodelo
       }
     }
   }
+
+  public function update_profesor($datos){
+    $rut = mainModel::limpiar_cadena($_POST['rut']);
+    $nombre = mainModel::limpiar_cadena($_POST['nombre']);
+    $apellido = mainModel::limpiar_cadena($_POST['apellido']);
+    $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
+    $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
+    $telefono = mainModel::limpiar_cadena($_POST['telefono']);
+
+    if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "") {
+      echo json_encode('incompletos');
+    } else {
+      if ($contraseña1 != $contraseña2) {
+        echo json_encode('contraseñas');
+      } else {
+
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
+
+        if ($consulta1->rowCount() >= 1) {
+
+          echo json_encode('rut');
+        } else {
+
+            $clave = mainModel::encryption($contraseña1);
+
+            $nuevaCuenta = [
+              "Rut" => $rut,
+              "Nombre" => $nombre,
+              "Apellido" => $apellido,
+              "Telefono" => $telefono,
+              "Contra" => $clave
+            ];
+
+            $guardarcuenta = mainModel::update_cuenta($nuevaCuenta);
+
+            if ($guardarcuenta->rowCount() >= 1) {
+
+              //$guardaradmin = profesormodelo::update_profesor_modelo($rut);
+
+              /*if($guardaradmin->rowCount()>=1){  // admin actualiza a profesor
+                */echo json_encode('correcto');
+              /*}else{
+                echo json_encode('profesor');
+              }*/
+              
+            } else {
+
+              echo json_encode('incorrecto');
+            }
+          
+        }
+      }
+    }
+  }
+
+
 }
 
 $admi = new profesorcontrolador;
