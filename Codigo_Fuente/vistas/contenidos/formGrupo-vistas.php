@@ -18,7 +18,7 @@ require_once "../extras/barra.php"; ?>
                 <h5>Nuevo Grupo</h5>
               </header>
               <div id="collapse2" class="body">
-                <form class="form-horizontal" action="" method="POST" id="formGrupo">
+                <form class="form-horizontal" action="../../controladores/grupo.controlador.php" method="POST" id="formGrupo">
 
                   <fieldset>
                     <!--Codigo equipo-->
@@ -53,7 +53,7 @@ require_once "../extras/barra.php"; ?>
                     <!--Codigo proyecto-->
 
                     <div class="form-actions">
-                      <input type="submit" value="Insertar" class="btn btn-primary">
+                      <input  type="submit" value="Insertar" class="btn btn-primary">
                     </div>
                   </fieldset>
                 </form>
@@ -64,7 +64,7 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
-  <script src="../assets/js/administrador.js"></script>
+<!--<script src="../assets/js/administrador.js"></script>-->
 
 </body>
 <?php
