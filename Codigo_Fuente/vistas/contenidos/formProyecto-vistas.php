@@ -101,41 +101,51 @@ require_once "../extras/barra.php"; ?>
                       </div>
                     </div>
 
+                    <!--Codigo Grupo-->
+
+                    <label for="codigoProyecto" class="control-label col-lg-2">Codigo Proyecto</label>
+
+                    <div class="col-lg-4">
+                      <input name="codigoProyecto" type="text" id="codigoProyecto" placeholder="Codigo Proyecto " class="validate[required] form-control" required>
+                    </div>
+
+                    <?php
+                    require_once "../../core/mainModel.php";
+                    $ins = new mainModel();
+                    $datos = $ins->ejecutar_consulta_simple("SELECT cod_semestre FROM semestre");
+                    ?>
 
                     <!--Codigo Semestre-->
                     <div class="form-group">
-                      <label for="codigoSemestre" class="control-label col-lg-2">Codigo Semestre</label>
 
-                      <div class="col-lg-4">
-                        <input name="codigoSemestre" type="text" id="codigoSemestre" placeholder="Codigo Semestre" class="validate[required] form-control" required>
+                      <label for="codigoSemestre" class="control-label col-lg-2">Tipo de desarrollo</label>
+
+                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoSemestre" id="codigoSemestre">
+                          <option value=""></option>
+                          <?php foreach ($datos as $rows) { ?>
+                            <option name="optionSemestre" value="<?php echo $rows['cod_semestre'] ?>"> <?php echo $rows['cod_semestre'] ?> </option>
+                          <?php } ?>
+                        </select>
                       </div>
 
-
-
-                      <!--Codigo Grupo-->
-
-                      <label for="codigoProyecto" class="control-label col-lg-2">Codigo Proyecto</label>
-
-                      <div class="col-lg-4">
-                        <input name="codigoProyecto" type="text" id="codigoProyecto" placeholder="Codigo Proyecto " class="validate[required] form-control" required>
-                      </div>
                     </div>
-
-
-
-
-
-                    <div class="form-actions">
-                      <input type="submit" value="Guardar" class="btn btn-primary">
-                    </div>
-                  </fieldset>
-                </form>
               </div>
+
+
+
+
+
+              <div class="form-actions">
+                <input type="submit" value="Guardar" class="btn btn-primary">
+              </div>
+              </fieldset>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <script src="../assets/js/proyecto.js"></script>
 
