@@ -13,20 +13,4 @@ class profesormodelo extends mainModel
     $sql->execute();
     return $sql;
   }
-
-  protected function update_profesor_modelo($rut)
-  {
-    try {
-      $sql = mainModel::conectar()->prepare("UPDATE profesor SET
-        rut=:Rut");
-
-      $sql->bindParam(":Rut", $rut);
-
-      $sql->execute();
-      return $sql;
-    } catch (Exception $e) {
-      $e->getMessage();
-      $e->getLine();
-    }
-  }
 }

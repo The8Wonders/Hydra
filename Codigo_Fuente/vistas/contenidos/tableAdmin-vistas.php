@@ -48,7 +48,7 @@ require_once "../extras/barra.php"; ?>
                       <td><?php echo $rows['apellido']?></td>
                       <td><?php echo $rows['correo']?></td>
                       <td><?php echo $rows['telefono']?></td>
-                      <td><a href="" onclick="edit()"><i class="far fa-edit"></i></a></td>
+                      <td> <form action="./editAdmin-vistas.php"><input type="hidden" name="rut" value="<?php echo $rows['rut']?>"><button class="btn btn-warning btn-sm btn-round btn-line"><i class="far fa-edit"></i></a></td></button> </form> 
                       <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php }?>
