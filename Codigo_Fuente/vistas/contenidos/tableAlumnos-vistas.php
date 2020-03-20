@@ -28,7 +28,7 @@ require_once "../extras/barra.php"; ?>
                   <thead> 
                     <?php require_once "../../core/mainModel.php";
                       $c = new mainModel();
-                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol = 'administrador'")
+                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol='alumno'")
                     ?>
                     <tr>
                       <th>Rut</th>
@@ -65,7 +65,7 @@ require_once "../extras/barra.php"; ?>
     </div>
     <!-- /.outer -->
   </div>
-<script src="../assets/js/editAdmin.js"></script>
+<script src=""></script>
 </body>
 
 <?php

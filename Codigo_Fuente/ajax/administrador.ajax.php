@@ -1,14 +1,11 @@
-
 <?php
-    $peticionAjax=true;
     
     if(isset($_POST['rut'])){
         require_once "../controladores/administrador.controlador.php";
         $insAdmin = new administradorcontrolador(); 
+        $res = $insAdmin->nuevo_administrador_controlador();
 
-        if(isset($_POST['rut']) && isset($_POST['nombre1']) && isset($_POST['nombre2']) && isset($_POST['apellido1']) && isset($_POST['apellido2'])){
-            echo $insAdmin->nuevo_administrador_controlador();
-        }
+        echo json_encode($res);
     }else{
       session_start();
       session_destroy();

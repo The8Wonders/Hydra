@@ -1,23 +1,18 @@
-console.log('funcionando');
+
 var formularioAdmin = document.getElementById('formAdmin');
 
 formularioAdmin.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('Clic Administrador')
 
   var datos = new FormData(formularioAdmin);
 
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('apellido'))
-
-  fetch('../../../controladores/administrador.controlador.php', {
+  fetch('../../../ajax/administrador.ajax.php', {
     method: 'POST',
     body: datos
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+    
 
       if (data == 'incompletos') {
         Swal.fire({
@@ -27,12 +22,11 @@ formularioAdmin.addEventListener('submit', function (e) {
         })
       } else {
         if (data == 'correcto') {
+          document.getElementById("formAdmin").reset();
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            title: 'Creado con exito',
+            text: 'El administrador se creo con exito',
           })
         } else {
           if (data == 'contraseñas') {

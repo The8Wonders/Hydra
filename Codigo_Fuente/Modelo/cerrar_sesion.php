@@ -2,9 +2,9 @@
 class cerrar_sesion{
 
     public static function salir(){
-        session_start();
-        session_unset();
-        session_destroy();
+        session_start(['name' => 'SGP']);
+        session_unset(['name' => 'SGP']);
+        session_destroy(['name' => 'SGP']);
         return header("Location:../index.php");
     }
 }

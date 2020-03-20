@@ -98,23 +98,7 @@ require_once "../extras/barra.php"; ?>
                       </div>
                     </div>
                     <input type="hidden" name="rol" value="administrador">
-                    <!--Genero Administrador-->
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Genero</label>
-
-                      <div class="col-lg-8">
-                        <div class="checkbox">
-                          <label>
-                            <input class="uniform" type="radio" name="optionsGenero" value="Masculino" checked>Masculino
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label>
-                            <input class="uniform" type="radio" name="optionsGenero" value="Femenino">Femenino
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                  
                     <div class="form-actions">
                       <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>

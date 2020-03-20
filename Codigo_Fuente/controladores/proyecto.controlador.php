@@ -2,7 +2,7 @@
 
 require_once "../modelo/proyecto.modelo.php";
 
-class proyectocontrolador extends proyecto_modelo
+class proyectocontrolador extends proyectomodelo
 {
 
   public function nuevo_proyecto_controlador()
@@ -19,6 +19,7 @@ class proyectocontrolador extends proyecto_modelo
     $cod_semestre = mainModel::limpiar_cadena($_POST['codigoSemestre']);
 
 
+<<<<<<< HEAD:Codigo_Fuente/controladores/proyecto.insert.controlador.php
     if( $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" ||
      $descripcion_proyecto == "" || $sigla == ""|| $tipo_desarrollo == ""|| $cod_semestre == "" ){
       echo json_encode('incompletos');
@@ -45,30 +46,63 @@ class proyectocontrolador extends proyecto_modelo
               "sigla"=>$sigla,
               "tipo_desarrrollo"=>$tipo_desarrollo,
               "cod_semestre"=>$cod_semestre
+=======
+    if (
+      $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" ||
+      $descripcion_proyecto == "" || $sigla == "" || $tipo_desarrollo == "" || $cod_semestre == ""
+    ) {
+      $respuesta = "incompletos";
+    } else {  
+      if($fecha_inicio > $fecha_fin){
+        $respuesta = "fechaInicioFechaFin";
+      }else{
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT cod_proyecto FROM proyecto WHERE cod_proyecto ='$cod_proyecto'");
+
+        if($consulta1->rowCount()>=1){
+          $respuesta = "codProyecto";
+        }else{
+
+          $consulta2 = mainModel::ejecutar_consulta_simple("SELECT nom_proyecto FROM proyecto WHERE nom_proyecto ='$nom_proyecto'");
+
+          if($consulta2->rowCount()>=1){
+            $respuesta = "nomProyecto";
+          }else{
+
+            $nuevoProyecto = [
+              "cod_proyecto" =>$cod_proyecto,
+              "nom_proyecto" =>$nom_proyecto,
+              "fecha_inicio" =>$fecha_inicio,
+              "fecha_fin" =>$fecha_fin,
+              "fecha_inicio_real" =>$fecha_inicio_real,
+              "fecha_fin_real" =>$fecha_fin_real,
+              "descripcion_proyecto" =>$descripcion_proyecto,
+              "sigla" =>$sigla,
+              "tipo_desarrollo" =>$tipo_desarrollo,
+              "cod_semestre" =>$cod_semestre
+>>>>>>> cad486d389bb872d720f7ef72244ec45c9ab5560:Codigo_Fuente/controladores/proyecto.controlador.php
             ];
 
-            
-  
-            $guardarProyecto = proyecto_modelo->nuevo_proyecto($nuevaProyecto);
-  
-            if ($guardarProyecto->rowCount() >= 1) {
-                echo json_encode('correcto');
+            $guardarproyecto = proyectomodelo::nuevo_proyecto_modelo($nuevoProyecto);
 
-              
-            } else {
-  
-              echo json_encode('incorrecto');
+            if($guardarproyecto->rowCount()>=1){
+              $respuesta = "correcto";
+            }else{
+              $respuesta = "incorrecto";
             }
           }
         }
       }
-   
+    }
 
-    
-  
+    return $respuesta;
+  }
 
 
- /* public function update_alumno(){
+
+
+
+
+  /* public function update_alumno(){
     $nombre= mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
@@ -80,17 +114,17 @@ class proyectocontrolador extends proyecto_modelo
     
 
     if( $rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "" || $rol == "" ){
-      echo json_encode('incompletos');
+      $respuesta = "incompletos');
     }else{
       if ($contraseña1 != $contraseña2) {
-        echo json_encode('contraseñas');
+        $respuesta = "contraseñas');
       } else {
   
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
   
         if ($consulta1->rowCount() >= 1) {
   
-          echo json_encode('rut');
+          $respuesta = "rut');
   
         } else {
   
@@ -112,14 +146,14 @@ class proyectocontrolador extends proyecto_modelo
               $guardaralumno = alumnomodelo::actualizar_alumno_modelo($rut);
   
               if($guardaralumno->rowCount()>=1){
-                echo json_encode('correcto');
+                $respuesta = "correcto');
               }else{
-                echo json_encode('alumno');
+                $respuesta = "alumno');
               }
               
             } else {
   
-              echo json_encode('incorrecto');
+              $respuesta = "incorrecto');
             }
           }
         }
@@ -127,6 +161,3 @@ class proyectocontrolador extends proyecto_modelo
     }
   }*/
 }
-
-$alu = new alumnocontrolador;
-$alu->nuevo_alumno_controlador();

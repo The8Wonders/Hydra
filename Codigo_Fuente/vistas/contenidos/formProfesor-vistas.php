@@ -101,23 +101,7 @@ require_once "../extras/barra.php"; ?>
                       </div>
                     </div>
                     <input type="hidden" name="rol" value="Profesor">
-                    <!--Genero Profesor-->
-                    <div class="form-group">
-                      <label class="control-label col-lg-2">Genero</label>
-
-                      <div class="col-lg-8">
-                        <div class="checkbox">
-                          <label>
-                            <input class="uniform" type="radio" name="optionsGenero" value="Masculino" checked>Masculino
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label>
-                            <input class="uniform" type="radio" name="optionsGenero" value="Femenino">Femenino
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                    
                     <div class="form-actions">
                       <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>
@@ -130,12 +114,9 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-=======
   <script src="../assets/js/profesor.js"></script>
   <?php
     require_once "../extras/footer.php";
     require_once "../extras/script.php";?>
->>>>>>> aa8614fa4c4f95b1d841bf315f01c4b0446e679e
 </body>
 </html>

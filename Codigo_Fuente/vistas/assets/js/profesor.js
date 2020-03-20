@@ -3,21 +3,15 @@ var formularioProfesor = document.getElementById('formProfesor');
 
 formularioProfesor.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('Clic Administrador')
 
   var datos = new FormData(formularioProfesor);
 
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('apellido'))
-
-  fetch('../../../controladores/profesor.controlador.php', {
+  fetch('../../../ajax/profesor.ajax.php', {
     method: 'POST',
     body: datos
   })
-    /*.then(res => res.json())
+    .then(res => res.json())
     .then(data => {
-      console.log(data)*/
 
       if (data == 'incompletos') {
         Swal.fire({
@@ -27,12 +21,11 @@ formularioProfesor.addEventListener('submit', function (e) {
         })
       } else {
         if (data == 'correcto') {
+          document.getElementById("formProfesor").reset();
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            title: 'Cuenta Creada',
+            text: 'La cuenta a sido creada con exito',
           })
         } else {
           if (data == 'contraseñas') {

@@ -1,4 +1,5 @@
 <?php //include "estilos.php";
+session_start(['name' => 'SGP']);
 ?>
 
 <body class="  ">
@@ -83,19 +84,40 @@
 
             <!-- .nav -->
             <ul class="nav navbar-nav">
-              <li><a href="../contenidos/dashboard-vistas.php">Dashboard</a></li>
-              <li><a href="../contenidos/table-vistas.php">Tables</a></li>
+              <li><a href="../contenidos/home-vistas.php">Inicio</a></li>
               <li class='dropdown '>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Form Elements <b class="caret"></b>
+                  Listados <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="../contenidos/formGeneral-vistas.php">General</a></li>
-                  <li><a href="../contenidos/formValidation-vistas.php">Validation</a></li>
-                  <li><a href="../contenidos/formAdmin-vistas.php">Formulario Administrador</a></li>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Formulario Profesor</a></li>
-                  <li><a href="../contenidos/formWysiwyg-vistas.php">WYSIWYG</a></li>
-                  <li><a href="../contenidos/formWizard-vistas.php">Wizard &amp; File Upload</a></li>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/tableAdmin-vistas.php">Administrador</a></li>
+                  <?php endif; ?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/tableProfesor-vistas.php">Profesor</a></li>
+                  <?php endif; ?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+                    <li><a href="../contenidos/tableAlumnos-vistas.php">Alumno</a></li>
+                  <?php endif; ?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/proyecto-vistas.php">Proyectos</a></li>
+                  <?php endif; ?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/tableGrupo-vistas.php">Grupos</a></li>
+                  <?php endif; ?>
+                </ul>
+              </li>
+              <li class='dropdown '>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Nuevo <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/formAdmin-vistas.php">Administrador</a></li>
+                  <?php endif; ?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'profesor' || $_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+                    <li><a href="../contenidos/formProfesor-vistas.php">Profesor</a></li>
+                  <?php endif; ?>
                 </ul>
               </li>
             </ul>
@@ -145,12 +167,10 @@
           </a>
 
           <div class="media-body">
-            <h5 class="media-heading">Usuario</h5>
+            <h5 class="media-heading"><?php echo $_SESSION['rut_sgp'] ?></h5>
+            <h5 class="media-heading"><?php echo $_SESSION['nombre_sgp'] ?><?php echo " "; ?><?php echo $_SESSION['apellido_sgp'] ?></h5>
             <ul class="list-unstyled user-info">
-              <li><a href="">Rol</a></li>
-              <li>Última Conexión : <br>
-                <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
-              </li>
+              <li><a href=""><?php echo $_SESSION['cod_rol_sgp'] ?></a></li>
             </ul>
           </div>
         </div>
@@ -162,6 +182,11 @@
         <li class="">
           <a href="../contenidos/dashboard-vistas.php">
             <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+          </a>
+        </li>
+        <li class="">
+          <a href="../contenidos/formSemestre-vistas.php">
+            <i class="fa fa-address-book"></i><span class="link-title">&nbsp;Semestre</span>
           </a>
         </li>
         <li class="">
