@@ -20,7 +20,7 @@
             <!-- FIN IMAGEN TITULO -->
 
             <!-- FORMULARIO LOGIN -->
-            <div class="col-sm-6 col-md-5 col-lg-6">
+            <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="form-signin">
                     <div class="text-center">
                         <img class="logoubb" src="vistas/assets/img/ubb_logo_new.png" alt="Metis Logo">
@@ -90,6 +90,18 @@
                     </div>
                 </div>
             </div>
+
+               <div class="imagenTotal col-sm-6 col-md-7 col-lg-8">
+                       <div class="titulo " >
+                            <h2>Sistema de Gestion de Proyectos</h2>
+                        </div>
+    
+                        <div class="container-fluid">
+                            <img class="img-fluid" src="vistas/assets/img/kanban2.jpg" alt="">
+                        </div>
+                </div>
+
+
         </div>
         <!-- FIN FORMULARIO LOGIN -->
     </div>
@@ -132,6 +144,18 @@
     <script src="vistas/assets/js/app.js"></script>
     <!-- Sweet Alert scripts -->
     <script src="vistas/assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
+
+
+    <style>
+        .img-fluid{
+            border-radius: 15px;
+            max-height: 415px;
+        }
+
+        .titulo{
+            margin-left: 60px;
+        }
+    </style>
 
 
     <script type="text/javascript">
