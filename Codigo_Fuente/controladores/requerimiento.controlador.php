@@ -21,7 +21,7 @@ class requerimientocontrolador extends requerimientomodelo
 		$impacto = mainModel::limpiar_cadena($_POST['impacto']);
 		$codigoProyecto = mainModel::limpiar_cadena($_POST['codigoProyecto']);
 
-		$codRequerimiento = mainModel::generar_codigo_aleatorio("AB", 7, $hora);
+		$codRequerimiento = mainModel::generar_codigo_aleatorio("RE", 7, $hora);
 
 		if ($tipo == "" || $nombre == "" || $descrip == "" || $complejidad == "" || $hora == "" || $cambio == "" || $prioridad == "" || $estado == "" || $impacto == "" || $codigoProyecto == "" || $codRequerimiento == "") {
 

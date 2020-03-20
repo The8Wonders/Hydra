@@ -6,6 +6,7 @@ class logincontroldaor extends loginmodelo{
 
   public function ingresar_controlador(){
     $rut = mainModel::limpiar_cadena($_POST['rut_usuario']);
+    $rut = mainModel::limpiar_rut($rut);
     $clave = mainModel::limpiar_cadena($_POST['contra']);
     $clave = mainModel::encryption($clave);
 
