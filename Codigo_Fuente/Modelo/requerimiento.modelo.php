@@ -6,7 +6,7 @@ class requerimientomodelo extends mainModel
 
 	function nuevo_requerimiento_modelo($datos)
 	{
-		$sql = mainModel::conectar()->prepare("INSERT INTO requerimiento (cod_requerimiento,tipo_requerimiento,nom_requerimiento,descripcion_requerimiento,complejidad,horas_requerimiento,control_cambios,prioridad,estados,impacto,cod_proyecto) VALUES (:cod_r,:tipo,:nom,:de,:com,:hora,:con,:pri,:est,:imp,:cod_p)");
+		$sql = mainModel::conectar()->prepare("INSERT INTO requerimiento (cod_requerimiento,tipo_requerimiento,nom_requerimiento,descripcion_requerimiento,complejidad,horas_requerimiento,control_cambios,prioridad,estado,impacto,cod_proyecto) VALUES (:cod_r,:tipo,:nom,:de,:com,:hora,:con,:pri,:est,:imp,:cod_p)");
 
 		$sql->bindParam(":cod_r", $datos['CodReq']); // anda a ver el controlador
 		$sql->bindParam(":tipo", $datos['Tipo']);
