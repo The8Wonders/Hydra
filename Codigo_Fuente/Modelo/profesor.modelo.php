@@ -13,4 +13,13 @@ class profesormodelo extends mainModel
     $sql->execute();
     return $sql;
   }
+
+  protected function eliminar_profesor_modelo($datos)
+  {
+    $sql = mainModel::conectar()->prepare("DELETE  FROM profesor WHERE rut= :Rut");
+    $sql->bindParam(":Rut", $datos);
+
+    $sql->execute();
+    return $sql;
+  }
 }

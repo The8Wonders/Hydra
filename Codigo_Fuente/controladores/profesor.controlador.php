@@ -17,8 +17,8 @@ class profesorcontrolador extends profesormodelo
     $correo = mainModel::limpiar_cadena($_POST['correo']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
     $rol = mainModel::limpiar_cadena($_POST['rol']);
-    $nombre = $nombre." ".$nombre2;
-    $apellido = $apellido." ".$apellido2;
+    $nombre = $nombre . " " . $nombre2;
+    $apellido = $apellido . " " . $apellido2;
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
       $respuesta = "incompletos";
@@ -57,13 +57,12 @@ class profesorcontrolador extends profesormodelo
 
               $guardaradmin = profesormodelo::nuevo_profesor_modelo($rut);
 
-              if($guardaradmin->rowCount()>=1){
+              if ($guardaradmin->rowCount() >= 1) {
                 $respuesta = "correcto";
-              }else{
+              } else {
                 mainModel::eliminar_cuenta($rut);
                 $respuesta = "administrador";
               }
-              
             } else {
 
               $respuesta = "incorrecto";
@@ -75,7 +74,8 @@ class profesorcontrolador extends profesormodelo
     return $respuesta;
   }
 
-  public function update_profesor($datos){
+  public function update_profesor($datos)
+  {
     $rut = mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
@@ -97,38 +97,65 @@ class profesorcontrolador extends profesormodelo
           $respuesta = ('rut');
         } else {
 
-            $clave = mainModel::encryption($contraseña1);
+          $clave = mainModel::encryption($contraseña1);
 
-            $nuevaCuenta = [
-              "Rut" => $rut,
-              "Nombre" => $nombre,
-              "Apellido" => $apellido,
-              "Telefono" => $telefono,
-              "Contra" => $clave
-            ];
+          $nuevaCuenta = [
+            "Rut" => $rut,
+            "Nombre" => $nombre,
+            "Apellido" => $apellido,
+            "Telefono" => $telefono,
+            "Contra" => $clave
+          ];
 
-            $guardarcuenta = mainModel::update_cuenta($nuevaCuenta);
+          $guardarcuenta = mainModel::update_cuenta($nuevaCuenta);
 
-            if ($guardarcuenta->rowCount() >= 1) {
+          if ($guardarcuenta->rowCount() >= 1) {
 
-              //$guardaradmin = profesormodelo::update_profesor_modelo($rut);
+            //$guardaradmin = profesormodelo::update_profesor_modelo($rut);
 
-              /*if($guardaradmin->rowCount()>=1){  // admin actualiza a profesor
-                */$respuesta = ('correcto');
-              /*}else{
+            /*if($guardaradmin->rowCount()>=1){  // admin actualiza a profesor
+                */
+            $respuesta = ('correcto');
+            /*}else{
                 $respuesta = ('profesor');
               }*/
-              
-            } else {
+          } else {
 
-              $respuesta = ('incorrecto');
-            }
-          
+            $respuesta = ('incorrecto');
+          }
         }
       }
     }
   }
 
+  public function eliminar_profesor_controlador()
+  {
+    $rut = mainModel::limpiar_cadena($_POST['rut']);
+    $rut = mainModel::limpiar_rut($rut);
 
+    if($rut == ""){
+      $respuesta = "incompleto";
+    }else{
+      $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
+
+      if($consulta1->rowCount()>=1){
+        $eliminarProfesor = profesormodelo::eliminar_profesor_modelo($rut);
+        if($eliminarProfesor->rowCount()>=1){
+          $eliminarCuenta = mainModel::eliminar_cuenta($rut);
+          if($eliminarCuenta->rowCount()>=1){
+            $respuesta = "Eliminada";
+          }else{
+            $h = profesormodelo::nuevo_profesor_modelo($rut);
+            $respuesta = "NoCuenta";
+          }
+        }else{
+          $respuesta = "NoProfesor";
+        }
+      }else{
+        $respuesta = "Noexiste";
+      }
+    }
+
+    return $respuesta;
+  }
 }
-
