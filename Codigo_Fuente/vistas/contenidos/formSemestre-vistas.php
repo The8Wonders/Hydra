@@ -27,7 +27,6 @@ require_once "../extras/barra.php"; ?>
               </header>
               <div id="collapse2" class="body">
                 <form class="form-horizontal" action="" method="POST" id="formSemestre">
-
                   <fieldset>
                     <!--Fecha Inicio-->
                     <div class="form-group">
@@ -36,8 +35,6 @@ require_once "../extras/barra.php"; ?>
                       <div class="col-lg-4">
                         <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required>
                       </div>
-
-
                       <!--Fecha Termino-->
                       <label for="fechaFin" class="control-label col-lg-2">Fecha de Termino</label>
 

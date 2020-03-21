@@ -8,7 +8,7 @@ if (isset($_POST['tipo'])) {
 
 
 }else{
-	session_start();
-	session_destroy();
-	echo'<script> window.location.href="../index.php" </script>';
+	session_start(['name' => 'SGP']);
+  session_destroy();
+  header("location: ../index.php");
 }

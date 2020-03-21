@@ -28,6 +28,7 @@ formularioRequerimiento.addEventListener('submit', function (e) {
         })
 			}else{
 				if (data=='Correcto') {
+					document.getElementById("formRequerimiento").reset();
 					Swal.fire({
           icon: 'success',
           title: 'Registrado',

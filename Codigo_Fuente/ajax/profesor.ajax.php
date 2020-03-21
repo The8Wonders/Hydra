@@ -7,7 +7,7 @@
     $res = $insProf->nuevo_profesor_controlador();
     echo json_encode($res);
   }else{
-    session_start();
-      session_destroy();
-      echo'<script> window.location.href="../index.php" </script>';
+    session_start(['name' => 'SGP']);
+  session_destroy();
+  header("location: ../index.php");
   }

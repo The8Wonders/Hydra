@@ -25,10 +25,10 @@ require_once "../extras/barra.php"; ?>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                  <thead> 
+                  <thead>
                     <?php require_once "../../core/mainModel.php";
-                      $c = new mainModel();
-                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM requerimiento")
+                    $c = new mainModel();
+                    $datos = $c->ejecutar_consulta_simple("SELECT * FROM requerimiento")
                     ?>
                     <tr>
                       <th>Codigo</th>
@@ -40,24 +40,26 @@ require_once "../extras/barra.php"; ?>
                       <th>Impacto</th>
                       <th>Prioridad</th>
                       <th>Editar</th>
-                      <th>Eliminar</th>
+                      <th>Agregar Tarea</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($datos as $rows){?>
-                    <tr>
-                      <td><?php echo $rows['cod_requerimiento']?></td>
-                      <td><?php echo $rows['nom_requerimiento']?></td>
-                      <td><?php echo $rows['tipo_requerimiento']?></td>
-                      <td><?php echo $rows['complejidad']?></td>
-                      <td><?php echo $rows['horas_requerimiento']?></td>
-                      <td><?php echo $rows['estado']?></td>
-                      <td><?php echo $rows['impacto']?></td>
-                      <td><?php echo $rows['prioridad']?></td>
-                     <?php echo "<td><a href='editAdmin-vistas.php?rut=".$rows['cod_requerimiento']."'><i class='far fa-edit'></i></a></td>" ?>
-                      <td><a href=""><i class="fas fa-times"></i></a></td>
-                    </tr>
-                    <?php }?>
+                    <?php foreach ($datos as $rows) {
+                      $cod = $c->encryption($rows['cod_requerimiento']);
+                    ?>
+                      <tr>
+                        <td><?php echo $rows['cod_requerimiento'] ?></td>
+                        <td><?php echo $rows['nom_requerimiento'] ?></td>
+                        <td><?php echo $rows['tipo_requerimiento'] ?></td>
+                        <td><?php echo $rows['complejidad'] ?></td>
+                        <td><?php echo $rows['horas_requerimiento'] ?></td>
+                        <td><?php echo $rows['estado'] ?></td>
+                        <td><?php echo $rows['impacto'] ?></td>
+                        <td><?php echo $rows['prioridad'] ?></td>
+                        <?php echo "<td><a href='editAdmin-vistas.php?cod=".$cod."'><i class='far fa-edit'></i></a></td>" ?>
+                        <?php echo "<td><a href='formTarea-vistas.php?cod=".$cod."'><i class='fas fa-file-signature'></i></a></td>" ?>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -72,7 +74,7 @@ require_once "../extras/barra.php"; ?>
     <!-- /.outer -->
   </div>
   </div>
-<script src="../assets/js/editAdmin.js"></script>
+  <script src="../assets/js/editAdmin.js"></script>
 </body>
 
 <?php

@@ -243,11 +243,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formSemestre-vistas.php">
+            <a href="../contenidos/formAlumno-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Alumno </a>
           </li>
           <li>
-            <a href="../contenidos/tableSemestre-vistas.php">
+            <a href="../contenidos/tableAlumno-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Alumnos </a>
           </li>
         </ul>
@@ -281,11 +281,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formSemestre-vistas.php">
+            <a href="../contenidos/formEquipo-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Equipo </a>
           </li>
           <li>
-            <a href="../contenidos/tableSemestre-vistas.php">
+            <a href="../contenidos/tableEquipo-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Equipos </a>
           </li>
         </ul>
@@ -350,11 +350,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formSemestre-vistas.php">
+            <a href="../contenidos/formTarea-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nueva Tarea </a>
           </li>
           <li>
-            <a href="../contenidos/tableSemestre-vistas.php">
+            <a href="../contenidos/tableTarea-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Tareas </a>
           </li>
         </ul>
@@ -367,11 +367,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formSemestre-vistas.php">
+            <a href="../contenidos/formTecnologia-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nueva tecnologia </a>
           </li>
           <li>
-            <a href="../contenidos/tableSemestre-vistas.php">
+            <a href="../contenidos/tableTecnologia-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Tecnologias </a>
           </li>
         </ul>
