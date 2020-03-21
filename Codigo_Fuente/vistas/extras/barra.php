@@ -85,6 +85,7 @@ session_start(['name' => 'SGP']);
             <!-- .nav -->
             <ul class="nav navbar-nav">
               <li><a href="../contenidos/home-vistas.php">Inicio</a></li>
+              <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
               <li class='dropdown '>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Listados <b class="caret"></b>
@@ -107,19 +108,30 @@ session_start(['name' => 'SGP']);
                   <?php endif; ?>
                 </ul>
               </li>
+              <?php endif; ?>
+              <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
               <li class='dropdown '>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Nuevo <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
                     <li><a href="../contenidos/formAdmin-vistas.php">Administrador</a></li>
-                  <?php endif; ?>
-                  <?php if ($_SESSION['cod_rol_sgp'] == 'profesor' || $_SESSION['cod_rol_sgp'] == 'administrador') : ?>
                     <li><a href="../contenidos/formProfesor-vistas.php">Profesor</a></li>
-                  <?php endif; ?>
+                    <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+                    <li><a href="../contenidos/formProfesor-vistas.php">Alumno</a></li>
+                    <?php endif; ?>
+                    <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+                    <li><a href="../contenidos/formProfesor-vistas.php">Semestre</a></li>
+                    <?php endif; ?>
+                    <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+                    <li><a href="../contenidos/formProfesor-vistas.php">Equipo</a></li>
+                    <?php endif; ?>
+                    <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+                    <li><a href="../contenidos/formProfesor-vistas.php">Proyecto</a></li>
+                    <?php endif; ?>
                 </ul>
               </li>
+              <?php endif; ?>
             </ul>
             <!-- /.nav -->
           </div>
@@ -180,14 +192,189 @@ session_start(['name' => 'SGP']);
         <li class="nav-header">Menu</li>
         <li class="nav-divider"></li>
         <li class="">
-          <a href="../contenidos/dashboard-vistas.php">
-            <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+          <a href="../contenidos/perfil-vistas.php">
+            <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Mi Perfil</span>
           </a>
         </li>
+        <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
         <li class="">
-          <a href="../contenidos/formSemestre-vistas.php">
-            <i class="fa fa-address-book"></i><span class="link-title">&nbsp;Semestre</span>
+          <a href="javascript:;">
+            <i class="far fa-id-badge"></i>
+            <span class="link-title">Administradores</span>
+            <span class="fa arrow"></span>
           </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formAdmin-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Administrador </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableAdmin-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Administrador </a>
+            </li>
+          </ul>
+        </li>
+        <?php endif; ?>
+        <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-user-graduate "></i>
+            <span class="link-title">Profesores</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formProfesor-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Profesor </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableProfesor-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Profesor </a>
+            </li>
+          </ul>
+        </li>
+        <?php endif; ?>
+        <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-child "></i>
+            <span class="link-title">Alumnos</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Alumno </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Alumnos </a>
+            </li>
+          </ul>
+        </li>
+        <?php endif; ?>
+        <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-book-reader "></i>
+            <span class="link-title">Semestre</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Semestre </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Semestres </a>
+            </li>
+          </ul>
+        </li>
+        <?php endif; ?>
+        <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor' || ($_SESSION['cod_rol_sgp'] == 'alumno' && $_SESSION['equipo_sgp'] == '')) : ?>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-people-carry "></i>
+            <span class="link-title">Equipo</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Equipo </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Equipos </a>
+            </li>
+          </ul>
+        </li>
+        <?php endif; ?>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-desktop "></i>
+            <span class="link-title">Proyectos</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formProyecto-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableProyecto-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Proyecto </a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-cogs "></i>
+            <span class="link-title">Requerimientos</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formRequerimiento-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Requerimiento </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableRequerimiento-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Requerimientos </a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="javascript:;">
+            <i class="far fa-folder-open "></i>
+            <span class="link-title">Documento</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nuevo Documento </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Documentos </a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-file-signature "></i>
+            <span class="link-title">Tarea</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nueva Tarea </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Tareas </a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="javascript:;">
+            <i class="fas fa-robot "></i>
+            <span class="link-title">Tecnologia</span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="collapse">
+            <li>
+              <a href="../contenidos/formSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Nueva tecnologia </a>
+            </li>
+            <li>
+              <a href="../contenidos/tableSemestre-vistas.php">
+                <i class="fa fa-angle-right"></i>&nbsp; Listado Tecnologias </a>
+            </li>
+          </ul>
         </li>
         <li class="">
           <a href="javascript:;">
@@ -303,124 +490,6 @@ session_start(['name' => 'SGP']);
             </li>
           </ul>
         </li>
-        <li class="">
-          <a href="javascript:;">
-            <i class="fa fa-pencil"></i>
-            <span class="link-title">
-              Forms
-            </span>
-            <span class="fa arrow"></span>
-          </a>
-          <ul class="collapse">
-            <li>
-              <a href="../contenidos/formGeneral-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp; Form General </a>
-            </li>
-            <li>
-              <a href="../contenidos/formValidation-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp; Form Validation </a>
-            </li>
-            <li>
-              <a href="../contenidos/formWizard-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp; Form Wizard </a>
-            </li>
-            <li>
-              <a href="../contenidos/formWysiwyg-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp; Form WYSIWYG </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="../contenidos/table-vistas.php">
-            <i class="fa fa-table"></i>
-            <span class="link-title">Tables</span>
-          </a>
-        </li>
-        <li>
-          <a href="../contenidos/typography-vistas.php">
-            <i class="fa fa-font"></i>
-            <span class="link-title">
-              Typography
-            </span> </a>
-        </li>
-        <li>
-          <a href="maps.html">
-            <i class="fa fa-map-marker"></i><span class="link-title">
-              Maps
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="../contenidos/chart-vistas.php">
-            <i class="fa fa fa-bar-chart-o"></i>
-            <span class="link-title">
-              Charts
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="../contenidos/calendar-vistas.php">
-            <i class="fa fa-calendar"></i>
-            <span class="link-title">
-              Calendar
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-exclamation-triangle"></i>
-            <span class="link-title">
-              Error Pages
-            </span>
-            <span class="fa arrow"></span>
-          </a>
-          <ul class="collapse">
-            <li>
-              <a href="403.html">
-                <i class="fa fa-angle-right"></i>&nbsp;403</a>
-            </li>
-            <li>
-              <a href="../contenidos/error-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp;error</a>
-            </li>
-            <li>
-              <a href="405.html">
-                <i class="fa fa-angle-right"></i>&nbsp;405</a>
-            </li>
-            <li>
-              <a href="500.html">
-                <i class="fa fa-angle-right"></i>&nbsp;500</a>
-            </li>
-            <li>
-              <a href="503.html">
-                <i class="fa fa-angle-right"></i>&nbsp;503</a>
-            </li>
-            <li>
-              <a href="../contenidos/offline-vistas.php">
-                <i class="fa fa-angle-right"></i>&nbsp;offline</a>
-            </li>
-            <li>
-              <a href="countdown.html">
-                <i class="fa fa-angle-right"></i>&nbsp;Under Construction</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="../contenidos/grid-vistas.php">
-            <i class="fa fa-columns"></i>
-            <span class="link-title">
-              Grid
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="blank.html">
-            <i class="fa fa-square-o"></i>
-            <span class="link-title">
-              Blank Page
-            </span>
-          </a>
-        </li>
         <li class="nav-divider"></li>
         <li>
           <a href="../../modelo/cerrar_sesion.php">
@@ -429,57 +498,6 @@ session_start(['name' => 'SGP']);
               Cerrar Sesión
             </span>
           </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-code"></i>
-            <span class="link-title">
-              Unlimited Level Menu
-            </span>
-            <span class="fa arrow"></span>
-          </a>
-          <ul class="collapse">
-            <li>
-              <a href="javascript:;">Level 1 <span class="fa arrow"></span> </a>
-              <ul class="collapse">
-                <li> <a href="javascript:;">Level 2</a> </li>
-                <li> <a href="javascript:;">Level 2</a> </li>
-                <li>
-                  <a href="javascript:;">Level 2 <span class="fa arrow"></span> </a>
-                  <ul class="collapse">
-                    <li> <a href="javascript:;">Level 3</a> </li>
-                    <li> <a href="javascript:;">Level 3</a> </li>
-                    <li>
-                      <a href="javascript:;">Level 3 <span class="fa arrow"></span> </a>
-                      <ul class="collapse">
-                        <li> <a href="javascript:;">Level 4</a> </li>
-                        <li> <a href="javascript:;">Level 4</a> </li>
-                        <li>
-                          <a href="javascript:;">Level 4 <span class="fa arrow"></span> </a>
-                          <ul class="collapse">
-                            <li> <a href="javascript:;">Level 5</a> </li>
-                            <li> <a href="javascript:;">Level 5</a> </li>
-                            <li> <a href="javascript:;">Level 5</a> </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li> <a href="javascript:;">Level 4</a> </li>
-                  </ul>
-                </li>
-                <li> <a href="javascript:;">Level 2</a> </li>
-              </ul>
-            </li>
-            <li> <a href="javascript:;">Level 1</a> </li>
-            <li>
-              <a href="javascript:;">Level 1 <span class="fa arrow"></span> </a>
-              <ul class="collapse">
-                <li> <a href="javascript:;">Level 2</a> </li>
-                <li> <a href="javascript:;">Level 2</a> </li>
-                <li> <a href="javascript:;">Level 2</a> </li>
-              </ul>
-            </li>
-          </ul>
         </li>
       </ul>
       <!-- /#menu -->

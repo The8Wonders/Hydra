@@ -7,7 +7,7 @@ class proyectocontrolador extends proyectomodelo
 
   public function nuevo_proyecto_controlador()
   {
-    $cod_proyecto = mainModel::limpiar_cadena($_POST['codigoProyecto']);
+    $cod_proyecto = mainModel::generar_codigo_aleatorio("PR",7,3);
     $nom_proyecto = mainModel::limpiar_cadena($_POST['nombre']);
     $fecha_inicio = mainModel::limpiar_cadena($_POST['fechaInicio']);
     $fecha_fin = mainModel::limpiar_cadena($_POST['fechaTermino']);

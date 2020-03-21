@@ -21,21 +21,24 @@ require_once "../extras/barra.php"; ?>
             <div class="box">
               <header>
                 <div class="icons"><i class="fa fa-table"></i></div>
-                <h5>Administradores</h5>
+                <h5>Requerimientos</h5>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
                   <thead> 
                     <?php require_once "../../core/mainModel.php";
                       $c = new mainModel();
-                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol='profesor'")
+                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM requerimiento")
                     ?>
                     <tr>
-                      <th>Rut</th>
+                      <th>Codigo</th>
                       <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Correo</th>
-                      <th>Telefono</th>
+                      <th>Tipo</th>
+                      <th>Complejidad</th>
+                      <th>Horas</th>
+                      <th>Estado</th>
+                      <th>Impacto</th>
+                      <th>Prioridad</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -43,12 +46,15 @@ require_once "../extras/barra.php"; ?>
                   <tbody>
                     <?php foreach($datos as $rows){?>
                     <tr>
-                      <td><?php echo $rows['rut']?></td>
-                      <td><?php echo $rows['nombre']?></td>
-                      <td><?php echo $rows['apellido']?></td>
-                      <td><?php echo $rows['correo']?></td>
-                      <td><?php echo $rows['telefono']?></td>
-                      <?php echo "<td><a href='editAdmin-vistas.php?rut=".$rows['rut']."'><i class='far fa-edit'></i></a></td>" ?>
+                      <td><?php echo $rows['cod_requerimiento']?></td>
+                      <td><?php echo $rows['nom_requerimiento']?></td>
+                      <td><?php echo $rows['tipo_requerimiento']?></td>
+                      <td><?php echo $rows['complejidad']?></td>
+                      <td><?php echo $rows['horas_requerimiento']?></td>
+                      <td><?php echo $rows['estado']?></td>
+                      <td><?php echo $rows['impacto']?></td>
+                      <td><?php echo $rows['prioridad']?></td>
+                     <?php echo "<td><a href='editAdmin-vistas.php?rut=".$rows['cod_requerimiento']."'><i class='far fa-edit'></i></a></td>" ?>
                       <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php }?>
@@ -66,7 +72,7 @@ require_once "../extras/barra.php"; ?>
     <!-- /.outer -->
   </div>
   </div>
-<script src=""></script>
+<script src="../assets/js/editAdmin.js"></script>
 </body>
 
 <?php

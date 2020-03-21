@@ -9,12 +9,16 @@ class profesorcontrolador extends profesormodelo
     $rut = mainModel::limpiar_cadena($_POST['rut']);
     $rut = mainModel::limpiar_rut($rut);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
+    $nombre2 = mainModel::limpiar_cadena($_POST['nombre2']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
+    $apellido2 = mainModel::limpiar_cadena($_POST['apellido2']);
     $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
     $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
     $correo = mainModel::limpiar_cadena($_POST['correo']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
     $rol = mainModel::limpiar_cadena($_POST['rol']);
+    $nombre = $nombre." ".$nombre2;
+    $apellido = $apellido." ".$apellido2;
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
       $respuesta = "incompletos";

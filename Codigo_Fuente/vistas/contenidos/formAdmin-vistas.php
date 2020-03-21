@@ -111,6 +111,7 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
+  </div>
   <script src="../assets/js/administrador.js"></script>
 
 </body>

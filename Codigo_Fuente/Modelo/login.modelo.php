@@ -11,4 +11,11 @@ class loginmodelo extends mainModel
     $sql->execute();
     return $sql;
   }
+
+  protected function datos_modelo($dato){
+    $sql = mainModel::conectar()->prepare("SELECT * FROM alumno WHERE rut= :Rut");
+    $sql->bindParam(":Rut", $dato);
+    $sql->execute();
+    return $sql;
+  }
 }

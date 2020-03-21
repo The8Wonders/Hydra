@@ -114,6 +114,7 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
+  </div>
   <script src="../assets/js/profesor.js"></script>
   <?php
     require_once "../extras/footer.php";

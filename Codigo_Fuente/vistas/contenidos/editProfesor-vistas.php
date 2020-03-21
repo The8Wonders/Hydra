@@ -1,8 +1,4 @@
-<?php $rutEd = $_GET['rut']; ?>
-<?php
-require_once "../extras/estilos.php";
-require_once "../extras/barra.php"; ?>
-
+<?php echo $_GET['rut']?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,25 +7,26 @@ require_once "../extras/barra.php"; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<?php
+require_once "../extras/estilos.php";
+require_once "../extras/barra.php"; ?>
 
 <body>
+
+
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
-        <!--Begin Datatables-->
+
+
         <div class="row">
           <div class="col-lg-12">
             <div class="box dark">
               <header>
-                <div class="icons"><i class="fa fa-table"></i></div>
-                <h5>Actualizar Administrador</h5>
+                <div class="icons"><i class="fa fa-edit"></i></div>
+                <h5>Actualizar Profesor</h5>
               </header>
               <div id="collapse2" class="body">
-                <?php require_once "../../core/mainModel.php";
-                $c = new mainModel();
-                $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol = 'administrador' AND rut = '$rutEd'");
-                 foreach($datos as $rows){};
-                ?>
                 <form class="form-horizontal" action="" method="POST" id="editAdmin">
 
                   <fieldset>
@@ -38,14 +35,14 @@ require_once "../extras/barra.php"; ?>
                       <label for="nombre-edit" class="control-label col-lg-2">Nombre</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre-edit" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nombre'] ?>">
+                        <input name="nombre-edit" type="text" id="nombre-edit" class="form-control" required value="">
                       </div>
 
                       <!--Apellido Profesor Actualizar-->
                       <label for="apellido-edit" class="control-label col-lg-2">Apellido</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido-edit" type="text" id="apellido-edit" class="form-control" required value="<?php echo $rows['apellido'] ?>">
+                        <input name="apellido-edit" type="text" id="apellido-edit" class="form-control" required>
                       </div>
                     </div>
 
@@ -54,38 +51,30 @@ require_once "../extras/barra.php"; ?>
                       <label for="correo-edit" class="control-label col-lg-2">Correo</label>
 
                       <div class="col-lg-4">
-                        <input name="correo-edit" type="text" id="correo-edit" class="form-control" required value="<?php echo $rows['correo'] ?>">
+                        <input name="correo-edit" type="text" id="correo-edit" class="form-control" required>
                       </div>
 
                       <!--Telefono Profesor Actualizar-->
                       <label for="telefono-edit" class="control-label col-lg-2">Telefono</label>
 
                       <div class="col-lg-4">
-                        <input name="telefono-edit" type="text" id="telefono-edit" class="form-control" required value="<?php echo $rows['telefono'] ?>">
+                        <input name="telefono-edit" type="text" id="telefono-edit" class="form-control" required>
                       </div>
                     </div>
 
                     <!--Rol Profesor Actualizar-->
                     <div class="form-group">
-                    <?php $datos2 = $c->ejecutar_consulta_simple("SELECT cod_rol FROM rol");
-                    ?>
-                    <!--Codigo Semestre-->
-                    <div class="form-group">
+                      <label for="rol-edit" class="control-label col-lg-2">Rol</label>
 
-                      <label for="cod-edit" class="control-label col-lg-2">Rol</label>
-
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="rol-edit" id="rol-edit">
-                          <?php foreach ($datos2 as $rows1) { ?>
-                            <option name="optionRol" value="<?php echo $rows1['cod_rol'] ?>"> <?php echo $rows1['cod_rol'] ?> </option>
-                          <?php } ?>
-                        </select>
+                      <div class="col-lg-4">
+                        <input name="rol-edit" type="text" id="rol-edit" class="form-control" required>
                       </div>
 
-                    </div>
-
                       <!--Rut del Profesor-->
+                      <label for="rut" class="control-label col-lg-2">Rut</label>
+
                       <div class="col-lg-4">
-                        <input disabled name="rut" type="hidden" id="rut" class="form-control" required value="<?php echo $rows['rut'] ?>">
+                        <input disabled name="rut" type="text" id="rut" class="form-control" required>
                       </div>
                     </div>
               </div>
@@ -98,20 +87,13 @@ require_once "../extras/barra.php"; ?>
           </div>
         </div>
       </div>
-      <!-- /.row -->
-      <!--End Datatables-->
     </div>
-    <!-- /.inner -->
-  </div>
-  <!-- /.outer -->
   </div>
   </div>
-  <script src="../assets/js/editAdmin.js"></script>
-</body>
 
+</body>
 <?php
 require_once "../extras/footer.php";
 require_once "../extras/script.php"; ?>
-
 
 </html>

@@ -29,8 +29,6 @@ require_once "../extras/barra.php"; ?>
                         <input name="nombre" type="text" id="nombre" placeholder="Nombre Grupo" class="validate[required] form-control" required>
                       </div>
 
-
-
                       <!--Sigle Proyecto-->
 
                       <label for="sigla" class="control-label col-lg-2">Sigla del Grupo</label>
@@ -101,14 +99,6 @@ require_once "../extras/barra.php"; ?>
                       </div>
                     </div>
 
-                    <!--Codigo Grupo-->
-
-                    <label for="codigoProyecto" class="control-label col-lg-2">Codigo Proyecto</label>
-
-                    <div class="col-lg-4">
-                      <input name="codigoProyecto" type="text" id="codigoProyecto" placeholder="Codigo Proyecto " class="validate[required] form-control" required>
-                    </div>
-
                     <?php
                     require_once "../../core/mainModel.php";
                     $ins = new mainModel();
@@ -118,7 +108,7 @@ require_once "../extras/barra.php"; ?>
                     <!--Codigo Semestre-->
                     <div class="form-group">
 
-                      <label for="codigoSemestre" class="control-label col-lg-2">Tipo de desarrollo</label>
+                      <label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>
 
                       <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoSemestre" id="codigoSemestre">
                           <option value=""></option>
