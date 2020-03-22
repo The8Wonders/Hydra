@@ -56,20 +56,18 @@ class mainModel
     $sql->bindParam(":Apellido",$datos['Apellido']);
     $sql->bindParam(":Telefono",$datos['Telefono']);
     $sql->bindParam(":Clave",$datos['Contra']);
+    $sql->execute();
 
     return $sql;
   }
 
-  public function update_admin_cuenta($datos){ 
+  public function contraseña_cuenta($datos){ 
     $sql= self::conectar()->prepare("UPDATE usuario SET 
-    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, contraseña=:Clave, correo=:Correo WHERE rut=:Rut");
+   contraseña=:Clave WHERE rut=:Rut");
 
     $sql->bindParam(":Rut",$datos['Rut']);
-    $sql->bindParam(":Nombre",$datos['Nombre']);
-    $sql->bindParam(":Apellido",$datos['Apellido']);
-    $sql->bindParam(":Telefono",$datos['Telefono']);
     $sql->bindParam(":Clave",$datos['Contra']);
-    $sql->bindParam(":Correo",$datos['Correo']);
+    $sql->execute();
 
     return $sql;
   }

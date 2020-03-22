@@ -196,6 +196,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Mi Perfil</span>
         </a>
       </li>
+      <li class="">
+        <a href="../contenidos/cambiarContraseña-vistas.php">
+          <i class="fa fa-key"></i><span class="link-title">&nbsp;Cambiar Contraseña</span>
+        </a>
+      </li>
       <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
       <li class="">
         <a href="javascript:;">
