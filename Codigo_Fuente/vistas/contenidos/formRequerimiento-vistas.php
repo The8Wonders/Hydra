@@ -119,7 +119,7 @@ require_once "../extras/barra.php"; ?>
                     $datos = $ins->ejecutar_consulta_simple("SELECT cod_proyecto FROM proyecto");
                     ?>
 
-                    <!--Codigo Semestre-->
+                    <!--Codigo Proyectos-->
                     <div class="form-group">
 
                       <label for="codigoProyecto" class="control-label col-lg-2">Codigo de Proyecto</label>

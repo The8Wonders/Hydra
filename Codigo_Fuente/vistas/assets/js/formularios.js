@@ -62,6 +62,14 @@ formulario.addEventListener('submit', function (e) {
 											title: 'Lo sentimos',
 											text: 'El alumno no se a podido registrar',
 										})
+									}else{
+										if(data == 'RutNValidado'){
+											Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'El rut no es valido',
+                      })
+										}
 									}
 								}
 							}

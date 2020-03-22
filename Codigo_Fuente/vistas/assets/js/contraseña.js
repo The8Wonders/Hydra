@@ -26,7 +26,7 @@ formularioContraseña.addEventListener('submit', function (e) {
           Swal.fire({
             icon: 'success',
             title: 'Creado con exito',
-            text: 'El administrador se creo con exito',
+            text: 'Contraseña cambiada con exito',
           })
         } else {
           if (data == 'Error') {
@@ -34,36 +34,44 @@ formularioContraseña.addEventListener('submit', function (e) {
             Swal.fire({
               icon: 'error',
               title: 'Lo sentimos',
-              text: 'Las contraseñas no coinciden',
+              text: 'No se pudo cambiar las contraseñas',
             })
           } else {
             if (data == 'CoIgualAnterior') {
               Swal.fire({
                 icon: 'error',
                 title: 'Lo sentimos',
-                text: 'No se pudo registrar la cuenta',
+                text: 'Esta contraseña esta siendo ocupada actualmente',
               })
             } else {
               if (data == 'Ncoinciden') {
                 Swal.fire({
                   icon: 'error',
                   title: 'Lo sentimos',
-                  text: 'El rut ya se encuentra registrado',
+                  text: 'Las nuevas contraseñas deben coincidir',
                 })
               } else {
                 if (data == 'Cincorrecta') {
                   Swal.fire({
                     icon: 'error',
                     title: 'Lo sentimos',
-                    text: 'El correo ya se encuentra registrado',
+                    text: 'la contraseña actual no es correcta',
                   })
                 }else{
                   if(data == 'RNexiste'){
                     Swal.fire({
                       icon: 'error',
                       title: 'Lo sentimos',
-                      text: 'No se puede registrar administrador',
+                      text: 'No se encuentra una cuenta asociada',
                     })
+                  }else{
+                    if(data == 'RutModificado'){
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'No modifique el rut',
+                      })
+                    }
                   }
                 }
               }
