@@ -42,6 +42,7 @@ class cambiarcontrasenacontrolador extends mainModel
 
                 if ($guardarContraseña->rowCount() >= 1) {
                   $_SESSION['contraseña_sgp'] = $contra;
+                  mainModel::sendmail($_SESSION['correo_sgp'],"Cambio de contraseña","Su contraseña a sido cambiada exitosamente");
                   $respuesta = "Exito";
                 } else {
                   $respuesta = "Error";
