@@ -82,58 +82,45 @@ class profesorcontrolador extends profesormodelo
     return $respuesta;
   }
 
-  public function update_profesor($datos)
+  public function update_profesor_controlador()
   {
-    $rut = mainModel::limpiar_cadena($_POST['rut']);
-    $nombre = mainModel::limpiar_cadena($_POST['nombre']);
-    $apellido = mainModel::limpiar_cadena($_POST['apellido']);
-    $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
-    $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
-    $telefono = mainModel::limpiar_cadena($_POST['telefono']);
+    $rutR = mainModel::limpiar_cadena($_POST['edicion']);
+    $nombre = mainModel::limpiar_cadena($_POST['nombre-edit']);
+    $apellido = mainModel::limpiar_cadena($_POST['apellido-edit']);
+    $telefono = mainModel::limpiar_cadena($_POST['telefono-edit']);
+    $correo = mainModel::limpiar_cadena($_POST['correo-edit']);
+    $rol = mainModel::limpiar_cadena($_POST['codigoRol']);
 
-    if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "") {
-      $respuesta = ('incompletos');
+    if ($rutR == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
+      $respuesta = "incompletos";
     } else {
-      if ($contraseña1 != $contraseña2) {
-        $respuesta = ('contraseñas');
-      } else {
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rutR' AND cod_rol = 'profesor' ");
 
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
-
-        if ($consulta1->rowCount() >= 1) {
-
-          $respuesta = ('rut');
-        } else {
-
-          $clave = mainModel::encryption($contraseña1);
-
-          $nuevaCuenta = [
-            "Rut" => $rut,
+        if($consulta1->rowCount()>=1){
+          
+          $editarCuenta = [
+            "Rut" => $rutR,
             "Nombre" => $nombre,
             "Apellido" => $apellido,
             "Telefono" => $telefono,
-            "Contra" => $clave
+            "Correo" => $correo,
+            "Rol" => $rol
           ];
 
-          $guardarcuenta = mainModel::update_cuenta($nuevaCuenta);
+          $actualixar = mainModel::update_cuenta($editarCuenta);
 
-          if ($guardarcuenta->rowCount() >= 1) {
-
-            //$guardaradmin = profesormodelo::update_profesor_modelo($rut);
-
-            /*if($guardaradmin->rowCount()>=1){  // admin actualiza a profesor
-                */
-            $respuesta = ('correcto');
-            /*}else{
-                $respuesta = ('profesor');
-              }*/
-          } else {
-
-            $respuesta = ('incorrecto');
+          if($actualixar->rowCount()>=1){
+            $respuesta = "Actualizada";
+          }else{
+            $respuesta = "Error";
           }
+
+        }else{
+          $respuesta = "NoencuentraProfesor";
         }
-      }
     }
+
+    return $respuesta;
   }
 
   public function eliminar_profesor_controlador()

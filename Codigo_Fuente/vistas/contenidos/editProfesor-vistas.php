@@ -37,17 +37,6 @@ require_once "../extras/barra.php"; ?>
                 <form class="form-horizontal" action="" method="POST" id="editProfesor">
 
                   <fieldset>
-
-                    <!--Rut del Profesor-->
-                    <div class="form-group">
-                      <label for="rut" class="control-label col-lg-2">Rut</label>
-
-                      <div class="col-lg-4">
-                        <input disabled name="rut" type="text" id="rut" class="form-control" required value="<?php echo $rows['rut'] ?>">
-                      </div>
-                    </div>
-
-
                     <!--Nombre Profesor Actualizar-->
                     <div class="form-group">
                       <label for="nombre-edit" class="control-label col-lg-2">Nombre</label>
@@ -93,6 +82,7 @@ require_once "../extras/barra.php"; ?>
                         </select>
                       </div>
 
+                      <input name="edicion" type="hidden" id="edicion" class="form-control" value="<?php echo $rutPr ?>">
 
                     </div>
                     <div class="form-actions">
@@ -107,7 +97,7 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
-
+  <script src="../assets/js/editarprofesor.js"></script>
 </body>
 <?php
 require_once "../extras/footer.php";

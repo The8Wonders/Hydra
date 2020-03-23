@@ -64,7 +64,6 @@ require_once "../extras/barra.php"; ?>
     <!-- /.outer -->
   </div>
   </div>
-  <script src="../assets/js/eliminarProfesor.js"></script>
 </body>
 
 <?php
