@@ -37,30 +37,19 @@ require_once "../extras/barra.php"; ?>
                 <form class="form-horizontal" action="" method="POST" id="editProfesor">
 
                   <fieldset>
-
-                    <!--Rut del Profesor-->
-                    <div class="form-group">
-                      <label for="rut" class="control-label col-lg-2">Rut</label>
-
-                      <div class="col-lg-4">
-                        <input disabled name="rut" type="text" id="rut" class="form-control" required value="<?php echo $rows['rut'] ?>">
-                      </div>
-                    </div>
-
-
                     <!--Nombre Profesor Actualizar-->
                     <div class="form-group">
-                      <label for="nombre-edit" class="control-label col-lg-2">Nombre</label>
+                      <label for="nombre-edit" class="control-label col-lg-2">Nombres</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre-edit" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nombre'] ?>">
+                        <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nombre'] ?>">
                       </div>
 
                       <!--Apellido Profesor Actualizar-->
-                      <label for="apellido-edit" class="control-label col-lg-2">Apellido</label>
+                      <label for="apellido-edit" class="control-label col-lg-2">Apellidos</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido-edit" type="text" id="apellido-edit" class="form-control" required value="<?php echo $rows['apellido'] ?>">
+                        <input name="apellido" type="text" id="apellido-edit" class="form-control" required value="<?php echo $rows['apellido'] ?>">
                       </div>
                     </div>
 
@@ -69,30 +58,31 @@ require_once "../extras/barra.php"; ?>
                       <label for="correo-edit" class="control-label col-lg-2">Correo</label>
 
                       <div class="col-lg-4">
-                        <input name="correo-edit" type="text" id="correo-edit" class="form-control" required value="<?php echo $rows['correo'] ?>">
+                        <input name="correo" type="text" id="correo-edit" class="form-control" required value="<?php echo $rows['correo'] ?>">
                       </div>
 
                       <!--Telefono Profesor Actualizar-->
                       <label for="telefono-edit" class="control-label col-lg-2">Telefono</label>
 
                       <div class="col-lg-4">
-                        <input name="telefono-edit" type="text" id="telefono-edit" class="form-control" required value="<?php echo $rows['telefono'] ?>">
+                        <input name="telefono" type="text" id="telefono-edit" class="form-control" required value="<?php echo $rows['telefono'] ?>">
                       </div>
                     </div>
 
                     <!--Rol Profesor Actualizar-->
                     <div class="form-group">
 
-                      <label for="codigoRol" class="control-label col-lg-2">Codigo de Proyecto</label>
+                      <label for="codigoRol" class="control-label col-lg-2">Codigo Rol</label>
 
                       <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="codigoRol" id="codigoRol">
-                          <option value=""></option>
+                          <option >Seleccione...</option>
                           <?php foreach ($datos2 as $rows2) { ?>
-                            <option name="optionRol" value="<?php echo $rows2['cod_rol'] ?>"> <?php echo $rows2['cod_rol'] ?> </option>
+                            <option name="rol" value="<?php echo $rows2['cod_rol'] ?>"> <?php echo $rows2['cod_rol'] ?> </option>
                           <?php } ?>
                         </select>
                       </div>
 
+                      <input name="rut" type="hidden" id="edicion" class="form-control" value="<?php echo $rutPr ?>">
 
                     </div>
                     <div class="form-actions">
@@ -107,7 +97,7 @@ require_once "../extras/barra.php"; ?>
       </div>
     </div>
   </div>
-
+  <script src="../assets/js/editarprofesor.js"></script>
 </body>
 <?php
 require_once "../extras/footer.php";

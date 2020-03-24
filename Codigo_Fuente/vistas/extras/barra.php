@@ -182,7 +182,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           <h5 class="media-heading"><?php echo $_SESSION['rut_sgp'] ?></h5>
           <h5 class="media-heading"><?php echo $_SESSION['nombre_sgp'] ?><?php echo " "; ?><?php echo $_SESSION['apellido_sgp'] ?></h5>
           <ul class="list-unstyled user-info">
-            <li><a href=""><?php echo $_SESSION['cod_rol_sgp'] ?></a></li>
+            <li>Rol: <a ><?php echo $_SESSION['cod_rol_sgp'] ?></a></li>
           </ul>
         </div>
       </div>

@@ -63,13 +63,7 @@
                       </div>
 
                       <!--Contraseña Alumno-->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2">Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="contra" class="validate[required] form-control" type="password" id="contra" required />
-                        </div>
-
+                      <div class="form-group">                        
                         <!-- Telefono -->
                         <label class="control-label col-lg-2">Telefono Celular</label>
 
@@ -83,13 +77,8 @@
 
                       </div>
 
-                      <!-- Repetir contraseña -->
+                      
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Repetir Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="re-contra" class="validate[required,equals[pass1]] form-control" type="password" id="re-contra" required />
-                        </div>
 
                       <input type="hidden" name="rol" value="<?php echo $_SESSION['cod_rol_sgp'] ?>">
 
@@ -140,7 +129,7 @@
                 <!-- perfil profesor -->
                 <?php if ($_SESSION['cod_rol_sgp'] == 'profesor') : // if soy un profesor 
                 ?>
-                  <form class="form-horizontal" action="" method="POST" id="perfilProfesor">
+                  <form class="form-horizontal" action="../../controladores/update.profesor.controlador.php" method="POST" id="perfilProfesor">
                     <fieldset>
                       <!--Nombres Administrador-->
                       <div class="form-group">
@@ -175,12 +164,6 @@
 
                       <!--Contraseña admin-->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="contra" class="form-control" type="password" id="contra" required />
-                        </div>
-
                         <!-- Telefono -->
                         <label class="control-label col-lg-2">Telefono Celular</label>
 
@@ -196,11 +179,6 @@
 
                       <!-- Repetir contraseña -->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Repetir Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="re-contra" class="validate[required,equals[pass1]] form-control" type="password" id="re-contra" required />
-                        </div>
 
                         <!-- submit -->
                         <div class="form-actions">
@@ -215,7 +193,7 @@
 
                 <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : // if soy un Administrador 
                 ?>
-                  <form class="form-horizontal" action="../../controladores/administrador.controlador.php" method="POST" id="perfilAdmin">
+                  <form class="form-horizontal" action="../../controladores/update.administrador.controlador.php" method="POST" id="perfilAdmin">
                     <fieldset>
                       <!--Nombres Administrador-->
                       <div class="form-group">
@@ -247,15 +225,7 @@
                           <input name="correo" class="form-control" type="email" placeholder="Ejemplo@gmail.com" id="correo" required value="<?php echo $_SESSION['correo_sgp'] ?>">
                         </div>
                       </div>
-
-                      <!--Contraseña admin-->
-                      <div class="form-group">
-                        <label class="control-label col-lg-2">Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="contra" class="form-control" type="password" id="contra" required />
-                        </div>
-
+                    
                         <!-- Telefono -->
                         <label class="control-label col-lg-2">Telefono Celular</label>
 
@@ -271,12 +241,7 @@
 
                       <!-- Repetir contraseña -->
                       <div class="form-group">
-                        <label class="control-label col-lg-2">Repetir Contraseña</label>
-
-                        <div class=" col-lg-4">
-                          <input name="re-contra" class="validate[required,equals[pass1]] form-control" type="password" id="re-contra" required />
-                        </div>
-
+                        <input type="hidden" name="rol" value="administrador">
                         <!-- submit -->
                         <div class="form-actions">
                           <input type="submit" value="Guardar" class="btn btn-primary">

@@ -40,7 +40,7 @@ class mainModel
 
   public function eliminar_cuenta($codigo)
   {
-    $sql = self::conectar()->prepare("DELETE  FROM usuario WHERE rut= :Codigo");
+    $sql = self::conectar()->prepare("DELETE FROM usuario WHERE rut= :Codigo");
     $sql->bindParam(":Codigo", $codigo);
     $sql->execute();
 
@@ -50,13 +50,14 @@ class mainModel
   public function update_cuenta($datos)
   {
     $sql = self::conectar()->prepare("UPDATE usuario SET 
-    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, contraseña=:Clave WHERE rut=:Rut");
+    rut=:Rut ,nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, correo=:Correo, cod_rol=:Cod WHERE rut=:Rut");
 
     $sql->bindParam(":Rut", $datos['Rut']);
     $sql->bindParam(":Nombre", $datos['Nombre']);
     $sql->bindParam(":Apellido", $datos['Apellido']);
     $sql->bindParam(":Telefono", $datos['Telefono']);
-    $sql->bindParam(":Clave", $datos['Contra']);
+    $sql->bindParam(":Correo", $datos['Correo']);
+    $sql->bindParam(":Cod", $datos['Rol']);
     $sql->execute();
 
     return $sql;
@@ -181,5 +182,31 @@ class mainModel
       }
     }
     return $cadena;
+  }
+
+  public static function sendmail($destino, $asunto, $msje)
+  {
+    try {
+      $contenido =
+        '<html>' .
+        '<head>
+            <title>Sistema De Gestión De Proyectos</title>
+        </head>' .
+        '<body>
+            <h1>' . $asunto . '</h1>'
+        . $msje .
+        '<hr>' .
+        'Enviado automaticamente. No responder' .
+        '</body>' .
+        '</html>';
+      $cabeceras = 'MIME-Version: 1.0' . "\r\n";
+      $cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+      //$cabeceras.= 'From: no-responder@face.ubiobio.cl' . "\r\n" . "\r\n";
+      mail($destino, $asunto, $contenido, $cabeceras);
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      echo "<br> La línea de error es: " . $e->getLine();
+      echo $e->errorInfo();
+    }
   }
 }
