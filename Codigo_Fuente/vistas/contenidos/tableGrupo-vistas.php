@@ -20,6 +20,9 @@
                 <h5>Equipo</h5>
               </header>
               <div id="collapse4" class="body">
+              <!--lista grupo para admin y profesor-->
+              <?php
+              if( $_SESSION['cod_rol_sgp']=='administrador' || $_SESSION['cod_rol_sgp']=='profesor') : ?>
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
                   <thead>
                   <?php 
@@ -40,16 +43,47 @@
                     <?php foreach($mostrar as $rows) :?>
                     <tr>
                       <td><?php echo $rows['cod_equipo']?></td>
-                      <td><?php echo $rows['nombre_equipo']?></td>
+                      <td><a href="lista-alumno-grupo-vista.php"><?php echo $rows['nombre_equipo']?></a></td>
                       <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
-                      <td><a href=""><i class="far fa-edit"></i></td></a>
+                      <td><a href="formGrupo-update.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="far fa-edit"></i></td></a>
                       <td><a href="../../controladores/grupo.controlador-eliminar.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php endforeach ?>
-                    
                   </tbody>
                 </table>
+              <?php endif ?>
+              <!--lista grupo para alumno-->
+              <?php
+              if( $_SESSION['cod_rol_sgp']=='alumno') : ?>
+                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                  <thead>
+                  <?php 
+                    require_once("../../core/mainModel.php");
+                    $c = new mainModel();
+                    $mostrar = $c->ejecutar_consulta_simple("SELECT * FROM equipo");
+                  ?>
+                    <tr>
+                      
+                      <th>Código Equipo</th>
+                      <th>Nombre Equipo</th>
+                      <th>Código Semestre</th>
+                      <th>Código Proyecto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach($mostrar as $rows) :?>
+                    <tr>
+                      <td><?php echo $rows['cod_equipo']?></td>
+                      <td><a href="lista-alumno-grupo-vista.php"><?php echo $rows['nombre_equipo']?></a></td>
+                      <td><?php echo $rows['cod_semestre']?></td>
+                      <td><?php echo $rows['cod_proyecto']?></td>
+                    </tr>
+                    <?php endforeach ?>
+                  
+                  </tbody>
+                </table>
+              <?php endif ?>    
               </div>
             </div>
           </div>
