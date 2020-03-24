@@ -29,7 +29,7 @@
                 <!-- perfil alumno -->
                 <?php if ($_SESSION['cod_rol_sgp'] == 'alumno') : //if soy un alumno 
                 ?>
-                  <form class="form-horizontal" action="" method="POST" id="perfilAlumno">
+                  <form class="form-horizontal" action="../../controladores/update.alumno.controlador.php" method="POST" id="perfilAlumno">
                     <fieldset>
                       <!--Nombres Alumno-->
                       <div class="form-group">
@@ -119,6 +119,7 @@
                       </div>
 
                       <!-- submit -->
+                      <input type="hidden" name="rol" value="<?php echo $_SESSION['cod_rol_sgp']; ?>">
                       <div class="form-actions">
                         <input type="submit" value="Guardar" class="btn btn-primary">
                       </div>
@@ -151,7 +152,7 @@
                         <label for="rut" class="control-label col-lg-2">R.U.T</label>
 
                         <div class="col-lg-4">
-                          <input name="rut" type="text" id="rut" name="rut" class="validate[required] form-control" required value="<?php echo $_SESSION['rut_sgp'] ?>">
+                          <input name="rut" type="text" id="rut" name="rut" class="validate[required] form-control" readonly required value="<?php echo $_SESSION['rut_sgp'] ?>">
                         </div>
 
                         <!-- Email admin -->
@@ -189,8 +190,6 @@
                 <?php endif; ?>
 
                 <!-- perfil administrador -->
-
-
                 <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : // if soy un Administrador 
                 ?>
                   <form class="form-horizontal" action="../../controladores/update.administrador.controlador.php" method="POST" id="perfilAdmin">
@@ -215,7 +214,7 @@
                         <label for="rut" class="control-label col-lg-2">R.U.T</label>
 
                         <div class="col-lg-4">
-                          <input name="rut" type="text" id="rut" name="rut" class="validate[required] form-control" required value="<?php echo $_SESSION['rut_sgp'] ?>">
+                          <input name="rut" type="text" id="rut" name="rut" class="validate[required] form-control" readonly required value="<?php echo $_SESSION['rut_sgp'] ?>">
                         </div>
 
                         <!-- Email admin -->

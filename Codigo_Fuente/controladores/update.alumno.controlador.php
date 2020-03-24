@@ -1,63 +1,66 @@
 <?php
-class update_alumno{
+require_once "../modelo/alumno.modelo.php";
+class update_alumno extends alumnomodelo{
 
     public function update_alumno()
   {
     $rut = mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
-    $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
-    $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
+    $correo = mainModel::limpiar_cadena($_POST['correo']);
+    $rol = mainModel::limpiar_cadena($_POST['rol']);
 
-    if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "") {
-      echo json_encode('incompletos');
+    if ($rut == "" || $nombre == "" || $apellido == "" || $telefono == "" || $rol == "") {
+      //echo json_encode('incompletos');
+      header("Location:../vistas/contenidos/perfil-vistas.php");
+
     } else {
-      if ($contraseña1 != $contraseña2) {
-        echo json_encode('contraseñas');
-      } else {
 
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut' AND cod_rol= 'alumno'");
 
         if ($consulta1->rowCount() >= 1) {
-
-          echo json_encode('rut');
-        } else {
-
-          $clave = mainModel::encryption($contraseña1);
           $actualizarCuenta = [
             "Rut" => $rut,
             "Nombre" => $nombre,
             "Apellido" => $apellido,
-            "Telefono" => $telefono,
-            "Contra" => $clave
+            "Telefono" => $telefono
           ];
-
-          $updatecuenta = mainModel::update_cuenta($actualizarCuenta);
-
+          
+          $updatecuenta = alumnomodelo::actualizar_alumno_modelo($actualizarCuenta);
+          
           if ($updatecuenta->rowCount() >= 1) {
 
             //$guardaralumno = alumnomodelo::actualizar_alumno_modelo($rut);
 
             /*if($guardaralumno->rowCount()>=1){ // admin o profe actualiza a alumno
                 */
-            echo json_encode('correcto');
+            //echo json_encode('correcto');
+            session_start(['name'=>'SGP']);
+            $_SESSION['rut_sgp']= $rut;
+            $_SESSION['nombre_sgp']= $nombre;
+            $_SESSION['apellido_sgp']= $apellido;
+            //$_SESSION['contraseña_sgp']= $contraseña;
+            $_SESSION['correo_sgp']= $correo;
+            $_SESSION['telefono_sgp']= $telefono;
+            $_SESSION['cod_rol_sgp']= $rol;
+
+            header("Location:../vistas/contenidos/perfil-vistas.php");
             /*}else{
                 echo json_encode('alumno');
              }*/
           } else {
 
-            echo json_encode('incorrecto');
+            //echo json_encode('incorrecto');
+
+            header("Location:../vistas/contenidos/perfil-vistas.php");
           }
         }
-      }
     }
   }
-
-
 }
 
 $update_alu= new update_alumno();
-$update_alu->update_alumno();
+//$update_alu->update_alumno();
 
 ?>

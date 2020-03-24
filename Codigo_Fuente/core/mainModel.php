@@ -50,7 +50,7 @@ class mainModel
   public function update_cuenta($datos)
   {
     $sql = self::conectar()->prepare("UPDATE usuario SET 
-    rut=:Rut ,nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, correo=:Correo, cod_rol=:Cod WHERE rut=:Rut");
+    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, correo=:Correo, cod_rol=:Cod WHERE rut=:Rut");
 
     $sql->bindParam(":Rut", $datos['Rut']);
     $sql->bindParam(":Nombre", $datos['Nombre']);

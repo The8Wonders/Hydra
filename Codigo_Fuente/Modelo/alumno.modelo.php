@@ -4,7 +4,7 @@
   class alumnomodelo extends mainModel{
 
     protected function nuevo_alumno_modelo($dato){
-      $sql = mainModel::conectar()->prepare("INSERT INTO alumno (rut) VALUES (:Rut)");
+      $sql = mainModel::conectar()->prepare("INSERT INTO alumno (rut, registro_exitoso) VALUES (:Rut, 'FALSE')");
 
       $sql->bindParam(":Rut",$dato);
 
@@ -12,23 +12,18 @@
       return $sql;
     }
 
-    protected function actualizar_alumno_modelo($dato){ // admin actualiza perfil alumno
-      $sql= mainModel::conectar()->prepare("UPDATE alumno SET 
-      carrera=:Carrera, cargo=:Cargo, ano_ingreso=:Ano_ingreso, registro_exitoso=:Registro_exitoso, fecha_registro=:Fecha_registro, cod_semestre=:Cod_semestre, cod_equipo=:Cod_equipo WHERE rut=:Rut");
+    protected function actualizar_alumno_modelo($dato){ // alumno actualiza perfil alumno
+      $sql= mainModel::conectar()->prepare("UPDATE usuario SET 
+      nombre=:Nombre, apellido=:Apellido, telefono=:Telefono WHERE rut=:Rut");
 
-      $sql->bindParam(":Rut",$dato['rut']);
-      $sql->bindParam(":Carrera",$dato['carrera']);
-      $sql->bindParam(":Cargo",$dato['cargo']);
-      $sql->bindParam(":Ano_ingreso",$dato['ano_ingreso']);
-      $sql->bindParam(":Registro_exitoso",$dato['registro_exitoso']);
-      $sql->bindParam(":Fecha_registro",$dato['fecha_registro']);
-      $sql->bindParam(":Cod_semestre",$dato['cod_semestre']);
-      $sql->bindParam(":Cod_equipo",$dato['cod_equipo']);
+      $sql->bindParam(":Rut",$dato['Rut']);
+      $sql->bindParam(":Nombre",$dato['Nombre']);
+      $sql->bindParam(":Apellido",$dato['Apellido']);
+      $sql->bindParam(":Telefono",$dato['Telefono']);
 
       $sql->execute();
 
       return $sql;
     }
-
 
   }
