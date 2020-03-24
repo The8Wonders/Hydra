@@ -1,5 +1,6 @@
 <?php
-class update_profesor{
+require_once "../modelo/profesor.modelo.php";
+class update_profesor extends profesormodelo{
     public function update_profesor_controlador(){
 
     $rut = mainModel::limpiar_cadena($_POST['rut']);
@@ -14,7 +15,7 @@ class update_profesor{
       //header("Location:../vistas/contenidos/perfil-vistas.php");
       echo "datos incompletos";
     } else {
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rutR' AND cod_rol = 'profesor' ");
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut' AND cod_rol = 'profesor' ");
 
         if($consulta1->rowCount()>=1){
           
@@ -27,7 +28,7 @@ class update_profesor{
             "Rol" => $rol
           ];
 
-          $actualizarRut= administradormodelo::update_rut_profesor($rut);
+          $actualizarRut= profesormodelo::update_rut_profesor($rut);
 
           if($actualizarRut->rowCount()>=1){
 
