@@ -48,8 +48,8 @@ require_once "../extras/barra.php"; ?>
                       <td><?php echo $rows['apellido']?></td>
                       <td><?php echo $rows['correo']?></td>
                       <td><?php echo $rows['telefono']?></td>
-                      <?php echo "<td><a href='editAdmin-vistas.php?rut=".$rows['rut']."'><i class='far fa-edit'></i></a></td>" ?>
-                      <td><a href=""><i class="fas fa-times"></i></a></td>
+                      <td><a href=""><i class="far fa-edit"></i></td></a>
+                      <td><a href="../../controladores/alumno.controlador-eliminar.php?cod=<?php echo $rows["rut"]; ?>"><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php }?>
                   </tbody>
