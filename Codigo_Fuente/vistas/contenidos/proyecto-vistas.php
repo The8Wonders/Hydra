@@ -64,7 +64,7 @@ require_once "../extras/script.php"; ?>
                       
 
 
-                      <td><a href="../../controladores/proyecto.controlador.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="far fa-edit"></i></a></td>
+                      <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="far fa-edit"></i></a></td>
                       <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php endforeach;?>
