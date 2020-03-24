@@ -1,23 +1,14 @@
 <?php
-    require("../../modelo/grupo.modelo.php");
+    require_once "../modelo/grupo.modelo.php";
+    echo "hola";
+    
+    if(isset($_GET['cod'])){
+        $id = $_GET['cod'];
+        $res = mainModel::ejecutar_consulta_simple("DELETE FROM equipo WHERE cod_equipo='$id'");
 
-   class equipocontrolador_delete extends grupo_modelo{
+    }
 
 
-        public function nuevo_equipo(){
-
-            $id = $_GET["nombre"];
-            
-            $eliminar = grupo_modelo::deleteGrupo($id);
-
-            return $eliminar;
-
-        }
-   }
-
-   $res = new equipocontrolador_delete;
-   $sql = $res->nuevo_equipo();
-
-   header("Location:../vistas/contenidos/tableGrupo-vistas");
+   header("Location:../vistas/contenidos/tableGrupo-vistas.php");
 
 ?>

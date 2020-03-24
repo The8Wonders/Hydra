@@ -80,10 +80,17 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="TipoProyecto" class="control-label col-lg-2">Tipo de desarrollo</label>
 
+<<<<<<< HEAD
+                      <div class="col-lg-4 "><select data-placeholder="Inrese el tipo de desarrollo" id="tipoProyecto" name="tipoProyecto" class="form-control" >
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Desarrollo Movil">Desarrollo Movil</option>       
+                      </select>
+=======
                       <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="tipoProyecto" id="tipoProyecto">
                           <option name="optionProyecto" vale="Desarrollo Web">Desarrollo Web</option>
                           <option name="optionProyecto" vale="Desarrollo Movil">Desarrollo Movil</option>
                         </select>
+>>>>>>> cad486d389bb872d720f7ef72244ec45c9ab5560
                       </div>
 
                     </div>

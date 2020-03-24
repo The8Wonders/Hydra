@@ -23,4 +23,14 @@ class proyectomodelo extends mainModel
 
     return $sql;
   }
+
+  public function deleteProyecto($id){
+
+    $sql = mainModel::conectar()->prepare("DELETE * FROM proyectos WHERE cod_proyecto='$id'");
+    
+    $sql->execute();
+    return $sql;
+
+
+  }
 }
