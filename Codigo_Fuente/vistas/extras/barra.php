@@ -104,7 +104,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                   <li><a href="../contenidos/proyecto-vistas.php">Proyectos</a></li>
                 <?php endif; ?>
                 <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
-                  <li><a href="../contenidos/tableGrupo-vistas.php">Grupos</a></li>
+                  <li><a href="../contenidos/tableGrupo-vistas">Grupos</a></li>
                 <?php endif; ?>
               </ul>
             </li>

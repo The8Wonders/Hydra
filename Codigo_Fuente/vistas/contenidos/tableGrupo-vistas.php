@@ -1,17 +1,14 @@
+<?php require_once ("../extras/estilos.php");?>
+<?php require_once ("../extras/barra.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php require_once ("../extras/estilos.php");?>
-
-
     <title>Document</title>
 </head>
 <body>
-<?php require_once("../../controladores/grupo.controlador.php");?>
 <div id="content">
-<?php require_once "../vistas/extras/barra.php"; ?>
     <div class="outer">
       <div class="inner bg-light lter">
         <!--Begin Datatables-->
@@ -24,7 +21,12 @@
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                  <thead> 
+                  <thead>
+                  <?php 
+                    require_once("../../core/mainModel.php");
+                    $c = new mainModel();
+                    $mostrar = $c->ejecutar_consulta_simple("SELECT * FROM equipo");
+                  ?>
                     <tr>
                       <th>Código Equipo</th>
                       <th>Nombre Equipo</th>
@@ -42,7 +44,7 @@
                       <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
                       <td><a href=""><i class="far fa-edit"></i></td></a>
-                      <td><a href="../../controladores/grupo.controlador.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="fas fa-times"></i></a></td>
+                      <td><a href="../../controladores/grupo.controlador-eliminar.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php endforeach ?>
                     
@@ -59,9 +61,9 @@
     </div>
     <!-- /.outer -->
   </div>
-  <?php 
-require_once "../vistas/extras/script.php";
-require_once "../vistas/extras/footer.php";
- ?>
+<?php 
+require_once "../extras/footer.php";
+require_once "../extras/script.php";
+?>
 </body>
 </html>

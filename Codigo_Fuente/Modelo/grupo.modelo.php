@@ -26,11 +26,9 @@
 
         public function setGrupo($datos){
 
-            $insertar=$this->bd->prepare("INSERT INTO equipo VALUES (:codE,:nomE,:codS,:codP)");
-            $insertar->bindParam(":codE",$datos['cod_equipo']);
+            $insertar=$this->bd->prepare("INSERT INTO equipo VALUES (:nomE,:codS)");
             $insertar->bindParam(":nomE",$datos['nombre_equipo']);
             $insertar->bindParam(":codS",$datos['cod_semestre']);
-            $insertar->bindParam(":codP",$datos['cod_proyecto']);
             $insertar->execute();
             
             return $insertar;

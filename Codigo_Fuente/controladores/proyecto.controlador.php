@@ -23,8 +23,8 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
 
     if (
       $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" ||
-      $descripcion_proyecto == "" || $sigla == "" || $tipo_desarrollo == "" || $cod_semestre == ""
-    ) /* verifica que vengan todo los valores rellenados */{
+      $descripcion_proyecto == "" || $sigla == "" || $tipo_desarrollo == "" || $cod_semestre == "")
+       /* verifica que vengan todo los valores rellenados */{
       $respuesta = "incompletos";
     } else {
       if ($fecha_inicio > $fecha_fin) {
