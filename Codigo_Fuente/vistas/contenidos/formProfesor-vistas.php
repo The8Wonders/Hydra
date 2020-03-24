@@ -100,7 +100,7 @@ require_once "../extras/barra.php"; ?>
                         <input name="telefono" class="validate[required,custom[number]] form-control" type="number" min="920000000" pattern="^[0-9]+" id="telefono" maxlength="9" required />
                       </div>
                     </div>
-                    <input type="hidden" name="rol" value="Profesor">
+                    <input type="hidden" name="rol" value="profesor">
                     
                     <div class="form-actions">
                       <input type="submit" value="Guardar" class="btn btn-primary">
@@ -113,6 +113,7 @@ require_once "../extras/barra.php"; ?>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <script src="../assets/js/profesor.js"></script>
   <?php

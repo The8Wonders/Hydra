@@ -14,4 +14,15 @@
         $sql->execute();
         return $sql;
       }
+
+      public function actualizar_semestre_modelo($datos){
+        $sql = mainModel::conectar()->prepare("UPDATE semestre SET fecha_inicio=:Fecha_inicio, fecha_fin=:Fecha_fin WHERE cod_semestre=:Cod");
+        
+        $sql->bindParam(":Cod", $datos['cod_semestre']);
+        $sql->bindParam(":Cod", $datos['fecha_inicio']);
+        $sql->bindParam(":Cod", $datos['fecha_fin']);
+
+        $sql->execute();
+        return $sql;
+      }
     }

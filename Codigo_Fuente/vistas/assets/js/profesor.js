@@ -63,6 +63,14 @@ formularioProfesor.addEventListener('submit', function (e) {
                       title: 'Lo sentimos',
                       text: 'No se puede registrar administrador',
                     })
+                  }else{
+                    if(data == 'RutNValidado'){
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'El rut no es valido',
+                      })
+                    }
                   }
                 }
               }

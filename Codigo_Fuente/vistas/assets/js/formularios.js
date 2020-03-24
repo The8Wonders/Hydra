@@ -20,13 +20,12 @@ formulario.addEventListener('submit', function (e) {
 				})
 			} else {
 				if (data == 'correcto') {
+					document.getElementById("formAlumno").reset();
 					Swal.fire({
 						icon: 'success',
-						title: 'Registro COrrecto',
+						title: 'Registro Correcto',
 						text: 'Las contraseñas no coinciden',
 					})
-					
-					window.location = "../../..index.php";
 				} else {
 					if (data == 'contraseñas') {
 
@@ -63,6 +62,14 @@ formulario.addEventListener('submit', function (e) {
 											title: 'Lo sentimos',
 											text: 'El alumno no se a podido registrar',
 										})
+									}else{
+										if(data == 'RutNValidado'){
+											Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'El rut no es valido',
+                      })
+										}
 									}
 								}
 							}

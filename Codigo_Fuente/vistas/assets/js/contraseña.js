@@ -1,12 +1,12 @@
 
-var formularioAdmin = document.getElementById('formAdmin');
+var formularioContraseña = document.getElementById('cambioContra');
 
-formularioAdmin.addEventListener('submit', function (e) {
+formularioContraseña.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  var datos = new FormData(formularioAdmin);
+  var datos = new FormData(formularioContraseña);
 
-  fetch('../../../ajax/administrador.ajax.php', {
+  fetch('../../../controladores/cambiarContra.controlador.php', {
     method: 'POST',
     body: datos
   })
@@ -21,55 +21,55 @@ formularioAdmin.addEventListener('submit', function (e) {
           text: 'Debe rellenar todo los campos',
         })
       } else {
-        if (data == 'correcto') {
-          document.getElementById("formAdmin").reset();
+        if (data == 'Exito') {
+          document.getElementById("cambioContra").reset();
           Swal.fire({
             icon: 'success',
             title: 'Creado con exito',
-            text: 'El administrador se creo con exito',
+            text: 'Contraseña cambiada con exito',
           })
         } else {
-          if (data == 'contraseñas') {
+          if (data == 'Error') {
 
             Swal.fire({
               icon: 'error',
               title: 'Lo sentimos',
-              text: 'Las contraseñas no coinciden',
+              text: 'No se pudo cambiar las contraseñas',
             })
           } else {
-            if (data == 'incorrecto') {
+            if (data == 'CoIgualAnterior') {
               Swal.fire({
                 icon: 'error',
                 title: 'Lo sentimos',
-                text: 'No se pudo registrar la cuenta',
+                text: 'Esta contraseña esta siendo ocupada actualmente',
               })
             } else {
-              if (data == 'rut') {
+              if (data == 'Ncoinciden') {
                 Swal.fire({
                   icon: 'error',
                   title: 'Lo sentimos',
-                  text: 'El rut ya se encuentra registrado',
+                  text: 'Las nuevas contraseñas deben coincidir',
                 })
               } else {
-                if (data == 'correo') {
+                if (data == 'Cincorrecta') {
                   Swal.fire({
                     icon: 'error',
                     title: 'Lo sentimos',
-                    text: 'El correo ya se encuentra registrado',
+                    text: 'la contraseña actual no es correcta',
                   })
                 }else{
-                  if(data == 'administrador'){
+                  if(data == 'RNexiste'){
                     Swal.fire({
                       icon: 'error',
                       title: 'Lo sentimos',
-                      text: 'No se puede registrar administrador',
+                      text: 'No se encuentra una cuenta asociada',
                     })
                   }else{
-                    if(data == 'RutNValidado'){
+                    if(data == 'RutModificado'){
                       Swal.fire({
                         icon: 'error',
                         title: 'Lo sentimos',
-                        text: 'El rut no es valido',
+                        text: 'No modifique el rut',
                       })
                     }
                   }

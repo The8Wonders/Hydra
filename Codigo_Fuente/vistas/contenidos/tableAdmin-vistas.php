@@ -36,8 +36,6 @@ require_once "../extras/barra.php"; ?>
                       <th>Apellido</th>
                       <th>Correo</th>
                       <th>Telefono</th>
-                      <th>Editar</th>
-                      <th>Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -48,8 +46,6 @@ require_once "../extras/barra.php"; ?>
                       <td><?php echo $rows['apellido']?></td>
                       <td><?php echo $rows['correo']?></td>
                       <td><?php echo $rows['telefono']?></td>
-                      <td><a href="" onclick="edit()"><i class="far fa-edit"></i></a></td>
-                      <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php }?>
                   </tbody>
@@ -64,6 +60,7 @@ require_once "../extras/barra.php"; ?>
       <!-- /.inner -->
     </div>
     <!-- /.outer -->
+  </div>
   </div>
 <script src="../assets/js/editAdmin.js"></script>
 </body>

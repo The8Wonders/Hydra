@@ -34,6 +34,7 @@ formularioSemestre.addEventListener('submit', function (e) {
           })
         }else{
           if (data == 'exito'){
+            document.getElementById("formSemestre").reset();
             Swal.fire({
               icon: 'success',
               title: 'Exito',

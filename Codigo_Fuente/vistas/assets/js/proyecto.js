@@ -1,7 +1,7 @@
 var formularioProyecto = document.getElementById('formProyecto');
 
 formularioProyecto.addEventListener('submit', function (e) {
-  e.preventDefault();
+  e.preventDefault(); /* recoge todo los datos del formulario */
 
 
 <<<<<<< HEAD
@@ -13,11 +13,11 @@ formularioProyecto.addEventListener('submit', function (e) {
   var datos = new FormData(formularioProyecto);
 >>>>>>> cad486d389bb872d720f7ef72244ec45c9ab5560
 
-  fetch('../../../ajax/proyecto.ajax.php', {
+  fetch('../../../ajax/proyecto.ajax.php', {  /* Envia los datos a la direccion por metodo POST y los datos almacenados en *datos* */
       method: 'POST',
       body: datos
     })
-    .then(res => res.json())
+    .then(res => res.json())   /* Ocurre la promesa, aqui lee la respuesta que llega desde donde se enviaron los datos */
     .then(data => {
 
       if (data == 'incompletos') {

@@ -6,6 +6,7 @@ class logincontroldaor extends loginmodelo{
 
   public function ingresar_controlador(){
     $rut = mainModel::limpiar_cadena($_POST['rut_usuario']);
+    $rut = mainModel::limpiar_rut($rut);
     $clave = mainModel::limpiar_cadena($_POST['contra']);
     $clave = mainModel::encryption($clave);
 
@@ -31,6 +32,17 @@ class logincontroldaor extends loginmodelo{
         $_SESSION['correo_sgp']= $row['correo'];
         $_SESSION['telefono_sgp']= $row['telefono'];
         $_SESSION['cod_rol_sgp']= $row['cod_rol'];
+        if($row['cod_rol'] == 'alumno'){
+          $datoAlu = loginmodelo::datos_modelo($row['rut']);
+          $res = $datoAlu->fetch();
+          $_SESSION['carrera_sgp']= $res['carrera'];
+          $_SESSION['ano_ingreso_sgp']= $res['ano_ingreso'];
+          $_SESSION['resgistro_sgp']= $res['registro_exitoso'];
+          $_SESSION['fecha_sgp']= $res['fecha_registro'];
+          $_SESSION['cargo_sgp']= $res['cargo'];
+          $_SESSION['semestre_sgp']= $res['cod_semestre'];
+          $_SESSION['equipo_sgp']= $res['cod_equipo'];
+        }
 
         echo json_encode('existe');
       }else{
