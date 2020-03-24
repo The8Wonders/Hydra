@@ -22,4 +22,14 @@ class profesormodelo extends mainModel
     $sql->execute();
     return $sql;
   }
+
+  protected function update_rut_profesor($rut){
+    $sql = mainModel::conectar()->prepare("UPDATE profesor SET rut=:Rut WHERE rut=:Rut");
+  
+    $sql->bindParam(":Rut",$rut);
+
+    $sql->execute();
+    return $sql;
+  }
+
 }

@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e) {
 
 	var datos = new FormData(formulario);
 
-	fetch('../../../controladores/alumno.controlador.php', {
+	fetch('../../../controladores/nuevo.alumno.controlador.php', {
 		method: 'POST',
 		body: datos
 	})
@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function (e) {
 					Swal.fire({
 						icon: 'success',
 						title: 'Registro Correcto',
-						text: 'Las contraseñas no coinciden',
+						text: 'El alumno se a registrado correctamente',
 					})
 				} else {
 					if (data == 'contraseñas') {
