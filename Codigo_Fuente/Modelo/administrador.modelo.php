@@ -26,14 +26,5 @@ class administradormodelo extends mainModel
     return $sql;
   }
 
-  protected function update_rut_administrador($rut){
-    $sql = mainModel::conectar()->prepare("UPDATE administrador SET rut=:Rut WHERE rut=:Rut");
-  
-    $sql->bindParam(":Rut",$rut);
-
-    $sql->execute();
-    return $sql;
-  }
-
 
 }
