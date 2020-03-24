@@ -2,8 +2,7 @@
 
 require_once "../core/mainModel.php";
 
-class profesormodelo extends mainModel
-{
+class profesormodelo extends mainModel{
   protected function nuevo_profesor_modelo($datos)
   {
     $sql = mainModel::conectar()->prepare("INSERT INTO profesor (rut) VALUES (:Rut)");

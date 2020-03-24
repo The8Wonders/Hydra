@@ -179,7 +179,7 @@
 
                       <!-- Repetir contraseña -->
                       <div class="form-group">
-
+                        <input type="hidden" name="rol"value="<?php echo $_SESSION['cod_rol_sgp']?>" >
                         <!-- submit -->
                         <div class="form-actions">
                           <input type="submit" value="Guardar" class="btn btn-primary">

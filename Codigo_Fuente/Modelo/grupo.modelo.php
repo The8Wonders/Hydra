@@ -1,32 +1,14 @@
 <?php
 
-    require("../../core/mainModel.php");
+    require_once "../core/mainModel.php";
 
     
 
     class grupo_modelo extends mainModel{
        
-        private $bd;
-        private $grupo;
-
-
-        function __construct(){
-
-            try{
-            $this->bd=mainModel::conectar();
-             self::getGrupo();   
-            $this->grupo= array();
-            }catch(Exception $e){
-                echo "Error:" . $e->getMessage();
-                echo "Linea:" . $e->getLine();
-            }    
-
-
-        }
-
         public function setGrupo($datos){
 
-            $insertar=$this->bd->prepare("INSERT INTO equipo VALUES (:nomE,:codS)");
+            $insertar=mainModel::conectar()->prepare("INSERT INTO equipo VALUES (:nomE,:codS)");
             $insertar->bindParam(":nomE",$datos['nombre_equipo']);
             $insertar->bindParam(":codS",$datos['cod_semestre']);
             $insertar->execute();
@@ -35,30 +17,10 @@
 
         }
 
-        public function getGrupo(){
 
-            try{
-            $resultado=$this->bd->query("SELECT * FROM equipo");
+        protected function delete_grupo($cod){
 
-            while( $fila = $resultado->fetch(PDO::FETCH_ASSOC)){
-
-                $this->grupo [] = $fila;
-
-            }
-                return $this->grupo;
-            }catch(Exception $e){
-                echo "Error:" . $e->getMessage();
-                echo "Linea:" . $e->getLine();
-            }
-            
-
-        }
-
-        public function deleteGrupo($cod){
-
-            $eliminar=$this->bd->prepare("DELETE FROM equipo WHERE cod_equipo=:cod");
-            $eliminar->bindParaman(":cod",$cod);
-            $eliminar->execute();
+            $eliminar=mainModel::ejecutar_consulta_simple("DELETE FROM equipo WHERE cod_equipo='$cod'");
 
             return $eliminar;
 
@@ -66,7 +28,7 @@
 
         public function updateGrupoAl($datos){
 
-            $actualizar=$this->bd->prepare("UPDATE equipo SET nombre_equipo=:datos");
+            $actualizar=mainModel::conectar()->prepare("UPDATE equipo SET nombre_equipo=:datos");
             $actualizar->bindParam(":datos",$datos);
             $actualizar->execute();
 
