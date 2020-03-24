@@ -1,12 +1,12 @@
-<?php 
-class cerrar_sesion{
+<?php
+class cerrar_sesion
+{
 
-    public static function salir(){
-        session_start();
-        session_unset();
+    public static function salir()
+    {
+        session_start(['name' => 'SGP']);
         session_destroy();
-        return header("Location:../index.php");
+        header("location: ../index.php");
     }
 }
 cerrar_sesion::salir();
-?>

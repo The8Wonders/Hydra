@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<?php
+require_once "../extras/estilos.php";
+require_once "../extras/barra.php"; ?>
+
+<body>
+
+
+  <div id="content">
+    <div class="outer">
+      <div class="inner bg-light lter">
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box dark">
+              <header>
+                <div class="icons"><i class="fa fa-edit"></i></div>
+                <h5>Nuevo Semestre</h5>
+              </header>
+              <div id="collapse2" class="body">
+                <form class="form-horizontal" action="" method="POST" id="formSemestre">
+                  <fieldset>
+                    <!--Fecha Inicio-->
+                    <div class="form-group">
+                      <label for="fechaInicio" class="control-label col-lg-2">Fecha de Inicio</label>
+
+                      <div class="col-lg-4">
+                        <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required>
+                      </div>
+                      <!--Fecha Termino-->
+                      <label for="fechaFin" class="control-label col-lg-2">Fecha de Termino</label>
+
+                      <div class="col-lg-4">
+                        <input name="fechaFin" type="date" id="fechaFin" class="validate[required] form-control" required>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-actions">
+                      <input type="submit" value="Guardar" class="btn btn-primary">
+                    </div>
+                    <br>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="../assets/js/semestre.js"></script>
+
+</body>
+<?php
+require_once "../extras/footer.php";
+require_once "../extras/script.php"; ?>
+
+</html>
+
+
+<div class="form-actions">
+  <input type="submit" value="Guardar" class="btn btn-primary">
+</div>

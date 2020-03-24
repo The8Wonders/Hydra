@@ -7,67 +7,150 @@ class profesorcontrolador extends profesormodelo
   public function nuevo_profesor_controlador()
   {
     $rut = mainModel::limpiar_cadena($_POST['rut']);
+    $rut = mainModel::limpiar_rut($rut);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
+    $nombre2 = mainModel::limpiar_cadena($_POST['nombre2']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
+    $apellido2 = mainModel::limpiar_cadena($_POST['apellido2']);
     $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
     $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
     $correo = mainModel::limpiar_cadena($_POST['correo']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
     $rol = mainModel::limpiar_cadena($_POST['rol']);
+    $nombre = $nombre . " " . $nombre2;
+    $apellido = $apellido . " " . $apellido2;
 
-    if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
-      echo json_encode('incompletos');
-    } else {
-      if ($contraseña1 != $contraseña2) {
-        echo json_encode('contraseñas');
+    $Vrut = mainModel::verificar_rut($rut);
+
+    if ($Vrut == "TRUE") {
+      if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
+        $respuesta = "incompletos";
       } else {
-
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
-
-        if ($consulta1->rowCount() >= 1) {
-
-          echo json_encode('rut');
+        if ($contraseña1 != $contraseña2) {
+          $respuesta = "contraseñas";
         } else {
 
-          $consulta2 = mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo= '$correo'");
+          $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
 
-          if ($consulta2->rowCount() >= 1) {
-            echo json_encode('correo');
+          if ($consulta1->rowCount() >= 1) {
+
+            $respuesta = "rut";
           } else {
-            $clave = mainModel::encryption($contraseña1);
 
-            $nuevaCuenta = [
-              "Rut" => $rut,
-              "Nombre" => $nombre,
-              "Apellido" => $apellido,
-              "Correo" => $correo,
-              "Telefono" => $telefono,
-              "Rol" => $rol,
-              "Contra" => $clave
-            ];
+            $consulta2 = mainModel::ejecutar_consulta_simple("SELECT correo FROM usuario WHERE correo= '$correo'");
 
-            $guardarcuenta = mainModel::nueva_cuenta($nuevaCuenta);
-
-            if ($guardarcuenta->rowCount() >= 1) {
-
-              $guardaradmin = profesormodelo::nuevo_profesor_modelo($rut);
-
-              if($guardaradmin->rowCount()>=1){
-                echo json_encode('correcto');
-              }else{
-                echo json_encode('administrador');
-              }
-              
+            if ($consulta2->rowCount() >= 1) {
+              $respuesta = "correo";
             } else {
+              $clave = mainModel::encryption($contraseña1);
 
-              echo json_encode('incorrecto');
+              $nuevaCuenta = [
+                "Rut" => $rut,
+                "Nombre" => $nombre,
+                "Apellido" => $apellido,
+                "Correo" => $correo,
+                "Telefono" => $telefono,
+                "Rol" => $rol,
+                "Contra" => $clave
+              ];
+
+              $guardarcuenta = mainModel::nueva_cuenta($nuevaCuenta);
+
+              if ($guardarcuenta->rowCount() >= 1) {
+
+                $guardaradmin = profesormodelo::nuevo_profesor_modelo($rut);
+
+                if ($guardaradmin->rowCount() >= 1) {
+                  $respuesta = "correcto";
+                } else {
+                  mainModel::eliminar_cuenta($rut);
+                  $respuesta = "administrador";
+                }
+              } else {
+
+                $respuesta = "incorrecto";
+              }
             }
           }
         }
       }
+    } else {
+      $respuesta = "RutNValidado";
     }
+
+
+    return $respuesta;
+  }
+
+  public function update_profesor_controlador()
+  {
+    $rutR = mainModel::limpiar_cadena($_POST['edicion']);
+    $nombre = mainModel::limpiar_cadena($_POST['nombre-edit']);
+    $apellido = mainModel::limpiar_cadena($_POST['apellido-edit']);
+    $telefono = mainModel::limpiar_cadena($_POST['telefono-edit']);
+    $correo = mainModel::limpiar_cadena($_POST['correo-edit']);
+    $rol = mainModel::limpiar_cadena($_POST['codigoRol']);
+
+    if ($rutR == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
+      $respuesta = "incompletos";
+    } else {
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rutR' AND cod_rol = 'profesor' ");
+
+        if($consulta1->rowCount()>=1){
+          
+          $editarCuenta = [
+            "Rut" => $rutR,
+            "Nombre" => $nombre,
+            "Apellido" => $apellido,
+            "Telefono" => $telefono,
+            "Correo" => $correo,
+            "Rol" => $rol
+          ];
+
+          $actualixar = mainModel::update_cuenta($editarCuenta);
+
+          if($actualixar->rowCount()>=1){
+            $respuesta = "Actualizada";
+          }else{
+            $respuesta = "Error";
+          }
+
+        }else{
+          $respuesta = "NoencuentraProfesor";
+        }
+    }
+
+    return $respuesta;
+  }
+
+  public function eliminar_profesor_controlador()
+  {
+    $rut = mainModel::limpiar_cadena($_POST['rut']);
+    $rut = mainModel::limpiar_rut($rut);
+
+    if ($rut == "") {
+      $respuesta = "incompleto";
+    } else {
+      $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
+
+      if ($consulta1->rowCount() >= 1) {
+        $eliminarProfesor = profesormodelo::eliminar_profesor_modelo($rut);
+        if ($eliminarProfesor->rowCount() >= 1) {
+          $eliminarCuenta = mainModel::eliminar_cuenta($rut);
+          if ($eliminarCuenta->rowCount() >= 1) {
+            $respuesta = "Eliminada";
+          } else {
+            $h = profesormodelo::nuevo_profesor_modelo($rut);
+            $respuesta = "NoCuenta";
+          }
+        } else {
+          $respuesta = "NoProfesor";
+        }
+      } else {
+        $respuesta = "Noexiste";
+      }
+    }
+
+    return $respuesta;
   }
 }
-
-$admi = new profesorcontrolador;
-$admi->nuevo_profesor_controlador();

@@ -34,23 +34,37 @@ require_once "../extras/script.php"; ?>
                       $datos = $c->ejecutar_consulta_simple("SELECT * FROM equipo")
                     ?>
                     <tr>
-                      <th>Código Equipo</th>
-                      <th>Nombre Equipo</th>
-                      <th>Código Semestre</th>
-                      <th>Código Proyecto</th>
-                      <th>Editar</th>
-                      <th>Eliminar</th>
-                      
+                      <th>Codigo Proyecto</th>
+                      <th>Nombre Proyecto</th>
+                      <th>Fecha Inicio</th>
+                      <th>Fecha Termino</th>
+                      <th>Fecha Inicio Real</th>
+                      <th>Fecha Termino Real</th>
+                      <th>Descripcion</th>
+                      <th>Sigla</th>
+                      <th>Tipo Desarrollo</th>
+                      <th>Codigo Semestre</th>
+                      <td>Editar</td>
+                      <td>Eliminar</td>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach($datos as $rows):?>
                     <tr>
-                      <td><?php echo $rows['cod_equipo']?></td>
-                      <td><?php echo $rows['nombre_equipo']?></td>
-                      <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
-                      <td><a href="../../controladores/grupo.controlador.php?cod=<?php echo $rows["cod_equipo"] ?>"><i class="far fa-edit"></i></a></td>
+                      <td><?php echo $rows['nom_proyecto']?></td>
+                      <td><?php echo $rows['fecha_inicio']?></td>
+                      <td><?php echo $rows['fecha_fin']?></td>
+                      <td><?php echo $rows['fecha_inicio_real']?></td>
+                      <td><?php echo $rows['fecha_termino_real']?></td>
+                      <td><?php echo $rows['descripcion_proyecto']?></td>
+                      <td><?php echo $rows['sigla']?></td>
+                      <td><?php echo $rows['tipo_desarrollo']?></td>
+                      <td><?php echo $rows['cod_semestre']?></td>
+                      
+
+
+                      <td><a href="../../controladores/proyecto.controlador.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="far fa-edit"></i></a></td>
                       <td><a href=""><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php endforeach;?>

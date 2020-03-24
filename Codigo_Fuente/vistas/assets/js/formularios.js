@@ -1,16 +1,9 @@
-console.log('funcionando');
-
 var formulario = document.getElementById('formAlumno');
 
 formulario.addEventListener('submit', function (e) {
 	e.preventDefault();
-	console.log('Me diste un click')
 
 	var datos = new FormData(formulario);
-
-	console.log(datos)
-	console.log(datos.get('rut'))
-	console.log(datos.get('contra'))
 
 	fetch('../../../controladores/alumno.controlador.php', {
 		method: 'POST',
@@ -18,7 +11,6 @@ formulario.addEventListener('submit', function (e) {
 	})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
 
 			if (data == 'incompletos') {
 				Swal.fire({
@@ -28,7 +20,12 @@ formulario.addEventListener('submit', function (e) {
 				})
 			} else {
 				if (data == 'correcto') {
-					window.location = "../vistas/contenidos/home-vistas.php";
+					document.getElementById("formAlumno").reset();
+					Swal.fire({
+						icon: 'success',
+						title: 'Registro Correcto',
+						text: 'Las contraseñas no coinciden',
+					})
 				} else {
 					if (data == 'contraseñas') {
 
@@ -63,8 +60,16 @@ formulario.addEventListener('submit', function (e) {
 										Swal.fire({
 											icon: 'error',
 											title: 'Lo sentimos',
-											text: 'E alumno no se a podido registrar',
+											text: 'El alumno no se a podido registrar',
 										})
+									}else{
+										if(data == 'RutNValidado'){
+											Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'El rut no es valido',
+                      })
+										}
 									}
 								}
 							}

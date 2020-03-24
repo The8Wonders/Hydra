@@ -14,7 +14,7 @@
 
     protected function actualizar_alumno_modelo($dato){ // admin actualiza perfil alumno
       $sql= mainModel::conectar()->prepare("UPDATE alumno SET 
-      carrera=:Carrera, cargo=:Cargo, ano_ingreso=:Ano_ingreo, registro_exitoso=:Registro_exitoso, fecha_registro=:Fecha_registro, cod_semestre=:Cod_semestre, cod_equipo=:Cod_equipo WHERE rut=:Rut");
+      carrera=:Carrera, cargo=:Cargo, ano_ingreso=:Ano_ingreso, registro_exitoso=:Registro_exitoso, fecha_registro=:Fecha_registro, cod_semestre=:Cod_semestre, cod_equipo=:Cod_equipo WHERE rut=:Rut");
 
       $sql->bindParam(":Rut",$dato['rut']);
       $sql->bindParam(":Carrera",$dato['carrera']);
