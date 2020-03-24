@@ -40,7 +40,7 @@ class mainModel
 
   public function eliminar_cuenta($codigo)
   {
-    $sql = self::conectar()->prepare("DELETE  FROM usuario WHERE rut= :Codigo");
+    $sql = self::conectar()->prepare("DELETE FROM usuario WHERE rut= :Codigo");
     $sql->bindParam(":Codigo", $codigo);
     $sql->execute();
 
@@ -50,7 +50,7 @@ class mainModel
   public function update_cuenta($datos)
   {
     $sql = self::conectar()->prepare("UPDATE usuario SET 
-    nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, correo=:Correo, cod_rol=:Cod WHERE rut=:Rut");
+    rut=:Rut ,nombre=:Nombre, apellido=:Apellido, telefono=:Telefono, correo=:Correo, cod_rol=:Cod WHERE rut=:Rut");
 
     $sql->bindParam(":Rut", $datos['Rut']);
     $sql->bindParam(":Nombre", $datos['Nombre']);

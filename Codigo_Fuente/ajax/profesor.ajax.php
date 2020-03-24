@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['rut'])) {
-  require_once "../controladores/profesor.controlador.php";
+  require_once "../controladores/nuevo.profesor.controlador.php";
   $insProf = new profesorcontrolador();
   $res = $insProf->nuevo_profesor_controlador();
   echo json_encode($res);

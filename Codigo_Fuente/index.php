@@ -70,7 +70,7 @@
                                 <input type="text" placeholder="Nombre" name="nombre" class="form-control middle">
                                 <input type="text" placeholder="Apellido" name="apellido" class="form-control middle">
                                 <input type="email" placeholder="ejemplo@dominio.com" name="correo" class="form-control middle">
-                                <input type="text" placeholder="Telefono" name="telefono" class="form-control middle">
+                                <input type="number" placeholder="Telefono" name="telefono" class="form-control middle">
                                 <input type="password" placeholder="Contraseña" name="contra" class="form-control middle">
                                 <input type="password" placeholder="Repetir Contraseña" name="re-contra" class="form-control bottom">
                                 <input type="hidden" name="rol" value="alumno">
