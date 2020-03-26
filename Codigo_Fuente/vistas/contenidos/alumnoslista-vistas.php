@@ -1,10 +1,8 @@
 <?php 
 require_once "../extras/estilos.php";
 require_once "../extras/barra.php"; ?>
-<h1> Aqui deberia ir tabla que muestre todo los alumnos en el sistema</h1>
-<?php 
-require_once "../extras/footer.php";
-require_once "../extras/script.php"; ?>
+<h1> Listado Alumnos con Equipo</h1>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +29,7 @@ require_once "../extras/script.php"; ?>
                   <thead> 
                   <?php require_once "../../core/mainModel.php";
                       $c = new mainModel();
-                      $datos = $c->ejecutar_consulta_simple("SELECT us.rut,
+                      $datos = $c->ejecutar_consulta_simple("SELECT distinct us.rut,
                       us.nombre,
                       us.apellido,
                       us.correo,
@@ -42,7 +40,7 @@ require_once "../extras/script.php"; ?>
                       se.fecha_inicio,
                       eq.nombre_equipo
                        FROM Usuario us,Alumno al,Semestre se , Equipo eq
-                       where us.rut=al.rut and al.cod_semestre=se.cod_semestre and al.cod_equipo=eq.cod_equipo");
+                       where  us.rut=al.rut  and (al.cod_semestre=se.cod_semestre ) and (al.cod_equipo=eq.cod_equipo )");
                     ?>
                     <tr>
                       <th>Rut</th>
@@ -93,3 +91,6 @@ require_once "../extras/script.php"; ?>
 
 </body>
 </html>
+<?php 
+require_once "../extras/footer.php";
+require_once "../extras/script.php"; ?>
