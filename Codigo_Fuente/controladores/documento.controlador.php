@@ -9,8 +9,9 @@ class documentocontrolador extends documentomodelo
     $descripcion = mainModel::limpiar_cadena($_POST['descripcion']);
     $fichero = $_POST['documento'];
     $tmp = $_POST['tmp_name'];
-    $proyecto = mainModel::limpiar_cadena($_POST['descripcion']);
-    
+    $cod_document = mainModel::generar_codigo_aleatorio("DO", 7, 3);
+    $cod_proyecto = mainModel::limpiar_cadena($_POST['cod_proyecto']);
+
 
     if ($nombre == '' || $descripcion == '' || $fichero == '') {
       $respuesta = 'Incompletos';
@@ -24,7 +25,10 @@ class documentocontrolador extends documentomodelo
           "descripcion" => $descripcion,
           "fichero" => $fichero,
           "tipo" => $_FILES[$fichero]['type'],
-          "tamano" => $_FILES[$fichero]['size']
+          "tamaño" => $_FILES[$fichero]['size'],
+          "tmp_nombre" => $_FILES[$fichero][$nombre],
+          "cod_documento" => $cod_document,
+          "cod_proyecto" => $cod_proyecto
         ];
 
         $ResDocumento = documentomodelo::nuevo_documento_modelo($nuevoDocumento);

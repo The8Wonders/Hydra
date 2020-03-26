@@ -1,12 +1,16 @@
 <?php $codSem = $_GET['cod'] ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de gestion de proyectos">
+  <meta name="keywords" content="Gestión, Proyectos">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
-  <?php require_once "../extras/estilos.php"; ?>
+  <?php require_once "../extras/estilos.php";
+  require_once "../extras/barra.php" ?>
   <title>Actualizar Semestre</title>
 </head>
 
@@ -20,7 +24,7 @@
             <div class="box dark">
               <header>
                 <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Actualizar Profesor</h5>
+                <h5>Actualizar Semestre</h5>
               </header>
               <div id="collapse2" class="body">
                 <?php require_once "../../core/mainModel.php";

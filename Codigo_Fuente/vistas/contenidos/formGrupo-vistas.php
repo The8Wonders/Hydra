@@ -16,7 +16,7 @@ require_once "../extras/barra.php"; ?>
                 <h5>Nuevo Grupo</h5>
               </header>
               <div id="collapse2" class="body">
-                <form class="form-horizontal" action="../../controladores/grupo.controlador.php" method="POST" id="formGrupo">
+                <form class="form-horizontal" action="" method="POST" id="formGrupo">
 
                   <fieldset>
                     <div class="form-group">
@@ -56,7 +56,7 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
-<!--<script src="../assets/js/administrador.js"></script>-->
+<script src="../assets/js/grupo.js"></script>
 
 </body>
 <?php

@@ -15,6 +15,8 @@ class tareamodelo extends mainModel
     $sql->bindParam(":est", $datos['estado_tarea']);
     $sql->bindParam(":cod_r", $datos['cod_requerimiento']);
 
+    $sql->execute();
+
 
     return $sql;
   }
