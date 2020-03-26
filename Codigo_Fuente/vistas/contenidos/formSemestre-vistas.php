@@ -16,8 +16,6 @@ require_once "../extras/barra.php"; ?>
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
-
-
         <div class="row">
           <div class="col-lg-12">
             <div class="box dark">
@@ -33,20 +31,18 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Inicio</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required>
+                        <input name="fechaInicio" type="date" id="fechaInicio" class="form-control" required>
                       </div>
                       <!--Fecha Termino-->
                       <label for="fechaFin" class="control-label col-lg-2">Fecha de Termino</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaFin" type="date" id="fechaFin" class="validate[required] form-control" required>
+                        <input name="fechaFin" type="date" id="fechaFin" class="form-control" required>
                       </div>
                     </div>
-                    <br>
                     <div class="form-actions">
                       <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>
-                    <br>
                   </fieldset>
                 </form>
               </div>
@@ -57,6 +53,8 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
+
+
   <script src="../assets/js/semestre.js"></script>
 
 </body>
@@ -65,8 +63,3 @@ require_once "../extras/footer.php";
 require_once "../extras/script.php"; ?>
 
 </html>
-
-
-<div class="form-actions">
-  <input type="submit" value="Guardar" class="btn btn-primary">
-</div>

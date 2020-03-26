@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "../extras/estilos.php";
 require_once "../extras/barra.php"; ?>
 <h1></h1>
@@ -6,14 +6,16 @@ require_once "../extras/barra.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
 
-<div id="content">
+  <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
         <!--Begin Datatables-->
@@ -26,10 +28,10 @@ require_once "../extras/barra.php"; ?>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                  <thead> 
-                  <?php require_once "../../core/mainModel.php";
-                      $c = new mainModel();
-                      $datos = $c->ejecutar_consulta_simple("SELECT * FROM proyecto")
+                  <thead>
+                    <?php require_once "../../core/mainModel.php";
+                    $c = new mainModel();
+                    $datos = $c->ejecutar_consulta_simple("SELECT * FROM proyecto")
                     ?>
                     <tr>
                       <th>Codigo Proyecto</th>
@@ -47,25 +49,22 @@ require_once "../extras/barra.php"; ?>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($datos as $rows):?>
-                    <tr>
-                      <td><?php echo $rows['cod_proyecto']?></td>
-                      <td><?php echo $rows['nom_proyecto']?></td>
-                      <td><?php echo $rows['fecha_inicio']?></td>
-                      <td><?php echo $rows['fecha_fin']?></td>
-                      <td><?php echo $rows['fecha_inicio_real']?></td>
-                      <td><?php echo $rows['fecha_termino_real']?></td>
-                      <td><?php echo $rows['descripcion_proyecto']?></td>
-                      <td><?php echo $rows['sigla']?></td>
-                      <td><?php echo $rows['tipo_desarrollo']?></td>
-                      <td><?php echo $rows['cod_semestre']?></td>
-                      
-
-
-                      <td><a href=""><i class="far fa-edit"></i></a></td>
-                      <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td>
-                    </tr>
-                    <?php endforeach;?>
+                    <?php foreach ($datos as $rows) : ?>
+                      <tr>
+                        <td><?php echo $rows['cod_proyecto'] ?></td>
+                        <td><?php echo $rows['nom_proyecto'] ?></td>
+                        <td><?php echo $rows['fecha_inicio'] ?></td>
+                        <td><?php echo $rows['fecha_fin'] ?></td>
+                        <td><?php echo $rows['fecha_inicio_real'] ?></td>
+                        <td><?php echo $rows['fecha_termino_real'] ?></td>
+                        <td><?php echo $rows['descripcion_proyecto'] ?></td>
+                        <td><?php echo $rows['sigla'] ?></td>
+                        <td><?php echo $rows['tipo_desarrollo'] ?></td>
+                        <td><?php echo $rows['cod_semestre'] ?></td>
+                        <?php echo "<td><a href='formProyecto-update.php?cod=". $rows['cod_proyecto'] ."'><i class='far fa-edit'></i></a></td>" ?>
+                        <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>
@@ -79,10 +78,14 @@ require_once "../extras/barra.php"; ?>
     </div>
     <!-- /.outer -->
   </div>
+  </div>
+
+
 
 </body>
+
 </html>
 
-<?php 
+<?php
 require_once "../extras/footer.php";
 require_once "../extras/script.php"; ?>

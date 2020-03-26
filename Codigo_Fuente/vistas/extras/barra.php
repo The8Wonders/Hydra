@@ -315,7 +315,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a>
           </li>
           <li>
-            <a href="../contenidos/tableProyecto-vistas.php">
+            <a href="../contenidos/proyecto-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Proyecto </a>
           </li>
         </ul>
@@ -380,7 +380,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         <ul class="collapse">
           <li>
             <a href="../contenidos/formTecnologia-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Nueva tecnologia </a>
+              <i class="fa fa-angle-right"></i>&nbsp; Nueva Tecnologia </a>
           </li>
           <li>
             <a href="../contenidos/tableTecnologia-vistas.php">

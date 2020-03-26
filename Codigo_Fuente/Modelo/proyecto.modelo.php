@@ -45,19 +45,13 @@ class proyectomodelo extends mainModel
     $sql->bindParam(":fechaIn", $datos['fecha_inicio']);
     $sql->bindParam(":fechaTe", $datos['fecha_fin']);
     $sql->bindParam(":fechaInR", $datos['fecha_inicio_real']);
-    $sql->bindParam(":fechaTeR", $datos['fecha_fin_real'])
-    $sql->bindParam(":descrip", $datos['descripcion_proyecto'])
-    $sql->bindParam(":sigla", $datos['sigla'])
-    $sql->bindParam(":tipoD", $datos['tipo_desarrollo'])
+    $sql->bindParam(":fechaTeR", $datos['fecha_fin_real']);
+    $sql->bindParam(":descrip", $datos['descripcion_proyecto']);
+    $sql->bindParam(":sigla", $datos['sigla']);
+    $sql->bindParam(":tipoD", $datos['tipo_desarrollo']);
     $sql->bindParam(":codS", $datos['cod_semestre']);
     $sql->execute();
 
     return $sql;
-  }
-
-
-
-
-
-  
+  }  
 }
