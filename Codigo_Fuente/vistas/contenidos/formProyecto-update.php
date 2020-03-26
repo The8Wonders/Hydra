@@ -115,8 +115,6 @@ require_once "../extras/barra.php"; ?>
                       </div>
 
                     </div>
-
-
                     <!--Descripcion proyecto-->
                     <div class=" form-group">
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
