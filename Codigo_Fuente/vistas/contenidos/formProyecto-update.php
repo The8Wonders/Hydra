@@ -15,18 +15,41 @@ require_once "../extras/barra.php"; ?>
             <div class="box dark">
               <header>
                 <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Nuevo Proyecto</h5>
+                <h5>Editar Mi Proyecto</h5>
               </header>
               <div id="collapse2" class="body">
-                <form class="form-horizontal" action="" method="POST" id="formProyecto">
+
+              <?php
+
+                    $rut=$_SESSION['rut_sgp'];
+                    include "../../core/mainModel.php";
+                    $c=new mainModel();
+                    $sql=$c->ejecutar_consulta_simple("SELECT p.cod_proyecto,p.nom_proyecto,p.fecha_inicio,p.fecha_fin, p.fecha_inicio_real,
+                    p.fecha_fin_real,p.descripcion_proyecto, p.sigla,p.tipo_desarrollo,p.cod_semestre  FROM usuario u, alumno a, 
+                    equipo e, proyecto p WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND e.cod_proyecto=p.cod_proyecto AND u.rut='$rut'");
+
+                    foreach($sql as $rows){
+                      
+                    };
+
+                    
+
+
+
+
+              ?>
+
+
+                <form class="form-horizontal" action="" method="POST" id="editProyecto">
 
                   <fieldset>
                     <!--Nombre Proyecto-->
+                    <input type="hidden" id="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
                     <div class="form-group">
                       <label for="nombre" class="control-label col-lg-2">Nombre del Grupo</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre" type="text" id="nombre" placeholder="Nombre Grupo" class="validate[required] form-control" required>
+                        <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nom_proyecto'] ?>">
                       </div>
 
                       <!--Sigle Proyecto-->
@@ -34,7 +57,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="sigla" class="control-label col-lg-2">Sigla del Grupo</label>
 
                       <div class="col-lg-4">
-                        <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="validate[required] form-control" required>
+                        <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="form-control" required value="<?php echo $rows['sigla'] ?>" >
                       </div>
                     </div>
 
@@ -44,7 +67,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Inicio</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required>
+                        <input name="fechaInicio" type="date" id="fechaInicio" class="validate[required] form-control" required value="<?php echo $rows['fecha_inicio'] ?>">
                       </div>
 
 
@@ -52,7 +75,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Termino</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaTermino" type="date" id="fechaTermino" class="validate[required] form-control" required>
+                        <input name="fechaTermino" type="date" id="fechaTermino" class="validate[required] form-control" required value="<?php echo $rows['fecha_fin'] ?>">
                       </div>
                     </div>
                     <!--Fechas Reales Inicio modificar probablemente-->
@@ -60,7 +83,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicioR" class="control-label col-lg-2">Fecha de Inicio Real</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaInicioR" type="date" id="fechaInicioR" class="validate[required] form-control" required>
+                        <input name="fechaInicioR" type="date" id="fechaInicioR" class="validate[required] form-control" required value="<?php echo $rows['fecha_inicio_real'] ?>">
                       </div>
 
 
@@ -68,7 +91,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="fechaInicio" class="control-label col-lg-2">Fecha de Termino Real</label>
 
                       <div class="col-lg-4">
-                        <input name="fechaTerminoR" type="date" id="fechaTerminoR" class="validate[required] form-control" required>
+                        <input name="fechaTerminoR" type="date" id="fechaTerminoR" class="validate[required] form-control" required value="<?php echo $rows['fecha_fin_real'] ?>">
                       </div>
                     </div>
 
@@ -80,9 +103,14 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="TipoProyecto" class="control-label col-lg-2">Tipo de desarrollo</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Inrese el tipo de desarrollo" id="tipoProyecto" name="tipoProyecto" class="form-control" >
-                        <option value="Desarrollo Web">Desarrollo Web</option>
-                        <option value="Desarrollo Movil">Desarrollo Movil</option>       
+                      <div class="col-lg-4 "><select data-placeholder="Ingrese su tipo de proyecto" id="tipoProyecto" name="tipoProyecto" class="form-control" >
+                        <option required value="<?php echo $rows['tipo_desarrollo'] ?>"><?php echo $rows['tipo_desarrollo'] ?></option>
+                        <?php $value= $rows['tipo_desarrollo'];
+                        if($value=="Desarrollo Web"):?>
+                        <option value="Desarrollo Movil">Desarrollo Movil</option> <?php endif?>
+                        <?php if($value=="Desarrollo Movil"):?>
+                        <option value="Desarrollo Movil">Desarrollo Web</option> <?php endif?>
+
                       </select>
                       </div>
 
@@ -94,7 +122,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
 
                       <div class="col-lg-4">
-                        <input class="form-control validate[required] form-control" required id="descripcion" name="descripcion" type="text" placeholder="Solo hay 256 caracteres disponibles">
+                        <input class="form-control validate[required] form-control" required id="descripcion" name="descripcion" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
 
                       </div>
                     </div>
@@ -102,7 +130,10 @@ require_once "../extras/barra.php"; ?>
                     <?php
                     require_once "../../core/mainModel.php";
                     $ins = new mainModel();
-                    $datos = $ins->ejecutar_consulta_simple("SELECT cod_semestre FROM semestre");
+                    $codi= $rows['cod_semestre'];
+
+        
+                    $datos = $ins->ejecutar_consulta_simple("SELECT cod_semestre FROM semestre Where cod_semestre!='$codi'");
                     ?>
 
                     <!--Codigo Semestre-->
@@ -110,13 +141,7 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoSemestre" id="codigoSemestre">
-                          <option value=""></option>
-                          <?php foreach ($datos as $rows) { ?>
-                            <option name="optionSemestre" value="<?php echo $rows['cod_semestre'] ?>"> <?php echo $rows['cod_semestre'] ?> </option>
-                          <?php } ?>
-                        </select>
-                      </div>
+                      <input type="hidden" id="<?php echo $rows['cod_semestre']?>" >
 
                     </div>
               </div>
@@ -137,7 +162,7 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
-  <script src="../assets/js/proyecto.js"></script>
+  <script src="../assets/js/editarproyecto.js"></script>
 
 </body>
 <?php

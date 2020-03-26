@@ -4,14 +4,7 @@ formularioProyecto.addEventListener('submit', function (e) {
   e.preventDefault(); /* recoge todo los datos del formulario */
 
 
-<<<<<<< HEAD
-  console.log(datos)
-  console.log(datos.get('nombre'))
-  console.log(datos.get('codigoProyecto'))
-  console.log(datos.get('tipoProyecto'))
-=======
   var datos = new FormData(formularioProyecto);
->>>>>>> cad486d389bb872d720f7ef72244ec45c9ab5560
 
   fetch('../../../ajax/proyecto.ajax.php', {  /* Envia los datos a la direccion por metodo POST y los datos almacenados en *datos* */
       method: 'POST',
