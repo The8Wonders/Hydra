@@ -124,7 +124,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                   <li><a href="../contenidos/formProfesor-vistas.php">Semestre</a></li>
                   <?php endif; ?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Equipo</a></li>
+                  <li><a href="../contenidos/formProfesor-vistas.php">Grupo</a></li>
                   <?php endif; ?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
                   <li><a href="../contenidos/formProfesor-vistas.php">Proyecto</a></li>
@@ -277,21 +277,28 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </ul>
       </li>
       <?php endif; ?>
-      <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor' || ($_SESSION['cod_rol_sgp'] == 'alumno' && $_SESSION['equipo_sgp'] == '')) : ?>
+      <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor' || ($_SESSION['cod_rol_sgp'] == 'alumno' )) : ?>
       <li class="">
         <a href="javascript:;">
           <i class="fas fa-people-carry "></i>
-          <span class="link-title">Equipo</span>
+          <span class="link-title">Grupo</span>
           <span class="fa arrow"></span>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formEquipo-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Nuevo Equipo </a>
+            <a href="../contenidos/mi.grupo-vista.php">
+              <i class="fa fa-angle-right"></i>&nbsp; Mi Grupo </a>
           </li>
+          <?php if($_SESSION['equipo_sgp'] == '') : ?>
           <li>
-            <a href="../contenidos/tableEquipo-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Listado Equipos </a>
+            <a href="../contenidos/formGrupo-vistas.php">
+              <i class="fa fa-angle-right"></i>&nbsp; Nuevo Grupo </a>
+          </li>
+          <?php endif; ?>
+
+          <li>
+            <a href="../contenidos/tableGrupo-vistas.php">
+              <i class="fa fa-angle-right"></i>&nbsp; Listado Grupo </a>
           </li>
         </ul>
       </li>
