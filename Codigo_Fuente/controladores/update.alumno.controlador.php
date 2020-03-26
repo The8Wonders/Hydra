@@ -1,6 +1,6 @@
 <?php
 require_once "../modelo/alumno.modelo.php";
-class update_alumno extends alumnomodelo{
+class update_alumno_controlador extends alumnomodelo{
 
     public function update_alumno()
   {
@@ -13,7 +13,8 @@ class update_alumno extends alumnomodelo{
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $telefono == "" || $rol == "") {
       //echo json_encode('incompletos');
-      header("Location:../vistas/contenidos/perfil-vistas.php");
+      //header("Location:../vistas/contenidos/perfil-vistas.php");
+      $respuesta= "incompletos";
 
     } else {
 
@@ -45,7 +46,8 @@ class update_alumno extends alumnomodelo{
             $_SESSION['telefono_sgp']= $telefono;
             $_SESSION['cod_rol_sgp']= $rol;
 
-            header("Location:../vistas/contenidos/perfil-vistas.php");
+            //header("Location:../vistas/contenidos/perfil-vistas.php");
+            $respuesta= "Actualizada";
             /*}else{
                 echo json_encode('alumno');
              }*/
@@ -53,14 +55,16 @@ class update_alumno extends alumnomodelo{
 
             //echo json_encode('incorrecto');
 
-            header("Location:../vistas/contenidos/perfil-vistas.php");
+            //header("Location:../vistas/contenidos/perfil-vistas.php");
+            $respuesta= "incorrecto";
           }
         }
     }
+    return $respuesta;
   }
 }
 
-$update_alu= new update_alumno();
+//$update_alu= new update_alumno();
 //$update_alu->update_alumno();
 
 ?>
