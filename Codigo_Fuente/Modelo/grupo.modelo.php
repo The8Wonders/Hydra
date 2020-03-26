@@ -6,15 +6,14 @@
 
     class grupo_modelo extends mainModel{
        
-        public function setGrupo($datos){
+        protected function nuevo_grupo_modelo($datos){
 
-            $insertar=mainModel::conectar()->prepare("INSERT INTO equipo VALUES (:nomE,:codS)");
+            $insertar=mainModel::conectar()->prepare("INSERT INTO equipo (cod_equipo, nombre_equipo) VALUES (:nomE,:codE)");
+            $insertar->bindParam(":codE",$datos['cod_equipo']);
             $insertar->bindParam(":nomE",$datos['nombre_equipo']);
-            $insertar->bindParam(":codS",$datos['cod_semestre']);
             $insertar->execute();
             
             return $insertar;
-
         }
 
 
