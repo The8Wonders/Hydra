@@ -2,9 +2,13 @@
 require_once "../extras/estilos.php";
 require_once "../extras/barra.php"; ?>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
+  <title>Nuevo Administrador</title>
+</head>
 <body>
-
-
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
@@ -41,7 +45,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="apellido1" class="control-label col-lg-2">Apellido Paterno</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido" type="text" id="apellido" placeholder="Castro" class="validate[required] form-control" required>
+                        <input name="apellido" type="text" id="apellido" placeholder="Castro" class="form-control" required>
                       </div>
 
                       <label for="apellido2" class="control-label col-lg-2">Apellido Materno</label>
