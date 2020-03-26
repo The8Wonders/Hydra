@@ -33,14 +33,17 @@ require_once "../extras/barra.php"; ?>
                     </div>
                     <?php require_once "../../core/mainModel";
                       $sql = new mainModel();
-                      $datos = $sql::ejecutar_consulta_simple("SELECT cod_semestre FROM  semestre"); 
+                      $datos = $sql::ejecutar_consulta_simple("SELECT  FROM  semestre where ano < getdate(year)"); 
                     ?>
-
-                    foreach 
                     <div class="form-group">
                         <label for="cod_sem" class="control-label col-lg-2">Código Semestre</label>
                         <div class="col-lg-4">
-                            <input name="cod_sem" type="text" id="cod_sem"  class="validate[required] form-control" required>
+                          <select data-placeholder="Your Favorite Type of Bear" class="form-control" name="cod_sem" id="cod_sem">
+                          <option value=""></option>
+                          <?php foreach($datos as $rows) { ?> 
+                            <option name="opciongrupo" value="<?php echo $rows['cod_semestre'] ?>"><?php echo $rows['cod_semestre'] ?></option>
+                          <?php } ?>
+                          </select>
                         </div>
                     </div><br>
                     <div class="form-actions">
