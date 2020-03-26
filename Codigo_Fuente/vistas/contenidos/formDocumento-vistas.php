@@ -72,10 +72,10 @@
                         </div>
 
                       </div>
-                      <label for="descripcion" class="control-label col-lg-2"> Proyecto </label>
+                      <label for="nombre-pro" class="control-label col-lg-2"> Proyecto </label>
 
                       <div class="col-lg-4">
-                        <input name="descripcion" type="text" id="descripcion" class="form-control" value="<?php echo $_GET['nombre'] ?>">
+                        <input name="nombre-pro" type="text" id="nombre-pro" class="form-control" value="<?php echo $_GET['nombre'] ?>">
                       </div>
                     </div>
 

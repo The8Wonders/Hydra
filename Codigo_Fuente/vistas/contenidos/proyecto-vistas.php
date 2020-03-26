@@ -62,7 +62,7 @@ require_once "../extras/barra.php"; ?>
                         <td><?php echo $rows['sigla'] ?></td>
                         <td><?php echo $rows['tipo_desarrollo'] ?></td>
                         <td><?php echo $rows['cod_semestre'] ?></td>
-                        <?php echo "<td><a href='formProyecto-update.php?cod=".$rows['cod_proyecto']."&nombre=".$rows['nom_proyecto']."'><i class='fas fa-file-signature'></i></a></td>" ?>
+                        <?php echo "<td><a href='formDocumento-vistas.php?cod=".$rows['cod_proyecto']."&nombre=".$rows['nom_proyecto']."'><i class='fas fa-file-signature'></i></a></td>" ?>
                         <?php echo "<td><a href='formProyecto-update.php?cod=". $rows['cod_proyecto'] ."'><i class='far fa-edit'></i></a></td>" ?>
                         <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td>
                       </tr>

@@ -1,12 +1,16 @@
 <?php $rutPr = $_GET['rut'] ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de gestion de proyectos">
+  <meta name="keywords" content="Gestión, Proyectos">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
-  <?php require_once "../extras/estilos.php";?>
+  <?php require_once "../extras/estilos.php";
+  require_once "../extras/barra.php" ?>
   <title>Actualizar Profesor</title>
 </head>
 <body>
