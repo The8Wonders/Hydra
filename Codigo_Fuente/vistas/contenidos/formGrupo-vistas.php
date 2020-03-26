@@ -1,7 +1,17 @@
-<?php
-require_once "../extras/estilos.php";
-require_once "../extras/barra.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de gestion de proyectos">
+  <meta name="keywords" content="Gestión, Proyectos">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
+  <?php require_once "../extras/estilos.php";
+  require_once "../extras/barra.php" ?>
+  <title>Nuevo Grupo</title>
+</head>
 <body>
   <div id="content">
     <div class="outer">
@@ -31,21 +41,26 @@ require_once "../extras/barra.php"; ?>
                         <input name="nom_equi" type="text" id="nom_equi" placeholder="Nombre equipo" class="validate[required] form-control" required>
                       </div>
                     </div>
-                    <?php require_once "../../core/mainModel";
-                      $sql = new mainModel();
-                      $datos = $sql::ejecutar_consulta_simple("SELECT  FROM  semestre where ano < getdate(year)"); 
+                    <?php
+                    require_once "../../core/mainModel.php";
+                    $ins = new mainModel();
+                    $y = date("Y");
+                    $datos = $ins->ejecutar_consulta_simple("SELECT * FROM semestre WHERE ano = '$y'");
                     ?>
+                    <!--Codigo Proyectos-->
                     <div class="form-group">
-                        <label for="cod_sem" class="control-label col-lg-2">Código Semestre</label>
-                        <div class="col-lg-4">
-                          <select data-placeholder="Your Favorite Type of Bear" class="form-control" name="cod_sem" id="cod_sem">
+
+                      <label for="codigoProyecto" class="control-label col-lg-2">Codigo de Proyecto</label>
+
+                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoProyecto" id="codigoProyecto">
                           <option value=""></option>
-                          <?php foreach($datos as $rows) { ?> 
-                            <option name="opciongrupo" value="<?php echo $rows['cod_semestre'] ?>"><?php echo $rows['cod_semestre'] ?></option>
+                          <?php foreach ($datos as $rows) { ?>
+                            <option name="optionproyecto" value="<?php echo $rows['cod_semestre'] ?>"> <?php echo $rows['cod_semestre'] ?> </option>
                           <?php } ?>
-                          </select>
-                        </div>
-                    </div><br>
+                        </select>
+                      </div>
+
+                    </div>
                     <div class="form-actions">
                       <input  type="submit" value="Insertar" class="btn btn-primary">
                     </div>

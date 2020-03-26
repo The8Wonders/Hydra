@@ -12,7 +12,6 @@ formularioGrupo.addEventListener('submit', function (e) {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
 
       if (data == 'incompletos') {
         Swal.fire({
@@ -23,11 +22,9 @@ formularioGrupo.addEventListener('submit', function (e) {
       } else {
         if (data == 'Correcto') {
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            title: 'Exito...',
+            text: 'Proyecto cambiado con exito',
           })
         } else {
           if (data == 'error') {
@@ -35,7 +32,7 @@ formularioGrupo.addEventListener('submit', function (e) {
             Swal.fire({
               icon: 'error',
               title: 'Lo sentimos',
-              text: 'Las contraseñas no coinciden',
+              text: 'No se pudo crear el proyecto',
             })
           }
 
