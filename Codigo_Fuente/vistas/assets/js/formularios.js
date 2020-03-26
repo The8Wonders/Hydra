@@ -87,13 +87,8 @@ var formularioLogin = document.getElementById('formLogin');
 
 formularioLogin.addEventListener('submit', function (e) {
 	e.preventDefault();
-	console.log('Haz echo click');
 
 	var datos = new FormData(formularioLogin);
-
-	console.log(datos)
-	console.log(datos.get('rut_usuario'))
-	console.log(datos.get('contra'))
 
 	fetch('../../../controladores/login.controlador.php', {
 		method: 'POST',

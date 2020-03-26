@@ -1,7 +1,7 @@
 <?php
     
     if(isset($_POST['rut'])){
-        require_once "../controladores/nuevo.administrador.controlador.php";
+        require_once "../controladores/administrador.controlador.php";
         $insAdmin = new administradorcontrolador(); 
         $res = $insAdmin->nuevo_administrador_controlador();
 

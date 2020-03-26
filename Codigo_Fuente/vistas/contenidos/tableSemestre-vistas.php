@@ -38,7 +38,7 @@ require_once "../extras/barra.php"; ?>
                         <td><?php echo $rows['fecha_inicio'] ?></td>
                         <td><?php echo $rows['fecha_fin'] ?></td>
                         <td><?php echo $rows['ano'] ?></td>
-                        <?php echo "<td><a href='editAdmin-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
+                        <?php echo "<td><a href='editSemestre-vistas.php?cod=". $rows['cod_semestre'] ."'><i class='far fa-edit'></i></a></td>" ?>
                         <td><a href=""><i class="fas fa-times"></i></a></td>
                       </tr>
                     <?php } ?>
