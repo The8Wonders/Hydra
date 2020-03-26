@@ -42,16 +42,10 @@
                                     <input type="text" placeholder="Rut" class="form-control top" name="rut_usuario" required=""> <!-- nuevo div-->
                                 </div>
 
-                                <div class="box1">
+                                <div class="box1 pb-3">
                                     <input type="password" placeholder="Contraseña" class="form-control bottom" name="contra" required=""> <!-- nuevo div-->
                                 </div>
 
-                                <!-- CREAR COOKIE PARA LA SESION -->
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Recuerdame
-                                    </label>
-                                </div>
                                 <!-- FIN RECUERDAME -->
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
                             </form>

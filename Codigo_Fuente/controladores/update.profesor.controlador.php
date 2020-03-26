@@ -13,12 +13,7 @@ class update_profesor extends mainModel{
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
       $respuesta = "incompletos";
-      echo $rut;
-      echo $nombre;
-      echo $apellido;
-      echo $correo;
-      echo $rol;
-      echo $telefono;
+      
       //header("Location:../vistas/contenidos/perfil-vistas.php");
     } else {
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut' AND cod_rol = 'profesor' ");
@@ -72,7 +67,5 @@ class update_profesor extends mainModel{
 
   
 }
-$update_prof= new update_profesor();
-$update_prof->update_profesor_controlador();
 
 ?>

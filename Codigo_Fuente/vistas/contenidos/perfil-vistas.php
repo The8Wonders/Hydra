@@ -29,7 +29,7 @@
                 <!-- perfil alumno -->
                 <?php if ($_SESSION['cod_rol_sgp'] == 'alumno') : //if soy un alumno 
                 ?>
-                  <form class="form-horizontal" action="../../controladores/update.alumno.controlador.php" method="POST" id="perfilAlumno">
+                  <form class="form-horizontal" action="" method="POST" id="perfilAlumno">
                     <fieldset>
                       <!--Nombres Alumno-->
                       <div class="form-group">
@@ -130,7 +130,7 @@
                 <!-- perfil profesor -->
                 <?php if ($_SESSION['cod_rol_sgp'] == 'profesor') : // if soy un profesor 
                 ?>
-                  <form class="form-horizontal" action="../../controladores/update.profesor.controlador.php" method="POST" id="perfilProfesor">
+                  <form class="form-horizontal" action="" method="POST" id="perfilProfesor">
                     <fieldset>
                       <!--Nombres Administrador-->
                       <div class="form-group">
@@ -192,7 +192,7 @@
                 <!-- perfil administrador -->
                 <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : // if soy un Administrador 
                 ?>
-                  <form class="form-horizontal" action="../../controladores/update.administrador.controlador.php" method="POST" id="perfilAdmin">
+                  <form class="form-horizontal" action="" method="POST" id="perfilAdmin">
                     <fieldset>
                       <!--Nombres Administrador-->
                       <div class="form-group">
@@ -259,9 +259,9 @@
     </div>
   </div>
   </div>
-  <!--<script src="../assets/js/administrador.js"></script>
-  <script src="../assets/js/profesor.js"></script>
-  <script src="../assets/js/alumnoo.js"></script>-->
+  <script src="../assets/js/perfil_admin.js"></script>
+  <script src="../assets/js/perfil_profe.js"></script>
+  <script src="../assets/js/perfil_alumno.js"></script>
   <?php
   require_once "../extras/footer.php";
   require_once "../extras/script.php"; ?>

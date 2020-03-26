@@ -14,8 +14,8 @@ class update_administrador extends administradormodelo{
         $rol= mainModel::limpiar_cadena($_POST['rol']);
         
         if ($rut == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" ||  $telefono == "") {
-          
-          header("Location:../vistas/contenidos/perfil-vistas.php");;
+          $respuesta = "incompletos";
+          //header("Location:../vistas/contenidos/perfil-vistas.php");;
            
         } else {
             $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut' AND cod_rol = 'administrador' ");
@@ -43,22 +43,22 @@ class update_administrador extends administradormodelo{
                   $_SESSION['telefono_sgp']= $telefono;
                   $_SESSION['cod_rol_sgp']= $rol;
                   
-                  header("Location:../vistas/contenidos/perfil-vistas.php");
-                    //$respuesta = "Actualizada";
+                  //header("Location:../vistas/contenidos/perfil-vistas.php");
+                  $respuesta = "Actualizada";
                     
                 }else{
-                    //$respuesta = "Error";
-                    header("Location:../vistas/contenidos/perfil-vistas.php");
+                    $respuesta = "Error";
+                    //header("Location:../vistas/contenidos/perfil-vistas.php");
                 }
               }else{
-                //$respuesta = "NoencuentraProfesor";
-                header("Location:../vistas/contenidos/perfil-vistas.php");
+                $respuesta = "NoencuentraAdmin";
+                //header("Location:../vistas/contenidos/perfil-vistas.php");
             }
         }
     
-        header("Location:../vistas/contenidos/perfil-vistas.php");
+      //header("Location:../vistas/contenidos/perfil-vistas.php");
+      return $respuesta;
     }
 }
-$update_admin = new update_administrador();
-$update_admin->update_admin_controlador();
+
 ?>
