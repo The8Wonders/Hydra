@@ -82,5 +82,46 @@ class profesorcontrolador extends profesormodelo
     return $respuesta;
   }
 
+  public function actualizar_profesor_controlador()
+  {
+    $rutR = mainModel::limpiar_cadena($_POST['rut']);
+    $nombre = mainModel::limpiar_cadena($_POST['nombre-edit']);
+    $apellido = mainModel::limpiar_cadena($_POST['apellido-edit']);
+    $telefono = mainModel::limpiar_cadena($_POST['telefono-edit']);
+    $correo = mainModel::limpiar_cadena($_POST['correo-edit']);
+    $rol = mainModel::limpiar_cadena($_POST['codigoRol']);
+
+    if ($rutR == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
+      $respuesta = "incompletos";
+    } else {
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rutR' AND cod_rol = 'profesor' ");
+
+        if($consulta1->rowCount()>=1){
+          
+          $editarCuenta = [
+            "Rut" => $rutR,
+            "Nombre" => $nombre,
+            "Apellido" => $apellido,
+            "Telefono" => $telefono,
+            "Correo" => $correo,
+            "Rol" => $rol
+          ];
+
+          $actualixar = mainModel::update_cuenta($editarCuenta);
+
+          if($actualixar->rowCount()>=1){
+            $respuesta = "Actualizada";
+          }else{
+            $respuesta = "Error";
+          }
+
+        }else{
+          $respuesta = "NoencuentraProfesor";
+        }
+    }
+
+    return $respuesta;
+  }
+
   
 }

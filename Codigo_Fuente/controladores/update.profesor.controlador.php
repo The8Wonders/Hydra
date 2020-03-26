@@ -4,7 +4,7 @@ require_once "../core/mainModel.php";
 class update_profesor extends mainModel{
     public function update_profesor_controlador(){
 
-    $rut = mainModel::limpiar_cadena($_POST['rut']);
+    $rut = mainModel::limpiar_cadena($_POST['edicion']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);

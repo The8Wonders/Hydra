@@ -37,14 +37,14 @@
                       <label for="nombre-edit" class="control-label col-lg-2">Nombres</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nombre'] ?>">
+                        <input name="nombre-edit" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nombre'] ?>">
                       </div>
 
                       <!--Apellido Profesor Actualizar-->
                       <label for="apellido-edit" class="control-label col-lg-2">Apellidos</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido" type="text" id="apellido-edit" class="form-control" required value="<?php echo $rows['apellido'] ?>">
+                        <input name="apellido-edit" type="text" id="apellido-edit" class="form-control" required value="<?php echo $rows['apellido'] ?>">
                       </div>
                     </div>
 
@@ -53,14 +53,14 @@
                       <label for="correo-edit" class="control-label col-lg-2">Correo</label>
 
                       <div class="col-lg-4">
-                        <input name="correo" type="text" id="correo-edit" class="form-control" required value="<?php echo $rows['correo'] ?>">
+                        <input name="correo-edit" type="text" id="correo-edit" class="form-control" required value="<?php echo $rows['correo'] ?>">
                       </div>
 
                       <!--Telefono Profesor Actualizar-->
                       <label for="telefono-edit" class="control-label col-lg-2">Telefono</label>
 
                       <div class="col-lg-4">
-                        <input name="telefono" type="text" id="telefono-edit" class="form-control" required value="<?php echo $rows['telefono'] ?>">
+                        <input name="telefono-edit" type="text" id="telefono-edit" class="form-control" required value="<?php echo $rows['telefono'] ?>">
                       </div>
                     </div>
 
@@ -69,7 +69,7 @@
 
                       <label for="codigoRol" class="control-label col-lg-2">Codigo Rol</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="rol" id="codigoRol">
+                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="codigoRol" id="codigoRol">
                           <option >Seleccione...</option>
                           <?php foreach ($datos2 as $rows2) { ?>
                             <option name="rol" value="<?php echo $rows2['cod_rol'] ?>"> <?php echo $rows2['cod_rol'] ?> </option>

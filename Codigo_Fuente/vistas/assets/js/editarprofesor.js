@@ -5,6 +5,14 @@ eliminarProfesor.addEventListener('submit', function (e) {
 
   var datos = new FormData(eliminarProfesor);
 
+  console.log(datos)
+  console.log(datos.get('rut'))
+  console.log(datos.get('nombre-edit'))
+  console.log(datos.get('apellido-edit'))
+  console.log(datos.get('telefono-edit'))
+  console.log(datos.get('correo-edit'))
+  console.log(datos.get('codigoRol'))
+
   fetch('../../../ajax/edit.profesor.php', {
       method: 'POST',
       body: datos
