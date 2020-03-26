@@ -65,7 +65,8 @@ require_once "../extras/barra.php"; ?>
                       <td><?php echo $rows['carrera']?></td>
                       <td><?php echo $rows['ano_ingreso']?></td>
                       <td><?php echo $rows['cargo']?></td>
-                      <td><a href="" onclick="edit()"><i class="far fa-edit"></i></a></td>
+                      <?php echo "<td><a href='editAdminalumno-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
+
                       <td><a href="../../controladores/alumno.controlador-eliminar.php?cod=<?php echo $rows["rut"]; ?>"><i class="fas fa-times"></i></a></td>
 
                     </tr>
