@@ -1,17 +1,14 @@
-<?php
-require_once "../extras/estilos.php";
-require_once "../extras/barra.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
+  <?php require_once "../extras/estilos.php";?>
+  <title>Lista de Profesores</title>
 </head>
-
 <body>
+<?php require_once "../extras/barra.php";?>
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
@@ -37,6 +34,7 @@ require_once "../extras/barra.php"; ?>
                       <th>Correo</th>
                       <th>Telefono</th>
                       <th>Editar</th>
+                      <th>Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -48,6 +46,8 @@ require_once "../extras/barra.php"; ?>
                         <td><?php echo $rows['correo'] ?></td>
                         <td><?php echo $rows['telefono'] ?></td>
                         <?php echo "<td><a href='editProfesor-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
+                        <?php echo "<td><a href='../../controladores/eliminar.profesor.controlador.php?rut=" . $rows['rut'] . "'><i class='fas fa-times'></i></a></td>" ?>
+                        
                       </tr>
                     <?php } ?>
                   </tbody>
@@ -64,11 +64,8 @@ require_once "../extras/barra.php"; ?>
     <!-- /.outer -->
   </div>
   </div>
+  <?php
+    require_once "../extras/footer.php";
+    require_once "../extras/script.php"; ?>
 </body>
-
-<?php
-require_once "../extras/footer.php";
-require_once "../extras/script.php"; ?>
-
-
 </html>

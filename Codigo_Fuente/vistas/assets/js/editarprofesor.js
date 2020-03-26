@@ -31,7 +31,7 @@ eliminarProfesor.addEventListener('submit', function (e) {
             Swal.fire({
               icon: 'success',
               title: 'Actualizada',
-              text: 'Los datos del profesor an sido actualizados',
+              text: 'Los datos del profesor han sido actualizados',
             })
           } else {
             Swal.fire({

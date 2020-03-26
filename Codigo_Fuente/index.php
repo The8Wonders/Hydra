@@ -1,6 +1,11 @@
+<?php 
+    session_start(['name'=>'SGP']); 
+    if(isset($_SESSION['rut_sgp'])){
+        header("Location:vistas/contenidos/home-vistas.php");
+    }else{
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +16,6 @@
     <link rel="stylesheet" href="vistas/assets/css/main.css">
     <title>Sistema Gestion Proyectos</title>
 </head>
-
 <body class="login">
     <div class="container-fluid">
         <div class="row">
@@ -174,5 +178,5 @@
         })(jQuery);
     </script>
 </body>
-
 </html>
+<?php } ?>

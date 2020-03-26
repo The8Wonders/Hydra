@@ -1,24 +1,19 @@
 <?php $rutPr = $_GET['rut'] ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
+  <?php require_once "../extras/estilos.php";?>
   <title>Actualizar Profesor</title>
 </head>
-<?php
-require_once "../extras/estilos.php";
-require_once "../extras/barra.php"; ?>
-
 <body>
-
-
+  <?php require_once "../extras/barra.php"; ?>
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
-
-
         <div class="row">
           <div class="col-lg-12">
             <div class="box dark">
@@ -74,7 +69,7 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="codigoRol" class="control-label col-lg-2">Codigo Rol</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="codigoRol" id="codigoRol">
+                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="rol" id="codigoRol">
                           <option >Seleccione...</option>
                           <?php foreach ($datos2 as $rows2) { ?>
                             <option name="rol" value="<?php echo $rows2['cod_rol'] ?>"> <?php echo $rows2['cod_rol'] ?> </option>

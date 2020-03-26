@@ -1,6 +1,7 @@
 <?php
-require_once "../modelo/profesor.modelo.php";
-class update_profesor extends profesormodelo{
+//require_once "../modelo/profesor.modelo.php";
+require_once "../core/mainModel.php";
+class update_profesor extends mainModel{
     public function update_profesor_controlador(){
 
     $rut = mainModel::limpiar_cadena($_POST['rut']);
@@ -11,8 +12,14 @@ class update_profesor extends profesormodelo{
     $rol = mainModel::limpiar_cadena($_POST['rol']);
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
-      //$respuesta = "incompletos";
-      header("Location:../vistas/contenidos/perfil-vistas.php");
+      $respuesta = "incompletos";
+      echo $rut;
+      echo $nombre;
+      echo $apellido;
+      echo $correo;
+      echo $rol;
+      echo $telefono;
+      //header("Location:../vistas/contenidos/perfil-vistas.php");
     } else {
         $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut' AND cod_rol = 'profesor' ");
 
@@ -27,14 +34,14 @@ class update_profesor extends profesormodelo{
             "Rol" => $rol
           ];
 
-          $actualizarRut= profesormodelo::update_rut_profesor($rut);
+          //$actualizarRut= profesormodelo::update_rut_profesor($rut);
 
-          if($actualizarRut->rowCount()>=1){
+          //if($actualizarRut->rowCount()>=1){
 
             $actualixar = mainModel::update_cuenta($editarCuenta);
 
             if($actualixar->rowCount()>=1){
-              //$respuesta = "Actualizada";
+              
               session_start(['name'=>'SGP']);
               $_SESSION['rut_sgp']= $rut;
               $_SESSION['nombre_sgp']= $nombre;
@@ -44,22 +51,23 @@ class update_profesor extends profesormodelo{
               $_SESSION['telefono_sgp']= $telefono;
               $_SESSION['cod_rol_sgp']= $rol;
 
-              header("Location:../vistas/contenidos/perfil-vistas.php");
+              //header("Location:../vistas/contenidos/perfil-vistas.php");
+              $respuesta = "Actualizada";
             }else{
-              //$respuesta = "Error";
-              header("Location:../vistas/contenidos/perfil-vistas.php");
+              $respuesta = "Error";
+              //header("Location:../vistas/contenidos/perfil-vistas.php");
             }
 
-          }
+          //}
 
         }else{
-          //$respuesta = "NoencuentraProfesor";
-          header("Location:../vistas/contenidos/perfil-vistas.php");
+          $respuesta = "NoencuentraProfesor";
+          //header("Location:../vistas/contenidos/perfil-vistas.php");
         }
     }
 
-    //return $respuesta;
-    header("Location:../vistas/contenidos/perfil-vistas.php");
+    return $respuesta;
+    //header("Location:../vistas/contenidos/perfil-vistas.php");
   }
 
   
