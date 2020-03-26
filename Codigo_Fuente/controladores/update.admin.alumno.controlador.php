@@ -36,18 +36,9 @@ class update_adminalumno extends mainModel{
             $actualixar = mainModel::update_cuenta($editarCuenta);
 
             if($actualixar->rowCount()>=1){
-              
-              session_start(['name'=>'SGP']);
-              $_SESSION['rut_sgp']= $rut;
-              $_SESSION['nombre_sgp']= $nombre;
-              $_SESSION['apellido_sgp']= $apellido;
-              //$_SESSION['contraseña_sgp']= $contraseña;
-              $_SESSION['correo_sgp']= $correo;
-              $_SESSION['telefono_sgp']= $telefono;
-              $_SESSION['cod_rol_sgp']= $rol;
-
-              //header("Location:../vistas/contenidos/perfil-vistas.php");
+              //header("Location:../vistas/contenidos/tableAlumnos-vistas.php");
               $respuesta = "Actualizada";
+              
             }else{
               $respuesta = "Error";
               //header("Location:../vistas/contenidos/perfil-vistas.php");
