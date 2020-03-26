@@ -14,17 +14,17 @@ require_once "../extras/barra.php"; ?>
                 <h5>Editar Grupo</h5>
               </header>
               <div id="collapse2" class="body">
-
               <?php 
                 require_once "../../core/mainModel.php";
-                $cod_equipo = $_SESSION['equipo_sgp'];
+                $cod_equipo = $_GET['cod'];
                 $c = new mainModel();
-                $datos = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo='$cod_equipo'");
+                $dato = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo='$cod_equipo'");
               ?>
+
                 <!--editar para profesor y administrador -->
                 <?php $rr = $_SESSION['cod_rol_sgp'] ?>
                 <?php if($rr == 'administrador') { ?>
-                
+                <?php foreach($dato as $rows) : ?>
                 <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo">
                   <fieldset>
                   <div class="form-group">
@@ -57,8 +57,17 @@ require_once "../extras/barra.php"; ?>
                     </div>
                   </fieldset>
                 </form>
+                <?php endforeach; ?>
                 <?php } ?>
               <!--alumno -->
+
+              <?php 
+                require_once "../../core/mainModel.php";
+                $cod_equipo = $_SESSION['equipo_sgp'];
+                $c = new mainModel();
+                $datos = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo='$cod_equipo'");
+              ?>
+
                 <?php if($_SESSION['cod_rol_sgp'] == 'alumno') :?>  
                 <?php foreach($datos as $rows) : ?>  
                 <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo">

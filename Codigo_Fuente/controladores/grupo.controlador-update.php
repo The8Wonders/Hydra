@@ -8,7 +8,7 @@
     $cod_s = $_POST['cod_sem'];
     $cod_p = $_POST['cod_pro'];
 
-     $consulta = mainModel::ejecutar_consulta_simple("INSERT INTO equipo VALUES '$cod_e','$nom_e','$cod_s','$cod_p'");
+    $consulta = mainModel::ejecutar_consulta_simple("INSERT INTO equipo VALUES '$cod_e','$nom_e','$cod_s','$cod_p'");
         
 
 

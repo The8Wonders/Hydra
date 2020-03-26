@@ -285,10 +285,12 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           <span class="fa arrow"></span>
         </a>
         <ul class="collapse">
+        <?php if($_SESSION['equipo_sgp'] != '' ) : ?>
           <li>
             <a href="../contenidos/mi.grupo-vista.php">
               <i class="fa fa-angle-right"></i>&nbsp; Mi Grupo </a>
           </li>
+          <?php endif; ?>
           <?php if($_SESSION['equipo_sgp'] == '') : ?>
           <li>
             <a href="../contenidos/formGrupo-vistas.php">

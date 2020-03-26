@@ -20,16 +20,27 @@ require_once "../extras/barra.php"; ?>
 
                   <fieldset>
                     <div class="form-group">
+                        <label for="cod_sem" class="control-label col-lg-2">Código Equipo</label>
+                        <div class="col-lg-4">
+                            <input name="cod_sem" readonly="readonly" type="text" id="cod_sem" placeholder="2000-1" class="validate[required] form-control" required>
+                        </div>
+                    </div><br>
+                    <div class="form-group">
                       <label for="nom_equi" class="control-label col-lg-2">Nombre Equipo</label>
                       <div class="col-lg-4">
                         <input name="nom_equi" type="text" id="nom_equi" placeholder="Nombre equipo" class="validate[required] form-control" required>
                       </div>
                     </div>
-                    <!--Nombre Equipo-->
+                    <?php require_once "../../core/mainModel";
+                      $sql = new mainModel();
+                      $datos = $sql::ejecutar_consulta_simple("SELECT cod_semestre FROM  semestre"); 
+                    ?>
+
+                    foreach 
                     <div class="form-group">
                         <label for="cod_sem" class="control-label col-lg-2">Código Semestre</label>
                         <div class="col-lg-4">
-                            <input name="cod_sem" type="text" id="cod_sem" placeholder="2000-1" class="validate[required] form-control" required>
+                            <input name="cod_sem" type="text" id="cod_sem"  class="validate[required] form-control" required>
                         </div>
                     </div><br>
                     <div class="form-actions">

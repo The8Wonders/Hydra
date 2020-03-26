@@ -46,8 +46,8 @@
                       <td><a href="lista-alumno-grupo-vista.php"><?php echo $rows['nombre_equipo']?></a></td>
                       <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
-                      <td><a href="formGrupo-update.php?cod=<?php echo $rows["cod_equipo"]?>&cod2=<?php echo $rows['cod_proyecto'];  ?>"><i class="far fa-edit"></i></td></a>
-                      <td><a href="../../controladores/grupo.controlador-eliminar.php?cod=<?php echo $rows["cod_equipo"]; ?>"><i class="fas fa-times"></i></a></td>
+                      <td><a href="formGrupo-update.php?cod=<?php echo $rows["cod_equipo"]?>"><i class="far fa-edit"></i></td></a>
+                      <td><a href="../../controladores/grupo.controlador-eliminar.php?cod=<?php echo $rows["cod_equipo"]; ?>&cod2=<?php echo $rows['cod_proyecto'];  ?>"><i class="fas fa-times"></i></a></td>
                     </tr>
                     <?php endforeach ?>
                   </tbody>
