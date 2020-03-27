@@ -87,7 +87,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                   <li><a href="../contenidos/formAdmin-vistas.php">Administrador</a></li>
                   <?php endif;?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador'):?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Profesor</a></li>
+                  <li><a href="../contenidos/nuevoProfesor-vistas.php">Profesor</a></li>
                   <?php endif;?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
                   <li><a href="../contenidos/formSemestre-vistas.php">Semestre</a></li>
@@ -198,7 +198,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formProfesor-vistas.php">
+            <a href="../contenidos/nuevoProfesor-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Profesor </a>
           </li>
           <li>
