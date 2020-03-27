@@ -20,8 +20,9 @@
 
         protected function updateGrupo($datos){
 
-            $actualizar=mainModel::conectar()->prepare("UPDATE equipo SET nombre_equipo=:datos");
-            $actualizar->bindParam(":datos",$datos['nombre_equipo']);
+            $actualizar=mainModel::conectar()->prepare("UPDATE equipo SET nombre_equipo=:Nom WHERE cod_equipo=:Cod");
+            $actualizar->bindParam(":Nom",$datos['nombre_equipo']);
+            $actualizar->bindParam(":Cod",$datos['cod_equipo']);
             $actualizar->execute();
 
             return $actualizar ;
