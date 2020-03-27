@@ -24,7 +24,7 @@ require_once "../extras/barra.php"; ?>
                 <!--editar para profesor y administrador -->
                 <?php $rr = $_SESSION['cod_rol_sgp'] ?>
                 <?php if($rr == 'administrador') { ?>
-                <?php foreach($dato as $rows) : ?>
+                <?php foreach($dato  as $rows) : ?>
                 <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo-update">
                   <fieldset>
                   <div class="form-group">
@@ -59,6 +59,7 @@ require_once "../extras/barra.php"; ?>
                 </form>
                 <?php endforeach; ?>
                 <?php } ?>
+                
               <!--alumno -->
 
               <?php 
@@ -67,8 +68,8 @@ require_once "../extras/barra.php"; ?>
                 $c = new mainModel();
                 $datos = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo='$cod_equipo'");
               ?>
-
-                <?php if($_SESSION['cod_rol_sgp'] == 'alumno') :?>  
+                <?php  $rp = $_SESSION['cod_rol_sgp']  ?>
+                <?php if($rp == 'alumno') :?>  
                 <?php foreach($datos as $rows) : ?>  
                 <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo-update">
                   <fieldset>

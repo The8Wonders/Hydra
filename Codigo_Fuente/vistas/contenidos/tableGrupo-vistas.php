@@ -75,6 +75,9 @@
                       <th>Código Semestre</th>
                       <th>Código Proyecto</th>
                       <th>Editar</th>
+                      <?php /*if($mostrar['cod_equipo']->rowCount()>=1  ) { ?>
+                      
+                      <?php } */?>
                     </tr>
                   </thead>
                   <tbody>
@@ -84,7 +87,9 @@
                       <td><a href="mi.grupo-vista.php?code=<?php echo $rows['cod_equipo'] ?>"><?php echo $rows['nombre_equipo']?></a></td>
                       <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
+                      <?php if($rows['cod_equipo'] == $_SESSION['equipo_sgp']) { ?>
                       <td><a href="formGrupo-update.php?cod=<?php echo $rows["cod_equipo"]?>&cod2=<?php echo $rows['cod_proyecto'];  ?>"><i class="far fa-edit"></i></td></a>
+                      <?php } ?> 
                     </tr>
                     <?php endforeach ?>
                   
