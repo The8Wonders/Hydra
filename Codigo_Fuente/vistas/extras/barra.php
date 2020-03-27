@@ -83,19 +83,20 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                 Nuevo <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador'):?>
                   <li><a href="../contenidos/formAdmin-vistas.php">Administrador</a></li>
+                  <?php endif;?>
+                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador'):?>
                   <li><a href="../contenidos/formProfesor-vistas.php">Profesor</a></li>
+                  <?php endif;?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Alumno</a></li>
+                  <li><a href="../contenidos/formSemestre-vistas.php">Semestre</a></li>
                   <?php endif; ?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Semestre</a></li>
+                  <li><a href="../contenidos/formGrupo-vistas.php">Grupo</a></li>
                   <?php endif; ?>
                   <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Grupo</a></li>
-                  <?php endif; ?>
-                  <?php if ($_SESSION['cod_rol_sgp'] == 'administrador' || $_SESSION['cod_rol_sgp'] == 'profesor') : ?>
-                  <li><a href="../contenidos/formProfesor-vistas.php">Proyecto</a></li>
+                  <li><a href="../contenidos/formProyecto-vistas.php">Proyecto</a></li>
                   <?php endif; ?>
               </ul>
             </li>
@@ -215,10 +216,10 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           <span class="fa arrow"></span>
         </a>
         <ul class="collapse">
-          <li>
+          <!--<li>
             <a href="../contenidos/formAlumno-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Alumno </a>
-          </li>
+          </li>-->
           <li>
             <a href="../contenidos/tableAlumnos-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Alumnos </a>
