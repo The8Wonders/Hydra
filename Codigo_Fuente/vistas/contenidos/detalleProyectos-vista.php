@@ -87,6 +87,34 @@ require_once "../extras/barra.php"; ?>
                     WHERE u.rut=a.rut and p.cod_proyecto=e.cod_proyecto and e.cod_equipo=a.cod_equipo and p.cod_proyecto='$codigo_proyecto' "); 
                   if($alumnos->rowCount()>=1):?>
                 <div><h2>Alumnos pertenecientes al Proyecto</h2></div>
+
+                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                 
+                  <thead>
+                    <tr>
+                      <th>R.U.T</th>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th>Carrera</th>
+                      <th>Año ingreso</th>
+                      <th>Código Equipo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?foreach($alumnos as $fila):?>
+                    <tr>
+                      <td><?php echo $fila['rut']?></td>
+                      <td><?php echo $fila['nombre']?></td>
+                      <td><?php echo $fila['apellido']?></td>
+                      <td><?php echo $fila['carrera']?></td>
+                      <td><?php echo $fila['ano_ingreso']?></td>
+                      <td><?php echo $fila['cod_equipo']?></td>
+                    </tr>
+                    <?php endforeach ?>
+                  </tbody>
+
+                </table>
                 
 
                   <?php endif?>
