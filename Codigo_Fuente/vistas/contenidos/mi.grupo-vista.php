@@ -29,7 +29,7 @@
                 <thead>
                   <?php 
                     require_once("../../core/mainModel.php");
-                    $codigo_e = $_GET['code'];
+                    $codigo_e = $_GET['cod'];
                     $c = new mainModel();
                     $mostrar = $c->ejecutar_consulta_simple("SELECT  DISTINCT al.rut,al.carrera,al.ano_ingreso,al.cod_semestre,al.cod_equipo FROM alumno al, equipo e WHERE al.cod_equipo='$codigo_e'");
                   ?>

@@ -13,6 +13,8 @@ formularioProfesor.addEventListener('submit', function (e) {
     .then(res => res.json())
     .then(data => {
 
+      console.log(data);
+
       if (data == 'incompletos') {
         Swal.fire({
           icon: 'error',
@@ -72,6 +74,14 @@ formularioProfesor.addEventListener('submit', function (e) {
                         title: 'Lo sentimos',
                         text: 'El rut no es valido',
                       })
+                    }else{
+                      if(data == 'CorreoM'){
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Lo sentimos',
+                          text: 'El Correo no es valido',
+                        })
+                      }
                     }
                   }
                 }
