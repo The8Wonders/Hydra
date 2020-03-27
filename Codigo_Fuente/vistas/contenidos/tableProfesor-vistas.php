@@ -55,7 +55,6 @@
                         <td><?php echo $rows['telefono'] ?></td>
                         <?php echo "<td><a href='editProfesor-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
                         <?php echo "<td><a href='../../controladores/eliminar.profesor.controlador.php?rut=" . $rows['rut'] . "'><i class='fas fa-times'></i></a></td>" ?>
-                        
                       </tr>
                     <?php } ?>
                   </tbody>
