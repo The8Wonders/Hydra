@@ -4,7 +4,7 @@ eliminarAlumno.addEventListener('submit', function (e) {
   e.preventDefault();
 
   var datos = new FormData(eliminarAlumno);
-
+   //redirecciona a ruta 
   fetch('../../../ajax/edit.alumno.php', {
       method: 'POST',
       body: datos
