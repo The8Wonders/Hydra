@@ -1,23 +1,4 @@
-<?php
 
-  if($_SESSION['cod_rol_sgp']=='alumno'){
-   $rut=$_SESSION['rut_sgp']; 
-  $codigoe=$_SESSION['equipo_sgp'];
-
-  include "../../core/mainModel.php";
-  $c = new mainModel();
-  $sql = $c->ejecutar_consulta_simple("SELECT * FROM usuario u, alumno a, equipo e WHERE
-   u.rut=a.rut AND a.cod_equipo=e.cod_equipo AND e.cod_equipo='$codigoe' AND a.rut='$rut'	");
-
-  if($sql->rowCount()>=1){
-   $cantidad=1;
-
-  } else {$cantidad=0;}
-
-
-}
-
-?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -44,7 +25,28 @@
                 <div class="icons"><i class="fa fa-edit"></i></div>
                 <h5>Nuevo Proyecto</h5>
               </header>
-          <?php if($cantidad==1): ?>
+
+              <?php
+
+   $rut=$_SESSION['rut_sgp']; 
+  $codigoe=$_SESSION['equipo_sgp'];
+
+  include "../../core/mainModel.php";
+  $c = new mainModel();
+  $sql = $c->ejecutar_consulta_simple("SELECT * FROM usuario u, alumno a, equipo e WHERE
+   u.rut=a.rut AND a.cod_equipo=e.cod_equipo AND a.rut='$rut'	");
+
+  if($sql->rowCount()>=1){
+   $cantidad=1;
+
+  } else {$cantidad=0;}
+
+
+
+?>
+
+          <?php if($_SESSION['cod_rol_sgp']=='alumno'):?>
+          <?php if($codigoe!=NULL): ?>
 
             <div id="collapse2" class="body">
                 <form class="form-horizontal" action="" method="POST" id="formProyecto">
@@ -57,7 +59,7 @@
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre" placeholder="Nombre Equipo" class="validate[required] form-control" required>
                       </div>
-
+                   
                       <!--Sigle Proyecto-->
 
                       <label for="sigla" class="control-label col-lg-2">Sigla del Proyecto</label>
@@ -124,8 +126,8 @@
 
                       <div class="col-lg-4">
 
-                        <textarea name="descripcion" rows="10" cols="80">Escribe aqui la descripción del proyecto en 256 caracteres</textarea>
-
+                        <textarea name="descripcion" rows="10" cols="80" data-placeholder="Escribe aqui la descripción del proyecto en 256 caracteres"></textarea>
+                      <input type="hidden" name="codE" required value ="<?php echo $codigoe ?>">
 
                       </div>
                     </div>
@@ -137,7 +139,7 @@
 
                     <!--Codigo Semestre-->
                     <div class="form-group">
-
+                      
                       <label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>
 
                       <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoSemestre" id="codigoSemestre">
@@ -162,18 +164,18 @@
               </form>
             </div>
 
-            <?php endif ?>
+                          <?php endif; ?>
 
-            <?php if($cantidad==0):  ?>
+            <?php if($codigoe==NULL):  ?>
 
               <div id="collapse2" class="body">
-                
+              <?php echo $cantidad; ?>
                 <div><h2>Crea primero un Equipo</h2></div>
 
                 <div><a href="formGrupo-vistas.php" class="btn btn-primary" role="button">Crear Equipo</a></div>
               
             </div>
-            <?php endif ?>
+            <?php endif; ?>
 
 
           </div>
@@ -183,7 +185,11 @@
   </div>
   </div>
   <script src="../assets/js/proyecto.js"></script>
-
+            <?php endif; ?>
+  <?php if($_SESSION['cod_rol_sgp']=='profesor' || $_SESSION['cod_rol_sgp']=='administrador'){
+    header("Location: home-vistas.php");
+  } ?>
+<
 </body>
 <?php
 require_once "../extras/footer.php";

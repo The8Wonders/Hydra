@@ -17,6 +17,7 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
     $sigla = mainModel::limpiar_cadena($_POST['sigla']);
     $tipo_desarrollo = mainModel::limpiar_cadena($_POST['tipoProyecto']);
     $cod_semestre = mainModel::limpiar_cadena($_POST['codigoSemestre']);
+    $codigo_equipo=mainModel::limpiar_cadena($_POST['codE']);
 
     /* Limpia todo lo que viene desde el formuario para evitar la inyeccion */
 
@@ -58,7 +59,11 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
             $guardarproyecto = proyectomodelo::nuevo_proyecto_modelo($nuevoProyecto); /* si cumple todas las condiciones llama a nuevo proyecto modelo y le envia los valores de la variable $nuevoProyecto */
 
             if ($guardarproyecto->rowCount() >= 1) {
+              
+              $c=new Mainmodel();
+              $sql= $c->ejecutar_consulta_simple("UPDATE equipo SET cod_proyecto='$cod_proyecto' WHERE cod_equipo='$cod_equipo'");
               $respuesta = "correcto";
+             
             } else {
               $respuesta = "incorrecto";
             }

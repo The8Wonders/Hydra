@@ -298,12 +298,16 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-           <?php if($_SESSION['cod_rol_sgp'] == 'alumno') :?> 
+           <?php if($_SESSION['cod_rol_sgp'] == 'alumno' && $_SESSION['equipo_sgp']==NULL) :?> 
             
                   <a href="../contenidos/formProyecto-vistas.php">
                   <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a> 
               
             <?php endif ?>
+            <?php if($_SESSION['equipo_sgp']!=NULL): ?>
+              <a href="../contenidos/miProyecto-vistas.php">
+                  <i class="fa fa-angle-right"></i>&nbsp; Mi Proyecto </a> 
+            <?php endif; ?>
           </li>
           <li>
             <a href="../contenidos/proyecto-vistas.php">
