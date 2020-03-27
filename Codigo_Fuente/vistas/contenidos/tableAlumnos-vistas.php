@@ -35,10 +35,7 @@
                       us.nombre,
                       us.apellido,
                       us.correo,
-                      us.telefono,
-                      al.carrera,
-                      al.ano_ingreso,
-                      al.cargo
+                      us.telefono
                        FROM Usuario us,Alumno al 
                        where  al.rut=us.rut ;");
                     ?>
@@ -48,9 +45,6 @@
                       <th>Apellido</th>
                       <th>Correo</th>
                       <th>Telefono</th>
-                      <th>Carrera</th>
-                      <th>Año Ingreso</th>
-                      <th>Cargo</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                       
@@ -64,9 +58,6 @@
                       <td><?php echo $rows['apellido']?></td>
                       <td><?php echo $rows['correo']?></td>
                       <td><?php echo $rows['telefono']?></td>
-                      <td><?php echo $rows['carrera']?></td>
-                      <td><?php echo $rows['ano_ingreso']?></td>
-                      <td><?php echo $rows['cargo']?></td>
                       <?php echo "<td><a href='editAdminalumno-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
 
                       <td><a href="../../controladores/alumno.controlador-eliminar.php?cod=<?php echo $rows["rut"]; ?>"><i class="fas fa-times"></i></a></td>
