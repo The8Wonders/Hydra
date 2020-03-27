@@ -1,8 +1,8 @@
 <?php
 if (isset($_POST['nom_equi'])) {
-  require_once "../controladores/grupo.controlador.php";
-  $insAdmin = new grupocontrolador();
-  $res = $insAdmin->editar_grupo_controlador();
+  require_once "../controladores/grupo.controlador-update.php";
+  $insAdmin = new grupocontroladorupdate();
+  $res = $insAdmin->updateGrupo();
 
   echo json_encode($res);
 } else {

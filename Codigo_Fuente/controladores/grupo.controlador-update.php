@@ -1,7 +1,7 @@
 <?php
     require("../modelo/grupo.modelo.php");
 
-   class grupocontrolador extends grupo_modelo{
+   class grupocontroladorupdate extends grupo_modelo{
 
 
         public function updateGrupo(){

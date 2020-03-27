@@ -112,7 +112,7 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
-<script src="../assets/js/grupo-update.js"></script>
+<script src="../assets/js/grupoupdate.js"></script>
 
 </body>
 <?php
