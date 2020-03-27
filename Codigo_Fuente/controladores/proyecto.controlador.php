@@ -17,15 +17,16 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
     $sigla = mainModel::limpiar_cadena($_POST['sigla']);
     $tipo_desarrollo = mainModel::limpiar_cadena($_POST['tipoProyecto']);
     $cod_semestre = mainModel::limpiar_cadena($_POST['codigoSemestre']);
-    $codigo_equipo=mainModel::limpiar_cadena($_POST['codE']);
+    $codigo_equipo = mainModel::limpiar_cadena($_POST['codE']);
 
     /* Limpia todo lo que viene desde el formuario para evitar la inyeccion */
 
 
     if (
       $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" ||
-      $descripcion_proyecto == "" || $sigla == "" || $tipo_desarrollo == "" || $cod_semestre == "")
-       /* verifica que vengan todo los valores rellenados */{
+      $descripcion_proyecto == "" || $sigla == "" || $tipo_desarrollo == "" || $cod_semestre == ""
+    )
+    /* verifica que vengan todo los valores rellenados */ {
       $respuesta = "incompletos";
     } else {
       if ($fecha_inicio > $fecha_fin) {
@@ -59,11 +60,12 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
             $guardarproyecto = proyectomodelo::nuevo_proyecto_modelo($nuevoProyecto); /* si cumple todas las condiciones llama a nuevo proyecto modelo y le envia los valores de la variable $nuevoProyecto */
 
             if ($guardarproyecto->rowCount() >= 1) {
-              
-              $c=new Mainmodel();
-              $sql= $c->ejecutar_consulta_simple("UPDATE equipo SET cod_proyecto='$cod_proyecto' WHERE cod_equipo='$codigo_equipo'");
+
+              $c = new Mainmodel();
+              $sql = $c->ejecutar_consulta_simple("UPDATE equipo SET cod_proyecto='$cod_proyecto' WHERE cod_equipo='$codigo_equipo'");
+              session_start(['name' => 'SGP']);
+              $_SESSION['cod_proyecto_sgp'] = $cod_proyecto;
               $respuesta = "correcto";
-             
             } else {
               $respuesta = "incorrecto";
             }
@@ -91,7 +93,8 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
 
 
     if (
-      $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" || $descripcion_proyecto == "" || $tipo_desarrollo == "" || $sigla == "" || $cod_semestre =="") {
+      $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" || $descripcion_proyecto == "" || $tipo_desarrollo == "" || $sigla == "" || $cod_semestre == ""
+    ) {
       $respuesta = "incompletos";
     } else {
       $consulta1 = mainModel::ejecutar_consulta_simple("SELECT cod_proyecto FROM proyecto WHERE cod_proyecto= '$cod_proyecto' ");
@@ -118,7 +121,6 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
 
           $respuesta = "Error";
         }
-
       } else {
         $respuesta = "NoencuentraProyecto";
       }
