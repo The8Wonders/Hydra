@@ -61,7 +61,7 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
             if ($guardarproyecto->rowCount() >= 1) {
               
               $c=new Mainmodel();
-              $sql= $c->ejecutar_consulta_simple("UPDATE equipo SET cod_proyecto='$cod_proyecto' WHERE cod_equipo='$cod_equipo'");
+              $sql= $c->ejecutar_consulta_simple("UPDATE equipo SET cod_proyecto='$cod_proyecto' WHERE cod_equipo='$codigo_equipo'");
               $respuesta = "correcto";
              
             } else {
