@@ -87,6 +87,8 @@
     <!-- /.outer -->
   </div>
 
+  </div>
+
 <script src=""></script>
 </body>
 

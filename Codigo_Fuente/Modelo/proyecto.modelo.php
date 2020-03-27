@@ -37,16 +37,21 @@ class proyectomodelo extends mainModel
   public function update_proyecto_modelo($datos)
   {
     $sql = mainModel::conectar()->prepare("UPDATE proyecto SET 
-    nom_proyecto=:nomP,fehca_inicio_real=:fechaInr,fecha_fin_real=:fechaTeR,
-    descripcion_proyecto=:descrip, sigla=:Sigla, tipo_desarrollo=:tipoD WHERE cod_proyecto=:codP");
+    nom_proyecto=:nomP,fecha_inicio_real=:fechaInR,fecha_fin_real=:fechaTeR,
+    descripcion_proyecto=:descrip, sigla=:ssigla, tipo_desarrollo=:tipoD WHERE cod_proyecto=:codP");
 
     $sql->bindParam(":codP", $datos['cod_proyecto']);
     $sql->bindParam(":nomP", $datos['nom_proyecto']);
     $sql->bindParam(":fechaInR", $datos['fecha_inicio_real']);
     $sql->bindParam(":fechaTeR", $datos['fecha_fin_real']);
     $sql->bindParam(":descrip", $datos['descripcion_proyecto']);
-    $sql->bindParam(":Sigla", $datos['sigla']);
+    $sql->bindParam(":ssigla", $datos['sigla']);
     $sql->bindParam(":tipoD", $datos['tipo_desarrollo']);
+    $sql->bindParam(":fechaIn", $datos['fecha_inicio']);
+    $sql->bindParam(":fechaTe", $datos['fecha_termino']);
+    
+
+
     $sql->execute();
 
     return $sql;
