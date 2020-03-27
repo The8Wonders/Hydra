@@ -1,4 +1,4 @@
-var editarProyecto = document.getElementById('editProyecto');
+var editarProyecto = document.getElementById('editarProyecto');
 
 editarProyecto.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -6,6 +6,22 @@ editarProyecto.addEventListener('submit', function (e) {
   console.log('holi llego aca');
 
   var datos = new FormData(editarProyecto);
+
+  console.log(datos);
+  console.log(datos.get('nombre'));
+  console.log(datos.get('sigla'));
+  console.log('owo');
+  console.log(datos.get('fechaInicio'));
+  console.log(datos.get('fechaTermino'));
+  console.log(datos.get('fechaInicioR'));
+  console.log(datos.get('fechaTerminoR'));
+  console.log(datos.get('cod'));
+  console.log(datos.get('codS'));
+  console.log(datos.get('tipoProyecto'));
+  console.log(datos.get('DescripcionProyecto'));
+
+
+
 
   fetch('../../../ajax/edit.proyecto.php', {
       method: 'POST',
