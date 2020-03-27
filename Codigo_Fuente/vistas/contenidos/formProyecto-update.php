@@ -40,11 +40,11 @@ require_once "../extras/barra.php"; ?>
               ?>
 
 
-                <form class="form-horizontal" action="" method="POST" id="editProyecto">
+                <form class="form-horizontal" action="" method="POST" id="editarProyecto">
 
                   <fieldset>
                     <!--Nombre Proyecto-->
-                    <input type="hidden" id="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
+                    <input type="hidden" id="cod" name="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
                     <div class="form-group">
                       <label for="nombre" class="control-label col-lg-2">Nombre del Grupo</label>
 
@@ -120,7 +120,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
 
                       <div class="col-lg-4">
-                        <input class="form-control validate[required] form-control" required id="descripcion" name="descripcion" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
+                        <input class="form-control validate[required] form-control" required id="DescripcionProyecto" name="DescripcionProyecto" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
 
                       </div>
                     </div>
@@ -137,9 +137,9 @@ require_once "../extras/barra.php"; ?>
                     <!--Codigo Semestre-->
                     <div class="form-group">
 
-                      <label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>
+                      <!--<label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>-->
 
-                      <input type="hidden" id="<?php echo $rows['cod_semestre']?>" >
+                      <input type="hidden" name ="codS" id="codS" required value="<?php echo $rows['cod_semestre']?>" >
 
                     </div>
               </div>
