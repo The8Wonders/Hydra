@@ -1,10 +1,10 @@
 
-var formularioPerfil = document.getElementById('perfilProfesor');
+var formularioClave = document.getElementById('recuperarClave');
 
-formularioPerfil.addEventListener('submit', function (e) {
+formularioClave.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  var datos = new FormData(formularioPerfil);
+  var datos = new FormData(formularioClave);
 
   // console log
   console.log(datos.get('nombre'))
@@ -14,7 +14,7 @@ formularioPerfil.addEventListener('submit', function (e) {
   console.log(datos.get('telefono'))
   console.log(datos.get('rol'))
 
-  fetch('../../../ajax/perfil_profe.ajax.php', {
+  fetch('../../../ajax/recuperarClave.ajax.php', {
     method: 'POST',
     body: datos
   })
@@ -25,21 +25,21 @@ formularioPerfil.addEventListener('submit', function (e) {
         Swal.fire({
           icon: 'error',
           title: 'Lo sentimos',
-          text: 'Debe rellenar todo los campos',
+          text: 'Debe ingresar un correo',
         })
       } else {
-        if (data == 'Actualizada') {
-          document.getElementById("perfilProfesor").reset();
+        if (data == 'enviado') {
+          document.getElementById("recuperarClave").reset();
           Swal.fire({
             icon: 'success',
-            title: 'Se ha actualizado',
-            text: 'El profesor se actualizó con exito',
+            title: 'Enviado',
+            text: 'Se envió un correo con su clave',
           })
         } else {
           if (data == 'contraseñas') {
 
             Swal.fire({
-              icon: 'errorr',
+              icon: 'error',
               title: 'Lo sentimos',
               text: 'Las contraseñas no coinciden',
             })
@@ -48,7 +48,7 @@ formularioPerfil.addEventListener('submit', function (e) {
               Swal.fire({
                 icon: 'error',
                 title: 'Lo sentimos',
-                text: 'No se pudo actualizar la cuenta',
+                text: 'No existe ese correo en la base de datos',
               })
             } else {
               if (data == 'NoencuentraAdmin') {

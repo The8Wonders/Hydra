@@ -9,7 +9,6 @@ if($_SESSION['rut_sgp'] != ''){ ?>
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
 
-
         <!-- Brand and toggle get grouped for better mobile display -->
         <header class="navbar-header">
 
@@ -23,8 +22,6 @@ if($_SESSION['rut_sgp'] != ''){ ?>
 
         </header>
 
-
-
         <div class="topnav">
           <!-- P A N T A L L A      C O M P L E T A  -->
           <div class="btn-group">
@@ -34,27 +31,6 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           </div>
           <!-- F I N      P A N T A L L A   C O M P L E T A  -->
 
-          <div class="btn-group">
-            <!--  C O R R E O  -->
-            <a data-placement="bottom" data-original-title="Notificaciones" data-toggle="tooltip" class="btn btn-default btn-sm">
-              <i class="fa fa-envelope"></i>
-              <span class="label label-warning">5</span>
-            </a>
-            <!-- F I N    C O R R E O  -->
-
-            <!--  M E N S A J E S  -->
-            <a data-placement="bottom" data-original-title="Mensajes" href="#" data-toggle="tooltip" class="btn btn-default btn-sm">
-              <i class="fa fa-comments"></i>
-              <span class="label label-danger">4</span>
-            </a>
-            <!--  F I N   M E N S A J E S  -->
-
-            <!-- A Y U D A  -->
-            <a data-toggle="modal" data-original-title="Help" data-placement="bottom" class="btn btn-default btn-sm" href="#helpModal">
-              <i class="fa fa-question"></i>
-            </a>
-            <!-- F I N  A Y U D A  -->
-          </div>
 
           <!--  C E R R A R    S E S I O N  -->
           <div class="btn-group">
@@ -69,16 +45,8 @@ if($_SESSION['rut_sgp'] != ''){ ?>
               <i class="fa fa-bars"></i>
             </a>
             <!--  F I N   V E R / O C U L T A R  -->
-
-            <a href="#right" data-toggle="onoffcanvas" class="btn btn-default btn-sm" aria-expanded="false">
-              <span class="fa fa-fw fa-comment"></span>
-            </a>
           </div>
-
         </div>
-
-
-
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
 
@@ -104,7 +72,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                   <li><a href="../contenidos/proyecto-vistas.php">Proyectos</a></li>
                 <?php endif; ?>
                 <?php if ($_SESSION['cod_rol_sgp'] == 'administrador') : ?>
-                  <li><a href="../contenidos/tableGrupo-vistas">Grupos</a></li>
+                  <li><a href="../contenidos/tableGrupo-vistas.php">Grupos</a></li>
                 <?php endif; ?>
               </ul>
             </li>
@@ -174,12 +142,12 @@ if($_SESSION['rut_sgp'] != ''){ ?>
       </div>
       <div class="user-wrapper bg-dark">
         <a class="user-link" href="../contenidos/perfil-vistas.php">
-          <img class="media-object img-thumbnail user-img" alt="User Picture" src="../assets/img/user.gif">
-          <span class="label label-danger user-label">16</span>
+          <img class="media-object img-thumbnail user-img" alt="User Picture" src="../assets/img/escudo.png" height="64" widht="64">
+          <!--<span class="label label-danger user-label">16</span>-->
         </a>
 
         <div class="media-body">
-          <h5 class="media-heading"><?php echo $_SESSION['rut_sgp'] ?></h5>
+          <h5 class="media-heading">R.U.T: <?php echo $_SESSION['rut_sgp'] ?></h5>
           <h5 class="media-heading"><?php echo $_SESSION['nombre_sgp'] ?><?php echo " "; ?><?php echo $_SESSION['apellido_sgp'] ?></h5>
           <ul class="list-unstyled user-info">
             <li>Rol: <a ><?php echo $_SESSION['cod_rol_sgp'] ?></a></li>
@@ -287,7 +255,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         <ul class="collapse">
         <?php if($_SESSION['equipo_sgp'] != '' ) : ?>
           <li>
-            <a href="../contenidos/mi.grupo-vista.php">
+            <a href="../contenidos/mi.grupo-vista.php?code=<?php echo $_SESSION['equipo_sgp'] ?>">
               <i class="fa fa-angle-right"></i>&nbsp; Mi Grupo </a>
           </li>
           <?php endif; ?>
@@ -390,120 +358,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           </li>
         </ul>
       </li>
-      <li class="">
-        <a href="javascript:;">
-          <i class="fa fa-building "></i>
-          <span class="link-title">Layouts</span>
-          <span class="fa arrow"></span>
-        </a>
-        <ul class="collapse">
-          <li>
-            <a href="../contenidos/boxed-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout </a>
-          </li>
-          <li>
-            <a href="../contenidos/fixed-header-boxed-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Header </a>
-          </li>
-          <li>
-            <a href="fixed-header-fixed-mini-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed Header and Fixed Mini Menu </a>
-          </li>
-          <li>
-            <a href="fixed-header-menu.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed Header &amp; Menu </a>
-          </li>
-          <li>
-            <a href="fixed-header-mini-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed Header &amp; Mini Menu </a>
-          </li>
-          <li>
-            <a href="fixed-header.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed Header </a>
-          </li>
-          <li>
-            <a href="fixed-menu-boxed.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Menu </a>
-          </li>
-          <li>
-            <a href="fixed-menu.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed Menu </a>
-          </li>
-          <li>
-            <a href="fixed-mini-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Fixed &amp; Mini Menu </a>
-          </li>
-          <li>
-            <a href="fxhmoxed.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Boxed and Fixed Header &amp; Nav </a>
-          </li>
-          <li>
-            <a href="no-header-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Header &amp; Sidebars </a>
-          </li>
-          <li>
-            <a href="no-header.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Header </a>
-          </li>
-          <li>
-            <a href="no-left-right-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Left &amp; Right Sidebar </a>
-          </li>
-          <li>
-            <a href="no-left-sidebar-main-search.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Left Sidebar &amp; Main Search </a>
-          </li>
-          <li>
-            <a href="no-left-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Left Sidebar </a>
-          </li>
-          <li>
-            <a href="no-main-search.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Main Search </a>
-          </li>
-          <li>
-            <a href="no-right-sidebar.html">
-              <i class="fa fa-angle-right"></i>&nbsp; No Right Sidebar </a>
-          </li>
-          <li>
-            <a href="sm.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Mini Sidebar </a>
-          </li>
-        </ul>
-      </li>
-      <li class="">
-        <a href="javascript:;">
-          <i class="fa fa-tasks"></i>
-          <span class="link-title">Components</span>
-          <span class="fa arrow"></span>
-        </a>
-        <ul class="collapse">
-          <li>
-            <a href="../contenidos/bgcolor-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Bg Color </a>
-          </li>
-          <li>
-            <a href="../contenidos/bgimage-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Bg Image </a>
-          </li>
-          <li>
-            <a href="../contenidos/button-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Buttons </a>
-          </li>
-          <li>
-            <a href="../contenidos/icon-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Icon </a>
-          </li>
-          <li>
-            <a href="pricing.html">
-              <i class="fa fa-angle-right"></i>&nbsp; Pricing Table </a>
-          </li>
-          <li>
-            <a href="../contenidos/progress-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Progress </a>
-          </li>
-        </ul>
-      </li>
+      
       <li class="nav-divider"></li>
       <li>
         <a href="../../modelo/cerrar_sesion.php">
