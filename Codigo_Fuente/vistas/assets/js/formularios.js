@@ -113,7 +113,7 @@ formularioLogin.addEventListener('submit', function (e) {
 					})
 				} else {
 					if (data == 'existe') {
-						window.location = "../vistas/contenidos/perfil-vistas.php";
+						window.location = "../vistas/contenidos/home-vistas.php";
 					}
 				}
 			}
