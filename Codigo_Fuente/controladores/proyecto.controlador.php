@@ -70,67 +70,53 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
     return $respuesta;
   }
 
+  public function update_proyecto_controlador()
+  {
+
+    $cod_proyecto = mainModel::limpiar_cadena($_POST['cod']);
+    $nom_proyecto = mainModel::limpiar_cadena($_POST['nombre']);
+    $fecha_inicio = mainModel::limpiar_cadena($_POST['fechaInicio']);
+    $fecha_fin = mainModel::limpiar_cadena($_POST['fechaTermino']);
+    $fecha_inicio_real = mainModel::limpiar_cadena($_POST['fechaInicioR']);
+    $fecha_fin_real = mainModel::limpiar_cadena($_POST['fechaTerminoR']);
+    $descripcion_proyecto = mainModel::limpiar_cadena($_POST['DescripcionProyecto']);
+    $tipo_desarrollo = mainModel::limpiar_cadena($_POST['tipoProyecto']);
+    $sigla = mainModel::limpiar_cadena($_POST['sigla']);
+    $cod_semestre = mainModel::limpiar_cadena($_POST['codS']);
 
 
+    if (
+      $cod_proyecto == "" || $nom_proyecto == "" || $fecha_inicio == "" || $fecha_fin == "" || $fecha_inicio_real == "" || $fecha_fin_real == "" || $descripcion_proyecto == "" || $tipo_desarrollo == "" || $sigla == "" || $cod_semestre =="") {
+      $respuesta = "incompletos";
+    } else {
+      $consulta1 = mainModel::ejecutar_consulta_simple("SELECT cod_proyecto FROM proyecto WHERE cod_proyecto= '$cod_proyecto' ");
 
+      if ($consulta1->rowCount() >= 1) {
 
+        $editarProyecto = [
+          "cod_proyecto" => $cod_proyecto,
+          "nom_proyecto" => $nom_proyecto,
+          "fecha_inicio_real" => $fecha_inicio_real,
+          "fecha_fin_real" => $fecha_fin_real,
+          "descripcion_proyecto"->$descripcion_proyecto,
+          "tipo_desarrollo" => $tipo_desarrollo,
+          "ttd" => $sigla,
+        ];
 
-  /* public function update_alumno(){
-    $nombre= mainModel::limpiar_cadena($_POST['rut']);
-    $nombre = mainModel::limpiar_cadena($_POST['nombre']);
-    $apellido = mainModel::limpiar_cadena($_POST['apellido']);
-    $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
-    $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
-    $correo = mainModel::limpiar_cadena($_POST['correo']);
-    $telefono = mainModel::limpiar_cadena($_POST['telefono']);
-    $rol = mainModel::limpiar_cadena($_POST['rol']);
-    
+        $actualixar = proyectomodelo::update_proyecto_modelo($editarProyecto);
 
-    if( $rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $telefono == "" || $rol == "" ){
-      $respuesta = "incompletos');
-    }else{
-      if ($contraseña1 != $contraseña2) {
-        $respuesta = "contraseñas');
-      } else {
-  
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT rut FROM usuario WHERE rut= '$rut'");
-  
-        if ($consulta1->rowCount() >= 1) {
-  
-          $respuesta = "rut');
-  
+        if ($actualixar->rowCount() >= 1) {
+          $respuesta = "Actualizado";
         } else {
-  
 
-            $nuevaCuenta = [
-              "Rut" => $rut,
-              "Nombre" => $nombre,
-              "Apellido" => $apellido,
-              "Correo" => $correo,
-              "Telefono" => $telefono,
-              "Rol" => $rol,
-              "Contra" => $clave
-            ];
-  
-            $updatecuenta = mainModel::update_cuenta($nuevaCuenta);
-  
-            if ($updatecuenta->rowCount() >= 1) {
-
-              $guardaralumno = alumnomodelo::actualizar_alumno_modelo($rut);
-  
-              if($guardaralumno->rowCount()>=1){
-                $respuesta = "correcto');
-              }else{
-                $respuesta = "alumno');
-              }
-              
-            } else {
-  
-              $respuesta = "incorrecto');
-            }
-          }
+          $respuesta = "Error";
         }
+
+      } else {
+        $respuesta = "NoencuentraProyecto";
       }
     }
-  }*/
+
+    return $respuesta;
+  }
 }

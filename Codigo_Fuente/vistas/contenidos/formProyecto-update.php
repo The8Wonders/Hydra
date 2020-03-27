@@ -1,10 +1,19 @@
-<?php
-require_once "../extras/estilos.php";
-require_once "../extras/barra.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de gestion de proyectos">
+  <meta name="keywords" content="Gestión, Proyectos">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
+  <?php require_once "../extras/estilos.php";
+  require_once "../extras/barra.php" ?>
+  <title>Nuevo Profesor</title>
+</head>
 
 <body>
-
-
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
@@ -19,45 +28,38 @@ require_once "../extras/barra.php"; ?>
               </header>
               <div id="collapse2" class="body">
 
-              <?php
+                <?php
 
-                    $rut=$_SESSION['rut_sgp'];
-                    include "../../core/mainModel.php";
-                    $c=new mainModel();
-                    $sql=$c->ejecutar_consulta_simple("SELECT p.cod_proyecto,p.nom_proyecto,p.fecha_inicio,p.fecha_fin, p.fecha_inicio_real,
+                $rut = $_SESSION['rut_sgp'];
+                include "../../core/mainModel.php";
+                $c = new mainModel();
+                $sql = $c->ejecutar_consulta_simple("SELECT p.cod_proyecto,p.nom_proyecto,p.fecha_inicio,p.fecha_fin, p.fecha_inicio_real,
                     p.fecha_fin_real,p.descripcion_proyecto, p.sigla,p.tipo_desarrollo,p.cod_semestre  FROM usuario u, alumno a, 
                     equipo e, proyecto p WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND e.cod_proyecto=p.cod_proyecto AND u.rut='$rut'");
 
-                    foreach($sql as $rows){
-                      
-                    };
-
-                    
+                foreach ($sql as $rows) {
+                };
+                ?>
 
 
-
-
-              ?>
-
-
-                <form class="form-horizontal" action="" method="POST" id="editarProyecto">
+                <form class="form-horizontal" action="" method="POST" id="editProyecto">
 
                   <fieldset>
                     <!--Nombre Proyecto-->
-                    <input type="hidden" id="cod" name="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
+                    <input type="text" id="cod" name="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
                     <div class="form-group">
                       <label for="nombre" class="control-label col-lg-2">Nombre del Grupo</label>
 
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nom_proyecto'] ?>">
                       </div>
-
+                      
                       <!--Sigle Proyecto-->
 
                       <label for="sigla" class="control-label col-lg-2">Sigla del Grupo</label>
 
                       <div class="col-lg-4">
-                        <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="form-control" required value="<?php echo $rows['sigla'] ?>" >
+                        <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="form-control" required value="<?php echo $rows['sigla'] ?>">
                       </div>
                     </div>
 
@@ -88,7 +90,7 @@ require_once "../extras/barra.php"; ?>
 
 
                       <!--Fecha Reales Termino modificar probablemente-->
-                      <label for="fechaInicio" class="control-label col-lg-2">Fecha de Termino Real</label>
+                      <label for="fechaTerminoR" class="control-label col-lg-2">Fecha de Termino Real</label>
 
                       <div class="col-lg-4">
                         <input name="fechaTerminoR" type="date" id="fechaTerminoR" class="validate[required] form-control" required value="<?php echo $rows['fecha_fin_real'] ?>">
@@ -103,15 +105,15 @@ require_once "../extras/barra.php"; ?>
 
                       <label for="TipoProyecto" class="control-label col-lg-2">Tipo de desarrollo</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Ingrese su tipo de proyecto" id="tipoProyecto" name="tipoProyecto" class="form-control" >
-                        <option required value="<?php echo $rows['tipo_desarrollo'] ?>"><?php echo $rows['tipo_desarrollo'] ?></option>
-                        <?php $value= $rows['tipo_desarrollo'];
-                        if($value=="Desarrollo Web"):?>
-                        <option value="Desarrollo Movil">Desarrollo Movil</option> <?php endif?>
-                        <?php if($value=="Desarrollo Movil"):?>
-                        <option value="Desarrollo Movil">Desarrollo Web</option> <?php endif?>
+                      <div class="col-lg-4 "><select data-placeholder="Ingrese su tipo de proyecto" id="tipoProyecto" name="tipoProyecto" class="form-control">
+                          <option required value="<?php echo $rows['tipo_desarrollo'] ?>"><?php echo $rows['tipo_desarrollo'] ?></option>
+                          <?php $value = $rows['tipo_desarrollo'];
+                          if ($value == "Desarrollo Web") : ?>
+                            <option value="Desarrollo Movil">Desarrollo Movil</option> <?php endif ?>
+                          <?php if ($value == "Desarrollo Movil") : ?>
+                            <option value="Desarrollo Movil">Desarrollo Web</option> <?php endif ?>
 
-                      </select>
+                        </select>
                       </div>
 
                     </div>
@@ -128,9 +130,9 @@ require_once "../extras/barra.php"; ?>
                     <?php
                     require_once "../../core/mainModel.php";
                     $ins = new mainModel();
-                    $codi= $rows['cod_semestre'];
+                    $codi = $rows['cod_semestre'];
 
-        
+
                     $datos = $ins->ejecutar_consulta_simple("SELECT cod_semestre FROM semestre Where cod_semestre!='$codi'");
                     ?>
 
@@ -139,7 +141,7 @@ require_once "../extras/barra.php"; ?>
 
                       <!--<label for="codigoSemestre" class="control-label col-lg-2">Semestre</label>-->
 
-                      <input type="hidden" name ="codS" id="codS" required value="<?php echo $rows['cod_semestre']?>" >
+                      <input type="hidden" name="codS" id="codS" required value="<?php echo $rows['cod_semestre'] ?>">
 
                     </div>
               </div>
@@ -160,9 +162,11 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
-  <script src="../assets/js/editarproyecto.js"></script>
+  <script src="../assets/js/editproyecto.js"></script>
 
+  <?php
+  require_once "../extras/footer.php";
+  require_once "../extras/script.php"; ?>
 </body>
-<?php
-require_once "../extras/footer.php";
-require_once "../extras/script.php"; ?>
+
+</html>

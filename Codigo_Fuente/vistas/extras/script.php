@@ -40,7 +40,6 @@ Metis.formValidation();
 <script src="../assets/js/style-switcher.js"></script>
 <!-- Sweet Alert scripts -->
 <script src="../assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
-<script src="../assets/js/funcion.js"></script>
 
 <script type="text/javascript">
         (function($) {
