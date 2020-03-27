@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
   <?php require_once "../extras/estilos.php";?>
-  <title>Actualizar Profesor</title>
+  <title>Actualizar Alumno</title>
 </head>
 <body>
   <?php require_once "../extras/barra.php"; ?>
@@ -26,7 +26,9 @@
                 $c = new mainModel();
                 $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol = 'alumno' AND rut = '$rutPr'");
                 $datos2 = $c->ejecutar_consulta_simple("SELECT * FROM rol");
-                $datos3 = $c->ejecutar_consulta_simple("SELECT * FROM equipo ");
+                $datos3 = $c->ejecutar_consulta_simple("SELECT * FROM alumno WHERE rut = '$rutPr' ");
+                $datos4 = $c->ejecutar_consulta_simple("SELECT * FROM equipo ");
+                
                 foreach ($datos as $rows) {
                 };
                 ?>
@@ -78,14 +80,28 @@
                         </select>
                       </div>
 
+
+                              <!--cargo Actualizar-->
+                              
+                              
+                      <label for="cargo-edit" class="control-label col-lg-2">Cargo</label>
+
+                        <div class="col-lg-4">
+                        <?php foreach ($datos3 as $rows3) { ?>
+                          <input name="cargo" type="text" id="cargo-edit" class="form-control" required value="<?php echo $rows3['cargo'] ?>">
+                        </div>
+                        </div>
+
+
+
                       <!--equipo Actualizar-->
                             
                       <label for="codigoRol" class="control-label col-lg-2">Equipo</label>
 
                     <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="equipo" id="codigoEquipo">
                         <option >Seleccione...</option>
-                        <?php foreach ($datos3 as $rows3) { ?>
-                          <option name="equipo" value="<?php echo $rows3['nombre_equipo'] ?>"> <?php echo $rows3['nombre_equipo'] ?> </option>
+                        <?php foreach ($datos4 as $rows4) { ?>
+                          <option name="equipo" value="<?php echo $rows4['nombre_equipo'] ?>"> <?php echo $rows4['nombre_equipo'] ?> </option>
                         <?php } ?>
                       </select>
                     </div>

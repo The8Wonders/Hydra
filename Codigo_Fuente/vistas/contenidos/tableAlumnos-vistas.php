@@ -24,7 +24,7 @@
             <div class="box">
               <header>
                 <div class="icons"><i class="fa fa-table"></i></div>
-                <h5>ALumnos</h5>
+                <h5>Alumnos</h5>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -40,7 +40,7 @@
                       al.ano_ingreso,
                       al.cargo
                        FROM Usuario us,Alumno al 
-                       where  us.cod_rol='alumno' ;");
+                       where  al.rut=us.rut ;");
                     ?>
                     <tr>
                       <th>Rut</th>

@@ -252,7 +252,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Alumno </a>
           </li>
           <li>
-            <a href="../contenidos/tableAlumno-vistas.php">
+            <a href="../contenidos/tableAlumnos-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Alumnos </a>
           </li>
         </ul>
