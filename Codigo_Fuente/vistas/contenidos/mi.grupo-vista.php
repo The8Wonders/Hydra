@@ -29,7 +29,8 @@
                 <thead>
                   <?php 
                     require_once("../../core/mainModel.php");
-                    $codigo_e = $_GET['cod'];
+                    $codigo_e = $_GET['code'];
+                    $codigo_p = $_GET['codp'];
                     $c = new mainModel();
                     $mostrar = $c->ejecutar_consulta_simple("SELECT  DISTINCT al.rut,al.carrera,al.ano_ingreso,al.cod_semestre,al.cod_equipo FROM alumno al, equipo e WHERE al.cod_equipo='$codigo_e'");
                   ?>
@@ -55,7 +56,7 @@
 
                 </table>
                 <?php 
-                 $sql = $c->ejecutar_consulta_simple("SELECT * FROM alumno Where cod_equipo= '$_SESSION[equipo_sgp]'")  
+                 $sql = $c->ejecutar_consulta_simple("SELECT * FROM equipo Where cod_proyecto='$codigo_p'")  
                  ?>
                 <?php if($sql->rowCount()==0) { ?>
                 <div class="container row">
