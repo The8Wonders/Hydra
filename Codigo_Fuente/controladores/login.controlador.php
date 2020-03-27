@@ -42,9 +42,15 @@ class logincontroldaor extends loginmodelo{
           $_SESSION['cargo_sgp']= $res['cargo'];
           $_SESSION['semestre_sgp']= $res['cod_semestre'];
           $_SESSION['equipo_sgp']= $res['cod_equipo'];
+<<<<<<< HEAD
+          /*$datoAluPro = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo = '$_SESSION['equipo_sgp']'");
+          $resEq = $datoAluPro->fetch();
+          $_SESSION['cod_proyecto_sgp']= $resEq['cod_proyecto'];*/
+=======
           /* $datoAluPro = mainModel::ejecutar_consulta_simple("SELECT * FROM equipo WHERE cod_equipo = '$_SESSION['equipo_sgp']'");
           $resEq = $datoAluPro->fetch();
           $_SESSION['cod_proyecto_sgp']= $resEq['cod_proyecto']; */
+>>>>>>> e054eccb3a42087b4035022adf7b9e1b94972940
         }
 
         echo json_encode('existe');
