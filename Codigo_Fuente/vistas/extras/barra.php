@@ -287,7 +287,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         <ul class="collapse">
         <?php if($_SESSION['equipo_sgp'] != '' ) : ?>
           <li>
-            <a href="../contenidos/mi.grupo-vista.php">
+            <a href="../contenidos/mi.grupo-vista.php?code=<?php echo $_SESSION['equipo_sgp'] ?>">
               <i class="fa fa-angle-right"></i>&nbsp; Mi Grupo </a>
           </li>
           <?php endif; ?>
