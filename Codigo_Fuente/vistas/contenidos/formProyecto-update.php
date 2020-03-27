@@ -30,14 +30,19 @@
 
                 <?php
 
+                session_start(['name' => 'SGP']);
                 include "../../core/mainModel.php";
-                $equipo= $_SESSION['proyecto_sgp'];
+                $equipo= $_SESSION['cod_proyecto_sgp'];
 
+                $cod=$_SESSION['equipo_sgp'];
+                 //echo $cod;
+                
                 $c = new mainModel();
-                $sql = $c->ejecutar_consulta_simple("SELECT * FROM proyecto WHERE cod_proyecto='$equipo'");
+                $sql = $c->ejecutar_consulta_simple("SELECT * FROM equipo e, proyecto p WHERE p.cod_proyecto=e.cod_proyecto and cod_equipo='$cod'
+                ");
 
                 foreach ($sql as $rows) {
-                };
+                    }; 
                 ?>
 
 
@@ -52,7 +57,7 @@
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nom_proyecto'] ?>">
                       </div>
-                      <?php echo $sql['cod_proyecto'] ?>
+                    
                       <!--Sigle Proyecto-->
 
                       <label for="sigla" class="control-label col-lg-2">Sigla del Proyecto</label>
@@ -121,8 +126,7 @@
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
 
                       <div class="col-lg-4">
-                        <input class="form-control validate[required] form-control" id="DescripcionProyecto" name="DescripcionProyecto" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
-
+                      <textarea name="descripcion" rows="10" cols="80" data-placeholder="Escribe aqui la descripción del proyecto en 256 caracteres">Dispones de 256 caracteres para describir tu proyecto, por favor borrar este texto antes de escribir</textarea>
                       </div>
                     </div>
 
@@ -145,7 +149,7 @@
                     </div>
               </div>
 
-
+              
 
 
 
@@ -153,6 +157,7 @@
                 <input type="submit" value="Guardar" class="btn btn-primary">
               </div>
               </fieldset>
+            
               </form>
             </div>
           </div>

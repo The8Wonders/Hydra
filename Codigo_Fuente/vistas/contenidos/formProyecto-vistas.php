@@ -126,7 +126,7 @@
 
                       <div class="col-lg-4">
 
-                        <textarea name="descripcion" rows="10" cols="80" data-placeholder="Escribe aqui la descripción del proyecto en 256 caracteres"></textarea>
+                        <textarea name="descripcion" rows="10" cols="80" data-placeholder="Escribe aqui la descripción del proyecto en 256 caracteres">Dispones de 256 caracteres para describir tu proyecto, por favor borrar este texto antes de escribir</textarea>
                       <input type="hidden" name="codE" required value ="<?php echo $codigoe ?>">
 
                       </div>

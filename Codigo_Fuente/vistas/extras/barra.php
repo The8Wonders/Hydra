@@ -214,7 +214,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/nuevoProfesor-vistas.php">
+            <a href="../contenidos/formProfesor-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Profesor </a>
           </li>
           <li>
@@ -305,7 +305,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
               
             <?php endif ?>
             <?php if($_SESSION['equipo_sgp']!=""): ?>
-              <a href="../contenidos/miProyecto-vistas.php">
+              <a href="../contenidos/formProyecto-update.php">
                   <i class="fa fa-angle-right"></i>&nbsp; Mi Proyecto </a> 
             <?php endif; ?>
           </li>
@@ -332,23 +332,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           </li>
         </ul>
       </li>
-      <li class="">
-        <a href="javascript:;">
-          <i class="far fa-folder-open "></i>
-          <span class="link-title">Documento</span>
-          <span class="fa arrow"></span>
-        </a>
-        <ul class="collapse">
-          <li>
-            <a href="../contenidos/formDocumento-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Nuevo Documento </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-angle-right"></i>&nbsp; Listado Documentos </a>
-          </li>
-        </ul>
-      </li>
+      
       <li class="">
         <a href="javascript:;">
           <i class="fas fa-file-signature "></i>
@@ -366,23 +350,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
           </li>
         </ul>
       </li>
-      <li class="">
-        <a href="javascript:;">
-          <i class="fas fa-robot "></i>
-          <span class="link-title">Tecnologia</span>
-          <span class="fa arrow"></span>
-        </a>
-        <ul class="collapse">
-          <li>
-            <a href="../contenidos/formTecnologia-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Nueva Tecnologia </a>
-          </li>
-          <li>
-            <a href="../contenidos/tableTecnologia-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Listado Tecnologias </a>
-          </li>
-        </ul>
-      </li>
+
       
       <li class="nav-divider"></li>
       <li>

@@ -11,7 +11,9 @@ if($_SESSION['cod_rol_sgp'] == 'administrador'){ ?>
   <meta name="description" content="Sistema de gestion de proyectos">
   <meta name="keywords" content="Gestión, Proyectos">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
-  <?php require_once "../extras/estilos.php"; ?>
+  <?php require_once "../extras/estilos.php";
+  require_once "../extra/barra.php" ?>
+  
   <title>Nuevo Profesor</title>
 </head>
 <body>

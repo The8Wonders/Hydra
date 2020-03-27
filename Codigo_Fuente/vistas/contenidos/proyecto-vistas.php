@@ -9,8 +9,14 @@ require_once "../extras/barra.php"; ?>
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta name="description" content="Sistema de gestion de proyectos">
+  <meta name="keywords" content="Gestión, Proyectos">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb2.png">
+  <?php require_once "../extras/estilos.php";
+  require_once "../extras/barra.php" ?>
+  <title>Lista de Proyectos</title>
 </head>
 
 <body>
@@ -24,7 +30,7 @@ require_once "../extras/barra.php"; ?>
             <div class="box">
               <header>
                 <div class="icons"><i class="fa fa-table"></i></div>
-                <h5>Proyecto</h5>
+                <h5>Lista de Proyecto</h5>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -44,9 +50,9 @@ require_once "../extras/barra.php"; ?>
                       <th>Sigla</th>
                       <th>Tipo Desarrollo</th>
                       <th>Codigo Semestre</th>
-                      <th>Agregar Documento</th>
+                      
                       <!--<td>Editar</td>-->
-                      <td>Eliminar</td>
+<?php if($_SESSION['cod_rol_sgp']=='profesor'||$_SESSION['cod_rol_sgp']=='administrador' ) {?> <td>Eliminar</td><?php };?>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,13 +63,13 @@ require_once "../extras/barra.php"; ?>
                         <td><?php echo $rows['fecha_inicio'] ?></td>
                         <td><?php echo $rows['fecha_fin'] ?></td>
                         <td><?php echo $rows['fecha_inicio_real'] ?></td>
-                        <td><?php echo $rows['fecha_termino_real'] ?></td>
+                        <td><?php echo $rows['fecha_fin_real'] ?></td>
                         <td><?php echo $rows['descripcion_proyecto'] ?></td>
                         <td><?php echo $rows['sigla'] ?></td>
                         <td><?php echo $rows['tipo_desarrollo'] ?></td>
                         <td><?php echo $rows['cod_semestre'] ?></td>
-                        <?php echo "<td><a href='formDocumento-vistas.php?cod=".$rows['cod_proyecto']."&nombre=".$rows['nom_proyecto']."'><i class='fas fa-file-signature'></i></a></td>" ?>
-                        <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td>
+                       
+                        <?php if($_SESSION['cod_rol_sgp']=='profesor'||$_SESSION['cod_rol_sgp']=='administrador' ) {?> <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td><?php };?>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
