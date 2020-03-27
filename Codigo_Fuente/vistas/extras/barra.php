@@ -304,7 +304,7 @@ if($_SESSION['rut_sgp'] != ''){ ?>
                   <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a> 
               
             <?php endif ?>
-            <?php if($_SESSION['equipo_sgp']!=NULL): ?>
+            <?php if($_SESSION['equipo_sgp']!=""): ?>
               <a href="../contenidos/miProyecto-vistas.php">
                   <i class="fa fa-angle-right"></i>&nbsp; Mi Proyecto </a> 
             <?php endif; ?>

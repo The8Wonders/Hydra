@@ -30,12 +30,11 @@
 
                 <?php
 
-                $rut = $_SESSION['rut_sgp'];
                 include "../../core/mainModel.php";
+                $equipo= $_SESSION['proyecto_sgp'];
+
                 $c = new mainModel();
-                $sql = $c->ejecutar_consulta_simple("SELECT p.cod_proyecto,p.nom_proyecto,p.fecha_inicio,p.fecha_fin, p.fecha_inicio_real,
-                    p.fecha_fin_real,p.descripcion_proyecto, p.sigla,p.tipo_desarrollo,p.cod_semestre  FROM usuario u, alumno a, 
-                    equipo e, proyecto p WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND e.cod_proyecto=p.cod_proyecto AND u.rut='$rut'");
+                $sql = $c->ejecutar_consulta_simple("SELECT * FROM proyecto WHERE cod_proyecto='$equipo'");
 
                 foreach ($sql as $rows) {
                 };
@@ -53,7 +52,7 @@
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nom_proyecto'] ?>">
                       </div>
-                      
+                      <?php echo $sql['cod_proyecto'] ?>
                       <!--Sigle Proyecto-->
 
                       <label for="sigla" class="control-label col-lg-2">Sigla del Proyecto</label>
