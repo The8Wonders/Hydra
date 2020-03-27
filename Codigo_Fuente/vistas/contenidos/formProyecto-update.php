@@ -46,9 +46,9 @@
 
                   <fieldset>
                     <!--Nombre Proyecto-->
-                    <input type="text" id="cod" name="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
+                    <input type="hidden" id="cod" name="cod" required value="<?php echo $rows['cod_proyecto'] ?>">
                     <div class="form-group">
-                      <label for="nombre" class="control-label col-lg-2">Nombre del Grupo</label>
+                      <label for="nombre" class="control-label col-lg-2">Nombre del Proyecto</label>
 
                       <div class="col-lg-4">
                         <input name="nombre" type="text" id="nombre-edit" class="form-control" required value="<?php echo $rows['nom_proyecto'] ?>">
@@ -56,7 +56,7 @@
                       
                       <!--Sigle Proyecto-->
 
-                      <label for="sigla" class="control-label col-lg-2">Sigla del Grupo</label>
+                      <label for="sigla" class="control-label col-lg-2">Sigla del Proyecto</label>
 
                       <div class="col-lg-4">
                         <input name="sigla" type="text" id="sigla" placeholder="Sigla del Grupo" class="form-control" required value="<?php echo $rows['sigla'] ?>">

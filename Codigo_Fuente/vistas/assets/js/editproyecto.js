@@ -23,5 +23,36 @@ editarProyecto.addEventListener('submit', function (e) {
   .then(res => res.json())
   .then(data => {
     console.log(data)
+    if (data == 'incompletos') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Lo sentimos',
+        text: 'Debe rellenar todo los campos',
+      })
+    } else {
+      if (data == 'NoencuentraProyecto') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lo sentimos',
+          text: 'No se encontro este proyecto',
+        })
+      } else {
+        if (data == 'Actualizado') {
+          document.getElementById("editProyecto").reset();
+          Swal.fire({
+            icon: 'success',
+            title: 'Actualizada',
+            text: 'Los datos del proyecto han sido actualizados',
+          })
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Lo sentimos',
+            text: 'No se pudo actualizar el profesor',
+          })
+        }
+      }
+    }
+
   })
 })

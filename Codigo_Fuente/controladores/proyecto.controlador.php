@@ -96,11 +96,13 @@ class proyectocontrolador extends proyectomodelo /* hereda de proyectomodelo */
         $editarProyecto = [
           "cod_proyecto" => $cod_proyecto,
           "nom_proyecto" => $nom_proyecto,
+          "fecha_inicio" => $fecha_inicio,
+          "fecha_fin" => $fecha_fin,
           "fecha_inicio_real" => $fecha_inicio_real,
           "fecha_fin_real" => $fecha_fin_real,
           "descripcion_proyecto"->$descripcion_proyecto,
           "tipo_desarrollo" => $tipo_desarrollo,
-          "ttd" => $sigla,
+          "sigla" => $sigla,
         ];
 
         $actualixar = proyectomodelo::update_proyecto_modelo($editarProyecto);
