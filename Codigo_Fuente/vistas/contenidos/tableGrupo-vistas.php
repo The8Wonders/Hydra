@@ -48,7 +48,7 @@
                     <?php foreach($mostrar as $rows) :?>
                     <tr>
                       <td><?php echo $rows['cod_equipo']?></td>
-                      <td><a href="mi.grupo-vista.php?cod=<?php echo $rows["cod_equipo"]?>&codp=<?php echo $rows['cod_proyecto']?>"><?php echo $rows['nombre_equipo']?></a></td>
+                      <td><a href="mi.grupo-vista.php?code=<?php echo $rows["cod_equipo"]?>&codp=<?php echo $rows['cod_proyecto']?>"><?php echo $rows['nombre_equipo']?></a></td>
                       <td><?php echo $rows['cod_semestre']?></td>
                       <td><?php echo $rows['cod_proyecto']?></td>
                       <td><a href="formGrupo-update.php?cod=<?php echo $rows["cod_equipo"]?>"><i class="far fa-edit"></i></td></a>
