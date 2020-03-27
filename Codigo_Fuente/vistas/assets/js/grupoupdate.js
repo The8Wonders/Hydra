@@ -1,12 +1,12 @@
 console.log('funcionando');
-var formularioGrupo = document.getElementById('formGrupo');
+var formularioGrupo = document.getElementById('formGrupo-update');
 
 formularioGrupo.addEventListener('submit', function (e) {
   e.preventDefault();
 
   var datos = new FormData(formularioGrupo);
 
-  fetch('../../../ajax/grupo.ajax.php', {
+  fetch('../../../ajax/grupo-update.ajax.php', {
       method: 'POST',
       body: datos
     })
@@ -24,7 +24,7 @@ formularioGrupo.addEventListener('submit', function (e) {
           Swal.fire({
             icon: 'success',
             title: 'Exito...',
-            text: 'Grupo insertado con exito',
+            text: 'Modificacion del Grupo con exito',
           })
         } else {
           if (data == 'error') {
@@ -32,7 +32,7 @@ formularioGrupo.addEventListener('submit', function (e) {
             Swal.fire({
               icon: 'error',
               title: 'Lo sentimos',
-              text: 'No se pudo insertar Grupo',
+              text: 'No se pudo modificar el Grupo',
             })
           }
 

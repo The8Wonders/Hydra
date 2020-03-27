@@ -25,12 +25,12 @@ require_once "../extras/barra.php"; ?>
                 <?php $rr = $_SESSION['cod_rol_sgp'] ?>
                 <?php if($rr == 'administrador') { ?>
                 <?php foreach($dato as $rows) : ?>
-                <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo">
+                <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo-update">
                   <fieldset>
                   <div class="form-group">
                       <label for="cod_equi" class="control-label col-lg-2">Código Equipo</label>
                       <div class="col-lg-4">
-                        <input name="cod_equi"  value="<?php echo $rows['cod_equipo'] ?>" type="text" id="cod_equi" class="validate[required] form-control">
+                        <input name="cod_equi" readonly="readonly"  value="<?php echo $rows['cod_equipo'] ?>" type="text" id="cod_equi" class="validate[required] form-control">
                       </div>
                     </div>
                     <div class="form-group">
@@ -43,13 +43,13 @@ require_once "../extras/barra.php"; ?>
                     <div class="form-group">
                         <label for="cod_sem" class="control-label col-lg-2">Código Semestre</label>
                         <div class="col-lg-4">
-                            <input name="cod_sem"  value="<?php echo $rows['cod_semestre'] ?>" type="text" id="cod_sem" class="validate[required] form-control" >
+                            <input name="cod_sem" readonly="readonly" value="<?php echo $rows['cod_semestre'] ?>" type="text" id="cod_sem" class="validate[required] form-control" >
                         </div>
                     </div>
                     <div class="form-group">
                       <label for="cod_pro" class="control-label col-lg-2">Código Proyecto</label>
                       <div class="col-lg-4">
-                        <input name="cod_pro"  value="<?php echo $rows['cod_proyecto'] ?>" type="text" id="cod_pro"  class="validate[required] form-control">
+                        <input name="cod_pro" readonly="readonly" value="<?php echo $rows['cod_proyecto'] ?>" type="text" id="cod_pro"  class="validate[required] form-control">
                       </div>
                     </div><br>
                     <div class="form-actions">
@@ -70,7 +70,7 @@ require_once "../extras/barra.php"; ?>
 
                 <?php if($_SESSION['cod_rol_sgp'] == 'alumno') :?>  
                 <?php foreach($datos as $rows) : ?>  
-                <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo">
+                <form class="form-horizontal" action="../../controladores/grupo.controlador-update.php" method="POST" id="formGrupo-update">
                   <fieldset>
                   <div class="form-group">
                       <label for="cod_equi" class="control-label col-lg-2">Código Equipo</label>
@@ -98,7 +98,7 @@ require_once "../extras/barra.php"; ?>
                       </div>
                     </div><br>
                     <div class="form-actions">
-                      <input  type="submit" action="../../controladores/grupo.controlador-update.php" value="Editar" class="btn btn-primary">
+                      <input  type="submit" value="Editar" class="btn btn-primary">
                     </div>
                   </fieldset>
                 </form>
@@ -112,7 +112,7 @@ require_once "../extras/barra.php"; ?>
     </div>
   </div>
   </div>
-<!--<script src="../assets/js/administrador.js"></script>-->
+<script src="../assets/js/grupoupdate.js"></script>
 
 </body>
 <?php

@@ -26,4 +26,19 @@
       return $sql;
     }
 
+    
+    protected function actualizar_alumno_admin_modelo($dato){ // admin actualiza  alumno
+      $sql= mainModel::conectar()->prepare("UPDATE alumno SET 
+      carrera=:Carrera, cargo=:Cargo, cod_equipo=:Cod_equipo WHERE rut=:Rut");
+
+      $sql->bindParam(":Rut",$dato['Rut']);
+      $sql->bindParam(":Carrera",$dato['Carrera']);
+      $sql->bindParam(":Cargo",$dato['Cargo']);
+      $sql->bindParam(":Cod_equipo",$dato['Cod_equipo']);
+
+      $sql->execute();
+
+      return $sql;
+    }
+
   }

@@ -1,15 +1,33 @@
-<?php 
-    require_once "../modelo/grupo.modelo.php";
-    require_once "../core/mainModel";
+<?php
+    require("../modelo/grupo.modelo.php");
+
+   class grupocontroladorupdate extends grupo_modelo{
 
 
-    $cod_e = $_POST['cod_equi'];
-    $nom_e = $_POST['nom_equi'];
-    $cod_s = $_POST['cod_sem'];
-    $cod_p = $_POST['cod_pro'];
-
-    $consulta = mainModel::ejecutar_consulta_simple("INSERT INTO equipo VALUES '$cod_e','$nom_e','$cod_s','$cod_p'");
-        
+        public function updateGrupo(){
 
 
-?>
+            $nom_equipo = mainModel::limpiar_cadena($_POST['nom_equi']);
+            $cod_equipo = mainModel::limpiar_cadena($_POST['cod_equi']);
+
+            if($nom_equipo== "" || $cod_equipo == ""){
+
+                $res = "incompletos";
+            }else{
+                $nuevoGrupo = [
+                    "nombre_equipo" => $nom_equipo,
+                    "cod_equipo" => $cod_equipo
+                 ];
+
+                $insGrupo = grupo_modelo::updateGrupo($nuevoGrupo);
+
+                if($insGrupo->rowCount()>=1){
+                    $res = 'Correcto';
+                }else{
+                    $res = 'error';
+                }
+
+            }
+            return $res;
+        }
+   }
