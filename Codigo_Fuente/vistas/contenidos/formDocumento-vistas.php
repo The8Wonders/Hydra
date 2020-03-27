@@ -38,21 +38,6 @@
                         <input name="nombre" type="text" id="nombre" class="form-control" required>
                       </div>
 
-                      <label for="tamaño" class="control-label col-lg-2">Tamaño Docuento</label>
-
-                      <div class="col-lg-4">
-                        <input name="tamaño" type="text" id="tamño" class="form-control" required>
-                      </div>
-                    </div>
-
-                    <!--Apellidos Administrador-->
-                    <div class="form-group">
-                      <label for="tipo" class="control-label col-lg-2">Tipo Documento</label>
-
-                      <div class="col-lg-4">
-                        <input name="tipo" type="text" id="tipo" class="form-control" required>
-                      </div>
-
                       <label for="descripcion" class="control-label col-lg-2">Descripcion Documento</label>
 
                       <div class="col-lg-4">

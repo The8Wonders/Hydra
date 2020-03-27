@@ -1,3 +1,6 @@
+<?php 
+session_start(['name' => 'SGP']);
+if($_SESSION['cod_rol_sgp'] != 'alumno'){ ?>
 <?php $codSem = $_GET['cod'] ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,3 +85,9 @@ require_once "../extras/footer.php";
 require_once "../extras/script.php"; ?>
 
 </html>
+
+<?php }else{
+  session_destroy();
+  header("location: ../../index.php");
+}
+?>

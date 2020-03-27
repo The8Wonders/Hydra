@@ -336,11 +336,11 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formSemestre-vistas.php">
+            <a href="../contenidos/formDocumento-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Documento </a>
           </li>
           <li>
-            <a href="../contenidos/tableSemestre-vistas.php">
+            <a href="#">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Documentos </a>
           </li>
         </ul>
