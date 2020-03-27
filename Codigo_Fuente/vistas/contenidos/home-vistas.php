@@ -3,7 +3,7 @@ $dir= "https://api.trello.com/1/members/me/boards?key=7ff5e189041bce080b065154e7
 
 $dir_json= file_get_contents($dir);
 $dir_array= json_decode($dir_json,true);
-var_dump($dir_array[0]['url']);
+//var_dump($dir_array[0]['url']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,10 +40,9 @@ var_dump($dir_array[0]['url']);
     <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
-
-
-        <div class="row">
-          <div class="col-lg-12">
+      <div class="container">
+      <div class="row">
+          <div class="col-md-6">
             <div class="box dark">
                 <h1>Esta es la pantalla del Alumno</h1>
             </div>
@@ -73,15 +72,24 @@ var_dump($dir_array[0]['url']);
               <br> 
 
               
-              <a href="#" class="btn btn-primary" role="button">Ver Mi Equipo</a>
+              <a href="mi.grupo-vista.php" class="btn btn-primary" role="button">Ver Mi Equipo</a>
 
               <!--cambiar color-->
-              <a href="#" class="btn btn-primary" role="button">Ver Listado de Equipos</a>
+              <a href="tableGrupo-vistas.php" class="btn btn-primary" role="button">Ver Listado de Equipos</a>
                 </div>
               </div><?php }?>
               
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Conectate con Trello</h3>
+          <blockquote class="trello-board-compact">
+              <a href="<?php echo $dir_array[0]['url']; ?>">Tablero Trello</a>
+          </blockquote>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -107,6 +115,7 @@ var_dump($dir_array[0]['url']);
   </div>
   <?php endif ?>
 
+  <script src="https://p.trellocdn.com/embed.min.js"></script>
   <script src="../assets/js/administrador.js"></script>
   <?php
 require_once "../extras/footer.php";
