@@ -30,15 +30,12 @@
 
                   <fieldset>
                     <div class="form-group">
-                        <label for="cod_sem" class="control-label col-lg-2">Código Equipo</label>
-                        <div class="col-lg-4">
-                            <input name="cod_sem" readonly="readonly" type="text" id="cod_sem" placeholder="2000-1" class="validate[required] form-control" required>
-                        </div>
+                        
                     </div><br>
                     <div class="form-group">
                       <label for="nom_equi" class="control-label col-lg-2">Nombre Equipo</label>
                       <div class="col-lg-4">
-                        <input name="nom_equi" type="text" id="nom_equi" placeholder="Nombre equipo" class="validate[required] form-control" required>
+                        <input name="nom_equi" type="text" id="nom_equi"  class="validate[required] form-control" required>
                       </div>
                     </div>
                     <?php
@@ -50,9 +47,9 @@
                     <!--Codigo Proyectos-->
                     <div class="form-group">
 
-                      <label for="codigoProyecto" class="control-label col-lg-2">Codigo de Proyecto</label>
+                      <label for="codigoProyecto" class="control-label col-lg-2">Codigo Semestre</label>
 
-                      <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" class="form-control" name="codigoProyecto" id="codigoProyecto">
+                      <div class="col-lg-4 "><select  data-placeholder="Your Favorite Type of Bear" class="form-control" name="cod_sem" id="cod_sem" required>
                           <option value=""></option>
                           <?php foreach ($datos as $rows) { ?>
                             <option name="optionproyecto" value="<?php echo $rows['cod_semestre'] ?>"> <?php echo $rows['cod_semestre'] ?> </option>

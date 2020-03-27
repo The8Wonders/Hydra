@@ -18,7 +18,8 @@
             }else{
                 $nuevoGrupo = [
                     "cod_equipo" => $cod_grupo,
-                    "nombre_equipo" => $nom_equipo
+                    "nombre_equipo" => $nom_equipo,
+                    "cod_semestre" => $cod_semestre
                 ];
 
                 $insGrupo = grupo_modelo::nuevo_grupo_modelo($nuevoGrupo);

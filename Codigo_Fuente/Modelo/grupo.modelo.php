@@ -8,14 +8,24 @@
        
         protected function nuevo_grupo_modelo($datos){
 
-            $insertar=mainModel::conectar()->prepare("INSERT INTO equipo (cod_equipo, nombre_equipo) VALUES (:nomE,:codE)");
+            $insertar=mainModel::conectar()->prepare("INSERT INTO equipo (cod_equipo, nombre_equipo, cod_semestre) VALUES (:codE, :nomE, :codS)");
             $insertar->bindParam(":codE",$datos['cod_equipo']);
             $insertar->bindParam(":nomE",$datos['nombre_equipo']);
+            $insertar->bindParam(":codS",$datos['cod_semestre']);
             $insertar->execute();
             
             return $insertar;
         }
 
+
+        protected function updateGrupo($datos){
+
+            $actualizar=mainModel::conectar()->prepare("UPDATE equipo SET nombre_equipo=:datos");
+            $actualizar->bindParam(":datos",$datos['nombre_equipo']);
+            $actualizar->execute();
+
+            return $actualizar ;
+        }
 
         protected function delete_grupo($cod){
 
@@ -24,32 +34,6 @@
             return $eliminar;
 
         }
-
-        public function updateGrupoAl($datos){
-
-            $actualizar=mainModel::conectar()->prepare("UPDATE equipo SET nombre_equipo=:datos");
-            $actualizar->bindParam(":datos",$datos);
-            $actualizar->execute();
-
-            return $actualizar ;
-        }
-
-
-        public function updateGrupoAdm($datos){
-
-            $actualizar=$this->bd->prepare("UPDATE equipo SET cod_equipo = :code, nombre_equipo=:nome, cod_semestre=:cods, cod_proyecto=:codp");
-            $actualizar_adm->bindParam(":code",$datos['cod_equipo']);
-            $actualizar_adm->bindParam(":nome",$datos['nombre_equipo']);
-            $actualizar_adm->bindParam(":cods",$datos['cod_semestre']);
-            $actualizar_adm>bindParam(":codp",$datos['cod_proyecto']);
-
-            $actualizar_adm->execute();
-
-            return $actualizar_adm ;
-        }
-
-
-
      
     }
 
