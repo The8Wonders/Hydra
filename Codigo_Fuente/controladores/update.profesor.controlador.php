@@ -4,7 +4,7 @@ require_once "../core/mainModel.php";
 class update_profesor extends mainModel{
     public function update_profesor_controlador(){
 
-    $rut = mainModel::limpiar_cadena($_POST['edicion']);
+    $rut = mainModel::limpiar_cadena($_POST['rut']);
     $nombre = mainModel::limpiar_cadena($_POST['nombre']);
     $apellido = mainModel::limpiar_cadena($_POST['apellido']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
@@ -12,6 +12,7 @@ class update_profesor extends mainModel{
     $rol = mainModel::limpiar_cadena($_POST['rol']);
 
     if ($rut == "" || $nombre == "" || $apellido == "" || $correo == "" || $rol == "" || $telefono == "") {
+
       $respuesta = "incompletos";
       
       //header("Location:../vistas/contenidos/perfil-vistas.php");

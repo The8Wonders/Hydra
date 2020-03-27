@@ -193,9 +193,9 @@ class mainModel
             <title>Sistema De Gestión De Proyectos</title>
         </head>' .
         '<body>
-            <h1>' . $asunto . '</h1>'
-        . $msje .
-        '<hr>' .
+            <h3>Sistema De Gestión De Proyectos</h3>'
+        . '<p>' . $msje . '</p>' 
+        . '<hr>' .
         'Enviado automaticamente. No responder' .
         '</body>' .
         '</html>';

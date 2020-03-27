@@ -53,7 +53,7 @@
                         </div>
                         <div id="forgot" class="tab-pane">
                             <!-- RECUPERAR CONTRASEÃ‘A -->
-                            <form action="modelo/recuperar_clave.php" method="POST">
+                            <form action="" id="recuperarClave" method="POST">
                                 <p class="text-muted text-center">Ingresa tu Correo</p>
                                 <input type="email" placeholder="ejemplo@dominio.com" class="form-control" name="email">
                                 <br>
@@ -109,6 +109,7 @@
     <!--jQuery -->
     <script src="vistas/assets/lib/jquery/jquery.js"></script>
     <script src="vistas/assets/js/formularios.js"></script>
+    <script src="vistas/assets/js/recuperarClave.js"></script>
 
     <script>
         less = {

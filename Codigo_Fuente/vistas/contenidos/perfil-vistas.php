@@ -259,9 +259,15 @@
     </div>
   </div>
   </div>
+  <?php if($_SESSION['cod_rol_sgp']== 'administrador'): ?>
   <script src="../assets/js/perfil_admin.js"></script>
+  <?php endif; ?>
+  <?php if($_SESSION['cod_rol_sgp']== 'profesor'): ?>
   <script src="../assets/js/perfil_profe.js"></script>
+  <?php endif; ?>
+  <?php if($_SESSION['cod_rol_sgp']== 'alumno'): ?>
   <script src="../assets/js/perfil_alumno.js"></script>
+  <?php endif; ?>
   <?php
   require_once "../extras/footer.php";
   require_once "../extras/script.php"; ?>
