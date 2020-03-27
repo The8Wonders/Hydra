@@ -9,26 +9,29 @@ class nuevo_profesor_correo extends mainModel
     $correo = mainModel::limpiar_cadena($_POST['correo']);
 
     if ($correo == "") {
-      $respuesta = "incompletos";
+      return header("Location:../vistas/contenidos/home-vistas.php");
     } else {
 
-        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT * FROM usuario WHERE correo= '$correo' AND cod_rol= 'alumno'");
+        $consulta1 = mainModel::ejecutar_consulta_simple("SELECT * FROM usuario WHERE correo= '$correo' AND cod_rol= 'profesor'");
 
         if ($consulta1->rowCount() >= 1) {
                 $destino= $correo;
-                $asunto= "[SGP] Recuperar contraseña";
-                $array= $consulta1->fetch(PDO::FETCH_ASSOC);
-                $contraseña= mainModel::decryption($array['contraseña']);
-                $mensaje= "Su clave es: ". $contraseña;
+                $asunto= "[SGP] Formulario de registro de profesor";
+
+                $mensaje= "Para registrarse ingrese al siguiente link \r \n ";
+                $mensaje .= "<a href='http://198-35.eq.ubiobio.cl:1044/vistas/contenidos/formProfesor-vistas.php' target='_blank' rel='noopener noreferrer'>http://198-35.eq.ubiobio.cl:1044/vistas/contenidos/formProfesor-vistas.php</a>";
                 mainModel::sendmail($destino,$asunto,$mensaje);
-                $respuesta= "enviado";
+                return header("Location:../vistas/contenidos/home-vistas.php");
                 
         } else {
-          $respuesta = "Error";
+            return header("Location:../vistas/contenidos/home-vistas.php");
         }
 
     }
 
-    return $respuesta;
+    return header("Location:../vistas/contenidos/home-vistas.php");
   }
 }
+
+$profe= new nuevo_profesor_correo();
+$profe->nuevo_profe();

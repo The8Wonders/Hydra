@@ -8,11 +8,73 @@
   <meta name="description" content="Sistema de gestion de proyectos">
   <meta name="keywords" content="Gestión, Proyectos">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
-  <?php require_once "../extras/estilos.php";
-  require_once "../extras/barra.php" ?>
+  <?php require_once "../extras/estilos.php"; ?>
   <title>Nuevo Profesor</title>
 </head>
 <body>
+<!-- INICIO DE LA BARRA -->
+<div class="bg-dark dk" id="wrap">
+  <div id="top">
+    <!-- .navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <header class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="../contenidos/home-vistas.php" class="navbar-brand"><img src="../assets/img/ubb_logo_new.png" height="42" width="121" alt=""></a>
+
+        </header>
+
+        <div class="topnav">
+          
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+          <!-- .nav -->
+          <ul class="nav navbar-nav">
+
+          
+            
+          </ul>
+          <!-- /.nav -->
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <!-- /.navbar -->
+    <header class="head">
+     
+      <div class="main-bar">
+        <h3><i class="fa fa-home"></i>&nbsp;Sistema De Gestión De Proyectos</h3>
+      </div>
+      <!-- F I N    B A R R A    D E   M A I N -->
+      <!-- /.main-bar -->
+    </header>
+    <!-- /.head -->
+  </div>
+  <!-- /#top -->
+  <div id="left">
+    <!-- U S U A R I O  -->
+    <div class="media user-media bg-dark dker">
+      <div class="user-media-toggleHover">
+        <span class="fa fa-user"></span>
+      </div>
+      <div class="user-wrapper bg-dark">
+        
+      </div>
+    </div>
+    <!-- #menu -->
+    
+</div>
+<!--  FIN DE LA BARRA -->
   <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
@@ -32,13 +94,13 @@
                       <label for="nombre1" class="control-label col-lg-2">Primer Nombre</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre" type="text" id="nombre" placeholder="Matias" class="validate[required] form-control" required>
+                        <input name="nombre" type="text" id="nombre" class="validate[required] form-control" required>
                       </div>
 
                       <label for="nombre2" class="control-label col-lg-2">Segundo Nombre</label>
 
                       <div class="col-lg-4">
-                        <input name="nombre2" type="text" id="nombre2" placeholder="Ignacio" class="validate[required] form-control" required>
+                        <input name="nombre2" type="text" id="nombre2" class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -47,13 +109,13 @@
                       <label for="apellido1" class="control-label col-lg-2">Apellido Paterno</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido" type="text" id="apellido" placeholder="Castro" class="validate[required] form-control" required>
+                        <input name="apellido" type="text" id="apellido" class="validate[required] form-control" required>
                       </div>
 
                       <label for="apellido2" class="control-label col-lg-2">Apellido Materno</label>
 
                       <div class="col-lg-4">
-                        <input name="apellido2" type="text" id="apellido2" placeholder="Pulgar" class="validate[required] form-control" required>
+                        <input name="apellido2" type="text" id="apellido2" class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -62,7 +124,7 @@
                       <label for="rut" class="control-label col-lg-2">R.U.T</label>
 
                       <div class="col-lg-4">
-                        <input name="rut" type="text" id="rut" name="rut" placeholder="11.111.111-k" class="validate[required] form-control" required>
+                        <input name="rut" type="text" id="rut" name="rut"  class="validate[required] form-control" required>
                       </div>
                     </div>
 
@@ -87,7 +149,7 @@
                       <label class="control-label col-lg-2">E-Mail</label>
 
                       <div class=" col-lg-6">
-                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" placeholder="Ejemplo@gmail.com" id="correo" required />
+                        <input name="correo" class="validate[required,custom[email]] form-control" type="text" id="correo" required />
                       </div>
                     </div>
 
