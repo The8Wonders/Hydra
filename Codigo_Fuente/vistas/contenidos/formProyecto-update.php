@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
   <?php require_once "../extras/estilos.php";
   require_once "../extras/barra.php" ?>
-  <title>Nuevo Profesor</title>
+  <title>Actualizar Proyecto</title>
 </head>
 
 <body>
