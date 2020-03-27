@@ -59,7 +59,7 @@ require_once "../extras/barra.php"; ?>
                     <?php foreach ($datos as $rows) : ?>
                       <tr>
                         <td><?php echo $rows['cod_proyecto'] ?></td>
-                        <td><a href="#"><?php echo $rows['nom_proyecto']?></a></td>
+                        <td><a href="detalleProyectos-vista.php?cod=<?php echo $rows["cod_proyecto"] ?>"><?php echo $rows['nom_proyecto']?></a></td>
                         <td><?php echo $rows['fecha_inicio'] ?></td>
                         <td><?php echo $rows['fecha_fin'] ?></td>
                         <td><?php echo $rows['fecha_inicio_real'] ?></td>
