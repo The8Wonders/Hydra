@@ -219,6 +219,10 @@ if($_SESSION['rut_sgp'] != ''){ ?>
               <i class="fa fa-angle-right"></i>&nbsp; Nuevo Profesor </a>
           </li>
           <li>
+            <a href="../contenidos/nuevoProfesor-vistas.php">
+              <i class="fa fa-angle-right"></i>&nbsp; Enviar Formulario Profesor </a>
+          </li>
+          <li>
             <a href="../contenidos/tableProfesor-vistas.php">
               <i class="fa fa-angle-right"></i>&nbsp; Listado Profesor </a>
           </li>
