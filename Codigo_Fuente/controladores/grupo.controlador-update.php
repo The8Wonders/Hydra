@@ -6,7 +6,6 @@
 
         public function updateGrupo(){
 
-            $cod_equipo = mainModel::limpiar_cadena($_POST['cod_equipo']);
             $nom_equipo = mainModel::limpiar_cadena($_POST['nom_equi']);
             $cod_equipo = mainModel::limpiar_cadena($_POST['cod_equi']);
 
