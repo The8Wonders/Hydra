@@ -1,36 +1,27 @@
 <?php
+require_once "../extras/estilos.php";
+require_once "../extras/barra.php"; ?>
 
-  if($_SESSION['cod_rol_sgp']=='alumno'){
-   $rut=$_SESSION['rut_sgp']; 
-  $codigoe=$_SESSION['equipo_sgp'];
-
-  include "../../core/mainModel.php";
-  $c = new mainModel();
-  $sql = $c->ejecutar_consulta_simple("SELECT * FROM usuario u, alumno a, equipo e WHERE
-   u.rut=a.rut AND a.cod_equipo=e.cod_equipo AND e.cod_equipo='$codigoe' AND a.rut='$rut'	");
-
-  if($sql->rowCount()>=1){
-   $cantidad=1;
-
-  } else {$cantidad=0;}
-
-
-}
-
-?>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sistema de gestion de proyectos">
-  <meta name="keywords" content="Gestión, Proyectos">
-  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoubb.png">
-  <?php require_once "../extras/estilos.php";
-  require_once "../extras/barra.php" ?>
-  <title>Nuevo Proyecto</title>
-</head>
 <body>
 
+
+<?php $rut = $_SESSION['rut_sgp'];
+                include "../../core/mainModel.php";
+                $c = new mainModel();
+                $sql = $c->ejecutar_consulta_simple("SELECT p.cod_proyecto,p.nom_proyecto,p.fecha_inicio,p.fecha_fin, p.fecha_inicio_real,
+                    p.fecha_fin_real,p.descripcion_proyecto, p.sigla,p.tipo_desarrollo,p.cod_semestre  FROM usuario u, alumno a, 
+                    equipo e, proyecto p WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND e.cod_proyecto=p.cod_proyecto AND u.rut='$rut'");
+
+                 /*   if($sql->rowcount()>0){
+                      echo exito;
+                    }else{
+                      echo fallo;
+                    }*/
+
+                foreach ($sql as $rows) {
+                };
+
+?>
 
   <div id="content">
     <div class="outer">
@@ -42,25 +33,22 @@
             <div class="box dark">
               <header>
                 <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Nuevo Proyecto</h5>
+                <h5>Mi Proyecto</h5>
               </header>
-          <?php if($cantidad==1): ?>
-
-            <div id="collapse2" class="body">
+              <div id="collapse2" class="body">
                 <form class="form-horizontal" action="" method="POST" id="formProyecto">
 
                   <fieldset>
                     <!--Nombre Proyecto-->
                     <div class="form-group">
-                      <label for="nombre" class="control-label col-lg-2">Nombre del Proyecto</label>
+                      <label for="nombre" class="control-label col-lg-2">Nombre del Equipo</label>
 
-                      <div class="col-lg-4">
-                        <input name="nombre" type="text" id="nombre" placeholder="Nombre Equipo" class="validate[required] form-control" required>
-                      </div>
+                      <label for="nombre" class="control-label col-lg-4"><?php echo $rows['nom_proyecto'] ?></label>
+
 
                       <!--Sigle Proyecto-->
 
-                      <label for="sigla" class="control-label col-lg-2">Sigla del Proyecto</label>
+                      <label for="sigla" class="control-label col-lg-2">Sigla del Equipo</label>
 
                       <div class="col-lg-4">
                         <input name="sigla" type="text" id="sigla" placeholder="Sigla del Equipo" class="validate[required] form-control" required>
@@ -123,14 +111,13 @@
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
 
                       <div class="col-lg-4">
-
-                        <textarea name="descripcion" rows="10" cols="80">Escribe aqui la descripción del proyecto en 256 caracteres</textarea>
-
+                        <input class="form-control validate[required] form-control" required id="descripcion" name="descripcion" type="text" placeholder="Solo hay 256 caracteres disponibles">
 
                       </div>
                     </div>
 
                     <?php
+                    require_once "../../core/mainModel.php";
                     $ins = new mainModel();
                     $datos = $ins->ejecutar_consulta_simple("SELECT cod_semestre FROM semestre");
                     ?>
@@ -161,21 +148,6 @@
               </fieldset>
               </form>
             </div>
-
-            <?php endif ?>
-
-            <?php if($cantidad==0):  ?>
-
-              <div id="collapse2" class="body">
-                
-                <div><h2>Crea primero un Equipo</h2></div>
-
-                <div><a href="formGrupo-vistas.php" class="btn btn-primary" role="button">Crear Equipo</a></div>
-              
-            </div>
-            <?php endif ?>
-
-
           </div>
         </div>
       </div>

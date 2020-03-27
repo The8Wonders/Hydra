@@ -1,4 +1,20 @@
 <?php //include "estilos.php";
+
+if($_SESSION['cod_rol_sgp']=='alumno'){
+
+  $rut = $_SESSION['rut_sgp'];
+                include "../../core/mainModel.php";
+                $c = new mainModel();
+                $sql = $c->ejecutar_consulta_simple("SELECT *  FROM usuario u, alumno a, 
+                  equipo e, proyecto p WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND e.cod_proyecto=p.cod_proyecto AND u.rut='$rut'");
+                if($sql->rowCount()>1){
+                  $cantidad=1;
+                }else{
+                  $cantidad=0;
+                }
+
+}
+
 session_start(['name' => 'SGP']);
 if($_SESSION['rut_sgp'] != ''){ ?>
   
@@ -282,8 +298,12 @@ if($_SESSION['rut_sgp'] != ''){ ?>
         </a>
         <ul class="collapse">
           <li>
-            <a href="../contenidos/formProyecto-vistas.php">
-              <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a>
+           <?php if($_SESSION['cod_rol_sgp'] == 'alumno') :?> 
+            
+                  <a href="../contenidos/formProyecto-vistas.php">
+                  <i class="fa fa-angle-right"></i>&nbsp; Nuevo Proyecto </a> 
+              
+            <?php endif ?>
           </li>
           <li>
             <a href="../contenidos/proyecto-vistas.php">

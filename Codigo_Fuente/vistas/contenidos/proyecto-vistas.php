@@ -24,7 +24,7 @@ require_once "../extras/barra.php"; ?>
             <div class="box">
               <header>
                 <div class="icons"><i class="fa fa-table"></i></div>
-                <h5>Equipo</h5>
+                <h5>Proyecto</h5>
               </header>
               <div id="collapse4" class="body">
                 <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -45,7 +45,7 @@ require_once "../extras/barra.php"; ?>
                       <th>Tipo Desarrollo</th>
                       <th>Codigo Semestre</th>
                       <th>Agregar Documento</th>
-                      <td>Editar</td>
+                      <!--<td>Editar</td>-->
                       <td>Eliminar</td>
                     </tr>
                   </thead>
@@ -53,7 +53,7 @@ require_once "../extras/barra.php"; ?>
                     <?php foreach ($datos as $rows) : ?>
                       <tr>
                         <td><?php echo $rows['cod_proyecto'] ?></td>
-                        <td><?php echo $rows['nom_proyecto'] ?></td>
+                        <td><a href="#"><?php echo $rows['nom_proyecto']?></a></td>
                         <td><?php echo $rows['fecha_inicio'] ?></td>
                         <td><?php echo $rows['fecha_fin'] ?></td>
                         <td><?php echo $rows['fecha_inicio_real'] ?></td>
@@ -63,7 +63,6 @@ require_once "../extras/barra.php"; ?>
                         <td><?php echo $rows['tipo_desarrollo'] ?></td>
                         <td><?php echo $rows['cod_semestre'] ?></td>
                         <?php echo "<td><a href='formDocumento-vistas.php?cod=".$rows['cod_proyecto']."&nombre=".$rows['nom_proyecto']."'><i class='fas fa-file-signature'></i></a></td>" ?>
-                        <?php echo "<td><a href='formProyecto-update.php?cod=". $rows['cod_proyecto'] ."'><i class='far fa-edit'></i></a></td>" ?>
                         <td><a href="../../controladores/proyecto.controlador.eliminar.php?cod=<?php echo $rows["cod_proyecto"] ?>"><i class="fas fa-times"></i></a></td>
                       </tr>
                     <?php endforeach; ?>
