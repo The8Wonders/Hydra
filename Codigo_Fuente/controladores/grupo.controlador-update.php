@@ -8,13 +8,15 @@
 
             $cod_equipo = mainModel::limpiar_cadena($_POST['cod_equipo']);
             $nom_equipo = mainModel::limpiar_cadena($_POST['nom_equi']);
+            $cod_equipo = mainModel::limpiar_cadena($_POST['cod_equi']);
 
-            if($nom_equipo==""){
+            if($nom_equipo== "" || $cod_equipo == ""){
 
                 $res = "incompletos";
             }else{
                 $nuevoGrupo = [
                     "nombre_equipo" => $nom_equipo,
+                    "cod_equipo" => $cod_equipo
                  ];
 
                 $insGrupo = grupo_modelo::updateGrupo($nuevoGrupo);
@@ -26,8 +28,6 @@
                 }
 
             }
-
             return $res;
-
         }
    }
