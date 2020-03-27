@@ -10,7 +10,8 @@
 <body>
   <?php require_once "../extras/barra.php"; ?>
 
-  <div id="content">
+  <?php if($_SESSION['cod_rol_sgp']=='administrador'):?>
+    <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
 
@@ -18,7 +19,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="box dark">
-                <h1>Esta es la pantalla Home</h1>
+                <h1>Esta es la pantalla del Administrador</h1>
             </div>
           </div>
         </div>
@@ -26,6 +27,79 @@
     </div>
   </div>
   </div>
+  <?php endif ?>
+
+  <?php if($_SESSION['cod_rol_sgp']=='alumno'):?>
+    <div id="content">
+    <div class="outer">
+      <div class="inner bg-light lter">
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box dark">
+                <h1>Esta es la pantalla del Alumno</h1>
+            </div>
+           <?php $rut= $_SESSION['rut_sgp'];
+           include "../../core/mainModel.php";
+           $c = new mainModel();
+           $sql = $c->ejecutar_consulta_simple("SELECT *  FROM usuario u, alumno a, 
+           equipo e WHERE u.rut=a.rut AND a.cod_equipo= e.cod_equipo AND u.rut='$rut'");
+            if($sql->rowCount()==0){ ?>
+            <div class="row">
+              <div class="col-lg-12">
+              <h3>¿Qué deseas hacer?</h3>
+              <br> 
+
+              
+              <a href="#" class="btn btn-primary" role="button">Crear Equipo</a>
+
+              <!--cambiar color-->
+              <a href="#" class="btn btn-primary" role="button">Ver Equipos disponibles</a>
+                </div>
+              </div><?php }?>
+
+              <?php if($sql->rowCount()>=1){ ?>
+            <div class="row">
+              <div class="col-lg-12">
+              <h3>¿Qué deseas hacer?</h3>
+              <br> 
+
+              
+              <a href="#" class="btn btn-primary" role="button">Ver Mi Equipo</a>
+
+              <!--cambiar color-->
+              <a href="#" class="btn btn-primary" role="button">Ver Listado de Equipos</a>
+                </div>
+              </div><?php }?>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <?php endif ?>
+
+  <?php if($_SESSION['cod_rol_sgp']=='profesor'):?>
+    <div id="content">
+    <div class="outer">
+      <div class="inner bg-light lter">
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box dark">
+                <h1>Esta es la pantalla del Profesor</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <?php endif ?>
+
   <script src="../assets/js/administrador.js"></script>
   <?php
 require_once "../extras/footer.php";
