@@ -126,22 +126,6 @@ if($_SESSION['rut_sgp'] != ''){ ?>
     </nav>
     <!-- /.navbar -->
     <header class="head">
-      <!-- B A R R A    D E   B U S Q U E D A -->
-      <div class="search-bar">
-        <form class="main-search" action="">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar  ...">
-            <span class="input-group-btn">
-              <button class="btn btn-primary btn-sm text-muted" type="button">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
-      </div>
-      <!-- F I N   B A R R A    D E   B U S Q U E D A -->
-      <!-- /.main-search -->
-      <!-- /.search-bar -->
       <!-- B A R R A    D E   M A I N -->
       <div class="main-bar">
         <h3><i class="fa fa-home"></i>&nbsp;Sistema De Gestión De Proyectos</h3>
