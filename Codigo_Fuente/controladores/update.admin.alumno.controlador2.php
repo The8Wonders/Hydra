@@ -32,6 +32,7 @@ class update_adminalumno extends alumnomodelo
 
           if($actualixar->rowCount()>=1){
             $respuesta = "Actualizada";
+            
           }else{
             $respuesta = "Error";
           }
@@ -42,6 +43,7 @@ class update_adminalumno extends alumnomodelo
     }
 
     return $respuesta;
+    
   }
 
   
