@@ -209,4 +209,9 @@ class mainModel
       echo $e->errorInfo();
     }
   }
+
+  public function is_valid_email($str)
+{
+  return (false !== filter_var($str, FILTER_VALIDATE_EMAIL));
+}
 }
