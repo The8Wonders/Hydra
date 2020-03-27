@@ -1,3 +1,10 @@
+<?php
+$dir= "https://api.trello.com/1/members/me/boards?key=7ff5e189041bce080b065154e779a324&token=cbbcfa25fe2b21d4d323bd2f0f2fea0457fcaf5b8c37cb4b052a19c1cbd3e62a";
+
+$dir_json= file_get_contents($dir);
+$dir_array= json_decode($dir_json,true);
+var_dump($dir_array[0]['url']);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
