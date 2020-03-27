@@ -15,6 +15,7 @@ if($_SESSION['cod_rol_sgp']=='alumno'){
 
 }
 
+
 session_start(['name' => 'SGP']);
 if($_SESSION['rut_sgp'] != ''){ ?>
   
