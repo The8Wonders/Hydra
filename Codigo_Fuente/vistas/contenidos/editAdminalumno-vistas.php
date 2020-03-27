@@ -19,13 +19,14 @@
             <div class="box dark">
               <header>
                 <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Actualizar Profesor</h5>
+                <h5>Actualizar Alumno</h5>
               </header>
               <div id="collapse2" class="body">
                 <?php require_once "../../core/mainModel.php";
                 $c = new mainModel();
                 $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol = 'alumno' AND rut = '$rutPr'");
                 $datos2 = $c->ejecutar_consulta_simple("SELECT * FROM rol");
+                $datos3 = $c->ejecutar_consulta_simple("SELECT * FROM equipo ");
                 foreach ($datos as $rows) {
                 };
                 ?>
@@ -77,6 +78,32 @@
                         </select>
                       </div>
 
+                      <!--equipo Actualizar-->
+                            
+                      <label for="codigoRol" class="control-label col-lg-2">Equipo</label>
+
+                    <div class="col-lg-4 "><select data-placeholder="Your Favorite Type of Bear" required class="form-control" name="equipo" id="codigoEquipo">
+                        <option >Seleccione...</option>
+                        <?php foreach ($datos3 as $rows3) { ?>
+                          <option name="equipo" value="<?php echo $rows3['nombre_equipo'] ?>"> <?php echo $rows3['nombre_equipo'] ?> </option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       <input name="rut" type="hidden" id="edicion" class="form-control" value="<?php echo $rutPr ?>">
 
                     </div>
@@ -91,6 +118,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
   <script src="../assets/js/editaralumno.js"></script>
 </body>
