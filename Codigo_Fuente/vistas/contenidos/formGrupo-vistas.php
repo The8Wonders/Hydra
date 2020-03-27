@@ -33,6 +33,12 @@
                         
                     </div><br>
                     <div class="form-group">
+
+                      
+
+                
+
+
                       <label for="nom_equi" class="control-label col-lg-2">Nombre Equipo</label>
                       <div class="col-lg-4">
                         <input name="nom_equi" type="text" id="nom_equi"  class="validate[required] form-control" required>
@@ -41,9 +47,19 @@
                     <?php
                     require_once "../../core/mainModel.php";
                     $ins = new mainModel();
+                    
+                    //en caso de cualquier cosa saca esto
+                    $rut=$_SESSION['rut_sgp'];
+                    //echo $rut;
+
+
+
                     $y = date("Y");
                     $datos = $ins->ejecutar_consulta_simple("SELECT * FROM semestre WHERE ano = '$y'");
                     ?>
+
+                    <!--rut para ingresar el codigo de proyecto en alumno-->
+                    <input type="hidden" name="rut" required value= "<?php echo $rut ?>">
                     <!--Codigo Proyectos-->
                     <div class="form-group">
 

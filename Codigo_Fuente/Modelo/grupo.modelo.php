@@ -13,6 +13,7 @@
             $insertar->bindParam(":nomE",$datos['nombre_equipo']);
             $insertar->bindParam(":codS",$datos['cod_semestre']);
             $insertar->execute();
+          
             
             return $insertar;
         }

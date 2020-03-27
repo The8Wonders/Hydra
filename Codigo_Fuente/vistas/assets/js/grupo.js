@@ -5,7 +5,7 @@ formularioGrupo.addEventListener('submit', function (e) {
   e.preventDefault();
 
   var datos = new FormData(formularioGrupo);
-
+ // console.log(datos.get('rut'))
   fetch('../../../ajax/grupo.ajax.php', {
       method: 'POST',
       body: datos
