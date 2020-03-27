@@ -30,7 +30,10 @@
                   <thead>
                     <?php require_once "../../core/mainModel.php";
                     $c = new mainModel();
-                    $datos = $c->ejecutar_consulta_simple("SELECT * FROM usuario WHERE cod_rol='profesor'")
+                    $datos = $c->ejecutar_consulta_simple("SELECT u.rut, u.nombre, u.apellido, u.correo, u.telefono, p.rut 
+                                                           FROM usuario u,
+                                                                profesor p
+                                                           WHERE u.rut = p.rut");
                     ?>
                     <tr>
                       <th>Rut</th>
@@ -50,8 +53,8 @@
                         <td><?php echo $rows['apellido'] ?></td>
                         <td><?php echo $rows['correo'] ?></td>
                         <td><?php echo $rows['telefono'] ?></td>
-                        <?php echo "<td><a href='editProfesor-vistas.php?rut=" . $rows['rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
-                        <?php echo "<td><a href='../../controladores/eliminar.profesor.controlador.php?rut=" . $rows['rut'] . "'><i class='fas fa-times'></i></a></td>" ?>
+                        <?php echo "<td><a href='editProfesor-vistas.php?rut=" . $rows['u.rut'] . "'><i class='far fa-edit'></i></a></td>" ?>
+                        <?php echo "<td><a href='../../controladores/eliminar.profesor.controlador.php?rut=" . $rows['u.rut'] . "'><i class='fas fa-times'></i></a></td>" ?>
                         
                       </tr>
                     <?php } ?>
