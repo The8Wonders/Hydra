@@ -12,8 +12,9 @@
   require_once "../extras/barra.php" ?>
   <title>Lista Grupos</title>
 </head>
+
 <body>
-<div id="content">
+  <div id="content">
     <div class="outer">
       <div class="inner bg-light lter">
         <!--Begin Datatables-->
@@ -25,15 +26,15 @@
                 <h5>Equipo</h5>
               </header>
               <div id="collapse4" class="body">
-              <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
-                <thead>
-                  <?php 
+                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
+                  <thead>
+                    <?php
                     require_once("../../core/mainModel.php");
                     $codigo_e = $_GET['code'];
                     $codigo_p = $_GET['codp'];
                     $c = new mainModel();
                     $mostrar = $c->ejecutar_consulta_simple("SELECT  DISTINCT al.rut,al.carrera,al.ano_ingreso,al.cod_semestre,al.cod_equipo FROM alumno al, equipo e WHERE al.cod_equipo='$codigo_e'");
-                  ?>
+                    ?>
                     <tr>
                       <th>R.U.T</th>
                       <th>Carrera</th>
@@ -43,25 +44,25 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($mostrar as $rows) :?>
-                    <tr>
-                      <td><?php echo $rows['rut']?></td>
-                      <td><?php echo $rows['carrera']?></td>
-                      <td><?php echo $rows['ano_ingreso']?></td>
-                      <td><?php echo $rows['cod_semestre']?></td>
-                      <td><?php echo $rows['cod_equipo']?></td>
-                    </tr>
+                    <?php foreach ($mostrar as $rows) : ?>
+                      <tr>
+                        <td><?php echo $rows['rut'] ?></td>
+                        <td><?php echo $rows['carrera'] ?></td>
+                        <td><?php echo $rows['ano_ingreso'] ?></td>
+                        <td><?php echo $rows['cod_semestre'] ?></td>
+                        <td><?php echo $rows['cod_equipo'] ?></td>
+                      </tr>
                     <?php endforeach ?>
                   </tbody>
 
                 </table>
-                <?php 
-                 $sql = $c->ejecutar_consulta_simple("SELECT * FROM equipo Where cod_proyecto='$codigo_p'")  
-                 ?>
-                <?php if($sql->rowCount()==0) { ?>
-                <div class="container row">
+                <?php
+                $sql = $c->ejecutar_consulta_simple("SELECT * FROM equipo Where cod_proyecto='$codigo_p'")
+                ?>
+                <?php if ($sql->rowCount() == 0) { ?>
+                  <div class="container row">
                     <a class="btn btn-primary" href="formProyecto-vistas.php" role="button">Crear Proyecto</a>
-                </div><br><br>
+                  </div><br><br>
                 <?php } ?>
               </div>
             </div>
@@ -74,9 +75,12 @@
     </div>
     <!-- /.outer -->
   </div>
-<?php 
-require_once "../extras/footer.php";
-require_once "../extras/script.php";
-?>
+  </div>
+  </div>
+  <?php
+  require_once "../extras/footer.php";
+  require_once "../extras/script.php";
+  ?>
 </body>
+
 </html>
