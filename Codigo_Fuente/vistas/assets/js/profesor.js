@@ -24,7 +24,6 @@ formularioProfesor.addEventListener('submit', function (e) {
       } else {
         if (data == 'correcto') {
           document.getElementById("formProfesor").reset();
-          window.location.replace("http://198-35.eq.ubiobio.cl:1044/index.php");
           Swal.fire({
             icon: 'success',
             title: 'Cuenta Creada',

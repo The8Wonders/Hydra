@@ -14,7 +14,8 @@ class profesorcontrolador extends profesormodelo
     $apellido2 = mainModel::limpiar_cadena($_POST['apellido2']);
     $contraseña1 = mainModel::limpiar_cadena($_POST['contra']);
     $contraseña2 = mainModel::limpiar_cadena($_POST['re-contra']);
-    $correo = mainModel::is_valid_email($_POST['correo']);
+    $correo = mainModel::limpiar_cadena($_POST['correo']);
+    $correo2 = mainModel::is_valid_email($_POST['correo']);
     $telefono = mainModel::limpiar_cadena($_POST['telefono']);
     $rol = mainModel::limpiar_cadena($_POST['rol']);
     $nombre = $nombre . " " . $nombre2;
@@ -22,7 +23,7 @@ class profesorcontrolador extends profesormodelo
 
     $Vrut = mainModel::verificar_rut($rut);
 
-    if ($correo) {
+    if ($correo2) {
       if ($Vrut == "TRUE") {
         if ($rut == "" || $nombre == "" || $apellido == "" || $contraseña1 == "" || $contraseña2 == "" || $correo == "" || $telefono == "" || $rol == "") {
           $respuesta = "incompletos";
