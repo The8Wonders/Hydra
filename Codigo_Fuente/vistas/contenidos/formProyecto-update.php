@@ -120,7 +120,7 @@ require_once "../extras/barra.php"; ?>
                       <label for="DescripcionProyecto" class="control-label col-lg-2">Descripcion del Proyecto</label>
 
                       <div class="col-lg-4">
-                        <input class="form-control validate[required] form-control" required id="DescripcionProyecto" name="DescripcionProyecto" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
+                        <input class="form-control validate[required] form-control" id="DescripcionProyecto" name="DescripcionProyecto" type="text" required value="<?php echo $rows['descripcion_proyecto'] ?>">
 
                       </div>
                     </div>

@@ -18,7 +18,7 @@ editarProyecto.addEventListener('submit', function (e) {
   console.log(datos.get('cod'));
   console.log(datos.get('codS'));
   console.log(datos.get('tipoProyecto'));
-  console.log(datos.get('descripcion'));
+  console.log(datos.get('DescripcionProyecto'));
 
 
 
